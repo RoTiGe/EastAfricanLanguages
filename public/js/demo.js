@@ -17,18 +17,24 @@ let translationLanguage = 'english';
 
 // Load categories when page loads
 async function loadCategories() {
+    console.log('Loading categories for language:', LANGUAGE);
     try {
         const response = await fetch(`/api/categories/${LANGUAGE}`);
+        console.log('Categories response status:', response.status);
         
         if (!response.ok) {
             throw new Error('Failed to load categories');
         }
         
         const data = await response.json();
+        console.log('Categories data received:', data);
+        
         translationData.language = data.language;
         translationData.nativeLanguageField = data.nativeLanguageField;
         translationData.categoryNames = data.categoryNames || {};
         translationData.categories = data.categories || [];
+        
+        console.log('Translation data updated:', translationData);
         
         populateCategoryDropdown();
         removeCurrentLanguageOption();
@@ -55,7 +61,13 @@ function removeCurrentLanguageOption() {
 // Populate category dropdown
 function populateCategoryDropdown() {
     const categorySelect = document.getElementById('categorySelect');
-    if (!categorySelect || !translationData.categories) return;
+    console.log('Populating category dropdown, element found:', !!categorySelect);
+    console.log('Categories to populate:', translationData.categories);
+    
+    if (!categorySelect || !translationData.categories) {
+        console.error('Cannot populate dropdown - missing element or data');
+        return;
+    }
     
     categorySelect.innerHTML = '<option value="">-- Choose a category --</option>';
     
@@ -64,7 +76,10 @@ function populateCategoryDropdown() {
         option.value = categoryKey;
         option.textContent = translationData.categoryNames[categoryKey] || categoryKey;
         categorySelect.appendChild(option);
+        console.log('Added category option:', categoryKey, '=', option.textContent);
     });
+    
+    console.log('Category dropdown populated with', translationData.categories.length, 'categories');
 }
 
 // Handle category selection - fetches phrases from API
@@ -73,6 +88,8 @@ async function onCategoryChange() {
     const phraseSelect = document.getElementById('phraseSelect');
     const usePhraseBtn = document.getElementById('usePhraseBtn');
     const selectedCategory = categorySelect.value;
+    
+    console.log('Category changed to:', selectedCategory);
     
     // Reset phrase dropdown
     phraseSelect.innerHTML = '<option value="">-- Choose a phrase --</option>';
@@ -86,15 +103,21 @@ async function onCategoryChange() {
         // Show loading state
         phraseSelect.innerHTML = '<option value="">Loading phrases...</option>';
         
+        console.log('Fetching phrases for:', LANGUAGE, '/', selectedCategory);
         const response = await fetch(`/api/phrases/${LANGUAGE}/${selectedCategory}`);
+        console.log('Phrases response status:', response.status);
         
         if (!response.ok) {
             throw new Error('Failed to load phrases');
         }
         
         const data = await response.json();
+        console.log('Phrases data received:', data);
+        
         currentCategory = selectedCategory;
         currentPhrases = data.phrases || [];
+        
+        console.log('Loaded', currentPhrases.length, 'phrases');
         
         populatePhraseDropdown();
         
