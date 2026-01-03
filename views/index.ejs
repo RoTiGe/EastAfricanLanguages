@@ -4,65 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎮 <%= title %></h1>
-            <p class="subtitle">Text-to-Speech in Multiple Languages</p>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="text-white text-center py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="bi bi-soundwave"></i> <%= title %>
+                </h1>
+                <p class="lead subtitle">Text-to-Speech in Multiple Languages</p>
+            </div>
         </header>
 
-        <main>
-            <div class="language-grid">
+        <!-- Main Content -->
+        <main class="container my-5">
+            <!-- Language Cards -->
+            <div class="row g-4 mb-5">
                 <% languages.forEach(language => { %>
-                <div class="language-card">
-                    <h2><%= language.charAt(0).toUpperCase() + language.slice(1) %></h2>
-                    <a href="/demo/<%= language %>" class="btn">Try <%= language %></a>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 language-card border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-translate fs-1 text-primary mb-3"></i>
+                            <h3 class="card-title h4 mb-3"><%= language.charAt(0).toUpperCase() + language.slice(1) %></h3>
+                            <a href="/demo/<%= language %>" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-play-circle me-2"></i>Try <%= language %>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <% }) %>
             </div>
 
-            <section class="quick-test">
-                <h2>Quick Test</h2>
-                <div class="input-group">
-                    <select id="quickLanguage" class="form-select">
-                        <% languages.forEach(language => { %>
-                        <option value="<%= language %>"><%= language.charAt(0).toUpperCase() + language.slice(1) %></option>
-                        <% }) %>
-                    </select>
-                    
-                    <textarea 
-                        id="quickText" 
-                        class="form-textarea" 
-                        placeholder="Enter text to speak..."
-                        rows="3"
-                    >Hello! This is a test.</textarea>
-                    
-                    <button onclick="speakText()" class="btn btn-primary">🔊 Speak</button>
+            <!-- Quick Test Section -->
+            <section class="quick-test p-4 rounded-3 shadow-sm mb-5">
+                <h2 class="h3 mb-4 text-primary">
+                    <i class="bi bi-lightning-charge me-2"></i>Quick Test
+                </h2>
+                <div class="row g-3">
+                    <div class="col-12 col-md-4">
+                        <label for="quickLanguage" class="form-label fw-semibold">Select Language</label>
+                        <select id="quickLanguage" class="form-select form-select-lg">
+                            <% languages.forEach(language => { %>
+                            <option value="<%= language %>"><%= language.charAt(0).toUpperCase() + language.slice(1) %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <label for="quickText" class="form-label fw-semibold">Enter Text</label>
+                        <textarea 
+                            id="quickText" 
+                            class="form-control form-control-lg" 
+                            placeholder="Enter text to speak..."
+                            rows="3"
+                        >Hello! This is a test.</textarea>
+                    </div>
+                    <div class="col-12">
+                        <button onclick="speakText()" class="btn btn-primary btn-lg">
+                            <i class="bi bi-volume-up me-2"></i>Speak
+                        </button>
+                    </div>
                 </div>
 
-                <div id="status" class="status"></div>
-                <audio id="audioPlayer" controls class="audio-player"></audio>
+                <div id="status" class="status mt-3"></div>
+                <audio id="audioPlayer" controls class="audio-player w-100 mt-3"></audio>
             </section>
 
-            <section class="info">
-                <h3>Sample Texts by Language</h3>
-                <ul>
-                    <li><strong>Spanish:</strong> "Hola, bienvenido al juego de entrenamiento de sonido."</li>
-                    <li><strong>French:</strong> "Bonjour, bienvenue au jeu d'entraînement sonore."</li>
-                    <li><strong>Amharic:</strong> "ሰላም፣ ወደ ድምፅ ስልጠና ጨዋታ እንኳን በደህና መጡ።"</li>
-                    <li><strong>Tigrinya:</strong> "ሰላም፣ ናብ ድምፂ ስልጠና ጸወታ እንቋዕ ብደሓን መፃእኩም።"</li>
-                    <li><strong>Oromo:</strong> "Nagaa, gara taphaatiitti baga dhuftan." (Uses Windows TTS)</li>
-                </ul>
+            <!-- Sample Texts -->
+            <section class="info p-4 rounded-3 shadow-sm">
+                <h3 class="h4 mb-4 text-primary">
+                    <i class="bi bi-chat-quote me-2"></i>Sample Texts by Language
+                </h3>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <strong class="text-primary">Spanish:</strong> 
+                        <span class="ms-2">"Hola, bienvenido al juego de entrenamiento de sonido."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">French:</strong> 
+                        <span class="ms-2">"Bonjour, bienvenue au jeu d'entraînement sonore."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Amharic:</strong> 
+                        <span class="ms-2">"ሰላም፣ ወደ ድምፅ ስልጠና ጨዋታ እንኳን በደህና መጡ።"</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Tigrinya:</strong> 
+                        <span class="ms-2">"ሰላም፣ ናብ ድምፂ ስልጠና ጸወታ እንቋዕ ብደሓን መፃእኩም።"</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Oromo:</strong> 
+                        <span class="ms-2">"Nagaa, gara taphaatiitti baga dhuftan." (Uses Windows TTS)</span>
+                    </div>
+                </div>
             </section>
         </main>
 
-        <footer>
-            <p>Powered by Google TTS (gTTS) + pyttsx3 | Express + EJS</p>
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">
+                    <i class="bi bi-gear-fill me-2"></i>Powered by Google TTS (gTTS) + pyttsx3 | Express + EJS
+                </p>
+            </div>
         </footer>
     </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="/js/main.js"></script>
 </body>
 </html>
