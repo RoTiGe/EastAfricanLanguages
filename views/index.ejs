@@ -27,21 +27,7 @@
         <main class="container my-5">
             <!-- Language Cards -->
             <div class="row g-4 mb-5">
-                <% 
-                const languageNames = {
-                    'spanish': 'Español (Spanish)',
-                    'french': 'Français (French)',
-                    'amharic': 'አማርኛ (Amharic)',
-                    'tigrinya': 'ትግርኛ (Tigrinya)',
-                    'oromo': 'Afaan Oromoo (Oromo)',
-                    'somali': 'Af-Soomaali (Somali)',
-                    'arabic': 'العربية (Arabic)',
-                    'hadiyaa': 'Hadiyyisa (Hadiyaa)',
-                    'wolyitta': 'Wolaytta (Wolayitta)',
-                    'afar': 'Qafar (Afar)',
-                    'gamo': 'Gamoñña (Gamo)'
-                };
-                languages.forEach(language => { %>
+                <% languages.forEach(language => { %>
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                     <div class="card h-100 language-card border-0 shadow-sm">
                         <div class="card-body text-center p-4">
@@ -65,22 +51,8 @@
                     <div class="col-12 col-md-4">
                         <label for="quickLanguage" class="form-label fw-semibold">Select Language</label>
                         <select id="quickLanguage" class="form-select form-select-lg">
-                            <% 
-                            const quickLangNames = {
-                                'spanish': 'Español (Spanish)',
-                                'french': 'Français (French)',
-                                'amharic': 'አማርኛ (Amharic)',
-                                'tigrinya': 'ትግርኛ (Tigrinya)',
-                                'oromo': 'Afaan Oromoo (Oromo)',
-                                'somali': 'Af-Soomaali (Somali)',
-                                'arabic': 'العربية (Arabic)',
-                                'hadiyaa': 'Hadiyyisa (Hadiyaa)',
-                                'wolyitta': 'Wolaytta (Wolayitta)',
-                                'afar': 'Qafar (Afar)',
-                                'gamo': 'Gamoñña (Gamo)'
-                            };
-                            languages.forEach(language => { %>
-                            <option value="<%= language %>"><%= quickLangNames[language] || language %></option>
+                            <% languages.forEach(language => { %>
+                            <option value="<%= language %>"><%= languageNames[language] || language %></option>
                             <% }) %>
                         </select>
                     </div>
@@ -110,6 +82,10 @@
                     <i class="bi bi-chat-quote me-2"></i>Sample Texts by Language
                 </h3>
                 <div class="list-group">
+                    <div class="list-group-item">
+                        <strong class="text-primary">English:</strong> 
+                        <span class="ms-2">"Hello, welcome to the sound training game."</span>
+                    </div>
                     <div class="list-group-item">
                         <strong class="text-primary">Spanish:</strong> 
                         <span class="ms-2">"Hola, bienvenido al juego de entrenamiento de sonido."</span>
@@ -153,6 +129,22 @@
                     <div class="list-group-item">
                         <strong class="text-primary">Gamo:</strong> 
                         <span class="ms-2">"Saron, yetta tababaa oyichchaa yaana yiita."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Swahili:</strong> 
+                        <span class="ms-2">"Habari, karibu kwenye mchezo wa mafunzo ya sauti."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Kinyarwanda:</strong> 
+                        <span class="ms-2">"Muraho, murakaza neza mu mukino w'imyitozo y'amajwi."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Kirundi:</strong> 
+                        <span class="ms-2">"Mwaramutse, murakaza neza mu mukino w'imyitozo y'ijwi."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Luo:</strong> 
+                        <span class="ms-2">"Ber, orwaki e chik mar puonj dwol."</span>
                     </div>
                 </div>
             </section>

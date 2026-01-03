@@ -17,14 +17,19 @@ CORS(app)
 
 print("TTS Service initializing...")
 
+# Configuration
+PORT = int(os.getenv('TTS_SERVICE_PORT', 5000))
+MAX_TEXT_LENGTH = int(os.getenv('MAX_TEXT_LENGTH', 5000))
+
 # Audio output directory
 AUDIO_DIR = os.path.join(os.path.dirname(__file__), 'audio_output')
 os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Language configuration
-# gTTS languages: Spanish, French, Amharic, Arabic (confirmed supported)
+# gTTS languages: Spanish, French, Amharic, Arabic, Swahili, Kinyarwanda (confirmed supported)
 # Tigrinya uses Amharic TTS since both use Ge'ez script with similar pronunciation
-# pyttsx3 for Oromo, Somali, Hadiyaa, Wolayitta, Afar, Gamo (uses Windows SAPI TTS - gTTS doesn't support them)
+# Kirundi uses Swahili TTS (both are Bantu languages with similar phonology)
+# pyttsx3 for Oromo, Somali, Hadiyaa, Wolayitta, Afar, Gamo, Luo (uses Windows SAPI TTS - gTTS doesn't support them)
 LANGUAGE_CODES = {
     'spanish': 'es',
     'french': 'fr',
@@ -37,11 +42,15 @@ LANGUAGE_CODES = {
     'wolyitta': 'wo',  # Not in gTTS - will use pyttsx3
     'afar': 'aa',      # Not in gTTS - will use pyttsx3
     'gamo': 'gm',      # Not in gTTS - will use pyttsx3
+    'swahili': 'sw',   # Supported by gTTS
+    'kinyarwanda': 'rw',  # Supported by gTTS
+    'kirundi': 'sw',   # Uses Swahili TTS (both Bantu languages, similar phonology)
+    'luo': 'luo',      # Not in gTTS - will use pyttsx3
     'english': 'en'    # Added English support
 }
 
 # Languages that use pyttsx3 instead of gTTS (because gTTS doesn't support them)
-PYTTSX3_LANGUAGES = ['oromo', 'somali', 'hadiyaa', 'wolyitta', 'afar', 'gamo']
+PYTTSX3_LANGUAGES = ['oromo', 'somali', 'hadiyaa', 'wolyitta', 'afar', 'gamo', 'luo']
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -51,20 +60,30 @@ def health_check():
 @app.route('/tts', methods=['POST'])
 def text_to_speech():
     """
-    Convert text to speech using Google TTS
+    Convert text to speech using Google TTS or pyttsx3
     Expected JSON: {
         "text": "Hello world",
-        "language": "spanish|french|amharic|tigrinya"
+        "language": "spanish|french|amharic|tigrinya|..."
     }
     """
     try:
         data = request.json
         text = data.get('text', '')
         language = data.get('language', 'spanish').lower()
-        
-        if not text:
-            return jsonify({"error": "No text provided"}), 400
-        
+
+        # Validate text
+        if not text or not isinstance(text, str):
+            return jsonify({"error": "Text is required and must be a string"}), 400
+
+        text = text.strip()
+
+        if len(text) == 0:
+            return jsonify({"error": "Text cannot be empty"}), 400
+
+        if len(text) > MAX_TEXT_LENGTH:
+            return jsonify({"error": f"Text exceeds maximum length of {MAX_TEXT_LENGTH} characters"}), 400
+
+        # Validate language
         if language not in LANGUAGE_CODES:
             return jsonify({"error": f"Unsupported language: {language}"}), 400
         
@@ -103,12 +122,16 @@ def text_to_speech():
                 print(f"gTTS error: {str(e)}")
                 raise
         
-        return send_file(
+        # Send file with correct mimetype in headers
+        response = send_file(
             output_path,
             mimetype=mimetype,
             as_attachment=False,
             download_name=filename
         )
+        # Ensure Content-Type header is set correctly
+        response.headers['Content-Type'] = mimetype
+        return response
     
     except Exception as e:
         print(f"Error: {str(e)}")
@@ -135,6 +158,8 @@ def get_languages():
 if __name__ == '__main__':
     print("\n" + "="*50)
     print("TTS Service Ready!")
+    print(f"Running on port: {PORT}")
     print("Supported languages:", ", ".join(LANGUAGE_CODES.keys()))
+    print(f"Max text length: {MAX_TEXT_LENGTH} characters")
     print("="*50 + "\n")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=True)

@@ -28,9 +28,13 @@
         "oromo": "Dhufuu",
         "somali": "come",
         "arabic": "come",
-        "hadiya": "come",
-        "wolayita": "come",
-        "gamo": "come"
+        "hadiyaa": "come",
+        "wolyitta": "come",
+        "gamo": "come",
+        "swahili": "Kuja",
+        "kinyarwanda": "Kuza",
+        "kirundi": "Kuza",
+        "luo": "Bi"
       },
       {
         "english": "go",
@@ -42,9 +46,13 @@
         "oromo": "Deemu",
         "somali": "go",
         "arabic": "go",
-        "hadiya": "go",
-        "wolayita": "go",
-        "gamo": "go"
+        "hadiyaa": "go",
+        "wolyitta": "go",
+        "gamo": "go",
+        "swahili": "Kwenda",
+        "kinyarwanda": "Kugenda",
+        "kirundi": "Kuja",
+        "luo": "Dhi"
       },
       {
         "english": "eat",
@@ -56,9 +64,13 @@
         "oromo": "Nyachuu",
         "somali": "eat",
         "arabic": "eat",
-        "hadiya": "eat",
-        "wolayita": "eat",
-        "gamo": "eat"
+        "hadiyaa": "eat",
+        "wolyitta": "eat",
+        "gamo": "eat",
+        "swahili": "Kula",
+        "kinyarwanda": "Kurya",
+        "kirundi": "Kurya",
+        "luo": "Chiemo"
       },
       {
         "english": "drink",
@@ -70,9 +82,13 @@
         "oromo": "Dhuguu",
         "somali": "drink",
         "arabic": "drink",
-        "hadiya": "drink",
-        "wolayita": "drink",
-        "gamo": "drink"
+        "hadiyaa": "drink",
+        "wolyitta": "drink",
+        "gamo": "drink",
+        "swahili": "Kunywa",
+        "kinyarwanda": "Kunywa",
+        "kirundi": "Kunywa",
+        "luo": "Modho"
       },
       {
         "english": "see",
@@ -84,9 +100,13 @@
         "oromo": "Ilaaluu",
         "somali": "see",
         "arabic": "see",
-        "hadiya": "see",
-        "wolayita": "see",
-        "gamo": "see"
+        "hadiyaa": "see",
+        "wolyitta": "see",
+        "gamo": "see",
+        "swahili": "Ona",
+        "kinyarwanda": "Kubona",
+        "kirundi": "Kubona",
+        "luo": "Neno"
       },
       {
         "english": "hear",
@@ -98,9 +118,13 @@
         "oromo": "Dhageeffachuu",
         "somali": "hear",
         "arabic": "hear",
-        "hadiya": "hear",
-        "wolayita": "hear",
-        "gamo": "hear"
+        "hadiyaa": "hear",
+        "wolyitta": "Mitsiya",
+        "gamo": "hear",
+        "swahili": "hear",
+        "kinyarwanda": "hear",
+        "kirundi": "hear",
+        "luo": "hear"
       },
       {
         "english": "speak",
@@ -112,9 +136,13 @@
         "oromo": "Haasawuu",
         "somali": "speak",
         "arabic": "speak",
-        "hadiya": "speak",
-        "wolayita": "speak",
-        "gamo": "speak"
+        "hadiyaa": "speak",
+        "wolyitta": "Meesa",
+        "gamo": "speak",
+        "swahili": "speak",
+        "kinyarwanda": "speak",
+        "kirundi": "speak",
+        "luo": "speak"
       },
       {
         "english": "give",
@@ -126,9 +154,13 @@
         "oromo": "Kennuu",
         "somali": "give",
         "arabic": "give",
-        "hadiya": "give",
-        "wolayita": "give",
-        "gamo": "give"
+        "hadiyaa": "give",
+        "wolyitta": "give",
+        "gamo": "give",
+        "swahili": "Toa",
+        "kinyarwanda": "Guha",
+        "kirundi": "Guha",
+        "luo": "Miyo"
       },
       {
         "english": "take",
@@ -140,9 +172,13 @@
         "oromo": "Fuudhuu",
         "somali": "take",
         "arabic": "take",
-        "hadiya": "take",
-        "wolayita": "take",
-        "gamo": "take"
+        "hadiyaa": "take",
+        "wolyitta": "take",
+        "gamo": "take",
+        "swahili": "Chukua",
+        "kinyarwanda": "Gufata",
+        "kirundi": "Gufata",
+        "luo": "Kaw"
       },
       {
         "english": "sleep",
@@ -154,9 +190,13 @@
         "oromo": "Rafuu",
         "somali": "sleep",
         "arabic": "sleep",
-        "hadiya": "sleep",
-        "wolayita": "sleep",
-        "gamo": "sleep"
+        "hadiyaa": "sleep",
+        "wolyitta": "sleep",
+        "gamo": "sleep",
+        "swahili": "Lala",
+        "kinyarwanda": "Kuryama",
+        "kirundi": "Kuryama",
+        "luo": "Nindo"
       }
     ],
     "Básicos & Saludos": [
@@ -170,9 +210,13 @@
         "oromo": "Akkam",
         "somali": "hello",
         "arabic": "hello",
-        "hadiya": "hello",
-        "wolayita": "hello",
-        "gamo": "hello"
+        "hadiyaa": "hello",
+        "wolyitta": "hello",
+        "gamo": "hello",
+        "swahili": "Habari",
+        "kinyarwanda": "Muraho",
+        "kirundi": "Amahoro",
+        "luo": "Misawa"
       },
       {
         "english": "thank you",
@@ -184,9 +228,13 @@
         "oromo": "Galatoomi",
         "somali": "thank you",
         "arabic": "thank you",
-        "hadiya": "thank you",
-        "wolayita": "thank you",
-        "gamo": "thank you"
+        "hadiyaa": "thank you",
+        "wolyitta": "thank you",
+        "gamo": "thank you",
+        "swahili": "Asante",
+        "kinyarwanda": "Murakoze",
+        "kirundi": "Urakoze",
+        "luo": "Erokamano"
       },
       {
         "english": "yes",
@@ -198,9 +246,13 @@
         "oromo": "Eeyyee",
         "somali": "yes",
         "arabic": "yes",
-        "hadiya": "yes",
-        "wolayita": "yes",
-        "gamo": "yes"
+        "hadiyaa": "yes",
+        "wolyitta": "yes",
+        "gamo": "yes",
+        "swahili": "Ndiyo",
+        "kinyarwanda": "Yego",
+        "kirundi": "Ego",
+        "luo": "Ee"
       },
       {
         "english": "no",
@@ -212,9 +264,13 @@
         "oromo": "Lakki",
         "somali": "no",
         "arabic": "no",
-        "hadiya": "no",
-        "wolayita": "no",
-        "gamo": "no"
+        "hadiyaa": "no",
+        "wolyitta": "no",
+        "gamo": "no",
+        "swahili": "Hapana",
+        "kinyarwanda": "Oya",
+        "kirundi": "Oya",
+        "luo": "Ooyo"
       },
       {
         "english": "what",
@@ -226,9 +282,13 @@
         "oromo": "Maal",
         "somali": "what",
         "arabic": "what",
-        "hadiya": "what",
-        "wolayita": "what",
-        "gamo": "what"
+        "hadiyaa": "what",
+        "wolyitta": "what",
+        "gamo": "what",
+        "swahili": "Nini",
+        "kinyarwanda": "Iki",
+        "kirundi": "Iki",
+        "luo": "Ang'o"
       },
       {
         "english": "where",
@@ -240,9 +300,13 @@
         "oromo": "Eessa",
         "somali": "where",
         "arabic": "where",
-        "hadiya": "where",
-        "wolayita": "where",
-        "gamo": "where"
+        "hadiyaa": "where",
+        "wolyitta": "where",
+        "gamo": "where",
+        "swahili": "Wapi",
+        "kinyarwanda": "Hehe",
+        "kirundi": "Hehe",
+        "luo": "Kune"
       },
       {
         "english": "how",
@@ -254,9 +318,13 @@
         "oromo": "Akkam",
         "somali": "how",
         "arabic": "how",
-        "hadiya": "how",
-        "wolayita": "how",
-        "gamo": "how"
+        "hadiyaa": "how",
+        "wolyitta": "how",
+        "gamo": "how",
+        "swahili": "Vipi",
+        "kinyarwanda": "Gute",
+        "kirundi": "Gute",
+        "luo": "Ere"
       }
     ],
     "Familia": [
@@ -270,9 +338,13 @@
         "oromo": "Haadha",
         "somali": "mother",
         "arabic": "mother",
-        "hadiya": "mother",
-        "wolayita": "mother",
-        "gamo": "mother"
+        "hadiyaa": "mother",
+        "wolyitta": "mother",
+        "gamo": "mother",
+        "swahili": "Mama",
+        "kinyarwanda": "Nyina",
+        "kirundi": "Mama",
+        "luo": "Minu"
       },
       {
         "english": "father",
@@ -284,9 +356,13 @@
         "oromo": "Abaa",
         "somali": "father",
         "arabic": "father",
-        "hadiya": "father",
-        "wolayita": "father",
-        "gamo": "father"
+        "hadiyaa": "father",
+        "wolyitta": "father",
+        "gamo": "father",
+        "swahili": "Baba",
+        "kinyarwanda": "Se",
+        "kirundi": "Data",
+        "luo": "Wuoro"
       },
       {
         "english": "brother",
@@ -298,9 +374,13 @@
         "oromo": "Obboleessa",
         "somali": "brother",
         "arabic": "brother",
-        "hadiya": "brother",
-        "wolayita": "brother",
-        "gamo": "brother"
+        "hadiyaa": "brother",
+        "wolyitta": "brother",
+        "gamo": "brother",
+        "swahili": "Ndugu",
+        "kinyarwanda": "Murumuna",
+        "kirundi": "Mwene data",
+        "luo": "Owadu"
       },
       {
         "english": "sister",
@@ -312,9 +392,13 @@
         "oromo": "Obboleettii",
         "somali": "sister",
         "arabic": "sister",
-        "hadiya": "sister",
-        "wolayita": "sister",
-        "gamo": "sister"
+        "hadiyaa": "sister",
+        "wolyitta": "sister",
+        "gamo": "sister",
+        "swahili": "Dada",
+        "kinyarwanda": "Mushiki",
+        "kirundi": "Mushiki",
+        "luo": "Nyamera"
       },
       {
         "english": "child",
@@ -326,9 +410,13 @@
         "oromo": "Da'a",
         "somali": "child",
         "arabic": "child",
-        "hadiya": "child",
-        "wolayita": "child",
-        "gamo": "child"
+        "hadiyaa": "child",
+        "wolyitta": "child",
+        "gamo": "child",
+        "swahili": "Mtoto",
+        "kinyarwanda": "Umwana",
+        "kirundi": "Umwana",
+        "luo": "Nyathi"
       }
     ],
     "Comida": [
@@ -342,9 +430,13 @@
         "oromo": "Bishaan",
         "somali": "water",
         "arabic": "water",
-        "hadiya": "water",
-        "wolayita": "water",
-        "gamo": "water"
+        "hadiyaa": "water",
+        "wolyitta": "water",
+        "gamo": "water",
+        "swahili": "water",
+        "kinyarwanda": "water",
+        "kirundi": "water",
+        "luo": "water"
       },
       {
         "english": "bread",
@@ -356,9 +448,13 @@
         "oromo": "Daabboo",
         "somali": "bread",
         "arabic": "bread",
-        "hadiya": "bread",
-        "wolayita": "bread",
-        "gamo": "bread"
+        "hadiyaa": "bread",
+        "wolyitta": "bread",
+        "gamo": "bread",
+        "swahili": "bread",
+        "kinyarwanda": "bread",
+        "kirundi": "bread",
+        "luo": "bread"
       },
       {
         "english": "milk",
@@ -370,9 +466,13 @@
         "oromo": "Anaan",
         "somali": "milk",
         "arabic": "milk",
-        "hadiya": "milk",
-        "wolayita": "milk",
-        "gamo": "milk"
+        "hadiyaa": "milk",
+        "wolyitta": "milk",
+        "gamo": "milk",
+        "swahili": "milk",
+        "kinyarwanda": "milk",
+        "kirundi": "milk",
+        "luo": "milk"
       },
       {
         "english": "meat",
@@ -384,9 +484,13 @@
         "oromo": "Foon",
         "somali": "meat",
         "arabic": "meat",
-        "hadiya": "meat",
-        "wolayita": "meat",
-        "gamo": "meat"
+        "hadiyaa": "meat",
+        "wolyitta": "meat",
+        "gamo": "meat",
+        "swahili": "meat",
+        "kinyarwanda": "meat",
+        "kirundi": "meat",
+        "luo": "meat"
       },
       {
         "english": "salt",
@@ -398,9 +502,13 @@
         "oromo": "Soogiddaa",
         "somali": "salt",
         "arabic": "salt",
-        "hadiya": "salt",
-        "wolayita": "salt",
-        "gamo": "salt"
+        "hadiyaa": "salt",
+        "wolyitta": "Soda",
+        "gamo": "salt",
+        "swahili": "salt",
+        "kinyarwanda": "salt",
+        "kirundi": "salt",
+        "luo": "salt"
       }
     ],
     "Animales": [
@@ -414,9 +522,13 @@
         "oromo": "Gaala",
         "somali": "camel",
         "arabic": "camel",
-        "hadiya": "camel",
-        "wolayita": "camel",
-        "gamo": "camel"
+        "hadiyaa": "camel",
+        "wolyitta": "camel",
+        "gamo": "camel",
+        "swahili": "camel",
+        "kinyarwanda": "camel",
+        "kirundi": "camel",
+        "luo": "camel"
       },
       {
         "english": "goat",
@@ -428,9 +540,13 @@
         "oromo": "Re'ee",
         "somali": "goat",
         "arabic": "goat",
-        "hadiya": "goat",
-        "wolayita": "goat",
-        "gamo": "goat"
+        "hadiyaa": "goat",
+        "wolyitta": "goat",
+        "gamo": "goat",
+        "swahili": "Mbuzi",
+        "kinyarwanda": "Ihene",
+        "kirundi": "Ihene",
+        "luo": "Diel"
       },
       {
         "english": "sheep",
@@ -442,9 +558,13 @@
         "oromo": "Hoolaa",
         "somali": "sheep",
         "arabic": "sheep",
-        "hadiya": "sheep",
-        "wolayita": "sheep",
-        "gamo": "sheep"
+        "hadiyaa": "sheep",
+        "wolyitta": "sheep",
+        "gamo": "sheep",
+        "swahili": "Kondoo",
+        "kinyarwanda": "Intama",
+        "kirundi": "Intama",
+        "luo": "Rombo"
       },
       {
         "english": "cow",
@@ -456,9 +576,13 @@
         "oromo": "Sa'a",
         "somali": "cow",
         "arabic": "cow",
-        "hadiya": "cow",
-        "wolayita": "cow",
-        "gamo": "cow"
+        "hadiyaa": "cow",
+        "wolyitta": "cow",
+        "gamo": "cow",
+        "swahili": "Ng'ombe",
+        "kinyarwanda": "Inka",
+        "kirundi": "Inka",
+        "luo": "Dhiang"
       },
       {
         "english": "donkey",
@@ -470,9 +594,13 @@
         "oromo": "Harree",
         "somali": "donkey",
         "arabic": "donkey",
-        "hadiya": "donkey",
-        "wolayita": "donkey",
-        "gamo": "donkey"
+        "hadiyaa": "donkey",
+        "wolyitta": "donkey",
+        "gamo": "donkey",
+        "swahili": "Punda",
+        "kinyarwanda": "Indogobe",
+        "kirundi": "Indogobe",
+        "luo": "Punda"
       }
     ],
     "Números": [
@@ -486,9 +614,13 @@
         "oromo": "Tokko",
         "somali": "one",
         "arabic": "one",
-        "hadiya": "one",
-        "wolayita": "one",
-        "gamo": "one"
+        "hadiyaa": "one",
+        "wolyitta": "one",
+        "gamo": "one",
+        "swahili": "one",
+        "kinyarwanda": "one",
+        "kirundi": "one",
+        "luo": "one"
       },
       {
         "english": "two",
@@ -500,9 +632,13 @@
         "oromo": "Lama",
         "somali": "two",
         "arabic": "two",
-        "hadiya": "two",
-        "wolayita": "two",
-        "gamo": "two"
+        "hadiyaa": "two",
+        "wolyitta": "two",
+        "gamo": "two",
+        "swahili": "two",
+        "kinyarwanda": "two",
+        "kirundi": "two",
+        "luo": "two"
       },
       {
         "english": "three",
@@ -514,9 +650,13 @@
         "oromo": "Sadi",
         "somali": "three",
         "arabic": "three",
-        "hadiya": "three",
-        "wolayita": "three",
-        "gamo": "three"
+        "hadiyaa": "three",
+        "wolyitta": "three",
+        "gamo": "three",
+        "swahili": "three",
+        "kinyarwanda": "three",
+        "kirundi": "three",
+        "luo": "three"
       },
       {
         "english": "four",
@@ -528,9 +668,13 @@
         "oromo": "Afur",
         "somali": "four",
         "arabic": "four",
-        "hadiya": "four",
-        "wolayita": "four",
-        "gamo": "four"
+        "hadiyaa": "four",
+        "wolyitta": "four",
+        "gamo": "four",
+        "swahili": "four",
+        "kinyarwanda": "four",
+        "kirundi": "four",
+        "luo": "four"
       },
       {
         "english": "five",
@@ -542,9 +686,13 @@
         "oromo": "Shan",
         "somali": "five",
         "arabic": "five",
-        "hadiya": "five",
-        "wolayita": "five",
-        "gamo": "five"
+        "hadiyaa": "five",
+        "wolyitta": "five",
+        "gamo": "five",
+        "swahili": "five",
+        "kinyarwanda": "five",
+        "kirundi": "five",
+        "luo": "five"
       },
       {
         "english": "ten",
@@ -556,9 +704,13 @@
         "oromo": "Kudhan",
         "somali": "ten",
         "arabic": "ten",
-        "hadiya": "ten",
-        "wolayita": "ten",
-        "gamo": "ten"
+        "hadiyaa": "ten",
+        "wolyitta": "ten",
+        "gamo": "ten",
+        "swahili": "ten",
+        "kinyarwanda": "ten",
+        "kirundi": "ten",
+        "luo": "ten"
       }
     ],
     "Colores": [
@@ -572,9 +724,13 @@
         "oromo": "Diimaa",
         "somali": "red",
         "arabic": "red",
-        "hadiya": "red",
-        "wolayita": "red",
-        "gamo": "red"
+        "hadiyaa": "red",
+        "wolyitta": "red",
+        "gamo": "red",
+        "swahili": "Nyekundu",
+        "kinyarwanda": "Umutuku",
+        "kirundi": "Umutuku",
+        "luo": "Makwar"
       },
       {
         "english": "black",
@@ -586,9 +742,13 @@
         "oromo": "Gurraacha",
         "somali": "black",
         "arabic": "black",
-        "hadiya": "black",
-        "wolayita": "black",
-        "gamo": "black"
+        "hadiyaa": "black",
+        "wolyitta": "black",
+        "gamo": "black",
+        "swahili": "Nyeusi",
+        "kinyarwanda": "Umukara",
+        "kirundi": "Umukara",
+        "luo": "Marateng"
       },
       {
         "english": "white",
@@ -600,9 +760,13 @@
         "oromo": "Adii",
         "somali": "white",
         "arabic": "white",
-        "hadiya": "white",
-        "wolayita": "white",
-        "gamo": "white"
+        "hadiyaa": "white",
+        "wolyitta": "white",
+        "gamo": "white",
+        "swahili": "Nyeupe",
+        "kinyarwanda": "Umweru",
+        "kirundi": "Umweru",
+        "luo": "Marachar"
       }
     ],
     "Tiempo": [
@@ -616,9 +780,13 @@
         "oromo": "Biiftuu",
         "somali": "sun",
         "arabic": "sun",
-        "hadiya": "sun",
-        "wolayita": "sun",
-        "gamo": "sun"
+        "hadiyaa": "sun",
+        "wolyitta": "sun",
+        "gamo": "sun",
+        "swahili": "sun",
+        "kinyarwanda": "sun",
+        "kirundi": "sun",
+        "luo": "sun"
       },
       {
         "english": "moon",
@@ -630,9 +798,13 @@
         "oromo": "Ji'a",
         "somali": "moon",
         "arabic": "moon",
-        "hadiya": "moon",
-        "wolayita": "moon",
-        "gamo": "moon"
+        "hadiyaa": "moon",
+        "wolyitta": "moon",
+        "gamo": "moon",
+        "swahili": "moon",
+        "kinyarwanda": "moon",
+        "kirundi": "moon",
+        "luo": "moon"
       },
       {
         "english": "day",
@@ -644,9 +816,13 @@
         "oromo": "Guyyaa",
         "somali": "day",
         "arabic": "day",
-        "hadiya": "day",
-        "wolayita": "day",
-        "gamo": "day"
+        "hadiyaa": "day",
+        "wolyitta": "day",
+        "gamo": "day",
+        "swahili": "day",
+        "kinyarwanda": "day",
+        "kirundi": "day",
+        "luo": "day"
       },
       {
         "english": "night",
@@ -658,9 +834,13 @@
         "oromo": "Halkan",
         "somali": "night",
         "arabic": "night",
-        "hadiya": "night",
-        "wolayita": "night",
-        "gamo": "night"
+        "hadiyaa": "night",
+        "wolyitta": "night",
+        "gamo": "night",
+        "swahili": "night",
+        "kinyarwanda": "night",
+        "kirundi": "night",
+        "luo": "night"
       }
     ],
     "actions": [
@@ -674,9 +854,13 @@
         "afar": "attack",
         "somali": "attack",
         "arabic": "attack",
-        "hadiya": "attack",
-        "wolayita": "attack",
-        "gamo": "attack"
+        "hadiyaa": "attack",
+        "wolyitta": "attack",
+        "gamo": "attack",
+        "swahili": "Shambulia",
+        "kinyarwanda": "Gutera",
+        "kirundi": "Gutera",
+        "luo": "Monjo"
       },
       {
         "english": "capture",
@@ -688,9 +872,13 @@
         "afar": "capture",
         "somali": "capture",
         "arabic": "capture",
-        "hadiya": "capture",
-        "wolayita": "capture",
-        "gamo": "capture"
+        "hadiyaa": "capture",
+        "wolyitta": "capture",
+        "gamo": "capture",
+        "swahili": "Kamata",
+        "kinyarwanda": "Gufata",
+        "kirundi": "Gufata",
+        "luo": "Mako"
       },
       {
         "english": "come",
@@ -702,9 +890,13 @@
         "afar": "come",
         "somali": "come",
         "arabic": "come",
-        "hadiya": "come",
-        "wolayita": "come",
-        "gamo": "come"
+        "hadiyaa": "come",
+        "wolyitta": "come",
+        "gamo": "come",
+        "swahili": "Kuja",
+        "kinyarwanda": "Kuza",
+        "kirundi": "Kuza",
+        "luo": "Bi"
       },
       {
         "english": "defend",
@@ -716,9 +908,13 @@
         "afar": "defend",
         "somali": "defend",
         "arabic": "defend",
-        "hadiya": "defend",
-        "wolayita": "defend",
-        "gamo": "defend"
+        "hadiyaa": "defend",
+        "wolyitta": "defend",
+        "gamo": "defend",
+        "swahili": "Linda",
+        "kinyarwanda": "Kurinda",
+        "kirundi": "Kurinda",
+        "luo": "Rit"
       },
       {
         "english": "drink",
@@ -730,9 +926,13 @@
         "afar": "drink",
         "somali": "drink",
         "arabic": "drink",
-        "hadiya": "drink",
-        "wolayita": "drink",
-        "gamo": "drink"
+        "hadiyaa": "drink",
+        "wolyitta": "drink",
+        "gamo": "drink",
+        "swahili": "Kunywa",
+        "kinyarwanda": "Kunywa",
+        "kirundi": "Kunywa",
+        "luo": "Modho"
       },
       {
         "english": "eat",
@@ -744,9 +944,13 @@
         "afar": "eat",
         "somali": "eat",
         "arabic": "eat",
-        "hadiya": "eat",
-        "wolayita": "eat",
-        "gamo": "eat"
+        "hadiyaa": "eat",
+        "wolyitta": "eat",
+        "gamo": "eat",
+        "swahili": "Kula",
+        "kinyarwanda": "Kurya",
+        "kirundi": "Kurya",
+        "luo": "Chiemo"
       },
       {
         "english": "fight",
@@ -758,9 +962,13 @@
         "afar": "fight",
         "somali": "fight",
         "arabic": "fight",
-        "hadiya": "fight",
-        "wolayita": "fight",
-        "gamo": "fight"
+        "hadiyaa": "fight",
+        "wolyitta": "fight",
+        "gamo": "fight",
+        "swahili": "Pigana",
+        "kinyarwanda": "Kurwana",
+        "kirundi": "Kurwana",
+        "luo": "Kedo"
       },
       {
         "english": "give",
@@ -772,9 +980,13 @@
         "afar": "give",
         "somali": "give",
         "arabic": "give",
-        "hadiya": "give",
-        "wolayita": "give",
-        "gamo": "give"
+        "hadiyaa": "give",
+        "wolyitta": "give",
+        "gamo": "give",
+        "swahili": "Toa",
+        "kinyarwanda": "Guha",
+        "kirundi": "Guha",
+        "luo": "Miyo"
       },
       {
         "english": "go",
@@ -786,9 +998,13 @@
         "afar": "go",
         "somali": "go",
         "arabic": "go",
-        "hadiya": "go",
-        "wolayita": "go",
-        "gamo": "go"
+        "hadiyaa": "go",
+        "wolyitta": "go",
+        "gamo": "go",
+        "swahili": "Kwenda",
+        "kinyarwanda": "Kugenda",
+        "kirundi": "Kuja",
+        "luo": "Dhi"
       },
       {
         "english": "hold",
@@ -800,9 +1016,13 @@
         "afar": "hold",
         "somali": "hold",
         "arabic": "hold",
-        "hadiya": "hold",
-        "wolayita": "hold",
-        "gamo": "hold"
+        "hadiyaa": "hold",
+        "wolyitta": "hold",
+        "gamo": "hold",
+        "swahili": "Shika",
+        "kinyarwanda": "Gufata",
+        "kirundi": "Gufata",
+        "luo": "Mak"
       },
       {
         "english": "invasion",
@@ -814,9 +1034,13 @@
         "afar": "invasion",
         "somali": "invasion",
         "arabic": "invasion",
-        "hadiya": "invasion",
-        "wolayita": "invasion",
-        "gamo": "invasion"
+        "hadiyaa": "invasion",
+        "wolyitta": "invasion",
+        "gamo": "invasion",
+        "swahili": "Uvamizi",
+        "kinyarwanda": "Igitero",
+        "kirundi": "Igitero",
+        "luo": "Monjo"
       },
       {
         "english": "jump",
@@ -828,9 +1052,13 @@
         "afar": "jump",
         "somali": "jump",
         "arabic": "jump",
-        "hadiya": "jump",
-        "wolayita": "jump",
-        "gamo": "jump"
+        "hadiyaa": "jump",
+        "wolyitta": "jump",
+        "gamo": "jump",
+        "swahili": "Ruka",
+        "kinyarwanda": "Gusimbuka",
+        "kirundi": "Gusimbuka",
+        "luo": "Dongre"
       },
       {
         "english": "listen",
@@ -842,9 +1070,13 @@
         "afar": "listen",
         "somali": "listen",
         "arabic": "listen",
-        "hadiya": "listen",
-        "wolayita": "listen",
-        "gamo": "listen"
+        "hadiyaa": "listen",
+        "wolyitta": "listen",
+        "gamo": "listen",
+        "swahili": "Sikiliza",
+        "kinyarwanda": "Kumva",
+        "kirundi": "Kumva",
+        "luo": "Chik iti"
       },
       {
         "english": "protect",
@@ -856,9 +1088,13 @@
         "afar": "protect",
         "somali": "protect",
         "arabic": "protect",
-        "hadiya": "protect",
-        "wolayita": "protect",
-        "gamo": "protect"
+        "hadiyaa": "protect",
+        "wolyitta": "protect",
+        "gamo": "protect",
+        "swahili": "Linda",
+        "kinyarwanda": "Kurinda",
+        "kirundi": "Kurinda",
+        "luo": "Rit"
       },
       {
         "english": "resistance",
@@ -870,9 +1106,13 @@
         "afar": "resistance",
         "somali": "resistance",
         "arabic": "resistance",
-        "hadiya": "resistance",
-        "wolayita": "resistance",
-        "gamo": "resistance"
+        "hadiyaa": "resistance",
+        "wolyitta": "resistance",
+        "gamo": "resistance",
+        "swahili": "Upinzani",
+        "kinyarwanda": "Kurwanya",
+        "kirundi": "Kurwanya",
+        "luo": "Siro"
       },
       {
         "english": "retreat",
@@ -884,9 +1124,13 @@
         "afar": "retreat",
         "somali": "retreat",
         "arabic": "retreat",
-        "hadiya": "retreat",
-        "wolayita": "retreat",
-        "gamo": "retreat"
+        "hadiyaa": "retreat",
+        "wolyitta": "retreat",
+        "gamo": "retreat",
+        "swahili": "Rudi nyuma",
+        "kinyarwanda": "Gusubira inyuma",
+        "kirundi": "Gusubira inyuma",
+        "luo": "Dok chien"
       },
       {
         "english": "run",
@@ -898,9 +1142,13 @@
         "afar": "run",
         "somali": "run",
         "arabic": "run",
-        "hadiya": "run",
-        "wolayita": "run",
-        "gamo": "run"
+        "hadiyaa": "run",
+        "wolyitta": "run",
+        "gamo": "run",
+        "swahili": "Kukimbia",
+        "kinyarwanda": "Kwiruka",
+        "kirundi": "Kwiruka",
+        "luo": "Ringo"
       },
       {
         "english": "see",
@@ -912,9 +1160,13 @@
         "afar": "see",
         "somali": "see",
         "arabic": "see",
-        "hadiya": "see",
-        "wolayita": "see",
-        "gamo": "see"
+        "hadiyaa": "see",
+        "wolyitta": "see",
+        "gamo": "see",
+        "swahili": "Ona",
+        "kinyarwanda": "Kubona",
+        "kirundi": "Kubona",
+        "luo": "Neno"
       },
       {
         "english": "sleep",
@@ -926,9 +1178,13 @@
         "afar": "sleep",
         "somali": "sleep",
         "arabic": "sleep",
-        "hadiya": "sleep",
-        "wolayita": "sleep",
-        "gamo": "sleep"
+        "hadiyaa": "sleep",
+        "wolyitta": "sleep",
+        "gamo": "sleep",
+        "swahili": "Lala",
+        "kinyarwanda": "Kuryama",
+        "kirundi": "Kuryama",
+        "luo": "Nindo"
       },
       {
         "english": "stop",
@@ -940,9 +1196,13 @@
         "afar": "stop",
         "somali": "stop",
         "arabic": "stop",
-        "hadiya": "stop",
-        "wolayita": "stop",
-        "gamo": "stop"
+        "hadiyaa": "stop",
+        "wolyitta": "stop",
+        "gamo": "stop",
+        "swahili": "Simama",
+        "kinyarwanda": "Guhagarara",
+        "kirundi": "Guhagarara",
+        "luo": "Chung"
       },
       {
         "english": "surrender",
@@ -954,9 +1214,13 @@
         "afar": "surrender",
         "somali": "surrender",
         "arabic": "surrender",
-        "hadiya": "surrender",
-        "wolayita": "surrender",
-        "gamo": "surrender"
+        "hadiyaa": "surrender",
+        "wolyitta": "surrender",
+        "gamo": "surrender",
+        "swahili": "Jitolea",
+        "kinyarwanda": "Kwiheba",
+        "kirundi": "Kwiheba",
+        "luo": "Chiwore"
       },
       {
         "english": "take",
@@ -968,9 +1232,13 @@
         "afar": "take",
         "somali": "take",
         "arabic": "take",
-        "hadiya": "take",
-        "wolayita": "take",
-        "gamo": "take"
+        "hadiyaa": "take",
+        "wolyitta": "take",
+        "gamo": "take",
+        "swahili": "Chukua",
+        "kinyarwanda": "Gufata",
+        "kirundi": "Gufata",
+        "luo": "Kaw"
       },
       {
         "english": "talk",
@@ -982,9 +1250,13 @@
         "afar": "talk",
         "somali": "talk",
         "arabic": "talk",
-        "hadiya": "talk",
-        "wolayita": "talk",
-        "gamo": "talk"
+        "hadiyaa": "talk",
+        "wolyitta": "talk",
+        "gamo": "talk",
+        "swahili": "Ongea",
+        "kinyarwanda": "Kuvuga",
+        "kirundi": "Kuvuga",
+        "luo": "Wuoyo"
       },
       {
         "english": "touch",
@@ -996,9 +1268,13 @@
         "afar": "touch",
         "somali": "touch",
         "arabic": "touch",
-        "hadiya": "touch",
-        "wolayita": "touch",
-        "gamo": "touch"
+        "hadiyaa": "touch",
+        "wolyitta": "touch",
+        "gamo": "touch",
+        "swahili": "Gusa",
+        "kinyarwanda": "Gukoraho",
+        "kirundi": "Gukoraho",
+        "luo": "Mulo"
       },
       {
         "english": "wait",
@@ -1010,9 +1286,13 @@
         "afar": "wait",
         "somali": "wait",
         "arabic": "wait",
-        "hadiya": "wait",
-        "wolayita": "wait",
-        "gamo": "wait"
+        "hadiyaa": "wait",
+        "wolyitta": "wait",
+        "gamo": "wait",
+        "swahili": "Ngoja",
+        "kinyarwanda": "Gutegereza",
+        "kirundi": "Gutegereza",
+        "luo": "Rit"
       },
       {
         "english": "walk",
@@ -1024,9 +1304,13 @@
         "afar": "walk",
         "somali": "walk",
         "arabic": "walk",
-        "hadiya": "walk",
-        "wolayita": "walk",
-        "gamo": "walk"
+        "hadiyaa": "walk",
+        "wolyitta": "walk",
+        "gamo": "walk",
+        "swahili": "Tembea",
+        "kinyarwanda": "Kugenda",
+        "kirundi": "Kugenda",
+        "luo": "Wuotho"
       }
     ],
     "animals": [
@@ -1040,9 +1324,13 @@
         "afar": "bee",
         "somali": "bee",
         "arabic": "bee",
-        "hadiya": "bee",
-        "wolayita": "bee",
-        "gamo": "bee"
+        "hadiyaa": "bee",
+        "wolyitta": "bee",
+        "gamo": "bee",
+        "swahili": "Nyuki",
+        "kinyarwanda": "Inzuki",
+        "kirundi": "Inzuki",
+        "luo": "Kich"
       },
       {
         "english": "bird",
@@ -1054,9 +1342,13 @@
         "afar": "bird",
         "somali": "bird",
         "arabic": "bird",
-        "hadiya": "bird",
-        "wolayita": "bird",
-        "gamo": "bird"
+        "hadiyaa": "bird",
+        "wolyitta": "bird",
+        "gamo": "bird",
+        "swahili": "Ndege",
+        "kinyarwanda": "Inyoni",
+        "kirundi": "Inyoni",
+        "luo": "Winyo"
       },
       {
         "english": "butterfly",
@@ -1068,9 +1360,13 @@
         "afar": "butterfly",
         "somali": "butterfly",
         "arabic": "butterfly",
-        "hadiya": "butterfly",
-        "wolayita": "butterfly",
-        "gamo": "butterfly"
+        "hadiyaa": "butterfly",
+        "wolyitta": "butterfly",
+        "gamo": "butterfly",
+        "swahili": "Kipepeo",
+        "kinyarwanda": "Ikinyugunyugu",
+        "kirundi": "Ikinyugunyugu",
+        "luo": "Oboliboli"
       },
       {
         "english": "cat",
@@ -1082,9 +1378,13 @@
         "afar": "cat",
         "somali": "cat",
         "arabic": "cat",
-        "hadiya": "cat",
-        "wolayita": "cat",
-        "gamo": "cat"
+        "hadiyaa": "cat",
+        "wolyitta": "cat",
+        "gamo": "cat",
+        "swahili": "Paka",
+        "kinyarwanda": "Injangwe",
+        "kirundi": "Injangwe",
+        "luo": "Oyiewo"
       },
       {
         "english": "chicken",
@@ -1096,9 +1396,13 @@
         "afar": "chicken",
         "somali": "chicken",
         "arabic": "chicken",
-        "hadiya": "chicken",
-        "wolayita": "chicken",
-        "gamo": "chicken"
+        "hadiyaa": "chicken",
+        "wolyitta": "chicken",
+        "gamo": "chicken",
+        "swahili": "Kuku",
+        "kinyarwanda": "Inkoko",
+        "kirundi": "Inkoko",
+        "luo": "Gweno"
       },
       {
         "english": "cow",
@@ -1110,9 +1414,13 @@
         "afar": "cow",
         "somali": "cow",
         "arabic": "cow",
-        "hadiya": "cow",
-        "wolayita": "cow",
-        "gamo": "cow"
+        "hadiyaa": "cow",
+        "wolyitta": "cow",
+        "gamo": "cow",
+        "swahili": "Ng'ombe",
+        "kinyarwanda": "Inka",
+        "kirundi": "Inka",
+        "luo": "Dhiang"
       },
       {
         "english": "dog",
@@ -1124,9 +1432,13 @@
         "afar": "dog",
         "somali": "dog",
         "arabic": "dog",
-        "hadiya": "dog",
-        "wolayita": "dog",
-        "gamo": "dog"
+        "hadiyaa": "dog",
+        "wolyitta": "dog",
+        "gamo": "dog",
+        "swahili": "Mbwa",
+        "kinyarwanda": "Imbwa",
+        "kirundi": "Imbwa",
+        "luo": "Guok"
       },
       {
         "english": "donkey",
@@ -1138,9 +1450,13 @@
         "afar": "donkey",
         "somali": "donkey",
         "arabic": "donkey",
-        "hadiya": "donkey",
-        "wolayita": "donkey",
-        "gamo": "donkey"
+        "hadiyaa": "donkey",
+        "wolyitta": "donkey",
+        "gamo": "donkey",
+        "swahili": "Punda",
+        "kinyarwanda": "Indogobe",
+        "kirundi": "Indogobe",
+        "luo": "Punda"
       },
       {
         "english": "elephant",
@@ -1152,9 +1468,13 @@
         "afar": "elephant",
         "somali": "elephant",
         "arabic": "elephant",
-        "hadiya": "elephant",
-        "wolayita": "elephant",
-        "gamo": "elephant"
+        "hadiyaa": "elephant",
+        "wolyitta": "elephant",
+        "gamo": "elephant",
+        "swahili": "Tembo",
+        "kinyarwanda": "Inzovu",
+        "kirundi": "Inzovu",
+        "luo": "Liech"
       },
       {
         "english": "fish",
@@ -1166,9 +1486,13 @@
         "afar": "fish",
         "somali": "fish",
         "arabic": "fish",
-        "hadiya": "fish",
-        "wolayita": "fish",
-        "gamo": "fish"
+        "hadiyaa": "fish",
+        "wolyitta": "fish",
+        "gamo": "fish",
+        "swahili": "Samaki",
+        "kinyarwanda": "Ifi",
+        "kirundi": "Ifi",
+        "luo": "Rech"
       },
       {
         "english": "giraffe",
@@ -1180,9 +1504,13 @@
         "afar": "giraffe",
         "somali": "giraffe",
         "arabic": "giraffe",
-        "hadiya": "giraffe",
-        "wolayita": "giraffe",
-        "gamo": "giraffe"
+        "hadiyaa": "giraffe",
+        "wolyitta": "giraffe",
+        "gamo": "giraffe",
+        "swahili": "Twiga",
+        "kinyarwanda": "Indiraburayi",
+        "kirundi": "Indiraburayi",
+        "luo": "Twiga"
       },
       {
         "english": "goat",
@@ -1194,9 +1522,13 @@
         "afar": "goat",
         "somali": "goat",
         "arabic": "goat",
-        "hadiya": "goat",
-        "wolayita": "goat",
-        "gamo": "goat"
+        "hadiyaa": "goat",
+        "wolyitta": "goat",
+        "gamo": "goat",
+        "swahili": "Mbuzi",
+        "kinyarwanda": "Ihene",
+        "kirundi": "Ihene",
+        "luo": "Diel"
       },
       {
         "english": "horse",
@@ -1208,9 +1540,13 @@
         "afar": "horse",
         "somali": "horse",
         "arabic": "horse",
-        "hadiya": "horse",
-        "wolayita": "horse",
-        "gamo": "horse"
+        "hadiyaa": "horse",
+        "wolyitta": "horse",
+        "gamo": "horse",
+        "swahili": "Farasi",
+        "kinyarwanda": "Ifarashi",
+        "kirundi": "Ifarashi",
+        "luo": "Faras"
       },
       {
         "english": "lion",
@@ -1222,9 +1558,13 @@
         "afar": "lion",
         "somali": "lion",
         "arabic": "lion",
-        "hadiya": "lion",
-        "wolayita": "lion",
-        "gamo": "lion"
+        "hadiyaa": "lion",
+        "wolyitta": "lion",
+        "gamo": "lion",
+        "swahili": "Simba",
+        "kinyarwanda": "Intare",
+        "kirundi": "Intare",
+        "luo": "Sibuor"
       },
       {
         "english": "monkey",
@@ -1236,9 +1576,13 @@
         "afar": "monkey",
         "somali": "monkey",
         "arabic": "monkey",
-        "hadiya": "monkey",
-        "wolayita": "monkey",
-        "gamo": "monkey"
+        "hadiyaa": "monkey",
+        "wolyitta": "monkey",
+        "gamo": "monkey",
+        "swahili": "Tumbili",
+        "kinyarwanda": "Inguge",
+        "kirundi": "Inguge",
+        "luo": "Buk"
       },
       {
         "english": "pig",
@@ -1250,9 +1594,13 @@
         "afar": "pig",
         "somali": "pig",
         "arabic": "pig",
-        "hadiya": "pig",
-        "wolayita": "pig",
-        "gamo": "pig"
+        "hadiyaa": "pig",
+        "wolyitta": "pig",
+        "gamo": "pig",
+        "swahili": "Nguruwe",
+        "kinyarwanda": "Ingurube",
+        "kirundi": "Ingurube",
+        "luo": "Anguro"
       },
       {
         "english": "rabbit",
@@ -1264,9 +1612,13 @@
         "afar": "rabbit",
         "somali": "rabbit",
         "arabic": "rabbit",
-        "hadiya": "rabbit",
-        "wolayita": "rabbit",
-        "gamo": "rabbit"
+        "hadiyaa": "rabbit",
+        "wolyitta": "rabbit",
+        "gamo": "rabbit",
+        "swahili": "Sungura",
+        "kinyarwanda": "Urukwavu",
+        "kirundi": "Urukwavu",
+        "luo": "Apwoyo"
       },
       {
         "english": "sheep",
@@ -1278,9 +1630,13 @@
         "afar": "sheep",
         "somali": "sheep",
         "arabic": "sheep",
-        "hadiya": "sheep",
-        "wolayita": "sheep",
-        "gamo": "sheep"
+        "hadiyaa": "sheep",
+        "wolyitta": "sheep",
+        "gamo": "sheep",
+        "swahili": "Kondoo",
+        "kinyarwanda": "Intama",
+        "kirundi": "Intama",
+        "luo": "Rombo"
       },
       {
         "english": "spider",
@@ -1292,9 +1648,13 @@
         "afar": "spider",
         "somali": "spider",
         "arabic": "spider",
-        "hadiya": "spider",
-        "wolayita": "spider",
-        "gamo": "spider"
+        "hadiyaa": "spider",
+        "wolyitta": "spider",
+        "gamo": "spider",
+        "swahili": "Buibui",
+        "kinyarwanda": "Igitagangurirwa",
+        "kirundi": "Igitagangurirwa",
+        "luo": "Bong-bong"
       },
       {
         "english": "zebra",
@@ -1306,9 +1666,13 @@
         "afar": "zebra",
         "somali": "zebra",
         "arabic": "zebra",
-        "hadiya": "zebra",
-        "wolayita": "zebra",
-        "gamo": "zebra"
+        "hadiyaa": "zebra",
+        "wolyitta": "zebra",
+        "gamo": "zebra",
+        "swahili": "Pundamilia",
+        "kinyarwanda": "Imparage",
+        "kirundi": "Imparage",
+        "luo": "Punda milia"
       }
     ],
     "basics": [
@@ -1322,9 +1686,13 @@
         "afar": "excuse me",
         "somali": "excuse me",
         "arabic": "excuse me",
-        "hadiya": "excuse me",
-        "wolayita": "excuse me",
-        "gamo": "excuse me"
+        "hadiyaa": "excuse me",
+        "wolyitta": "excuse me",
+        "gamo": "excuse me",
+        "swahili": "Samahani",
+        "kinyarwanda": "Mbabarira",
+        "kirundi": "Mbabarira",
+        "luo": "Wach kwe"
       },
       {
         "english": "goodbye",
@@ -1336,9 +1704,13 @@
         "afar": "goodbye",
         "somali": "goodbye",
         "arabic": "goodbye",
-        "hadiya": "goodbye",
-        "wolayita": "goodbye",
-        "gamo": "goodbye"
+        "hadiyaa": "goodbye",
+        "wolyitta": "goodbye",
+        "gamo": "goodbye",
+        "swahili": "Kwaheri",
+        "kinyarwanda": "Murabeho",
+        "kirundi": "Murabeho",
+        "luo": "Oriti"
       },
       {
         "english": "hello",
@@ -1350,9 +1722,13 @@
         "afar": "hello",
         "somali": "hello",
         "arabic": "hello",
-        "hadiya": "hello",
-        "wolayita": "hello",
-        "gamo": "hello"
+        "hadiyaa": "hello",
+        "wolyitta": "hello",
+        "gamo": "hello",
+        "swahili": "Habari",
+        "kinyarwanda": "Muraho",
+        "kirundi": "Amahoro",
+        "luo": "Misawa"
       },
       {
         "english": "help",
@@ -1364,9 +1740,13 @@
         "afar": "help",
         "somali": "help",
         "arabic": "help",
-        "hadiya": "help",
-        "wolayita": "help",
-        "gamo": "help"
+        "hadiyaa": "help",
+        "wolyitta": "help",
+        "gamo": "help",
+        "swahili": "Msaada",
+        "kinyarwanda": "Ubufasha",
+        "kirundi": "Ubufasha",
+        "luo": "Kony"
       },
       {
         "english": "how",
@@ -1378,9 +1758,13 @@
         "afar": "how",
         "somali": "how",
         "arabic": "how",
-        "hadiya": "how",
-        "wolayita": "how",
-        "gamo": "how"
+        "hadiyaa": "how",
+        "wolyitta": "how",
+        "gamo": "how",
+        "swahili": "Vipi",
+        "kinyarwanda": "Gute",
+        "kirundi": "Gute",
+        "luo": "Ere"
       },
       {
         "english": "name",
@@ -1392,9 +1776,13 @@
         "afar": "name",
         "somali": "name",
         "arabic": "name",
-        "hadiya": "name",
-        "wolayita": "name",
-        "gamo": "name"
+        "hadiyaa": "name",
+        "wolyitta": "name",
+        "gamo": "name",
+        "swahili": "Jina",
+        "kinyarwanda": "Izina",
+        "kirundi": "Izina",
+        "luo": "Nying"
       },
       {
         "english": "no",
@@ -1406,9 +1794,13 @@
         "afar": "no",
         "somali": "no",
         "arabic": "no",
-        "hadiya": "no",
-        "wolayita": "no",
-        "gamo": "no"
+        "hadiyaa": "no",
+        "wolyitta": "no",
+        "gamo": "no",
+        "swahili": "Hapana",
+        "kinyarwanda": "Oya",
+        "kirundi": "Oya",
+        "luo": "Ooyo"
       },
       {
         "english": "okay",
@@ -1420,9 +1812,13 @@
         "afar": "okay",
         "somali": "okay",
         "arabic": "okay",
-        "hadiya": "okay",
-        "wolayita": "okay",
-        "gamo": "okay"
+        "hadiyaa": "okay",
+        "wolyitta": "okay",
+        "gamo": "okay",
+        "swahili": "Sawa",
+        "kinyarwanda": "Sawa",
+        "kirundi": "Sawa",
+        "luo": "Ber"
       },
       {
         "english": "please",
@@ -1434,9 +1830,13 @@
         "afar": "please",
         "somali": "please",
         "arabic": "please",
-        "hadiya": "please",
-        "wolayita": "please",
-        "gamo": "please"
+        "hadiyaa": "please",
+        "wolyitta": "please",
+        "gamo": "please",
+        "swahili": "Tafadhali",
+        "kinyarwanda": "Nyamuneka",
+        "kirundi": "Ndakwinginze",
+        "luo": "Akwayi"
       },
       {
         "english": "sorry",
@@ -1448,9 +1848,13 @@
         "afar": "sorry",
         "somali": "sorry",
         "arabic": "sorry",
-        "hadiya": "sorry",
-        "wolayita": "sorry",
-        "gamo": "sorry"
+        "hadiyaa": "sorry",
+        "wolyitta": "sorry",
+        "gamo": "sorry",
+        "swahili": "Pole",
+        "kinyarwanda": "Mbabarira",
+        "kirundi": "Mbabarira",
+        "luo": "Wach kwe"
       },
       {
         "english": "thank you",
@@ -1462,9 +1866,13 @@
         "afar": "thank you",
         "somali": "thank you",
         "arabic": "thank you",
-        "hadiya": "thank you",
-        "wolayita": "thank you",
-        "gamo": "thank you"
+        "hadiyaa": "thank you",
+        "wolyitta": "thank you",
+        "gamo": "thank you",
+        "swahili": "Asante",
+        "kinyarwanda": "Murakoze",
+        "kirundi": "Urakoze",
+        "luo": "Erokamano"
       },
       {
         "english": "welcome",
@@ -1476,9 +1884,13 @@
         "afar": "welcome",
         "somali": "welcome",
         "arabic": "welcome",
-        "hadiya": "welcome",
-        "wolayita": "welcome",
-        "gamo": "welcome"
+        "hadiyaa": "welcome",
+        "wolyitta": "welcome",
+        "gamo": "welcome",
+        "swahili": "Karibu",
+        "kinyarwanda": "Murakaza neza",
+        "kirundi": "Murakaza neza",
+        "luo": "Osiep"
       },
       {
         "english": "what",
@@ -1490,9 +1902,13 @@
         "afar": "what",
         "somali": "what",
         "arabic": "what",
-        "hadiya": "what",
-        "wolayita": "what",
-        "gamo": "what"
+        "hadiyaa": "what",
+        "wolyitta": "what",
+        "gamo": "what",
+        "swahili": "Nini",
+        "kinyarwanda": "Iki",
+        "kirundi": "Iki",
+        "luo": "Ang'o"
       },
       {
         "english": "when",
@@ -1504,9 +1920,13 @@
         "afar": "when",
         "somali": "when",
         "arabic": "when",
-        "hadiya": "when",
-        "wolayita": "when",
-        "gamo": "when"
+        "hadiyaa": "when",
+        "wolyitta": "when",
+        "gamo": "when",
+        "swahili": "Lini",
+        "kinyarwanda": "Ryari",
+        "kirundi": "Ryari",
+        "luo": "Karang'o"
       },
       {
         "english": "where",
@@ -1518,9 +1938,13 @@
         "afar": "where",
         "somali": "where",
         "arabic": "where",
-        "hadiya": "where",
-        "wolayita": "where",
-        "gamo": "where"
+        "hadiyaa": "where",
+        "wolyitta": "where",
+        "gamo": "where",
+        "swahili": "Wapi",
+        "kinyarwanda": "Hehe",
+        "kirundi": "Hehe",
+        "luo": "Kune"
       },
       {
         "english": "why",
@@ -1532,9 +1956,13 @@
         "afar": "why",
         "somali": "why",
         "arabic": "why",
-        "hadiya": "why",
-        "wolayita": "why",
-        "gamo": "why"
+        "hadiyaa": "why",
+        "wolyitta": "why",
+        "gamo": "why",
+        "swahili": "Kwa nini",
+        "kinyarwanda": "Kuki",
+        "kirundi": "Kubera iki",
+        "luo": "Mar ang'o"
       },
       {
         "english": "yes",
@@ -1546,9 +1974,13 @@
         "afar": "yes",
         "somali": "yes",
         "arabic": "yes",
-        "hadiya": "yes",
-        "wolayita": "yes",
-        "gamo": "yes"
+        "hadiyaa": "yes",
+        "wolyitta": "yes",
+        "gamo": "yes",
+        "swahili": "Ndiyo",
+        "kinyarwanda": "Yego",
+        "kirundi": "Ego",
+        "luo": "Ee"
       }
     ],
     "body": [
@@ -1562,9 +1994,13 @@
         "afar": "ears",
         "somali": "ears",
         "arabic": "ears",
-        "hadiya": "ears",
-        "wolayita": "ears",
-        "gamo": "ears"
+        "hadiyaa": "ears",
+        "wolyitta": "ears",
+        "gamo": "ears",
+        "swahili": "Masikio",
+        "kinyarwanda": "Amatwi",
+        "kirundi": "Amatwi",
+        "luo": "It"
       },
       {
         "english": "eyes",
@@ -1576,9 +2012,13 @@
         "afar": "eyes",
         "somali": "eyes",
         "arabic": "eyes",
-        "hadiya": "eyes",
-        "wolayita": "eyes",
-        "gamo": "eyes"
+        "hadiyaa": "eyes",
+        "wolyitta": "eyes",
+        "gamo": "eyes",
+        "swahili": "Macho",
+        "kinyarwanda": "Amaso",
+        "kirundi": "Amaso",
+        "luo": "Wenge"
       },
       {
         "english": "feet",
@@ -1590,9 +2030,13 @@
         "afar": "feet",
         "somali": "feet",
         "arabic": "feet",
-        "hadiya": "feet",
-        "wolayita": "feet",
-        "gamo": "feet"
+        "hadiyaa": "feet",
+        "wolyitta": "feet",
+        "gamo": "feet",
+        "swahili": "Miguu",
+        "kinyarwanda": "Ibirenge",
+        "kirundi": "Ibirenge",
+        "luo": "Tielo"
       },
       {
         "english": "fingers",
@@ -1604,9 +2048,13 @@
         "afar": "fingers",
         "somali": "fingers",
         "arabic": "fingers",
-        "hadiya": "fingers",
-        "wolayita": "fingers",
-        "gamo": "fingers"
+        "hadiyaa": "fingers",
+        "wolyitta": "fingers",
+        "gamo": "fingers",
+        "swahili": "Vidole",
+        "kinyarwanda": "Intoki",
+        "kirundi": "Intoki",
+        "luo": "Ching"
       },
       {
         "english": "hair",
@@ -1618,9 +2066,13 @@
         "afar": "hair",
         "somali": "hair",
         "arabic": "hair",
-        "hadiya": "hair",
-        "wolayita": "hair",
-        "gamo": "hair"
+        "hadiyaa": "hair",
+        "wolyitta": "hair",
+        "gamo": "hair",
+        "swahili": "Nywele",
+        "kinyarwanda": "Umusatsi",
+        "kirundi": "Umusatsi",
+        "luo": "Yie wi"
       },
       {
         "english": "hands",
@@ -1632,9 +2084,13 @@
         "afar": "hands",
         "somali": "hands",
         "arabic": "hands",
-        "hadiya": "hands",
-        "wolayita": "hands",
-        "gamo": "hands"
+        "hadiyaa": "hands",
+        "wolyitta": "hands",
+        "gamo": "hands",
+        "swahili": "Mikono",
+        "kinyarwanda": "Amaboko",
+        "kirundi": "Amaboko",
+        "luo": "Lwedo"
       },
       {
         "english": "head",
@@ -1646,9 +2102,13 @@
         "afar": "head",
         "somali": "head",
         "arabic": "head",
-        "hadiya": "head",
-        "wolayita": "head",
-        "gamo": "head"
+        "hadiyaa": "head",
+        "wolyitta": "head",
+        "gamo": "head",
+        "swahili": "Kichwa",
+        "kinyarwanda": "Umutwe",
+        "kirundi": "Umutwe",
+        "luo": "Wi"
       },
       {
         "english": "mouth",
@@ -1660,9 +2120,13 @@
         "afar": "mouth",
         "somali": "mouth",
         "arabic": "mouth",
-        "hadiya": "mouth",
-        "wolayita": "mouth",
-        "gamo": "mouth"
+        "hadiyaa": "mouth",
+        "wolyitta": "mouth",
+        "gamo": "mouth",
+        "swahili": "Mdomo",
+        "kinyarwanda": "Umunwa",
+        "kirundi": "Umunwa",
+        "luo": "Dhok"
       },
       {
         "english": "nose",
@@ -1674,9 +2138,13 @@
         "afar": "nose",
         "somali": "nose",
         "arabic": "nose",
-        "hadiya": "nose",
-        "wolayita": "nose",
-        "gamo": "nose"
+        "hadiyaa": "nose",
+        "wolyitta": "nose",
+        "gamo": "nose",
+        "swahili": "Pua",
+        "kinyarwanda": "Izuru",
+        "kirundi": "Izuru",
+        "luo": "Um"
       },
       {
         "english": "stomach",
@@ -1688,9 +2156,13 @@
         "afar": "stomach",
         "somali": "stomach",
         "arabic": "stomach",
-        "hadiya": "stomach",
-        "wolayita": "stomach",
-        "gamo": "stomach"
+        "hadiyaa": "stomach",
+        "wolyitta": "stomach",
+        "gamo": "stomach",
+        "swahili": "Tumbo",
+        "kinyarwanda": "Inda",
+        "kirundi": "Inda",
+        "luo": "Ich"
       },
       {
         "english": "teeth",
@@ -1702,9 +2174,13 @@
         "afar": "teeth",
         "somali": "teeth",
         "arabic": "teeth",
-        "hadiya": "teeth",
-        "wolayita": "teeth",
-        "gamo": "teeth"
+        "hadiyaa": "teeth",
+        "wolyitta": "teeth",
+        "gamo": "teeth",
+        "swahili": "Meno",
+        "kinyarwanda": "Amenyo",
+        "kirundi": "Amenyo",
+        "luo": "Lak"
       }
     ],
     "clothing": [
@@ -1718,9 +2194,13 @@
         "afar": "coat",
         "somali": "coat",
         "arabic": "coat",
-        "hadiya": "coat",
-        "wolayita": "coat",
-        "gamo": "coat"
+        "hadiyaa": "coat",
+        "wolyitta": "coat",
+        "gamo": "coat",
+        "swahili": "Koti",
+        "kinyarwanda": "Ikoti",
+        "kirundi": "Ikoti",
+        "luo": "Lep maduong"
       },
       {
         "english": "dress",
@@ -1732,9 +2212,13 @@
         "afar": "dress",
         "somali": "dress",
         "arabic": "dress",
-        "hadiya": "dress",
-        "wolayita": "dress",
-        "gamo": "dress"
+        "hadiyaa": "dress",
+        "wolyitta": "dress",
+        "gamo": "dress",
+        "swahili": "Gauni",
+        "kinyarwanda": "Umwambaro",
+        "kirundi": "Umwambaro",
+        "luo": "Law"
       },
       {
         "english": "gloves",
@@ -1746,9 +2230,13 @@
         "afar": "gloves",
         "somali": "gloves",
         "arabic": "gloves",
-        "hadiya": "gloves",
-        "wolayita": "gloves",
-        "gamo": "gloves"
+        "hadiyaa": "gloves",
+        "wolyitta": "gloves",
+        "gamo": "gloves",
+        "swahili": "Glavu",
+        "kinyarwanda": "Ibirenge by'amaboko",
+        "kirundi": "Ibirenge vy'amaboko",
+        "luo": "Lwedo"
       },
       {
         "english": "hat",
@@ -1760,9 +2248,13 @@
         "afar": "hat",
         "somali": "hat",
         "arabic": "hat",
-        "hadiya": "hat",
-        "wolayita": "hat",
-        "gamo": "hat"
+        "hadiyaa": "hat",
+        "wolyitta": "hat",
+        "gamo": "hat",
+        "swahili": "Kofia",
+        "kinyarwanda": "Ingofero",
+        "kirundi": "Ingofero",
+        "luo": "Ufuko"
       },
       {
         "english": "pants",
@@ -1774,9 +2266,13 @@
         "afar": "pants",
         "somali": "pants",
         "arabic": "pants",
-        "hadiya": "pants",
-        "wolayita": "pants",
-        "gamo": "pants"
+        "hadiyaa": "pants",
+        "wolyitta": "pants",
+        "gamo": "pants",
+        "swahili": "Suruali",
+        "kinyarwanda": "Ipantaro",
+        "kirundi": "Ipantaro",
+        "luo": "Ogwang"
       },
       {
         "english": "shirt",
@@ -1788,9 +2284,13 @@
         "afar": "shirt",
         "somali": "shirt",
         "arabic": "shirt",
-        "hadiya": "shirt",
-        "wolayita": "shirt",
-        "gamo": "shirt"
+        "hadiyaa": "shirt",
+        "wolyitta": "shirt",
+        "gamo": "shirt",
+        "swahili": "Shati",
+        "kinyarwanda": "Ishati",
+        "kirundi": "Ishati",
+        "luo": "Sharti"
       },
       {
         "english": "shoes",
@@ -1802,9 +2302,13 @@
         "afar": "shoes",
         "somali": "shoes",
         "arabic": "shoes",
-        "hadiya": "shoes",
-        "wolayita": "shoes",
-        "gamo": "shoes"
+        "hadiyaa": "shoes",
+        "wolyitta": "shoes",
+        "gamo": "shoes",
+        "swahili": "Viatu",
+        "kinyarwanda": "Inkweto",
+        "kirundi": "Inkweto",
+        "luo": "Wuoche"
       },
       {
         "english": "socks",
@@ -1816,9 +2320,13 @@
         "afar": "socks",
         "somali": "socks",
         "arabic": "socks",
-        "hadiya": "socks",
-        "wolayita": "socks",
-        "gamo": "socks"
+        "hadiyaa": "socks",
+        "wolyitta": "socks",
+        "gamo": "socks",
+        "swahili": "Soksi",
+        "kinyarwanda": "Udusokisi",
+        "kirundi": "Udusokisi",
+        "luo": "Soksi"
       }
     ],
     "colors": [
@@ -1832,9 +2340,13 @@
         "afar": "black",
         "somali": "black",
         "arabic": "black",
-        "hadiya": "black",
-        "wolayita": "black",
-        "gamo": "black"
+        "hadiyaa": "black",
+        "wolyitta": "black",
+        "gamo": "black",
+        "swahili": "Nyeusi",
+        "kinyarwanda": "Umukara",
+        "kirundi": "Umukara",
+        "luo": "Marateng"
       },
       {
         "english": "blue",
@@ -1846,9 +2358,13 @@
         "afar": "blue",
         "somali": "blue",
         "arabic": "blue",
-        "hadiya": "blue",
-        "wolayita": "blue",
-        "gamo": "blue"
+        "hadiyaa": "blue",
+        "wolyitta": "blue",
+        "gamo": "blue",
+        "swahili": "Bluu",
+        "kinyarwanda": "Ubururu",
+        "kirundi": "Ubururu",
+        "luo": "Marambulu"
       },
       {
         "english": "brown",
@@ -1860,9 +2376,13 @@
         "afar": "brown",
         "somali": "brown",
         "arabic": "brown",
-        "hadiya": "brown",
-        "wolayita": "brown",
-        "gamo": "brown"
+        "hadiyaa": "brown",
+        "wolyitta": "brown",
+        "gamo": "brown",
+        "swahili": "Kahawia",
+        "kinyarwanda": "Umukara-ijosi",
+        "kirundi": "Umukara-kijosi",
+        "luo": "Marumbi"
       },
       {
         "english": "green",
@@ -1874,9 +2394,13 @@
         "afar": "green",
         "somali": "green",
         "arabic": "green",
-        "hadiya": "green",
-        "wolayita": "green",
-        "gamo": "green"
+        "hadiyaa": "green",
+        "wolyitta": "green",
+        "gamo": "green",
+        "swahili": "Kijani",
+        "kinyarwanda": "Icyatsi kibisi",
+        "kirundi": "Icyatsi kibisi",
+        "luo": "Rachar"
       },
       {
         "english": "orange",
@@ -1888,9 +2412,13 @@
         "afar": "orange",
         "somali": "orange",
         "arabic": "orange",
-        "hadiya": "orange",
-        "wolayita": "orange",
-        "gamo": "orange"
+        "hadiyaa": "orange",
+        "wolyitta": "orange",
+        "gamo": "orange",
+        "swahili": "Chungwa",
+        "kinyarwanda": "Umuhondo",
+        "kirundi": "Umuhondo",
+        "luo": "Machungwa"
       },
       {
         "english": "pink",
@@ -1902,9 +2430,13 @@
         "afar": "pink",
         "somali": "pink",
         "arabic": "pink",
-        "hadiya": "pink",
-        "wolayita": "pink",
-        "gamo": "pink"
+        "hadiyaa": "pink",
+        "wolyitta": "pink",
+        "gamo": "pink",
+        "swahili": "Waridi",
+        "kinyarwanda": "Irangi rya roze",
+        "kirundi": "Irangi rya roze",
+        "luo": "Maralik"
       },
       {
         "english": "purple",
@@ -1916,9 +2448,13 @@
         "afar": "purple",
         "somali": "purple",
         "arabic": "purple",
-        "hadiya": "purple",
-        "wolayita": "purple",
-        "gamo": "purple"
+        "hadiyaa": "purple",
+        "wolyitta": "purple",
+        "gamo": "purple",
+        "swahili": "Zambarau",
+        "kinyarwanda": "Umuhengeri",
+        "kirundi": "Umuhengeri",
+        "luo": "Mor"
       },
       {
         "english": "rainbow",
@@ -1930,9 +2466,13 @@
         "afar": "rainbow",
         "somali": "rainbow",
         "arabic": "rainbow",
-        "hadiya": "rainbow",
-        "wolayita": "rainbow",
-        "gamo": "rainbow"
+        "hadiyaa": "rainbow",
+        "wolyitta": "rainbow",
+        "gamo": "rainbow",
+        "swahili": "Upinde wa mvua",
+        "kinyarwanda": "Umukororombya",
+        "kirundi": "Umukororombya",
+        "luo": "Kongʼ"
       },
       {
         "english": "red",
@@ -1944,9 +2484,13 @@
         "afar": "red",
         "somali": "red",
         "arabic": "red",
-        "hadiya": "red",
-        "wolayita": "red",
-        "gamo": "red"
+        "hadiyaa": "red",
+        "wolyitta": "red",
+        "gamo": "red",
+        "swahili": "Nyekundu",
+        "kinyarwanda": "Umutuku",
+        "kirundi": "Umutuku",
+        "luo": "Makwar"
       },
       {
         "english": "white",
@@ -1958,9 +2502,13 @@
         "afar": "white",
         "somali": "white",
         "arabic": "white",
-        "hadiya": "white",
-        "wolayita": "white",
-        "gamo": "white"
+        "hadiyaa": "white",
+        "wolyitta": "white",
+        "gamo": "white",
+        "swahili": "Nyeupe",
+        "kinyarwanda": "Umweru",
+        "kirundi": "Umweru",
+        "luo": "Marachar"
       },
       {
         "english": "yellow",
@@ -1972,9 +2520,13 @@
         "afar": "yellow",
         "somali": "yellow",
         "arabic": "yellow",
-        "hadiya": "yellow",
-        "wolayita": "yellow",
-        "gamo": "yellow"
+        "hadiyaa": "yellow",
+        "wolyitta": "yellow",
+        "gamo": "yellow",
+        "swahili": "Njano",
+        "kinyarwanda": "Umuhondo",
+        "kirundi": "Umuhondo",
+        "luo": "Macharo"
       }
     ],
     "descriptive": [
@@ -1988,9 +2540,13 @@
         "afar": "big",
         "somali": "big",
         "arabic": "big",
-        "hadiya": "big",
-        "wolayita": "big",
-        "gamo": "big"
+        "hadiyaa": "big",
+        "wolyitta": "big",
+        "gamo": "big",
+        "swahili": "Kubwa",
+        "kinyarwanda": "Binini",
+        "kirundi": "Binini",
+        "luo": "Maduong"
       },
       {
         "english": "clean",
@@ -2002,9 +2558,13 @@
         "afar": "clean",
         "somali": "clean",
         "arabic": "clean",
-        "hadiya": "clean",
-        "wolayita": "clean",
-        "gamo": "clean"
+        "hadiyaa": "clean",
+        "wolyitta": "clean",
+        "gamo": "clean",
+        "swahili": "Safi",
+        "kinyarwanda": "Isukuye",
+        "kirundi": "Isukuye",
+        "luo": "Maler"
       },
       {
         "english": "dirty",
@@ -2016,9 +2576,13 @@
         "afar": "dirty",
         "somali": "dirty",
         "arabic": "dirty",
-        "hadiya": "dirty",
-        "wolayita": "dirty",
-        "gamo": "dirty"
+        "hadiyaa": "dirty",
+        "wolyitta": "dirty",
+        "gamo": "dirty",
+        "swahili": "Chafu",
+        "kinyarwanda": "Biyanduye",
+        "kirundi": "Biyanduye",
+        "luo": "Mochido"
       },
       {
         "english": "down",
@@ -2030,9 +2594,13 @@
         "afar": "down",
         "somali": "down",
         "arabic": "down",
-        "hadiya": "down",
-        "wolayita": "down",
-        "gamo": "down"
+        "hadiyaa": "down",
+        "wolyitta": "down",
+        "gamo": "down",
+        "swahili": "Chini",
+        "kinyarwanda": "Hasi",
+        "kirundi": "Hasi",
+        "luo": "Piny"
       },
       {
         "english": "fast",
@@ -2044,9 +2612,13 @@
         "afar": "fast",
         "somali": "fast",
         "arabic": "fast",
-        "hadiya": "fast",
-        "wolayita": "fast",
-        "gamo": "fast"
+        "hadiyaa": "fast",
+        "wolyitta": "fast",
+        "gamo": "fast",
+        "swahili": "Haraka",
+        "kinyarwanda": "Byihuse",
+        "kirundi": "Vuba",
+        "luo": "Mapiyo"
       },
       {
         "english": "left",
@@ -2058,9 +2630,13 @@
         "afar": "left",
         "somali": "left",
         "arabic": "left",
-        "hadiya": "left",
-        "wolayita": "left",
-        "gamo": "left"
+        "hadiyaa": "left",
+        "wolyitta": "left",
+        "gamo": "left",
+        "swahili": "Kushoto",
+        "kinyarwanda": "Ibumoso",
+        "kirundi": "Ibumoso",
+        "luo": "Koracham"
       },
       {
         "english": "right",
@@ -2072,9 +2648,13 @@
         "afar": "right",
         "somali": "right",
         "arabic": "right",
-        "hadiya": "right",
-        "wolayita": "right",
-        "gamo": "right"
+        "hadiyaa": "right",
+        "wolyitta": "right",
+        "gamo": "right",
+        "swahili": "Kulia",
+        "kinyarwanda": "Iburyo",
+        "kirundi": "Iburyo",
+        "luo": "Korachiel"
       },
       {
         "english": "slow",
@@ -2086,9 +2666,13 @@
         "afar": "slow",
         "somali": "slow",
         "arabic": "slow",
-        "hadiya": "slow",
-        "wolayita": "slow",
-        "gamo": "slow"
+        "hadiyaa": "slow",
+        "wolyitta": "slow",
+        "gamo": "slow",
+        "swahili": "Polepole",
+        "kinyarwanda": "Buhoro",
+        "kirundi": "Buhoro",
+        "luo": "Mos"
       },
       {
         "english": "small",
@@ -2100,9 +2684,13 @@
         "afar": "small",
         "somali": "small",
         "arabic": "small",
-        "hadiya": "small",
-        "wolayita": "small",
-        "gamo": "small"
+        "hadiyaa": "small",
+        "wolyitta": "small",
+        "gamo": "small",
+        "swahili": "Ndogo",
+        "kinyarwanda": "Bito",
+        "kirundi": "Bito",
+        "luo": "Matin"
       },
       {
         "english": "up",
@@ -2114,9 +2702,13 @@
         "afar": "up",
         "somali": "up",
         "arabic": "up",
-        "hadiya": "up",
-        "wolayita": "up",
-        "gamo": "up"
+        "hadiyaa": "up",
+        "wolyitta": "up",
+        "gamo": "up",
+        "swahili": "Juu",
+        "kinyarwanda": "Hejuru",
+        "kirundi": "Hejuru",
+        "luo": "Malo"
       }
     ],
     "emotions": [
@@ -2130,9 +2722,13 @@
         "afar": "angry",
         "somali": "angry",
         "arabic": "angry",
-        "hadiya": "angry",
-        "wolayita": "angry",
-        "gamo": "angry"
+        "hadiyaa": "angry",
+        "wolyitta": "angry",
+        "gamo": "angry",
+        "swahili": "Hasira",
+        "kinyarwanda": "Umujinya",
+        "kirundi": "Umujinya",
+        "luo": "Mirima"
       },
       {
         "english": "excited",
@@ -2144,9 +2740,13 @@
         "afar": "excited",
         "somali": "excited",
         "arabic": "excited",
-        "hadiya": "excited",
-        "wolayita": "excited",
-        "gamo": "excited"
+        "hadiyaa": "excited",
+        "wolyitta": "excited",
+        "gamo": "excited",
+        "swahili": "Furaha kuu",
+        "kinyarwanda": "Ibyishimo",
+        "kirundi": "Ibyishimo",
+        "luo": "Mor ahinya"
       },
       {
         "english": "happy",
@@ -2158,9 +2758,13 @@
         "afar": "happy",
         "somali": "happy",
         "arabic": "happy",
-        "hadiya": "happy",
-        "wolayita": "happy",
-        "gamo": "happy"
+        "hadiyaa": "happy",
+        "wolyitta": "happy",
+        "gamo": "happy",
+        "swahili": "Furaha",
+        "kinyarwanda": "Ibyishimo",
+        "kirundi": "Ibyishimo",
+        "luo": "Mor"
       },
       {
         "english": "love",
@@ -2172,9 +2776,13 @@
         "afar": "love",
         "somali": "love",
         "arabic": "love",
-        "hadiya": "love",
-        "wolayita": "love",
-        "gamo": "love"
+        "hadiyaa": "love",
+        "wolyitta": "love",
+        "gamo": "love",
+        "swahili": "Upendo",
+        "kinyarwanda": "Urukundo",
+        "kirundi": "Urukundo",
+        "luo": "Hera"
       },
       {
         "english": "sad",
@@ -2186,9 +2794,13 @@
         "afar": "sad",
         "somali": "sad",
         "arabic": "sad",
-        "hadiya": "sad",
-        "wolayita": "sad",
-        "gamo": "sad"
+        "hadiyaa": "sad",
+        "wolyitta": "sad",
+        "gamo": "sad",
+        "swahili": "Huzuni",
+        "kinyarwanda": "Agahinda",
+        "kirundi": "Agahinda",
+        "luo": "Kuyo"
       },
       {
         "english": "scared",
@@ -2200,9 +2812,13 @@
         "afar": "scared",
         "somali": "scared",
         "arabic": "scared",
-        "hadiya": "scared",
-        "wolayita": "scared",
-        "gamo": "scared"
+        "hadiyaa": "scared",
+        "wolyitta": "scared",
+        "gamo": "scared",
+        "swahili": "Hofu",
+        "kinyarwanda": "Ubwoba",
+        "kirundi": "Ubwoba",
+        "luo": "Luoro"
       },
       {
         "english": "surprised",
@@ -2214,9 +2830,13 @@
         "afar": "surprised",
         "somali": "surprised",
         "arabic": "surprised",
-        "hadiya": "surprised",
-        "wolayita": "surprised",
-        "gamo": "surprised"
+        "hadiyaa": "surprised",
+        "wolyitta": "surprised",
+        "gamo": "surprised",
+        "swahili": "Shangaa",
+        "kinyarwanda": "Gutangara",
+        "kirundi": "Gutangara",
+        "luo": "Dhier"
       },
       {
         "english": "tired",
@@ -2228,9 +2848,13 @@
         "afar": "tired",
         "somali": "tired",
         "arabic": "tired",
-        "hadiya": "tired",
-        "wolayita": "tired",
-        "gamo": "tired"
+        "hadiyaa": "tired",
+        "wolyitta": "tired",
+        "gamo": "tired",
+        "swahili": "Uchovu",
+        "kinyarwanda": "Umunaniro",
+        "kirundi": "Umunaniro",
+        "luo": "Ool"
       }
     ],
     "equipment": [
@@ -2244,9 +2868,13 @@
         "afar": "uniform",
         "somali": "uniform",
         "arabic": "uniform",
-        "hadiya": "uniform",
-        "wolayita": "uniform",
-        "gamo": "uniform"
+        "hadiyaa": "uniform",
+        "wolyitta": "uniform",
+        "gamo": "uniform",
+        "swahili": "Sare",
+        "kinyarwanda": "Imyambaro rusange",
+        "kirundi": "Imyambaro rusange",
+        "luo": "Lep achiel"
       }
     ],
     "family": [
@@ -2260,9 +2888,13 @@
         "afar": "aunt",
         "somali": "aunt",
         "arabic": "aunt",
-        "hadiya": "aunt",
-        "wolayita": "aunt",
-        "gamo": "aunt"
+        "hadiyaa": "aunt",
+        "wolyitta": "aunt",
+        "gamo": "aunt",
+        "swahili": "Shangazi",
+        "kinyarwanda": "Nyirasenge",
+        "kirundi": "Nyirasenge",
+        "luo": "Min omera"
       },
       {
         "english": "baby",
@@ -2274,9 +2906,13 @@
         "afar": "baby",
         "somali": "baby",
         "arabic": "baby",
-        "hadiya": "baby",
-        "wolayita": "baby",
-        "gamo": "baby"
+        "hadiyaa": "baby",
+        "wolyitta": "baby",
+        "gamo": "baby",
+        "swahili": "Mtoto mdogo",
+        "kinyarwanda": "Uruhinja",
+        "kirundi": "Umwana muto",
+        "luo": "Nyathi matin"
       },
       {
         "english": "brother",
@@ -2288,9 +2924,13 @@
         "afar": "brother",
         "somali": "brother",
         "arabic": "brother",
-        "hadiya": "brother",
-        "wolayita": "brother",
-        "gamo": "brother"
+        "hadiyaa": "brother",
+        "wolyitta": "brother",
+        "gamo": "brother",
+        "swahili": "Ndugu",
+        "kinyarwanda": "Murumuna",
+        "kirundi": "Mwene data",
+        "luo": "Owadu"
       },
       {
         "english": "child",
@@ -2302,9 +2942,13 @@
         "afar": "child",
         "somali": "child",
         "arabic": "child",
-        "hadiya": "child",
-        "wolayita": "child",
-        "gamo": "child"
+        "hadiyaa": "child",
+        "wolyitta": "child",
+        "gamo": "child",
+        "swahili": "Mtoto",
+        "kinyarwanda": "Umwana",
+        "kirundi": "Umwana",
+        "luo": "Nyathi"
       },
       {
         "english": "children",
@@ -2316,9 +2960,13 @@
         "afar": "children",
         "somali": "children",
         "arabic": "children",
-        "hadiya": "children",
-        "wolayita": "children",
-        "gamo": "children"
+        "hadiyaa": "children",
+        "wolyitta": "children",
+        "gamo": "children",
+        "swahili": "Watoto",
+        "kinyarwanda": "Abana",
+        "kirundi": "Abana",
+        "luo": "Nyithindo"
       },
       {
         "english": "cousin",
@@ -2330,9 +2978,13 @@
         "afar": "cousin",
         "somali": "cousin",
         "arabic": "cousin",
-        "hadiya": "cousin",
-        "wolayita": "cousin",
-        "gamo": "cousin"
+        "hadiyaa": "cousin",
+        "wolyitta": "cousin",
+        "gamo": "cousin",
+        "swahili": "Binamu",
+        "kinyarwanda": "Mubyara",
+        "kirundi": "Mubyara",
+        "luo": "Owadu nyamera"
       },
       {
         "english": "family",
@@ -2344,9 +2996,13 @@
         "afar": "family",
         "somali": "family",
         "arabic": "family",
-        "hadiya": "family",
-        "wolayita": "family",
-        "gamo": "family"
+        "hadiyaa": "family",
+        "wolyitta": "family",
+        "gamo": "family",
+        "swahili": "Familia",
+        "kinyarwanda": "Umuryango",
+        "kirundi": "Umuryango",
+        "luo": "Joka"
       },
       {
         "english": "father",
@@ -2358,9 +3014,13 @@
         "afar": "father",
         "somali": "father",
         "arabic": "father",
-        "hadiya": "father",
-        "wolayita": "father",
-        "gamo": "father"
+        "hadiyaa": "father",
+        "wolyitta": "father",
+        "gamo": "father",
+        "swahili": "Baba",
+        "kinyarwanda": "Se",
+        "kirundi": "Data",
+        "luo": "Wuoro"
       },
       {
         "english": "grandfather",
@@ -2372,9 +3032,13 @@
         "afar": "grandfather",
         "somali": "grandfather",
         "arabic": "grandfather",
-        "hadiya": "grandfather",
-        "wolayita": "grandfather",
-        "gamo": "grandfather"
+        "hadiyaa": "grandfather",
+        "wolyitta": "grandfather",
+        "gamo": "grandfather",
+        "swahili": "Babu",
+        "kinyarwanda": "Sogokuru",
+        "kirundi": "Sogokuru",
+        "luo": "Kwaru"
       },
       {
         "english": "grandmother",
@@ -2386,9 +3050,13 @@
         "afar": "grandmother",
         "somali": "grandmother",
         "arabic": "grandmother",
-        "hadiya": "grandmother",
-        "wolayita": "grandmother",
-        "gamo": "grandmother"
+        "hadiyaa": "grandmother",
+        "wolyitta": "grandmother",
+        "gamo": "grandmother",
+        "swahili": "Bibi",
+        "kinyarwanda": "Nyirakuru",
+        "kirundi": "Nyogokuru",
+        "luo": "Dayo"
       },
       {
         "english": "mother",
@@ -2400,9 +3068,13 @@
         "afar": "mother",
         "somali": "mother",
         "arabic": "mother",
-        "hadiya": "mother",
-        "wolayita": "mother",
-        "gamo": "mother"
+        "hadiyaa": "mother",
+        "wolyitta": "mother",
+        "gamo": "mother",
+        "swahili": "Mama",
+        "kinyarwanda": "Nyina",
+        "kirundi": "Mama",
+        "luo": "Minu"
       },
       {
         "english": "sister",
@@ -2414,9 +3086,13 @@
         "afar": "sister",
         "somali": "sister",
         "arabic": "sister",
-        "hadiya": "sister",
-        "wolayita": "sister",
-        "gamo": "sister"
+        "hadiyaa": "sister",
+        "wolyitta": "sister",
+        "gamo": "sister",
+        "swahili": "Dada",
+        "kinyarwanda": "Mushiki",
+        "kirundi": "Mushiki",
+        "luo": "Nyamera"
       },
       {
         "english": "uncle",
@@ -2428,9 +3104,13 @@
         "afar": "uncle",
         "somali": "uncle",
         "arabic": "uncle",
-        "hadiya": "uncle",
-        "wolayita": "uncle",
-        "gamo": "uncle"
+        "hadiyaa": "uncle",
+        "wolyitta": "uncle",
+        "gamo": "uncle",
+        "swahili": "Mjomba",
+        "kinyarwanda": "Nyirasenge",
+        "kirundi": "Nyoko",
+        "luo": "Owadu wuoro"
       }
     ],
     "food": [
@@ -2444,9 +3124,13 @@
         "afar": "apple",
         "somali": "apple",
         "arabic": "apple",
-        "hadiya": "apple",
-        "wolayita": "apple",
-        "gamo": "apple"
+        "hadiyaa": "apple",
+        "wolyitta": "apple",
+        "gamo": "apple",
+        "swahili": "apple",
+        "kinyarwanda": "apple",
+        "kirundi": "apple",
+        "luo": "apple"
       },
       {
         "english": "banana",
@@ -2458,9 +3142,13 @@
         "afar": "banana",
         "somali": "banana",
         "arabic": "banana",
-        "hadiya": "banana",
-        "wolayita": "banana",
-        "gamo": "banana"
+        "hadiyaa": "banana",
+        "wolyitta": "banana",
+        "gamo": "banana",
+        "swahili": "banana",
+        "kinyarwanda": "banana",
+        "kirundi": "banana",
+        "luo": "banana"
       },
       {
         "english": "bread",
@@ -2472,9 +3160,13 @@
         "afar": "bread",
         "somali": "bread",
         "arabic": "bread",
-        "hadiya": "bread",
-        "wolayita": "bread",
-        "gamo": "bread"
+        "hadiyaa": "bread",
+        "wolyitta": "bread",
+        "gamo": "bread",
+        "swahili": "bread",
+        "kinyarwanda": "bread",
+        "kirundi": "bread",
+        "luo": "bread"
       },
       {
         "english": "breakfast",
@@ -2486,9 +3178,13 @@
         "afar": "breakfast",
         "somali": "breakfast",
         "arabic": "breakfast",
-        "hadiya": "breakfast",
-        "wolayita": "breakfast",
-        "gamo": "breakfast"
+        "hadiyaa": "breakfast",
+        "wolyitta": "breakfast",
+        "gamo": "breakfast",
+        "swahili": "breakfast",
+        "kinyarwanda": "breakfast",
+        "kirundi": "breakfast",
+        "luo": "breakfast"
       },
       {
         "english": "cake",
@@ -2500,9 +3196,13 @@
         "afar": "cake",
         "somali": "cake",
         "arabic": "cake",
-        "hadiya": "cake",
-        "wolayita": "cake",
-        "gamo": "cake"
+        "hadiyaa": "cake",
+        "wolyitta": "cake",
+        "gamo": "cake",
+        "swahili": "cake",
+        "kinyarwanda": "cake",
+        "kirundi": "cake",
+        "luo": "cake"
       },
       {
         "english": "candy",
@@ -2514,9 +3214,13 @@
         "afar": "candy",
         "somali": "candy",
         "arabic": "candy",
-        "hadiya": "candy",
-        "wolayita": "candy",
-        "gamo": "candy"
+        "hadiyaa": "candy",
+        "wolyitta": "candy",
+        "gamo": "candy",
+        "swahili": "candy",
+        "kinyarwanda": "candy",
+        "kirundi": "candy",
+        "luo": "candy"
       },
       {
         "english": "coffee",
@@ -2528,9 +3232,13 @@
         "afar": "coffee",
         "somali": "coffee",
         "arabic": "coffee",
-        "hadiya": "coffee",
-        "wolayita": "coffee",
-        "gamo": "coffee"
+        "hadiyaa": "coffee",
+        "wolyitta": "coffee",
+        "gamo": "coffee",
+        "swahili": "coffee",
+        "kinyarwanda": "coffee",
+        "kirundi": "coffee",
+        "luo": "coffee"
       },
       {
         "english": "dinner",
@@ -2542,9 +3250,13 @@
         "afar": "dinner",
         "somali": "dinner",
         "arabic": "dinner",
-        "hadiya": "dinner",
-        "wolayita": "dinner",
-        "gamo": "dinner"
+        "hadiyaa": "dinner",
+        "wolyitta": "dinner",
+        "gamo": "dinner",
+        "swahili": "dinner",
+        "kinyarwanda": "dinner",
+        "kirundi": "dinner",
+        "luo": "dinner"
       },
       {
         "english": "egg",
@@ -2556,9 +3268,13 @@
         "afar": "egg",
         "somali": "egg",
         "arabic": "egg",
-        "hadiya": "egg",
-        "wolayita": "egg",
-        "gamo": "egg"
+        "hadiyaa": "egg",
+        "wolyitta": "egg",
+        "gamo": "egg",
+        "swahili": "egg",
+        "kinyarwanda": "egg",
+        "kirundi": "egg",
+        "luo": "egg"
       },
       {
         "english": "food",
@@ -2570,9 +3286,13 @@
         "afar": "food",
         "somali": "food",
         "arabic": "food",
-        "hadiya": "food",
-        "wolayita": "food",
-        "gamo": "food"
+        "hadiyaa": "food",
+        "wolyitta": "food",
+        "gamo": "food",
+        "swahili": "food",
+        "kinyarwanda": "food",
+        "kirundi": "food",
+        "luo": "food"
       },
       {
         "english": "fruit",
@@ -2584,9 +3304,13 @@
         "afar": "fruit",
         "somali": "fruit",
         "arabic": "fruit",
-        "hadiya": "fruit",
-        "wolayita": "fruit",
-        "gamo": "fruit"
+        "hadiyaa": "fruit",
+        "wolyitta": "fruit",
+        "gamo": "fruit",
+        "swahili": "fruit",
+        "kinyarwanda": "fruit",
+        "kirundi": "fruit",
+        "luo": "fruit"
       },
       {
         "english": "juice",
@@ -2598,9 +3322,13 @@
         "afar": "juice",
         "somali": "juice",
         "arabic": "juice",
-        "hadiya": "juice",
-        "wolayita": "juice",
-        "gamo": "juice"
+        "hadiyaa": "juice",
+        "wolyitta": "juice",
+        "gamo": "juice",
+        "swahili": "juice",
+        "kinyarwanda": "juice",
+        "kirundi": "juice",
+        "luo": "juice"
       },
       {
         "english": "lunch",
@@ -2612,9 +3340,13 @@
         "afar": "lunch",
         "somali": "lunch",
         "arabic": "lunch",
-        "hadiya": "lunch",
-        "wolayita": "lunch",
-        "gamo": "lunch"
+        "hadiyaa": "lunch",
+        "wolyitta": "lunch",
+        "gamo": "lunch",
+        "swahili": "lunch",
+        "kinyarwanda": "lunch",
+        "kirundi": "lunch",
+        "luo": "lunch"
       },
       {
         "english": "meat",
@@ -2626,9 +3358,13 @@
         "afar": "meat",
         "somali": "meat",
         "arabic": "meat",
-        "hadiya": "meat",
-        "wolayita": "meat",
-        "gamo": "meat"
+        "hadiyaa": "meat",
+        "wolyitta": "meat",
+        "gamo": "meat",
+        "swahili": "meat",
+        "kinyarwanda": "meat",
+        "kirundi": "meat",
+        "luo": "meat"
       },
       {
         "english": "milk",
@@ -2640,9 +3376,13 @@
         "afar": "milk",
         "somali": "milk",
         "arabic": "milk",
-        "hadiya": "milk",
-        "wolayita": "milk",
-        "gamo": "milk"
+        "hadiyaa": "milk",
+        "wolyitta": "milk",
+        "gamo": "milk",
+        "swahili": "milk",
+        "kinyarwanda": "milk",
+        "kirundi": "milk",
+        "luo": "milk"
       },
       {
         "english": "rice",
@@ -2654,9 +3394,13 @@
         "afar": "rice",
         "somali": "rice",
         "arabic": "rice",
-        "hadiya": "rice",
-        "wolayita": "rice",
-        "gamo": "rice"
+        "hadiyaa": "rice",
+        "wolyitta": "rice",
+        "gamo": "rice",
+        "swahili": "rice",
+        "kinyarwanda": "rice",
+        "kirundi": "rice",
+        "luo": "rice"
       },
       {
         "english": "soup",
@@ -2668,9 +3412,13 @@
         "afar": "soup",
         "somali": "soup",
         "arabic": "soup",
-        "hadiya": "soup",
-        "wolayita": "soup",
-        "gamo": "soup"
+        "hadiyaa": "soup",
+        "wolyitta": "soup",
+        "gamo": "soup",
+        "swahili": "soup",
+        "kinyarwanda": "soup",
+        "kirundi": "soup",
+        "luo": "soup"
       },
       {
         "english": "tea",
@@ -2682,9 +3430,13 @@
         "afar": "tea",
         "somali": "tea",
         "arabic": "tea",
-        "hadiya": "tea",
-        "wolayita": "tea",
-        "gamo": "tea"
+        "hadiyaa": "tea",
+        "wolyitta": "tea",
+        "gamo": "tea",
+        "swahili": "tea",
+        "kinyarwanda": "tea",
+        "kirundi": "tea",
+        "luo": "tea"
       },
       {
         "english": "vegetable",
@@ -2696,9 +3448,13 @@
         "afar": "vegetable",
         "somali": "vegetable",
         "arabic": "vegetable",
-        "hadiya": "vegetable",
-        "wolayita": "vegetable",
-        "gamo": "vegetable"
+        "hadiyaa": "vegetable",
+        "wolyitta": "vegetable",
+        "gamo": "vegetable",
+        "swahili": "vegetable",
+        "kinyarwanda": "vegetable",
+        "kirundi": "vegetable",
+        "luo": "vegetable"
       }
     ],
     "holidays": [
@@ -2712,9 +3468,13 @@
         "afar": "Christmas",
         "somali": "Christmas",
         "arabic": "Christmas",
-        "hadiya": "Christmas",
-        "wolayita": "Christmas",
-        "gamo": "Christmas"
+        "hadiyaa": "Christmas",
+        "wolyitta": "Christmas",
+        "gamo": "Christmas",
+        "swahili": "Christmas",
+        "kinyarwanda": "Christmas",
+        "kirundi": "Christmas",
+        "luo": "Christmas"
       },
       {
         "english": "birthday",
@@ -2726,9 +3486,13 @@
         "afar": "birthday",
         "somali": "birthday",
         "arabic": "birthday",
-        "hadiya": "birthday",
-        "wolayita": "birthday",
-        "gamo": "birthday"
+        "hadiyaa": "birthday",
+        "wolyitta": "birthday",
+        "gamo": "birthday",
+        "swahili": "birthday",
+        "kinyarwanda": "birthday",
+        "kirundi": "birthday",
+        "luo": "birthday"
       },
       {
         "english": "gift",
@@ -2740,9 +3504,13 @@
         "afar": "gift",
         "somali": "gift",
         "arabic": "gift",
-        "hadiya": "gift",
-        "wolayita": "gift",
-        "gamo": "gift"
+        "hadiyaa": "gift",
+        "wolyitta": "gift",
+        "gamo": "gift",
+        "swahili": "gift",
+        "kinyarwanda": "gift",
+        "kirundi": "gift",
+        "luo": "gift"
       },
       {
         "english": "party",
@@ -2754,9 +3522,13 @@
         "afar": "party",
         "somali": "party",
         "arabic": "party",
-        "hadiya": "party",
-        "wolayita": "party",
-        "gamo": "party"
+        "hadiyaa": "party",
+        "wolyitta": "party",
+        "gamo": "party",
+        "swahili": "party",
+        "kinyarwanda": "party",
+        "kirundi": "party",
+        "luo": "party"
       }
     ],
     "house": [
@@ -2770,9 +3542,13 @@
         "afar": "bath",
         "somali": "bath",
         "arabic": "bath",
-        "hadiya": "bath",
-        "wolayita": "bath",
-        "gamo": "bath"
+        "hadiyaa": "bath",
+        "wolyitta": "bath",
+        "gamo": "bath",
+        "swahili": "bath",
+        "kinyarwanda": "bath",
+        "kirundi": "bath",
+        "luo": "bath"
       },
       {
         "english": "bed",
@@ -2784,9 +3560,13 @@
         "afar": "bed",
         "somali": "bed",
         "arabic": "bed",
-        "hadiya": "bed",
-        "wolayita": "bed",
-        "gamo": "bed"
+        "hadiyaa": "bed",
+        "wolyitta": "bed",
+        "gamo": "bed",
+        "swahili": "bed",
+        "kinyarwanda": "bed",
+        "kirundi": "bed",
+        "luo": "bed"
       },
       {
         "english": "blanket",
@@ -2798,9 +3578,13 @@
         "afar": "blanket",
         "somali": "blanket",
         "arabic": "blanket",
-        "hadiya": "blanket",
-        "wolayita": "blanket",
-        "gamo": "blanket"
+        "hadiyaa": "blanket",
+        "wolyitta": "blanket",
+        "gamo": "blanket",
+        "swahili": "blanket",
+        "kinyarwanda": "blanket",
+        "kirundi": "blanket",
+        "luo": "blanket"
       },
       {
         "english": "chair",
@@ -2812,9 +3596,13 @@
         "afar": "chair",
         "somali": "chair",
         "arabic": "chair",
-        "hadiya": "chair",
-        "wolayita": "chair",
-        "gamo": "chair"
+        "hadiyaa": "chair",
+        "wolyitta": "chair",
+        "gamo": "chair",
+        "swahili": "chair",
+        "kinyarwanda": "chair",
+        "kirundi": "chair",
+        "luo": "chair"
       },
       {
         "english": "door",
@@ -2826,9 +3614,13 @@
         "afar": "door",
         "somali": "door",
         "arabic": "door",
-        "hadiya": "door",
-        "wolayita": "door",
-        "gamo": "door"
+        "hadiyaa": "door",
+        "wolyitta": "door",
+        "gamo": "door",
+        "swahili": "door",
+        "kinyarwanda": "door",
+        "kirundi": "door",
+        "luo": "door"
       },
       {
         "english": "dream",
@@ -2840,9 +3632,13 @@
         "afar": "dream",
         "somali": "dream",
         "arabic": "dream",
-        "hadiya": "dream",
-        "wolayita": "dream",
-        "gamo": "dream"
+        "hadiyaa": "dream",
+        "wolyitta": "dream",
+        "gamo": "dream",
+        "swahili": "dream",
+        "kinyarwanda": "dream",
+        "kirundi": "dream",
+        "luo": "dream"
       },
       {
         "english": "home",
@@ -2854,9 +3650,13 @@
         "afar": "home",
         "somali": "home",
         "arabic": "home",
-        "hadiya": "home",
-        "wolayita": "home",
-        "gamo": "home"
+        "hadiyaa": "home",
+        "wolyitta": "home",
+        "gamo": "home",
+        "swahili": "home",
+        "kinyarwanda": "home",
+        "kirundi": "home",
+        "luo": "home"
       },
       {
         "english": "house",
@@ -2868,9 +3668,13 @@
         "afar": "house",
         "somali": "house",
         "arabic": "house",
-        "hadiya": "house",
-        "wolayita": "house",
-        "gamo": "house"
+        "hadiyaa": "house",
+        "wolyitta": "house",
+        "gamo": "house",
+        "swahili": "house",
+        "kinyarwanda": "house",
+        "kirundi": "house",
+        "luo": "house"
       },
       {
         "english": "kitchen",
@@ -2882,9 +3686,13 @@
         "afar": "kitchen",
         "somali": "kitchen",
         "arabic": "kitchen",
-        "hadiya": "kitchen",
-        "wolayita": "kitchen",
-        "gamo": "kitchen"
+        "hadiyaa": "kitchen",
+        "wolyitta": "kitchen",
+        "gamo": "kitchen",
+        "swahili": "kitchen",
+        "kinyarwanda": "kitchen",
+        "kirundi": "kitchen",
+        "luo": "kitchen"
       },
       {
         "english": "pillow",
@@ -2896,9 +3704,13 @@
         "afar": "pillow",
         "somali": "pillow",
         "arabic": "pillow",
-        "hadiya": "pillow",
-        "wolayita": "pillow",
-        "gamo": "pillow"
+        "hadiyaa": "pillow",
+        "wolyitta": "pillow",
+        "gamo": "pillow",
+        "swahili": "pillow",
+        "kinyarwanda": "pillow",
+        "kirundi": "pillow",
+        "luo": "pillow"
       },
       {
         "english": "room",
@@ -2910,9 +3722,13 @@
         "afar": "room",
         "somali": "room",
         "arabic": "room",
-        "hadiya": "room",
-        "wolayita": "room",
-        "gamo": "room"
+        "hadiyaa": "room",
+        "wolyitta": "room",
+        "gamo": "room",
+        "swahili": "room",
+        "kinyarwanda": "room",
+        "kirundi": "room",
+        "luo": "room"
       },
       {
         "english": "soap",
@@ -2924,9 +3740,13 @@
         "afar": "soap",
         "somali": "soap",
         "arabic": "soap",
-        "hadiya": "soap",
-        "wolayita": "soap",
-        "gamo": "soap"
+        "hadiyaa": "soap",
+        "wolyitta": "soap",
+        "gamo": "soap",
+        "swahili": "soap",
+        "kinyarwanda": "soap",
+        "kirundi": "soap",
+        "luo": "soap"
       },
       {
         "english": "table",
@@ -2938,9 +3758,13 @@
         "afar": "table",
         "somali": "table",
         "arabic": "table",
-        "hadiya": "table",
-        "wolayita": "table",
-        "gamo": "table"
+        "hadiyaa": "table",
+        "wolyitta": "table",
+        "gamo": "table",
+        "swahili": "table",
+        "kinyarwanda": "table",
+        "kirundi": "table",
+        "luo": "table"
       },
       {
         "english": "toothbrush",
@@ -2952,9 +3776,13 @@
         "afar": "toothbrush",
         "somali": "toothbrush",
         "arabic": "toothbrush",
-        "hadiya": "toothbrush",
-        "wolayita": "toothbrush",
-        "gamo": "toothbrush"
+        "hadiyaa": "toothbrush",
+        "wolyitta": "toothbrush",
+        "gamo": "toothbrush",
+        "swahili": "toothbrush",
+        "kinyarwanda": "toothbrush",
+        "kirundi": "toothbrush",
+        "luo": "toothbrush"
       },
       {
         "english": "window",
@@ -2966,9 +3794,13 @@
         "afar": "window",
         "somali": "window",
         "arabic": "window",
-        "hadiya": "window",
-        "wolayita": "window",
-        "gamo": "window"
+        "hadiyaa": "window",
+        "wolyitta": "window",
+        "gamo": "window",
+        "swahili": "window",
+        "kinyarwanda": "window",
+        "kirundi": "window",
+        "luo": "window"
       }
     ],
     "medical": [
@@ -2982,9 +3814,13 @@
         "afar": "death",
         "somali": "death",
         "arabic": "death",
-        "hadiya": "death",
-        "wolayita": "death",
-        "gamo": "death"
+        "hadiyaa": "death",
+        "wolyitta": "death",
+        "gamo": "death",
+        "swahili": "death",
+        "kinyarwanda": "death",
+        "kirundi": "death",
+        "luo": "death"
       },
       {
         "english": "wound",
@@ -2996,9 +3832,13 @@
         "afar": "wound",
         "somali": "wound",
         "arabic": "wound",
-        "hadiya": "wound",
-        "wolayita": "wound",
-        "gamo": "wound"
+        "hadiyaa": "wound",
+        "wolyitta": "wound",
+        "gamo": "wound",
+        "swahili": "wound",
+        "kinyarwanda": "wound",
+        "kirundi": "wound",
+        "luo": "wound"
       }
     ],
     "military": [
@@ -3012,9 +3852,13 @@
         "afar": "army",
         "somali": "army",
         "arabic": "army",
-        "hadiya": "army",
-        "wolayita": "army",
-        "gamo": "army"
+        "hadiyaa": "army",
+        "wolyitta": "army",
+        "gamo": "army",
+        "swahili": "army",
+        "kinyarwanda": "army",
+        "kirundi": "army",
+        "luo": "army"
       },
       {
         "english": "battle",
@@ -3026,9 +3870,13 @@
         "afar": "battle",
         "somali": "battle",
         "arabic": "battle",
-        "hadiya": "battle",
-        "wolayita": "battle",
-        "gamo": "battle"
+        "hadiyaa": "battle",
+        "wolyitta": "battle",
+        "gamo": "battle",
+        "swahili": "battle",
+        "kinyarwanda": "battle",
+        "kirundi": "battle",
+        "luo": "battle"
       },
       {
         "english": "ceasefire",
@@ -3040,9 +3888,13 @@
         "afar": "ceasefire",
         "somali": "ceasefire",
         "arabic": "ceasefire",
-        "hadiya": "ceasefire",
-        "wolayita": "ceasefire",
-        "gamo": "ceasefire"
+        "hadiyaa": "ceasefire",
+        "wolyitta": "ceasefire",
+        "gamo": "ceasefire",
+        "swahili": "ceasefire",
+        "kinyarwanda": "ceasefire",
+        "kirundi": "ceasefire",
+        "luo": "ceasefire"
       },
       {
         "english": "peace",
@@ -3054,9 +3906,13 @@
         "afar": "peace",
         "somali": "peace",
         "arabic": "peace",
-        "hadiya": "peace",
-        "wolayita": "peace",
-        "gamo": "peace"
+        "hadiyaa": "peace",
+        "wolyitta": "peace",
+        "gamo": "peace",
+        "swahili": "peace",
+        "kinyarwanda": "peace",
+        "kirundi": "peace",
+        "luo": "peace"
       },
       {
         "english": "soldier",
@@ -3068,9 +3924,13 @@
         "afar": "soldier",
         "somali": "soldier",
         "arabic": "soldier",
-        "hadiya": "soldier",
-        "wolayita": "soldier",
-        "gamo": "soldier"
+        "hadiyaa": "soldier",
+        "wolyitta": "soldier",
+        "gamo": "soldier",
+        "swahili": "soldier",
+        "kinyarwanda": "soldier",
+        "kirundi": "soldier",
+        "luo": "soldier"
       },
       {
         "english": "war",
@@ -3082,9 +3942,13 @@
         "afar": "war",
         "somali": "war",
         "arabic": "war",
-        "hadiya": "war",
-        "wolayita": "war",
-        "gamo": "war"
+        "hadiyaa": "war",
+        "wolyitta": "war",
+        "gamo": "war",
+        "swahili": "war",
+        "kinyarwanda": "war",
+        "kirundi": "war",
+        "luo": "war"
       }
     ],
     "music": [
@@ -3098,9 +3962,13 @@
         "afar": "dance",
         "somali": "dance",
         "arabic": "dance",
-        "hadiya": "dance",
-        "wolayita": "dance",
-        "gamo": "dance"
+        "hadiyaa": "dance",
+        "wolyitta": "dance",
+        "gamo": "dance",
+        "swahili": "dance",
+        "kinyarwanda": "dance",
+        "kirundi": "dance",
+        "luo": "dance"
       },
       {
         "english": "music",
@@ -3112,9 +3980,13 @@
         "afar": "music",
         "somali": "music",
         "arabic": "music",
-        "hadiya": "music",
-        "wolayita": "music",
-        "gamo": "music"
+        "hadiyaa": "music",
+        "wolyitta": "music",
+        "gamo": "music",
+        "swahili": "music",
+        "kinyarwanda": "music",
+        "kirundi": "music",
+        "luo": "music"
       },
       {
         "english": "sing",
@@ -3126,9 +3998,13 @@
         "afar": "sing",
         "somali": "sing",
         "arabic": "sing",
-        "hadiya": "sing",
-        "wolayita": "sing",
-        "gamo": "sing"
+        "hadiyaa": "sing",
+        "wolyitta": "sing",
+        "gamo": "sing",
+        "swahili": "sing",
+        "kinyarwanda": "sing",
+        "kirundi": "sing",
+        "luo": "sing"
       },
       {
         "english": "song",
@@ -3140,9 +4016,13 @@
         "afar": "song",
         "somali": "song",
         "arabic": "song",
-        "hadiya": "song",
-        "wolayita": "song",
-        "gamo": "song"
+        "hadiyaa": "song",
+        "wolyitta": "song",
+        "gamo": "song",
+        "swahili": "song",
+        "kinyarwanda": "song",
+        "kirundi": "song",
+        "luo": "song"
       }
     ],
     "nature": [
@@ -3156,9 +4036,13 @@
         "afar": "cloud",
         "somali": "cloud",
         "arabic": "cloud",
-        "hadiya": "cloud",
-        "wolayita": "cloud",
-        "gamo": "cloud"
+        "hadiyaa": "cloud",
+        "wolyitta": "cloud",
+        "gamo": "cloud",
+        "swahili": "cloud",
+        "kinyarwanda": "cloud",
+        "kirundi": "cloud",
+        "luo": "cloud"
       },
       {
         "english": "flower",
@@ -3170,9 +4054,13 @@
         "afar": "flower",
         "somali": "flower",
         "arabic": "flower",
-        "hadiya": "flower",
-        "wolayita": "flower",
-        "gamo": "flower"
+        "hadiyaa": "flower",
+        "wolyitta": "flower",
+        "gamo": "flower",
+        "swahili": "flower",
+        "kinyarwanda": "flower",
+        "kirundi": "flower",
+        "luo": "flower"
       },
       {
         "english": "lake",
@@ -3184,9 +4072,13 @@
         "afar": "lake",
         "somali": "lake",
         "arabic": "lake",
-        "hadiya": "lake",
-        "wolayita": "lake",
-        "gamo": "lake"
+        "hadiyaa": "lake",
+        "wolyitta": "lake",
+        "gamo": "lake",
+        "swahili": "lake",
+        "kinyarwanda": "lake",
+        "kirundi": "lake",
+        "luo": "lake"
       },
       {
         "english": "moon",
@@ -3198,9 +4090,13 @@
         "afar": "moon",
         "somali": "moon",
         "arabic": "moon",
-        "hadiya": "moon",
-        "wolayita": "moon",
-        "gamo": "moon"
+        "hadiyaa": "moon",
+        "wolyitta": "moon",
+        "gamo": "moon",
+        "swahili": "moon",
+        "kinyarwanda": "moon",
+        "kirundi": "moon",
+        "luo": "moon"
       },
       {
         "english": "mountain",
@@ -3212,9 +4108,13 @@
         "afar": "mountain",
         "somali": "mountain",
         "arabic": "mountain",
-        "hadiya": "mountain",
-        "wolayita": "mountain",
-        "gamo": "mountain"
+        "hadiyaa": "mountain",
+        "wolyitta": "mountain",
+        "gamo": "mountain",
+        "swahili": "mountain",
+        "kinyarwanda": "mountain",
+        "kirundi": "mountain",
+        "luo": "mountain"
       },
       {
         "english": "rain",
@@ -3226,9 +4126,13 @@
         "afar": "rain",
         "somali": "rain",
         "arabic": "rain",
-        "hadiya": "rain",
-        "wolayita": "rain",
-        "gamo": "rain"
+        "hadiyaa": "rain",
+        "wolyitta": "rain",
+        "gamo": "rain",
+        "swahili": "rain",
+        "kinyarwanda": "rain",
+        "kirundi": "rain",
+        "luo": "rain"
       },
       {
         "english": "river",
@@ -3240,9 +4144,13 @@
         "afar": "river",
         "somali": "river",
         "arabic": "river",
-        "hadiya": "river",
-        "wolayita": "river",
-        "gamo": "river"
+        "hadiyaa": "river",
+        "wolyitta": "river",
+        "gamo": "river",
+        "swahili": "river",
+        "kinyarwanda": "river",
+        "kirundi": "river",
+        "luo": "river"
       },
       {
         "english": "sea",
@@ -3254,9 +4162,13 @@
         "afar": "sea",
         "somali": "sea",
         "arabic": "sea",
-        "hadiya": "sea",
-        "wolayita": "sea",
-        "gamo": "sea"
+        "hadiyaa": "sea",
+        "wolyitta": "sea",
+        "gamo": "sea",
+        "swahili": "sea",
+        "kinyarwanda": "sea",
+        "kirundi": "sea",
+        "luo": "sea"
       },
       {
         "english": "sky",
@@ -3268,9 +4180,13 @@
         "afar": "sky",
         "somali": "sky",
         "arabic": "sky",
-        "hadiya": "sky",
-        "wolayita": "sky",
-        "gamo": "sky"
+        "hadiyaa": "sky",
+        "wolyitta": "sky",
+        "gamo": "sky",
+        "swahili": "sky",
+        "kinyarwanda": "sky",
+        "kirundi": "sky",
+        "luo": "sky"
       },
       {
         "english": "snow",
@@ -3282,9 +4198,13 @@
         "afar": "snow",
         "somali": "snow",
         "arabic": "snow",
-        "hadiya": "snow",
-        "wolayita": "snow",
-        "gamo": "snow"
+        "hadiyaa": "snow",
+        "wolyitta": "snow",
+        "gamo": "snow",
+        "swahili": "snow",
+        "kinyarwanda": "snow",
+        "kirundi": "snow",
+        "luo": "snow"
       },
       {
         "english": "star",
@@ -3296,9 +4216,13 @@
         "afar": "star",
         "somali": "star",
         "arabic": "star",
-        "hadiya": "star",
-        "wolayita": "star",
-        "gamo": "star"
+        "hadiyaa": "star",
+        "wolyitta": "star",
+        "gamo": "star",
+        "swahili": "star",
+        "kinyarwanda": "star",
+        "kirundi": "star",
+        "luo": "star"
       },
       {
         "english": "sun",
@@ -3310,9 +4234,13 @@
         "afar": "sun",
         "somali": "sun",
         "arabic": "sun",
-        "hadiya": "sun",
-        "wolayita": "sun",
-        "gamo": "sun"
+        "hadiyaa": "sun",
+        "wolyitta": "sun",
+        "gamo": "sun",
+        "swahili": "sun",
+        "kinyarwanda": "sun",
+        "kirundi": "sun",
+        "luo": "sun"
       },
       {
         "english": "tree",
@@ -3324,9 +4252,13 @@
         "afar": "tree",
         "somali": "tree",
         "arabic": "tree",
-        "hadiya": "tree",
-        "wolayita": "tree",
-        "gamo": "tree"
+        "hadiyaa": "tree",
+        "wolyitta": "tree",
+        "gamo": "tree",
+        "swahili": "tree",
+        "kinyarwanda": "tree",
+        "kirundi": "tree",
+        "luo": "tree"
       },
       {
         "english": "water",
@@ -3338,9 +4270,13 @@
         "afar": "water",
         "somali": "water",
         "arabic": "water",
-        "hadiya": "water",
-        "wolayita": "water",
-        "gamo": "water"
+        "hadiyaa": "water",
+        "wolyitta": "water",
+        "gamo": "water",
+        "swahili": "water",
+        "kinyarwanda": "water",
+        "kirundi": "water",
+        "luo": "water"
       },
       {
         "english": "wind",
@@ -3352,9 +4288,13 @@
         "afar": "wind",
         "somali": "wind",
         "arabic": "wind",
-        "hadiya": "wind",
-        "wolayita": "wind",
-        "gamo": "wind"
+        "hadiyaa": "wind",
+        "wolyitta": "wind",
+        "gamo": "wind",
+        "swahili": "wind",
+        "kinyarwanda": "wind",
+        "kirundi": "wind",
+        "luo": "wind"
       },
       {
         "english": "world",
@@ -3366,9 +4306,13 @@
         "afar": "world",
         "somali": "world",
         "arabic": "world",
-        "hadiya": "world",
-        "wolayita": "world",
-        "gamo": "world"
+        "hadiyaa": "world",
+        "wolyitta": "world",
+        "gamo": "world",
+        "swahili": "world",
+        "kinyarwanda": "world",
+        "kirundi": "world",
+        "luo": "world"
       }
     ],
     "numbers": [
@@ -3382,9 +4326,13 @@
         "afar": "eight",
         "somali": "eight",
         "arabic": "eight",
-        "hadiya": "eight",
-        "wolayita": "eight",
-        "gamo": "eight"
+        "hadiyaa": "eight",
+        "wolyitta": "eight",
+        "gamo": "eight",
+        "swahili": "eight",
+        "kinyarwanda": "eight",
+        "kirundi": "eight",
+        "luo": "eight"
       },
       {
         "english": "five",
@@ -3396,9 +4344,13 @@
         "afar": "five",
         "somali": "five",
         "arabic": "five",
-        "hadiya": "five",
-        "wolayita": "five",
-        "gamo": "five"
+        "hadiyaa": "five",
+        "wolyitta": "five",
+        "gamo": "five",
+        "swahili": "five",
+        "kinyarwanda": "five",
+        "kirundi": "five",
+        "luo": "five"
       },
       {
         "english": "four",
@@ -3410,9 +4362,13 @@
         "afar": "four",
         "somali": "four",
         "arabic": "four",
-        "hadiya": "four",
-        "wolayita": "four",
-        "gamo": "four"
+        "hadiyaa": "four",
+        "wolyitta": "four",
+        "gamo": "four",
+        "swahili": "four",
+        "kinyarwanda": "four",
+        "kirundi": "four",
+        "luo": "four"
       },
       {
         "english": "nine",
@@ -3424,9 +4380,13 @@
         "afar": "nine",
         "somali": "nine",
         "arabic": "nine",
-        "hadiya": "nine",
-        "wolayita": "nine",
-        "gamo": "nine"
+        "hadiyaa": "nine",
+        "wolyitta": "nine",
+        "gamo": "nine",
+        "swahili": "nine",
+        "kinyarwanda": "nine",
+        "kirundi": "nine",
+        "luo": "nine"
       },
       {
         "english": "one",
@@ -3438,9 +4398,13 @@
         "afar": "one",
         "somali": "one",
         "arabic": "one",
-        "hadiya": "one",
-        "wolayita": "one",
-        "gamo": "one"
+        "hadiyaa": "one",
+        "wolyitta": "one",
+        "gamo": "one",
+        "swahili": "one",
+        "kinyarwanda": "one",
+        "kirundi": "one",
+        "luo": "one"
       },
       {
         "english": "seven",
@@ -3452,9 +4416,13 @@
         "afar": "seven",
         "somali": "seven",
         "arabic": "seven",
-        "hadiya": "seven",
-        "wolayita": "seven",
-        "gamo": "seven"
+        "hadiyaa": "seven",
+        "wolyitta": "seven",
+        "gamo": "seven",
+        "swahili": "seven",
+        "kinyarwanda": "seven",
+        "kirundi": "seven",
+        "luo": "seven"
       },
       {
         "english": "six",
@@ -3466,9 +4434,13 @@
         "afar": "six",
         "somali": "six",
         "arabic": "six",
-        "hadiya": "six",
-        "wolayita": "six",
-        "gamo": "six"
+        "hadiyaa": "six",
+        "wolyitta": "six",
+        "gamo": "six",
+        "swahili": "six",
+        "kinyarwanda": "six",
+        "kirundi": "six",
+        "luo": "six"
       },
       {
         "english": "ten",
@@ -3480,9 +4452,13 @@
         "afar": "ten",
         "somali": "ten",
         "arabic": "ten",
-        "hadiya": "ten",
-        "wolayita": "ten",
-        "gamo": "ten"
+        "hadiyaa": "ten",
+        "wolyitta": "ten",
+        "gamo": "ten",
+        "swahili": "ten",
+        "kinyarwanda": "ten",
+        "kirundi": "ten",
+        "luo": "ten"
       },
       {
         "english": "three",
@@ -3494,9 +4470,13 @@
         "afar": "three",
         "somali": "three",
         "arabic": "three",
-        "hadiya": "three",
-        "wolayita": "three",
-        "gamo": "three"
+        "hadiyaa": "three",
+        "wolyitta": "three",
+        "gamo": "three",
+        "swahili": "three",
+        "kinyarwanda": "three",
+        "kirundi": "three",
+        "luo": "three"
       },
       {
         "english": "two",
@@ -3508,9 +4488,13 @@
         "afar": "two",
         "somali": "two",
         "arabic": "two",
-        "hadiya": "two",
-        "wolayita": "two",
-        "gamo": "two"
+        "hadiyaa": "two",
+        "wolyitta": "two",
+        "gamo": "two",
+        "swahili": "two",
+        "kinyarwanda": "two",
+        "kirundi": "two",
+        "luo": "two"
       },
       {
         "english": "zero",
@@ -3522,9 +4506,13 @@
         "afar": "zero",
         "somali": "zero",
         "arabic": "zero",
-        "hadiya": "zero",
-        "wolayita": "zero",
-        "gamo": "zero"
+        "hadiyaa": "zero",
+        "wolyitta": "zero",
+        "gamo": "zero",
+        "swahili": "zero",
+        "kinyarwanda": "zero",
+        "kirundi": "zero",
+        "luo": "zero"
       }
     ],
     "objects": [
@@ -3538,9 +4526,13 @@
         "afar": "bag",
         "somali": "bag",
         "arabic": "bag",
-        "hadiya": "bag",
-        "wolayita": "bag",
-        "gamo": "bag"
+        "hadiyaa": "bag",
+        "wolyitta": "bag",
+        "gamo": "bag",
+        "swahili": "bag",
+        "kinyarwanda": "bag",
+        "kirundi": "bag",
+        "luo": "bag"
       },
       {
         "english": "book",
@@ -3552,9 +4544,13 @@
         "afar": "book",
         "somali": "book",
         "arabic": "book",
-        "hadiya": "book",
-        "wolayita": "book",
-        "gamo": "book"
+        "hadiyaa": "book",
+        "wolyitta": "book",
+        "gamo": "book",
+        "swahili": "book",
+        "kinyarwanda": "book",
+        "kirundi": "book",
+        "luo": "book"
       },
       {
         "english": "clock",
@@ -3566,9 +4562,13 @@
         "afar": "clock",
         "somali": "clock",
         "arabic": "clock",
-        "hadiya": "clock",
-        "wolayita": "clock",
-        "gamo": "clock"
+        "hadiyaa": "clock",
+        "wolyitta": "clock",
+        "gamo": "clock",
+        "swahili": "clock",
+        "kinyarwanda": "clock",
+        "kirundi": "clock",
+        "luo": "clock"
       },
       {
         "english": "computer",
@@ -3580,9 +4580,13 @@
         "afar": "computer",
         "somali": "computer",
         "arabic": "computer",
-        "hadiya": "computer",
-        "wolayita": "computer",
-        "gamo": "computer"
+        "hadiyaa": "computer",
+        "wolyitta": "computer",
+        "gamo": "computer",
+        "swahili": "computer",
+        "kinyarwanda": "computer",
+        "kirundi": "computer",
+        "luo": "computer"
       },
       {
         "english": "key",
@@ -3594,9 +4598,13 @@
         "afar": "key",
         "somali": "key",
         "arabic": "key",
-        "hadiya": "key",
-        "wolayita": "key",
-        "gamo": "key"
+        "hadiyaa": "key",
+        "wolyitta": "key",
+        "gamo": "key",
+        "swahili": "key",
+        "kinyarwanda": "key",
+        "kirundi": "key",
+        "luo": "key"
       },
       {
         "english": "light",
@@ -3608,9 +4616,13 @@
         "afar": "light",
         "somali": "light",
         "arabic": "light",
-        "hadiya": "light",
-        "wolayita": "light",
-        "gamo": "light"
+        "hadiyaa": "light",
+        "wolyitta": "light",
+        "gamo": "light",
+        "swahili": "light",
+        "kinyarwanda": "light",
+        "kirundi": "light",
+        "luo": "light"
       },
       {
         "english": "money",
@@ -3622,9 +4634,13 @@
         "afar": "money",
         "somali": "money",
         "arabic": "money",
-        "hadiya": "money",
-        "wolayita": "money",
-        "gamo": "money"
+        "hadiyaa": "money",
+        "wolyitta": "money",
+        "gamo": "money",
+        "swahili": "money",
+        "kinyarwanda": "money",
+        "kirundi": "money",
+        "luo": "money"
       },
       {
         "english": "phone",
@@ -3636,9 +4652,13 @@
         "afar": "phone",
         "somali": "phone",
         "arabic": "phone",
-        "hadiya": "phone",
-        "wolayita": "phone",
-        "gamo": "phone"
+        "hadiyaa": "phone",
+        "wolyitta": "phone",
+        "gamo": "phone",
+        "swahili": "phone",
+        "kinyarwanda": "phone",
+        "kirundi": "phone",
+        "luo": "phone"
       }
     ],
     "outcomes": [
@@ -3652,9 +4672,13 @@
         "afar": "defeat",
         "somali": "defeat",
         "arabic": "defeat",
-        "hadiya": "defeat",
-        "wolayita": "defeat",
-        "gamo": "defeat"
+        "hadiyaa": "defeat",
+        "wolyitta": "defeat",
+        "gamo": "defeat",
+        "swahili": "defeat",
+        "kinyarwanda": "defeat",
+        "kirundi": "defeat",
+        "luo": "defeat"
       },
       {
         "english": "victory",
@@ -3666,9 +4690,13 @@
         "afar": "victory",
         "somali": "victory",
         "arabic": "victory",
-        "hadiya": "victory",
-        "wolayita": "victory",
-        "gamo": "victory"
+        "hadiyaa": "victory",
+        "wolyitta": "victory",
+        "gamo": "victory",
+        "swahili": "victory",
+        "kinyarwanda": "victory",
+        "kirundi": "victory",
+        "luo": "victory"
       }
     ],
     "people": [
@@ -3682,9 +4710,13 @@
         "afar": "ally",
         "somali": "ally",
         "arabic": "ally",
-        "hadiya": "ally",
-        "wolayita": "ally",
-        "gamo": "ally"
+        "hadiyaa": "ally",
+        "wolyitta": "ally",
+        "gamo": "ally",
+        "swahili": "ally",
+        "kinyarwanda": "ally",
+        "kirundi": "ally",
+        "luo": "ally"
       },
       {
         "english": "commander",
@@ -3696,9 +4728,13 @@
         "afar": "commander",
         "somali": "commander",
         "arabic": "commander",
-        "hadiya": "commander",
-        "wolayita": "commander",
-        "gamo": "commander"
+        "hadiyaa": "commander",
+        "wolyitta": "commander",
+        "gamo": "commander",
+        "swahili": "commander",
+        "kinyarwanda": "commander",
+        "kirundi": "commander",
+        "luo": "commander"
       },
       {
         "english": "doctor",
@@ -3710,9 +4746,13 @@
         "afar": "doctor",
         "somali": "doctor",
         "arabic": "doctor",
-        "hadiya": "doctor",
-        "wolayita": "doctor",
-        "gamo": "doctor"
+        "hadiyaa": "doctor",
+        "wolyitta": "doctor",
+        "gamo": "doctor",
+        "swahili": "doctor",
+        "kinyarwanda": "doctor",
+        "kirundi": "doctor",
+        "luo": "doctor"
       },
       {
         "english": "enemy",
@@ -3724,9 +4764,13 @@
         "afar": "enemy",
         "somali": "enemy",
         "arabic": "enemy",
-        "hadiya": "enemy",
-        "wolayita": "enemy",
-        "gamo": "enemy"
+        "hadiyaa": "enemy",
+        "wolyitta": "enemy",
+        "gamo": "enemy",
+        "swahili": "enemy",
+        "kinyarwanda": "enemy",
+        "kirundi": "enemy",
+        "luo": "enemy"
       },
       {
         "english": "freedom fighter",
@@ -3738,9 +4782,13 @@
         "afar": "freedom fighter",
         "somali": "freedom fighter",
         "arabic": "freedom fighter",
-        "hadiya": "freedom fighter",
-        "wolayita": "freedom fighter",
-        "gamo": "freedom fighter"
+        "hadiyaa": "freedom fighter",
+        "wolyitta": "freedom fighter",
+        "gamo": "freedom fighter",
+        "swahili": "freedom fighter",
+        "kinyarwanda": "freedom fighter",
+        "kirundi": "freedom fighter",
+        "luo": "freedom fighter"
       },
       {
         "english": "friend",
@@ -3752,9 +4800,13 @@
         "afar": "friend",
         "somali": "friend",
         "arabic": "friend",
-        "hadiya": "friend",
-        "wolayita": "friend",
-        "gamo": "friend"
+        "hadiyaa": "friend",
+        "wolyitta": "friend",
+        "gamo": "friend",
+        "swahili": "friend",
+        "kinyarwanda": "friend",
+        "kirundi": "friend",
+        "luo": "friend"
       },
       {
         "english": "student",
@@ -3766,9 +4818,13 @@
         "afar": "student",
         "somali": "student",
         "arabic": "student",
-        "hadiya": "student",
-        "wolayita": "student",
-        "gamo": "student"
+        "hadiyaa": "student",
+        "wolyitta": "student",
+        "gamo": "student",
+        "swahili": "student",
+        "kinyarwanda": "student",
+        "kirundi": "student",
+        "luo": "student"
       },
       {
         "english": "teacher",
@@ -3780,9 +4836,13 @@
         "afar": "teacher",
         "somali": "teacher",
         "arabic": "teacher",
-        "hadiya": "teacher",
-        "wolayita": "teacher",
-        "gamo": "teacher"
+        "hadiyaa": "teacher",
+        "wolyitta": "teacher",
+        "gamo": "teacher",
+        "swahili": "teacher",
+        "kinyarwanda": "teacher",
+        "kirundi": "teacher",
+        "luo": "teacher"
       },
       {
         "english": "warrior",
@@ -3794,9 +4854,13 @@
         "afar": "warrior",
         "somali": "warrior",
         "arabic": "warrior",
-        "hadiya": "warrior",
-        "wolayita": "warrior",
-        "gamo": "warrior"
+        "hadiyaa": "warrior",
+        "wolyitta": "warrior",
+        "gamo": "warrior",
+        "swahili": "warrior",
+        "kinyarwanda": "warrior",
+        "kirundi": "warrior",
+        "luo": "warrior"
       }
     ],
     "places": [
@@ -3810,9 +4874,13 @@
         "afar": "camp",
         "somali": "camp",
         "arabic": "camp",
-        "hadiya": "camp",
-        "wolayita": "camp",
-        "gamo": "camp"
+        "hadiyaa": "camp",
+        "wolyitta": "camp",
+        "gamo": "camp",
+        "swahili": "camp",
+        "kinyarwanda": "camp",
+        "kirundi": "camp",
+        "luo": "camp"
       },
       {
         "english": "church",
@@ -3824,9 +4892,13 @@
         "afar": "church",
         "somali": "church",
         "arabic": "church",
-        "hadiya": "church",
-        "wolayita": "church",
-        "gamo": "church"
+        "hadiyaa": "church",
+        "wolyitta": "church",
+        "gamo": "church",
+        "swahili": "church",
+        "kinyarwanda": "church",
+        "kirundi": "church",
+        "luo": "church"
       },
       {
         "english": "front line",
@@ -3838,9 +4910,13 @@
         "afar": "front line",
         "somali": "front line",
         "arabic": "front line",
-        "hadiya": "front line",
-        "wolayita": "front line",
-        "gamo": "front line"
+        "hadiyaa": "front line",
+        "wolyitta": "front line",
+        "gamo": "front line",
+        "swahili": "front line",
+        "kinyarwanda": "front line",
+        "kirundi": "front line",
+        "luo": "front line"
       },
       {
         "english": "hospital",
@@ -3852,9 +4928,13 @@
         "afar": "hospital",
         "somali": "hospital",
         "arabic": "hospital",
-        "hadiya": "hospital",
-        "wolayita": "hospital",
-        "gamo": "hospital"
+        "hadiyaa": "hospital",
+        "wolyitta": "hospital",
+        "gamo": "hospital",
+        "swahili": "hospital",
+        "kinyarwanda": "hospital",
+        "kirundi": "hospital",
+        "luo": "hospital"
       },
       {
         "english": "park",
@@ -3866,9 +4946,13 @@
         "afar": "park",
         "somali": "park",
         "arabic": "park",
-        "hadiya": "park",
-        "wolayita": "park",
-        "gamo": "park"
+        "hadiyaa": "park",
+        "wolyitta": "park",
+        "gamo": "park",
+        "swahili": "park",
+        "kinyarwanda": "park",
+        "kirundi": "park",
+        "luo": "park"
       },
       {
         "english": "store",
@@ -3880,9 +4964,13 @@
         "afar": "store",
         "somali": "store",
         "arabic": "store",
-        "hadiya": "store",
-        "wolayita": "store",
-        "gamo": "store"
+        "hadiyaa": "store",
+        "wolyitta": "store",
+        "gamo": "store",
+        "swahili": "store",
+        "kinyarwanda": "store",
+        "kirundi": "store",
+        "luo": "store"
       },
       {
         "english": "zoo",
@@ -3894,9 +4982,13 @@
         "afar": "zoo",
         "somali": "zoo",
         "arabic": "zoo",
-        "hadiya": "zoo",
-        "wolayita": "zoo",
-        "gamo": "zoo"
+        "hadiyaa": "zoo",
+        "wolyitta": "zoo",
+        "gamo": "zoo",
+        "swahili": "zoo",
+        "kinyarwanda": "zoo",
+        "kirundi": "zoo",
+        "luo": "zoo"
       }
     ],
     "political": [
@@ -3910,9 +5002,13 @@
         "afar": "independence",
         "somali": "independence",
         "arabic": "independence",
-        "hadiya": "independence",
-        "wolayita": "independence",
-        "gamo": "independence"
+        "hadiyaa": "independence",
+        "wolyitta": "independence",
+        "gamo": "independence",
+        "swahili": "independence",
+        "kinyarwanda": "independence",
+        "kirundi": "independence",
+        "luo": "independence"
       },
       {
         "english": "liberation",
@@ -3924,9 +5020,13 @@
         "afar": "liberation",
         "somali": "liberation",
         "arabic": "liberation",
-        "hadiya": "liberation",
-        "wolayita": "liberation",
-        "gamo": "liberation"
+        "hadiyaa": "liberation",
+        "wolyitta": "liberation",
+        "gamo": "liberation",
+        "swahili": "liberation",
+        "kinyarwanda": "liberation",
+        "kirundi": "liberation",
+        "luo": "liberation"
       },
       {
         "english": "occupation",
@@ -3938,9 +5038,13 @@
         "afar": "occupation",
         "somali": "occupation",
         "arabic": "occupation",
-        "hadiya": "occupation",
-        "wolayita": "occupation",
-        "gamo": "occupation"
+        "hadiyaa": "occupation",
+        "wolyitta": "occupation",
+        "gamo": "occupation",
+        "swahili": "occupation",
+        "kinyarwanda": "occupation",
+        "kirundi": "occupation",
+        "luo": "occupation"
       },
       {
         "english": "revolution",
@@ -3952,9 +5056,13 @@
         "afar": "revolution",
         "somali": "revolution",
         "arabic": "revolution",
-        "hadiya": "revolution",
-        "wolayita": "revolution",
-        "gamo": "revolution"
+        "hadiyaa": "revolution",
+        "wolyitta": "revolution",
+        "gamo": "revolution",
+        "swahili": "revolution",
+        "kinyarwanda": "revolution",
+        "kirundi": "revolution",
+        "luo": "revolution"
       }
     ],
     "qualities": [
@@ -3968,9 +5076,13 @@
         "afar": "bravery",
         "somali": "bravery",
         "arabic": "bravery",
-        "hadiya": "bravery",
-        "wolayita": "bravery",
-        "gamo": "bravery"
+        "hadiyaa": "bravery",
+        "wolyitta": "bravery",
+        "gamo": "bravery",
+        "swahili": "bravery",
+        "kinyarwanda": "bravery",
+        "kirundi": "bravery",
+        "luo": "bravery"
       },
       {
         "english": "courage",
@@ -3982,9 +5094,13 @@
         "afar": "courage",
         "somali": "courage",
         "arabic": "courage",
-        "hadiya": "courage",
-        "wolayita": "courage",
-        "gamo": "courage"
+        "hadiyaa": "courage",
+        "wolyitta": "courage",
+        "gamo": "courage",
+        "swahili": "courage",
+        "kinyarwanda": "courage",
+        "kirundi": "courage",
+        "luo": "courage"
       }
     ],
     "school": [
@@ -3998,9 +5114,13 @@
         "afar": "draw",
         "somali": "draw",
         "arabic": "draw",
-        "hadiya": "draw",
-        "wolayita": "draw",
-        "gamo": "draw"
+        "hadiyaa": "draw",
+        "wolyitta": "draw",
+        "gamo": "draw",
+        "swahili": "draw",
+        "kinyarwanda": "draw",
+        "kirundi": "draw",
+        "luo": "draw"
       },
       {
         "english": "learn",
@@ -4012,9 +5132,13 @@
         "afar": "learn",
         "somali": "learn",
         "arabic": "learn",
-        "hadiya": "learn",
-        "wolayita": "learn",
-        "gamo": "learn"
+        "hadiyaa": "learn",
+        "wolyitta": "learn",
+        "gamo": "learn",
+        "swahili": "learn",
+        "kinyarwanda": "learn",
+        "kirundi": "learn",
+        "luo": "learn"
       },
       {
         "english": "paper",
@@ -4026,9 +5150,13 @@
         "afar": "paper",
         "somali": "paper",
         "arabic": "paper",
-        "hadiya": "paper",
-        "wolayita": "paper",
-        "gamo": "paper"
+        "hadiyaa": "paper",
+        "wolyitta": "paper",
+        "gamo": "paper",
+        "swahili": "paper",
+        "kinyarwanda": "paper",
+        "kirundi": "paper",
+        "luo": "paper"
       },
       {
         "english": "pencil",
@@ -4040,9 +5168,13 @@
         "afar": "pencil",
         "somali": "pencil",
         "arabic": "pencil",
-        "hadiya": "pencil",
-        "wolayita": "pencil",
-        "gamo": "pencil"
+        "hadiyaa": "pencil",
+        "wolyitta": "pencil",
+        "gamo": "pencil",
+        "swahili": "pencil",
+        "kinyarwanda": "pencil",
+        "kirundi": "pencil",
+        "luo": "pencil"
       },
       {
         "english": "read",
@@ -4054,9 +5186,13 @@
         "afar": "read",
         "somali": "read",
         "arabic": "read",
-        "hadiya": "read",
-        "wolayita": "read",
-        "gamo": "read"
+        "hadiyaa": "read",
+        "wolyitta": "read",
+        "gamo": "read",
+        "swahili": "read",
+        "kinyarwanda": "read",
+        "kirundi": "read",
+        "luo": "read"
       },
       {
         "english": "school",
@@ -4068,9 +5204,13 @@
         "afar": "school",
         "somali": "school",
         "arabic": "school",
-        "hadiya": "school",
-        "wolayita": "school",
-        "gamo": "school"
+        "hadiyaa": "school",
+        "wolyitta": "school",
+        "gamo": "school",
+        "swahili": "school",
+        "kinyarwanda": "school",
+        "kirundi": "school",
+        "luo": "school"
       },
       {
         "english": "write",
@@ -4082,9 +5222,13 @@
         "afar": "write",
         "somali": "write",
         "arabic": "write",
-        "hadiya": "write",
-        "wolayita": "write",
-        "gamo": "write"
+        "hadiyaa": "write",
+        "wolyitta": "write",
+        "gamo": "write",
+        "swahili": "write",
+        "kinyarwanda": "write",
+        "kirundi": "write",
+        "luo": "write"
       }
     ],
     "seasons": [
@@ -4098,9 +5242,13 @@
         "afar": "autumn",
         "somali": "autumn",
         "arabic": "autumn",
-        "hadiya": "autumn",
-        "wolayita": "autumn",
-        "gamo": "autumn"
+        "hadiyaa": "autumn",
+        "wolyitta": "autumn",
+        "gamo": "autumn",
+        "swahili": "autumn",
+        "kinyarwanda": "autumn",
+        "kirundi": "autumn",
+        "luo": "autumn"
       },
       {
         "english": "spring",
@@ -4112,9 +5260,13 @@
         "afar": "spring",
         "somali": "spring",
         "arabic": "spring",
-        "hadiya": "spring",
-        "wolayita": "spring",
-        "gamo": "spring"
+        "hadiyaa": "spring",
+        "wolyitta": "spring",
+        "gamo": "spring",
+        "swahili": "spring",
+        "kinyarwanda": "spring",
+        "kirundi": "spring",
+        "luo": "spring"
       },
       {
         "english": "summer",
@@ -4126,9 +5278,13 @@
         "afar": "summer",
         "somali": "summer",
         "arabic": "summer",
-        "hadiya": "summer",
-        "wolayita": "summer",
-        "gamo": "summer"
+        "hadiyaa": "summer",
+        "wolyitta": "summer",
+        "gamo": "summer",
+        "swahili": "summer",
+        "kinyarwanda": "summer",
+        "kirundi": "summer",
+        "luo": "summer"
       },
       {
         "english": "winter",
@@ -4140,9 +5296,13 @@
         "afar": "winter",
         "somali": "winter",
         "arabic": "winter",
-        "hadiya": "winter",
-        "wolayita": "winter",
-        "gamo": "winter"
+        "hadiyaa": "winter",
+        "wolyitta": "winter",
+        "gamo": "winter",
+        "swahili": "winter",
+        "kinyarwanda": "winter",
+        "kirundi": "winter",
+        "luo": "winter"
       }
     ],
     "shapes": [
@@ -4156,9 +5316,13 @@
         "afar": "circle",
         "somali": "circle",
         "arabic": "circle",
-        "hadiya": "circle",
-        "wolayita": "circle",
-        "gamo": "circle"
+        "hadiyaa": "circle",
+        "wolyitta": "circle",
+        "gamo": "circle",
+        "swahili": "circle",
+        "kinyarwanda": "circle",
+        "kirundi": "circle",
+        "luo": "circle"
       },
       {
         "english": "heart",
@@ -4170,9 +5334,13 @@
         "afar": "heart",
         "somali": "heart",
         "arabic": "heart",
-        "hadiya": "heart",
-        "wolayita": "heart",
-        "gamo": "heart"
+        "hadiyaa": "heart",
+        "wolyitta": "heart",
+        "gamo": "heart",
+        "swahili": "heart",
+        "kinyarwanda": "heart",
+        "kirundi": "heart",
+        "luo": "heart"
       },
       {
         "english": "square",
@@ -4184,9 +5352,13 @@
         "afar": "square",
         "somali": "square",
         "arabic": "square",
-        "hadiya": "square",
-        "wolayita": "square",
-        "gamo": "square"
+        "hadiyaa": "square",
+        "wolyitta": "square",
+        "gamo": "square",
+        "swahili": "square",
+        "kinyarwanda": "square",
+        "kirundi": "square",
+        "luo": "square"
       },
       {
         "english": "triangle",
@@ -4198,9 +5370,13 @@
         "afar": "triangle",
         "somali": "triangle",
         "arabic": "triangle",
-        "hadiya": "triangle",
-        "wolayita": "triangle",
-        "gamo": "triangle"
+        "hadiyaa": "triangle",
+        "wolyitta": "triangle",
+        "gamo": "triangle",
+        "swahili": "triangle",
+        "kinyarwanda": "triangle",
+        "kirundi": "triangle",
+        "luo": "triangle"
       }
     ],
     "tactics": [
@@ -4214,9 +5390,13 @@
         "afar": "strategy",
         "somali": "strategy",
         "arabic": "strategy",
-        "hadiya": "strategy",
-        "wolayita": "strategy",
-        "gamo": "strategy"
+        "hadiyaa": "strategy",
+        "wolyitta": "strategy",
+        "gamo": "strategy",
+        "swahili": "strategy",
+        "kinyarwanda": "strategy",
+        "kirundi": "strategy",
+        "luo": "strategy"
       }
     ],
     "time": [
@@ -4230,9 +5410,13 @@
         "afar": "afternoon",
         "somali": "afternoon",
         "arabic": "afternoon",
-        "hadiya": "afternoon",
-        "wolayita": "afternoon",
-        "gamo": "afternoon"
+        "hadiyaa": "afternoon",
+        "wolyitta": "afternoon",
+        "gamo": "afternoon",
+        "swahili": "afternoon",
+        "kinyarwanda": "afternoon",
+        "kirundi": "afternoon",
+        "luo": "afternoon"
       },
       {
         "english": "day",
@@ -4244,9 +5428,13 @@
         "afar": "day",
         "somali": "day",
         "arabic": "day",
-        "hadiya": "day",
-        "wolayita": "day",
-        "gamo": "day"
+        "hadiyaa": "day",
+        "wolyitta": "day",
+        "gamo": "day",
+        "swahili": "day",
+        "kinyarwanda": "day",
+        "kirundi": "day",
+        "luo": "day"
       },
       {
         "english": "evening",
@@ -4258,9 +5446,13 @@
         "afar": "evening",
         "somali": "evening",
         "arabic": "evening",
-        "hadiya": "evening",
-        "wolayita": "evening",
-        "gamo": "evening"
+        "hadiyaa": "evening",
+        "wolyitta": "evening",
+        "gamo": "evening",
+        "swahili": "evening",
+        "kinyarwanda": "evening",
+        "kirundi": "evening",
+        "luo": "evening"
       },
       {
         "english": "morning",
@@ -4272,9 +5464,13 @@
         "afar": "morning",
         "somali": "morning",
         "arabic": "morning",
-        "hadiya": "morning",
-        "wolayita": "morning",
-        "gamo": "morning"
+        "hadiyaa": "morning",
+        "wolyitta": "morning",
+        "gamo": "morning",
+        "swahili": "morning",
+        "kinyarwanda": "morning",
+        "kirundi": "morning",
+        "luo": "morning"
       },
       {
         "english": "night",
@@ -4286,9 +5482,13 @@
         "afar": "night",
         "somali": "night",
         "arabic": "night",
-        "hadiya": "night",
-        "wolayita": "night",
-        "gamo": "night"
+        "hadiyaa": "night",
+        "wolyitta": "night",
+        "gamo": "night",
+        "swahili": "night",
+        "kinyarwanda": "night",
+        "kirundi": "night",
+        "luo": "night"
       },
       {
         "english": "time",
@@ -4300,9 +5500,13 @@
         "afar": "time",
         "somali": "time",
         "arabic": "time",
-        "hadiya": "time",
-        "wolayita": "time",
-        "gamo": "time"
+        "hadiyaa": "time",
+        "wolyitta": "time",
+        "gamo": "time",
+        "swahili": "time",
+        "kinyarwanda": "time",
+        "kirundi": "time",
+        "luo": "time"
       },
       {
         "english": "today",
@@ -4314,9 +5518,13 @@
         "afar": "today",
         "somali": "today",
         "arabic": "today",
-        "hadiya": "today",
-        "wolayita": "today",
-        "gamo": "today"
+        "hadiyaa": "today",
+        "wolyitta": "today",
+        "gamo": "today",
+        "swahili": "today",
+        "kinyarwanda": "today",
+        "kirundi": "today",
+        "luo": "today"
       },
       {
         "english": "tomorrow",
@@ -4328,9 +5536,13 @@
         "afar": "tomorrow",
         "somali": "tomorrow",
         "arabic": "tomorrow",
-        "hadiya": "tomorrow",
-        "wolayita": "tomorrow",
-        "gamo": "tomorrow"
+        "hadiyaa": "tomorrow",
+        "wolyitta": "tomorrow",
+        "gamo": "tomorrow",
+        "swahili": "tomorrow",
+        "kinyarwanda": "tomorrow",
+        "kirundi": "tomorrow",
+        "luo": "tomorrow"
       },
       {
         "english": "yesterday",
@@ -4342,9 +5554,13 @@
         "afar": "yesterday",
         "somali": "yesterday",
         "arabic": "yesterday",
-        "hadiya": "yesterday",
-        "wolayita": "yesterday",
-        "gamo": "yesterday"
+        "hadiyaa": "yesterday",
+        "wolyitta": "yesterday",
+        "gamo": "yesterday",
+        "swahili": "yesterday",
+        "kinyarwanda": "yesterday",
+        "kirundi": "yesterday",
+        "luo": "yesterday"
       }
     ],
     "toys": [
@@ -4358,9 +5574,13 @@
         "afar": "ball",
         "somali": "ball",
         "arabic": "ball",
-        "hadiya": "ball",
-        "wolayita": "ball",
-        "gamo": "ball"
+        "hadiyaa": "ball",
+        "wolyitta": "ball",
+        "gamo": "ball",
+        "swahili": "ball",
+        "kinyarwanda": "ball",
+        "kirundi": "ball",
+        "luo": "ball"
       },
       {
         "english": "doll",
@@ -4372,9 +5592,13 @@
         "afar": "doll",
         "somali": "doll",
         "arabic": "doll",
-        "hadiya": "doll",
-        "wolayita": "doll",
-        "gamo": "doll"
+        "hadiyaa": "doll",
+        "wolyitta": "doll",
+        "gamo": "doll",
+        "swahili": "doll",
+        "kinyarwanda": "doll",
+        "kirundi": "doll",
+        "luo": "doll"
       },
       {
         "english": "fun",
@@ -4386,9 +5610,13 @@
         "afar": "fun",
         "somali": "fun",
         "arabic": "fun",
-        "hadiya": "fun",
-        "wolayita": "fun",
-        "gamo": "fun"
+        "hadiyaa": "fun",
+        "wolyitta": "fun",
+        "gamo": "fun",
+        "swahili": "fun",
+        "kinyarwanda": "fun",
+        "kirundi": "fun",
+        "luo": "fun"
       },
       {
         "english": "game",
@@ -4400,9 +5628,13 @@
         "afar": "game",
         "somali": "game",
         "arabic": "game",
-        "hadiya": "game",
-        "wolayita": "game",
-        "gamo": "game"
+        "hadiyaa": "game",
+        "wolyitta": "game",
+        "gamo": "game",
+        "swahili": "game",
+        "kinyarwanda": "game",
+        "kirundi": "game",
+        "luo": "game"
       },
       {
         "english": "hide",
@@ -4414,9 +5646,13 @@
         "afar": "hide",
         "somali": "hide",
         "arabic": "hide",
-        "hadiya": "hide",
-        "wolayita": "hide",
-        "gamo": "hide"
+        "hadiyaa": "hide",
+        "wolyitta": "hide",
+        "gamo": "hide",
+        "swahili": "hide",
+        "kinyarwanda": "hide",
+        "kirundi": "hide",
+        "luo": "hide"
       },
       {
         "english": "lose",
@@ -4428,9 +5664,13 @@
         "afar": "lose",
         "somali": "lose",
         "arabic": "lose",
-        "hadiya": "lose",
-        "wolayita": "lose",
-        "gamo": "lose"
+        "hadiyaa": "lose",
+        "wolyitta": "lose",
+        "gamo": "lose",
+        "swahili": "lose",
+        "kinyarwanda": "lose",
+        "kirundi": "lose",
+        "luo": "lose"
       },
       {
         "english": "play",
@@ -4442,9 +5682,13 @@
         "afar": "play",
         "somali": "play",
         "arabic": "play",
-        "hadiya": "play",
-        "wolayita": "play",
-        "gamo": "play"
+        "hadiyaa": "play",
+        "wolyitta": "play",
+        "gamo": "play",
+        "swahili": "play",
+        "kinyarwanda": "play",
+        "kirundi": "play",
+        "luo": "play"
       },
       {
         "english": "seek",
@@ -4456,9 +5700,13 @@
         "afar": "seek",
         "somali": "seek",
         "arabic": "seek",
-        "hadiya": "seek",
-        "wolayita": "seek",
-        "gamo": "seek"
+        "hadiyaa": "seek",
+        "wolyitta": "seek",
+        "gamo": "seek",
+        "swahili": "seek",
+        "kinyarwanda": "seek",
+        "kirundi": "seek",
+        "luo": "seek"
       },
       {
         "english": "toy",
@@ -4470,9 +5718,13 @@
         "afar": "toy",
         "somali": "toy",
         "arabic": "toy",
-        "hadiya": "toy",
-        "wolayita": "toy",
-        "gamo": "toy"
+        "hadiyaa": "toy",
+        "wolyitta": "toy",
+        "gamo": "toy",
+        "swahili": "toy",
+        "kinyarwanda": "toy",
+        "kirundi": "toy",
+        "luo": "toy"
       },
       {
         "english": "win",
@@ -4484,9 +5736,13 @@
         "afar": "win",
         "somali": "win",
         "arabic": "win",
-        "hadiya": "win",
-        "wolayita": "win",
-        "gamo": "win"
+        "hadiyaa": "win",
+        "wolyitta": "win",
+        "gamo": "win",
+        "swahili": "win",
+        "kinyarwanda": "win",
+        "kirundi": "win",
+        "luo": "win"
       }
     ],
     "transport": [
@@ -4500,9 +5756,13 @@
         "afar": "airplane",
         "somali": "airplane",
         "arabic": "airplane",
-        "hadiya": "airplane",
-        "wolayita": "airplane",
-        "gamo": "airplane"
+        "hadiyaa": "airplane",
+        "wolyitta": "airplane",
+        "gamo": "airplane",
+        "swahili": "airplane",
+        "kinyarwanda": "airplane",
+        "kirundi": "airplane",
+        "luo": "airplane"
       },
       {
         "english": "bicycle",
@@ -4514,9 +5774,13 @@
         "afar": "bicycle",
         "somali": "bicycle",
         "arabic": "bicycle",
-        "hadiya": "bicycle",
-        "wolayita": "bicycle",
-        "gamo": "bicycle"
+        "hadiyaa": "bicycle",
+        "wolyitta": "bicycle",
+        "gamo": "bicycle",
+        "swahili": "bicycle",
+        "kinyarwanda": "bicycle",
+        "kirundi": "bicycle",
+        "luo": "bicycle"
       },
       {
         "english": "boat",
@@ -4528,9 +5792,13 @@
         "afar": "boat",
         "somali": "boat",
         "arabic": "boat",
-        "hadiya": "boat",
-        "wolayita": "boat",
-        "gamo": "boat"
+        "hadiyaa": "boat",
+        "wolyitta": "boat",
+        "gamo": "boat",
+        "swahili": "boat",
+        "kinyarwanda": "boat",
+        "kirundi": "boat",
+        "luo": "boat"
       },
       {
         "english": "bus",
@@ -4542,9 +5810,13 @@
         "afar": "bus",
         "somali": "bus",
         "arabic": "bus",
-        "hadiya": "bus",
-        "wolayita": "bus",
-        "gamo": "bus"
+        "hadiyaa": "bus",
+        "wolyitta": "bus",
+        "gamo": "bus",
+        "swahili": "bus",
+        "kinyarwanda": "bus",
+        "kirundi": "bus",
+        "luo": "bus"
       },
       {
         "english": "car",
@@ -4556,9 +5828,13 @@
         "afar": "car",
         "somali": "car",
         "arabic": "car",
-        "hadiya": "car",
-        "wolayita": "car",
-        "gamo": "car"
+        "hadiyaa": "car",
+        "wolyitta": "car",
+        "gamo": "car",
+        "swahili": "car",
+        "kinyarwanda": "car",
+        "kirundi": "car",
+        "luo": "car"
       },
       {
         "english": "train",
@@ -4570,9 +5846,13 @@
         "afar": "train",
         "somali": "train",
         "arabic": "train",
-        "hadiya": "train",
-        "wolayita": "train",
-        "gamo": "train"
+        "hadiyaa": "train",
+        "wolyitta": "train",
+        "gamo": "train",
+        "swahili": "train",
+        "kinyarwanda": "train",
+        "kirundi": "train",
+        "luo": "train"
       },
       {
         "english": "truck",
@@ -4584,9 +5864,13 @@
         "afar": "truck",
         "somali": "truck",
         "arabic": "truck",
-        "hadiya": "truck",
-        "wolayita": "truck",
-        "gamo": "truck"
+        "hadiyaa": "truck",
+        "wolyitta": "truck",
+        "gamo": "truck",
+        "swahili": "truck",
+        "kinyarwanda": "truck",
+        "kirundi": "truck",
+        "luo": "truck"
       }
     ],
     "vehicles": [
@@ -4600,9 +5884,13 @@
         "afar": "helicopter",
         "somali": "helicopter",
         "arabic": "helicopter",
-        "hadiya": "helicopter",
-        "wolayita": "helicopter",
-        "gamo": "helicopter"
+        "hadiyaa": "helicopter",
+        "wolyitta": "helicopter",
+        "gamo": "helicopter",
+        "swahili": "helicopter",
+        "kinyarwanda": "helicopter",
+        "kirundi": "helicopter",
+        "luo": "helicopter"
       },
       {
         "english": "tank",
@@ -4614,9 +5902,13 @@
         "afar": "tank",
         "somali": "tank",
         "arabic": "tank",
-        "hadiya": "tank",
-        "wolayita": "tank",
-        "gamo": "tank"
+        "hadiyaa": "tank",
+        "wolyitta": "tank",
+        "gamo": "tank",
+        "swahili": "tank",
+        "kinyarwanda": "tank",
+        "kirundi": "tank",
+        "luo": "tank"
       }
     ],
     "weapons": [
@@ -4630,9 +5922,13 @@
         "afar": "gun",
         "somali": "gun",
         "arabic": "gun",
-        "hadiya": "gun",
-        "wolayita": "gun",
-        "gamo": "gun"
+        "hadiyaa": "gun",
+        "wolyitta": "gun",
+        "gamo": "gun",
+        "swahili": "gun",
+        "kinyarwanda": "gun",
+        "kirundi": "gun",
+        "luo": "gun"
       },
       {
         "english": "knife",
@@ -4644,9 +5940,13 @@
         "afar": "knife",
         "somali": "knife",
         "arabic": "knife",
-        "hadiya": "knife",
-        "wolayita": "knife",
-        "gamo": "knife"
+        "hadiyaa": "knife",
+        "wolyitta": "knife",
+        "gamo": "knife",
+        "swahili": "knife",
+        "kinyarwanda": "knife",
+        "kirundi": "knife",
+        "luo": "knife"
       },
       {
         "english": "shield",
@@ -4658,9 +5958,13 @@
         "afar": "shield",
         "somali": "shield",
         "arabic": "shield",
-        "hadiya": "shield",
-        "wolayita": "shield",
-        "gamo": "shield"
+        "hadiyaa": "shield",
+        "wolyitta": "shield",
+        "gamo": "shield",
+        "swahili": "shield",
+        "kinyarwanda": "shield",
+        "kirundi": "shield",
+        "luo": "shield"
       },
       {
         "english": "sword",
@@ -4672,9 +5976,13 @@
         "afar": "sword",
         "somali": "sword",
         "arabic": "sword",
-        "hadiya": "sword",
-        "wolayita": "sword",
-        "gamo": "sword"
+        "hadiyaa": "sword",
+        "wolyitta": "sword",
+        "gamo": "sword",
+        "swahili": "sword",
+        "kinyarwanda": "sword",
+        "kirundi": "sword",
+        "luo": "sword"
       },
       {
         "english": "weapon",
@@ -4686,9 +5994,13 @@
         "afar": "weapon",
         "somali": "weapon",
         "arabic": "weapon",
-        "hadiya": "weapon",
-        "wolayita": "weapon",
-        "gamo": "weapon"
+        "hadiyaa": "weapon",
+        "wolyitta": "weapon",
+        "gamo": "weapon",
+        "swahili": "weapon",
+        "kinyarwanda": "weapon",
+        "kirundi": "weapon",
+        "luo": "weapon"
       }
     ],
     "weather": [
@@ -4702,9 +6014,13 @@
         "afar": "cold",
         "somali": "cold",
         "arabic": "cold",
-        "hadiya": "cold",
-        "wolayita": "cold",
-        "gamo": "cold"
+        "hadiyaa": "cold",
+        "wolyitta": "cold",
+        "gamo": "cold",
+        "swahili": "cold",
+        "kinyarwanda": "cold",
+        "kirundi": "cold",
+        "luo": "cold"
       },
       {
         "english": "hot",
@@ -4716,9 +6032,13 @@
         "afar": "hot",
         "somali": "hot",
         "arabic": "hot",
-        "hadiya": "hot",
-        "wolayita": "hot",
-        "gamo": "hot"
+        "hadiyaa": "hot",
+        "wolyitta": "hot",
+        "gamo": "hot",
+        "swahili": "hot",
+        "kinyarwanda": "hot",
+        "kirundi": "hot",
+        "luo": "hot"
       },
       {
         "english": "sunny",
@@ -4730,9 +6050,13 @@
         "afar": "sunny",
         "somali": "sunny",
         "arabic": "sunny",
-        "hadiya": "sunny",
-        "wolayita": "sunny",
-        "gamo": "sunny"
+        "hadiyaa": "sunny",
+        "wolyitta": "sunny",
+        "gamo": "sunny",
+        "swahili": "sunny",
+        "kinyarwanda": "sunny",
+        "kirundi": "sunny",
+        "luo": "sunny"
       }
     ]
   },

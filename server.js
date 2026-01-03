@@ -4,19 +4,20 @@
  */
 
 const express = require('express');
-const bodyParser = require('body-parser');
 const axios = require('axios');
 const path = require('path');
 const cors = require('cors');
+const fs = require('fs');
+const config = require('./config');
 
 const app = express();
-const PORT = 3000;
-const TTS_SERVICE_URL = 'http://localhost:5000';
+const PORT = config.SERVER_CONFIG.EXPRESS_PORT;
+const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Disable caching for development
 app.use((req, res, next) => {
@@ -38,13 +39,11 @@ app.set('views', path.join(__dirname, 'views'));
 // API endpoint to get categories for a language
 app.get('/api/categories/:language', (req, res) => {
     const language = req.params.language;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
-    
-    if (!validLanguages.includes(language)) {
+
+    if (!config.isValidLanguage(language)) {
         return res.status(404).json({ error: 'Language not supported' });
     }
-    
-    const fs = require('fs');
+
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
     
     try {
@@ -66,13 +65,11 @@ app.get('/api/categories/:language', (req, res) => {
 // API endpoint to get phrases for a specific category
 app.get('/api/phrases/:language/:category', (req, res) => {
     const { language, category } = req.params;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
-    
-    if (!validLanguages.includes(language)) {
+
+    if (!config.isValidLanguage(language)) {
         return res.status(404).json({ error: 'Language not supported' });
     }
-    
-    const fs = require('fs');
+
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
     
     try {
@@ -100,21 +97,20 @@ app.get('/api/phrases/:language/:category', (req, res) => {
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Multi-language TTS Game',
-        languages: ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo']
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
     });
 });
 
 // Language-specific demo pages
 app.get('/demo/:language', (req, res) => {
     const language = req.params.language;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
-    
-    if (!validLanguages.includes(language)) {
+
+    if (!config.isValidLanguage(language)) {
         return res.status(404).send('Language not supported');
     }
-    
+
     // Load translation file to get UI strings
-    const fs = require('fs');
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
     let ui = {};
     
@@ -128,7 +124,9 @@ app.get('/demo/:language', (req, res) => {
     res.render('demo', {
         title: ui.pageTitle || `${language.charAt(0).toUpperCase() + language.slice(1)} TTS Demo`,
         language: language,
-        ui: ui
+        ui: ui,
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
     });
 });
 
@@ -136,47 +134,56 @@ app.get('/demo/:language', (req, res) => {
 app.post('/api/speak', async (req, res) => {
     try {
         const { text, language } = req.body;
-        
-        if (!text || !language) {
-            return res.status(400).json({ error: 'Text and language are required' });
+
+        // Validate language
+        if (!language || !config.isValidLanguage(language)) {
+            return res.status(400).json({ error: 'Valid language is required' });
         }
-        
-        console.log(`Generating TTS for: "${text}" in ${language}`);
-        
+
+        // Validate text input
+        const validation = config.validateTextInput(text);
+        if (!validation.valid) {
+            return res.status(400).json({ error: validation.error });
+        }
+
+        console.log(`Generating TTS for: "${validation.text.substring(0, 50)}..." in ${language}`);
+
         // Call Python TTS service
         const response = await axios.post(
             `${TTS_SERVICE_URL}/tts`,
             {
-                text: text,
+                text: validation.text,
                 language: language
             },
             {
                 responseType: 'arraybuffer'
             }
         );
-        
-        // Send audio back to client
+
+        // Get Content-Type from Python service response (it knows the format)
+        const contentType = response.headers['content-type'] || 'audio/wav';
+
+        // Send audio back to client with correct Content-Type
         res.set({
-            'Content-Type': 'audio/wav',
+            'Content-Type': contentType,
             'Content-Disposition': 'inline'
         });
         res.send(response.data);
-        
+
     } catch (error) {
         console.error('TTS Error:', error.message);
-        console.error('Full error:', error);
-        
+
         // Check if it's a connection error
         if (error.code === 'ECONNREFUSED') {
-            return res.status(503).json({ 
+            return res.status(503).json({
                 error: 'TTS service not available',
-                details: 'Python TTS service is not running on port 5000. Please start it first.'
+                details: `Python TTS service is not running on port ${config.SERVER_CONFIG.TTS_SERVICE_PORT}. Please start it first.`
             });
         }
-        
-        res.status(500).json({ 
+
+        res.status(500).json({
             error: 'Failed to generate speech',
-            details: error.response?.data || error.message 
+            details: error.response?.data || error.message
         });
     }
 });
