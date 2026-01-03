@@ -133,6 +133,8 @@ function populatePhraseDropdown() {
     const phraseSelect = document.getElementById('phraseSelect');
     const usePhraseBtn = document.getElementById('usePhraseBtn');
     
+    console.log('Populating phrases - showBilingual:', showBilingual, 'translationLanguage:', translationLanguage);
+    
     phraseSelect.innerHTML = '<option value="">-- Choose a phrase --</option>';
     
     if (!currentPhrases || currentPhrases.length === 0) {
@@ -146,13 +148,17 @@ function populatePhraseDropdown() {
         const targetLangField = translationData.nativeLanguageField || LANGUAGE;
         const targetText = phraseObj[targetLangField] || phraseObj[LANGUAGE];
         
+        console.log('Phrase', index, '- targetLangField:', targetLangField, 'targetText:', targetText);
+        
         option.value = targetText;
         option.setAttribute('data-phrase-index', index);
         option.setAttribute('data-category', currentCategory);
         
         if (showBilingual && phraseObj[translationLanguage]) {
-            option.setAttribute('data-translation-text', phraseObj[translationLanguage]);
-            option.textContent = `${targetText} — ${phraseObj[translationLanguage]}`;
+            const translationText = phraseObj[translationLanguage];
+            console.log('  Translation in', translationLanguage, ':', translationText);
+            option.setAttribute('data-translation-text', translationText);
+            option.textContent = `${targetText} — ${translationText}`;
         } else {
             option.textContent = targetText;
         }
