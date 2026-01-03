@@ -17,6 +17,15 @@ const TTS_SERVICE_URL = 'http://localhost:5000';
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Disable caching for development
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+    next();
+});
+
 app.use(express.static('public'));
 // Translation files are NOT publicly accessible - served only via API
 
