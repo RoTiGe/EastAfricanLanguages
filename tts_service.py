@@ -1,8 +1,8 @@
 """
 Multi-language TTS Service using Google TTS (gTTS) and pyttsx3
-Supports: Spanish, French, Amharic, Tigrinya, Oromo
-- gTTS: Spanish, French, Amharic, Tigrinya
-- pyttsx3: Oromo (using Windows SAPI)
+Supports: Spanish, French, Amharic, Tigrinya, Oromo, Somali, Arabic, Hadiyaa, Wolayitta, Afar, Gamo
+- gTTS: Spanish, French, Amharic, Tigrinya, Somali, Arabic
+- pyttsx3: Oromo, Hadiyaa, Wolayitta, Afar, Gamo (using Windows SAPI)
 """
 
 from flask import Flask, request, send_file, jsonify
@@ -22,20 +22,26 @@ AUDIO_DIR = os.path.join(os.path.dirname(__file__), 'audio_output')
 os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Language configuration
-# gTTS languages: Spanish, French, Amharic (confirmed supported)
+# gTTS languages: Spanish, French, Amharic, Somali, Arabic (confirmed supported)
 # Tigrinya uses Amharic TTS since both use Ge'ez script with similar pronunciation
-# pyttsx3 for Oromo (uses Windows SAPI TTS - gTTS doesn't support it)
+# pyttsx3 for Oromo, Hadiyaa, Wolayitta, Afar, Gamo (uses Windows SAPI TTS - gTTS doesn't support them)
 LANGUAGE_CODES = {
     'spanish': 'es',
     'french': 'fr',
     'amharic': 'am',
     'tigrinya': 'am',  # Uses Amharic TTS (same Ge'ez alphabet, similar pronunciation)
     'oromo': 'om',     # Not in gTTS - will use pyttsx3
+    'somali': 'so',    # Supported by gTTS
+    'arabic': 'ar',    # Supported by gTTS
+    'hadiyaa': 'ha',   # Not in gTTS - will use pyttsx3
+    'wolyitta': 'wo',  # Not in gTTS - will use pyttsx3
+    'afar': 'aa',      # Not in gTTS - will use pyttsx3
+    'gamo': 'gm',      # Not in gTTS - will use pyttsx3
     'english': 'en'    # Added English support
 }
 
 # Languages that use pyttsx3 instead of gTTS (because gTTS doesn't support them)
-PYTTSX3_LANGUAGES = ['oromo']
+PYTTSX3_LANGUAGES = ['oromo', 'hadiyaa', 'wolyitta', 'afar', 'gamo']
 
 @app.route('/health', methods=['GET'])
 def health_check():

@@ -27,14 +27,28 @@
         <main class="container my-5">
             <!-- Language Cards -->
             <div class="row g-4 mb-5">
-                <% languages.forEach(language => { %>
-                <div class="col-12 col-sm-6 col-lg-4">
+                <% 
+                const languageNames = {
+                    'spanish': 'Español (Spanish)',
+                    'french': 'Français (French)',
+                    'amharic': 'አማርኛ (Amharic)',
+                    'tigrinya': 'ትግርኛ (Tigrinya)',
+                    'oromo': 'Afaan Oromoo (Oromo)',
+                    'somali': 'Af-Soomaali (Somali)',
+                    'arabic': 'العربية (Arabic)',
+                    'hadiyaa': 'Hadiyyisa (Hadiyaa)',
+                    'wolyitta': 'Wolaytta (Wolayitta)',
+                    'afar': 'Qafar (Afar)',
+                    'gamo': 'Gamoñña (Gamo)'
+                };
+                languages.forEach(language => { %>
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                     <div class="card h-100 language-card border-0 shadow-sm">
                         <div class="card-body text-center p-4">
                             <i class="bi bi-translate fs-1 text-primary mb-3"></i>
-                            <h3 class="card-title h4 mb-3"><%= language.charAt(0).toUpperCase() + language.slice(1) %></h3>
+                            <h3 class="card-title h5 mb-3"><%= languageNames[language] || language %></h3>
                             <a href="/demo/<%= language %>" class="btn btn-primary btn-lg w-100">
-                                <i class="bi bi-play-circle me-2"></i>Try <%= language %>
+                                <i class="bi bi-play-circle me-2"></i>Try It
                             </a>
                         </div>
                     </div>
@@ -51,8 +65,22 @@
                     <div class="col-12 col-md-4">
                         <label for="quickLanguage" class="form-label fw-semibold">Select Language</label>
                         <select id="quickLanguage" class="form-select form-select-lg">
-                            <% languages.forEach(language => { %>
-                            <option value="<%= language %>"><%= language.charAt(0).toUpperCase() + language.slice(1) %></option>
+                            <% 
+                            const quickLangNames = {
+                                'spanish': 'Español (Spanish)',
+                                'french': 'Français (French)',
+                                'amharic': 'አማርኛ (Amharic)',
+                                'tigrinya': 'ትግርኛ (Tigrinya)',
+                                'oromo': 'Afaan Oromoo (Oromo)',
+                                'somali': 'Af-Soomaali (Somali)',
+                                'arabic': 'العربية (Arabic)',
+                                'hadiyaa': 'Hadiyyisa (Hadiyaa)',
+                                'wolyitta': 'Wolaytta (Wolayitta)',
+                                'afar': 'Qafar (Afar)',
+                                'gamo': 'Gamoñña (Gamo)'
+                            };
+                            languages.forEach(language => { %>
+                            <option value="<%= language %>"><%= quickLangNames[language] || language %></option>
                             <% }) %>
                         </select>
                     </div>
@@ -100,7 +128,31 @@
                     </div>
                     <div class="list-group-item">
                         <strong class="text-primary">Oromo:</strong> 
-                        <span class="ms-2">"Nagaa, gara taphaatiitti baga dhuftan." (Uses Windows TTS)</span>
+                        <span class="ms-2">"Nagaa, gara taphaatiitti baga dhuftan."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Somali:</strong> 
+                        <span class="ms-2">"Salaan, ku soo dhawoow ciyaarta tababarka codka."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Arabic:</strong> 
+                        <span class="ms-2">"مرحبا، أهلا بك في لعبة التدريب الصوتي."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Hadiyaa:</strong> 
+                        <span class="ms-2">"Salammo, haagama tababaara gara wole dhufte."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Wolayitta:</strong> 
+                        <span class="ms-2">"Saron, yetta tabaa oyichchaa yaana yiita."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Afar:</strong> 
+                        <span class="ms-2">"Salaam, raakiba sama taclim yaa wacalka."</span>
+                    </div>
+                    <div class="list-group-item">
+                        <strong class="text-primary">Gamo:</strong> 
+                        <span class="ms-2">"Saron, yetta tababaa oyichchaa yaana yiita."</span>
                     </div>
                 </div>
             </section>

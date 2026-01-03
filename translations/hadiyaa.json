@@ -1,0 +1,2842 @@
+{
+  "language": "hadiya",
+  "nativeLanguageField": "hadiya",
+  "ui": {
+    "pageTitle": "Hadikka Akkata",
+    "enterText": "Mitiisitto",
+    "placeholder": "Ittinne kuussi...",
+    "speakButton": "Haage",
+    "clearButton": "Qaqqicco",
+    "audioOutput": "Oowwa Haala",
+    "languageLabel": "Lishsha:",
+    "examplePhrases": "Kawwe Kessu",
+    "showTranslation": "Sihiche Iffanno:",
+    "selectCategory": "Goggo Cheecho",
+    "selectPhrase": "Kawwe Cheecho",
+    "usePhrase": "Kawwe Faado",
+    "footer": "© 2026 Sound Training App. Hunde Hishsho."
+  },
+  "categories": {
+    "Acciones": [
+      {
+        "english": "come",
+        "spanish": "Venir",
+        "french": "Venir",
+        "amharic": "መምጣት",
+        "tigrinya": "ምእታው",
+        "hadiya": "Ittanno",
+        "oromo": "Dhufuu"
+      },
+      {
+        "english": "go",
+        "spanish": "Ir",
+        "french": "Aller",
+        "amharic": "መሄድ",
+        "tigrinya": "ምእታው",
+        "hadiya": "Yo'anno",
+        "oromo": "Deemu"
+      },
+      {
+        "english": "eat",
+        "spanish": "Comer",
+        "french": "Manger",
+        "amharic": "መብላት",
+        "tigrinya": "በልዕ",
+        "hadiya": "Iikko",
+        "oromo": "Nyachuu"
+      },
+      {
+        "english": "drink",
+        "spanish": "Beber",
+        "french": "Boire",
+        "amharic": "መጠጣት",
+        "tigrinya": "ሰቲ",
+        "hadiya": "Shikko",
+        "oromo": "Dhuguu"
+      }
+    ],
+    "Básicos & Saludos": [
+      {
+        "english": "hello",
+        "spanish": "Hola",
+        "french": "Bonjour",
+        "amharic": "ሀሎ",
+        "tigrinya": "ሰላም",
+        "hadiya": "Asshama",
+        "oromo": "Akkam"
+      },
+      {
+        "english": "thank you",
+        "spanish": "Gracias",
+        "french": "Merci",
+        "amharic": "አመሰግናለሁ",
+        "tigrinya": "የቐንየለይ",
+        "hadiya": "Gadano",
+        "oromo": "Galatoomi"
+      },
+      {
+        "english": "yes",
+        "spanish": "Sí",
+        "french": "Oui",
+        "amharic": "አዎ",
+        "tigrinya": "እወ",
+        "hadiya": "Eewa",
+        "oromo": "Eeyyee"
+      },
+      {
+        "english": "no",
+        "spanish": "No",
+        "french": "Non",
+        "amharic": "አይ",
+        "tigrinya": "ኣይፋል",
+        "hadiya": "Hayyo",
+        "oromo": "Lakki"
+      }
+    ],
+    "Familia": [
+      {
+        "english": "mother",
+        "spanish": "Madre",
+        "french": "Mère",
+        "amharic": "እናት",
+        "tigrinya": "ኣደ",
+        "hadiya": "Aya",
+        "oromo": "Haadha"
+      },
+      {
+        "english": "father",
+        "spanish": "Padre",
+        "french": "Père",
+        "amharic": "አባት",
+        "tigrinya": "ኣቦ",
+        "hadiya": "Aba",
+        "oromo": "Abaa"
+      },
+      {
+        "english": "brother",
+        "spanish": "Hermano",
+        "french": "Frère",
+        "amharic": "ወንድም",
+        "tigrinya": "ሓወ",
+        "hadiya": "Guracha",
+        "oromo": "Obboleessa"
+      },
+      {
+        "english": "sister",
+        "spanish": "Hermana",
+        "french": "Sœur",
+        "amharic": "እህት",
+        "tigrinya": "ሓተት",
+        "hadiya": "Hudha",
+        "oromo": "Obboleettii"
+      }
+    ],
+    "Comida": [
+      {
+        "english": "water",
+        "spanish": "Agua",
+        "french": "Eau",
+        "amharic": "ውሃ",
+        "tigrinya": "ማይ",
+        "hadiya": "Woha",
+        "oromo": "Bishaan"
+      },
+      {
+        "english": "bread",
+        "spanish": "Pan",
+        "french": "Pain",
+        "amharic": "ዳቦ",
+        "tigrinya": "ባኒ",
+        "hadiya": "Dabo",
+        "oromo": "Daabboo"
+      },
+      {
+        "english": "milk",
+        "spanish": "Leche",
+        "french": "Lait",
+        "amharic": "ወተት",
+        "tigrinya": "ጸላም",
+        "hadiya": "Anno",
+        "oromo": "Anaan"
+      }
+    ],
+    "actions": [
+      {
+        "english": "attack",
+        "spanish": "Atacar",
+        "french": "",
+        "amharic": "መምታት",
+        "tigrinya": "መምታት",
+        "oromo": "Meechuu",
+        "hadiya": "attack"
+      },
+      {
+        "english": "capture",
+        "spanish": "Capturar",
+        "french": "",
+        "amharic": "መማረክ",
+        "tigrinya": "ምርካብ",
+        "oromo": "Bittaa",
+        "hadiya": "capture"
+      },
+      {
+        "english": "come",
+        "spanish": "Venir",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "come"
+      },
+      {
+        "english": "defend",
+        "spanish": "Defender",
+        "french": "",
+        "amharic": "መከላከል",
+        "tigrinya": "ምክልኻል",
+        "oromo": "Itti gaafatamuu",
+        "hadiya": "defend"
+      },
+      {
+        "english": "drink",
+        "spanish": "Beber",
+        "french": "",
+        "amharic": "መጠጣት",
+        "tigrinya": "ሰቲ",
+        "oromo": "Dhuguu",
+        "hadiya": "drink"
+      },
+      {
+        "english": "eat",
+        "spanish": "Comer",
+        "french": "",
+        "amharic": "መብላት",
+        "tigrinya": "በልዕ",
+        "oromo": "Nyachuu",
+        "hadiya": "eat"
+      },
+      {
+        "english": "fight",
+        "spanish": "Luchar",
+        "french": "",
+        "amharic": "መጋጠም",
+        "tigrinya": "ምትሕግጋዝ",
+        "oromo": "Loluu",
+        "hadiya": "fight"
+      },
+      {
+        "english": "give",
+        "spanish": "Dar",
+        "french": "",
+        "amharic": "መስጠት",
+        "tigrinya": "ሃብ",
+        "oromo": "Kennuu",
+        "hadiya": "give"
+      },
+      {
+        "english": "go",
+        "spanish": "Ir",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "go"
+      },
+      {
+        "english": "hold",
+        "spanish": "Sostener",
+        "french": "",
+        "amharic": "መያዝ",
+        "tigrinya": "ሓዝ",
+        "oromo": "Qabuu",
+        "hadiya": "hold"
+      },
+      {
+        "english": "invasion",
+        "spanish": "Invasión",
+        "french": "",
+        "amharic": "መስጠበቅ",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "invasion"
+      },
+      {
+        "english": "jump",
+        "spanish": "Saltar",
+        "french": "",
+        "amharic": "መዝለቅ",
+        "tigrinya": "ዘረገ",
+        "oromo": "Dhaabbachuu",
+        "hadiya": "jump"
+      },
+      {
+        "english": "listen",
+        "spanish": "Escuchar",
+        "french": "",
+        "amharic": "መስማት",
+        "tigrinya": "ስማዕ",
+        "oromo": "Dhageeffachuu",
+        "hadiya": "listen"
+      },
+      {
+        "english": "protect",
+        "spanish": "Proteger",
+        "french": "",
+        "amharic": "መጠበቅ",
+        "tigrinya": "ምሕላው",
+        "oromo": "Tiksuu",
+        "hadiya": "protect"
+      },
+      {
+        "english": "resistance",
+        "spanish": "Resistencia",
+        "french": "",
+        "amharic": "ተቃውሞ",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "resistance"
+      },
+      {
+        "english": "retreat",
+        "spanish": "Retirarse",
+        "french": "",
+        "amharic": "መመለስ",
+        "tigrinya": "ምግባር ድሕሪ",
+        "oromo": "Deebi'uu",
+        "hadiya": "retreat"
+      },
+      {
+        "english": "run",
+        "spanish": "Correr",
+        "french": "",
+        "amharic": "መሮጥ",
+        "tigrinya": "ሃደመ",
+        "oromo": "Fiiguu",
+        "hadiya": "run"
+      },
+      {
+        "english": "see",
+        "spanish": "Ver",
+        "french": "",
+        "amharic": "መስተዋት",
+        "tigrinya": "ርኢ",
+        "oromo": "Ilaaluu",
+        "hadiya": "see"
+      },
+      {
+        "english": "sleep",
+        "spanish": "Dormir",
+        "french": "",
+        "amharic": "መተኛት",
+        "tigrinya": "ንድር",
+        "oromo": "Rafuu",
+        "hadiya": "sleep"
+      },
+      {
+        "english": "stop",
+        "spanish": "Parar",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "stop"
+      },
+      {
+        "english": "surrender",
+        "spanish": "Rendición",
+        "french": "",
+        "amharic": "ማስገባት",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "surrender"
+      },
+      {
+        "english": "take",
+        "spanish": "Tomar",
+        "french": "",
+        "amharic": "መውሰድ",
+        "tigrinya": "ወሰድ",
+        "oromo": "Fuudhuu",
+        "hadiya": "take"
+      },
+      {
+        "english": "talk",
+        "spanish": "Hablar",
+        "french": "",
+        "amharic": "መናገር",
+        "tigrinya": "ዘረባ",
+        "oromo": "Haasawuu",
+        "hadiya": "talk"
+      },
+      {
+        "english": "touch",
+        "spanish": "Tocar",
+        "french": "",
+        "amharic": "መንካት",
+        "tigrinya": "ተንከፍ",
+        "oromo": "Tuquu",
+        "hadiya": "touch"
+      },
+      {
+        "english": "wait",
+        "spanish": "Esperar",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "wait"
+      },
+      {
+        "english": "walk",
+        "spanish": "Caminar",
+        "french": "",
+        "amharic": "መጓዝ",
+        "tigrinya": "መንበር",
+        "oromo": "Dee'imuu",
+        "hadiya": "walk"
+      }
+    ],
+    "animals": [
+      {
+        "english": "bee",
+        "spanish": "Abeja",
+        "french": "",
+        "amharic": "ንቦ",
+        "tigrinya": "ንህቢ",
+        "oromo": "Kannisa",
+        "hadiya": "bee"
+      },
+      {
+        "english": "bird",
+        "spanish": "Pájaro",
+        "french": "",
+        "amharic": "ወፍ",
+        "tigrinya": "ዑፍ",
+        "oromo": "Simbirroo",
+        "hadiya": "bird"
+      },
+      {
+        "english": "butterfly",
+        "spanish": "Mariposa",
+        "french": "",
+        "amharic": "ቢራቢሮ",
+        "tigrinya": "ፍሊወር",
+        "oromo": "Bilbilaa",
+        "hadiya": "butterfly"
+      },
+      {
+        "english": "cat",
+        "spanish": "Gato",
+        "french": "",
+        "amharic": "ድመት",
+        "tigrinya": "ድሙ",
+        "oromo": "Adurree",
+        "hadiya": "cat"
+      },
+      {
+        "english": "chicken",
+        "spanish": "Pollo",
+        "french": "",
+        "amharic": "ዶሮ",
+        "tigrinya": "ደርሆ",
+        "oromo": "Lukkuu",
+        "hadiya": "chicken"
+      },
+      {
+        "english": "cow",
+        "spanish": "Vaca",
+        "french": "",
+        "amharic": "ላም",
+        "tigrinya": "በጊ",
+        "oromo": "Sa'a",
+        "hadiya": "cow"
+      },
+      {
+        "english": "dog",
+        "spanish": "Perro",
+        "french": "",
+        "amharic": "ውሻ",
+        "tigrinya": "ከልቢ",
+        "oromo": "Saree",
+        "hadiya": "dog"
+      },
+      {
+        "english": "donkey",
+        "spanish": "Burro",
+        "french": "",
+        "amharic": "አድጊ",
+        "tigrinya": "ኣድጊ",
+        "oromo": "Harree",
+        "hadiya": "donkey"
+      },
+      {
+        "english": "elephant",
+        "spanish": "Elefante",
+        "french": "",
+        "amharic": "ዝሆን",
+        "tigrinya": "ሓርማዝ",
+        "oromo": "Arba",
+        "hadiya": "elephant"
+      },
+      {
+        "english": "fish",
+        "spanish": "Pez",
+        "french": "",
+        "amharic": "አሳ",
+        "tigrinya": "ኣሳ",
+        "oromo": "Qurxummii",
+        "hadiya": "fish"
+      },
+      {
+        "english": "giraffe",
+        "spanish": "Jirafa",
+        "french": "",
+        "amharic": "ቀጭኔ",
+        "tigrinya": "ቀጭኒ",
+        "oromo": "Sigaalaa",
+        "hadiya": "giraffe"
+      },
+      {
+        "english": "goat",
+        "spanish": "Cabra",
+        "french": "",
+        "amharic": "ፍየል",
+        "tigrinya": "ፍየል",
+        "oromo": "Re'ee",
+        "hadiya": "goat"
+      },
+      {
+        "english": "horse",
+        "spanish": "Caballo",
+        "french": "",
+        "amharic": "ፈረስ",
+        "tigrinya": "ፈረስ",
+        "oromo": "Farda",
+        "hadiya": "horse"
+      },
+      {
+        "english": "lion",
+        "spanish": "León",
+        "french": "",
+        "amharic": "አንበሳ",
+        "tigrinya": "ኣንበሳ",
+        "oromo": "Leenca",
+        "hadiya": "lion"
+      },
+      {
+        "english": "monkey",
+        "spanish": "Mono",
+        "french": "",
+        "amharic": "ዝንጀሮ",
+        "tigrinya": "ዝወራዕ",
+        "oromo": "Jaldeessa",
+        "hadiya": "monkey"
+      },
+      {
+        "english": "pig",
+        "spanish": "Cerdo",
+        "french": "",
+        "amharic": "አሳማ",
+        "tigrinya": "ሓንሳእ",
+        "oromo": "Booyyee",
+        "hadiya": "pig"
+      },
+      {
+        "english": "rabbit",
+        "spanish": "Conejo",
+        "french": "",
+        "amharic": "ቀጭኔ",
+        "tigrinya": "ሓንበር",
+        "oromo": "Haree",
+        "hadiya": "rabbit"
+      },
+      {
+        "english": "sheep",
+        "spanish": "Oveja",
+        "french": "",
+        "amharic": "በግ",
+        "tigrinya": "በጊ",
+        "oromo": "Hoolaa",
+        "hadiya": "sheep"
+      },
+      {
+        "english": "spider",
+        "spanish": "Araña",
+        "french": "",
+        "amharic": "ሸረሪት",
+        "tigrinya": "ሰርሖ",
+        "oromo": "Sarmuu",
+        "hadiya": "spider"
+      },
+      {
+        "english": "zebra",
+        "spanish": "Cebra",
+        "french": "",
+        "amharic": "የበረዶ አጥቢ",
+        "tigrinya": "ዘብራ",
+        "oromo": "Zebiraa",
+        "hadiya": "zebra"
+      }
+    ],
+    "basics": [
+      {
+        "english": "excuse me",
+        "spanish": "Perdón",
+        "french": "Excusez-moi",
+        "amharic": "ይቅር",
+        "tigrinya": "ይቕረ",
+        "oromo": "Dhiifama",
+        "hadiya": "excuse me"
+      },
+      {
+        "english": "goodbye",
+        "spanish": "Adiós",
+        "french": "Au revoir",
+        "amharic": "ደህና ሁን",
+        "tigrinya": "ደሓን ኩን",
+        "oromo": "Nagaatti",
+        "hadiya": "goodbye"
+      },
+      {
+        "english": "hello",
+        "spanish": "Hola",
+        "french": "Bonjour",
+        "amharic": "ሀሎ",
+        "tigrinya": "ሰላም",
+        "oromo": "Akkam",
+        "hadiya": "hello"
+      },
+      {
+        "english": "help",
+        "spanish": "Ayuda",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "help"
+      },
+      {
+        "english": "how",
+        "spanish": "Cómo",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ከመይ",
+        "oromo": "Akkam",
+        "hadiya": "how"
+      },
+      {
+        "english": "name",
+        "spanish": "Nombre",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "name"
+      },
+      {
+        "english": "no",
+        "spanish": "No",
+        "french": "Non",
+        "amharic": "አይ",
+        "tigrinya": "ኣይፋል",
+        "oromo": "Lakki",
+        "hadiya": "no"
+      },
+      {
+        "english": "okay",
+        "spanish": "Está bien",
+        "french": "D'accord",
+        "amharic": "እሺ",
+        "tigrinya": "ተስማማዕ",
+        "oromo": "Tole",
+        "hadiya": "okay"
+      },
+      {
+        "english": "please",
+        "spanish": "Por favor",
+        "french": "S'il vous plaît",
+        "amharic": "እባክህ",
+        "tigrinya": "በጃኻ",
+        "oromo": "Mee",
+        "hadiya": "please"
+      },
+      {
+        "english": "sorry",
+        "spanish": "Lo siento",
+        "french": "Pardon",
+        "amharic": "ይቅርታ",
+        "tigrinya": "ይቕረታ",
+        "oromo": "Dhiifama",
+        "hadiya": "sorry"
+      },
+      {
+        "english": "thank you",
+        "spanish": "Gracias",
+        "french": "Merci",
+        "amharic": "አመሰግናለሁ",
+        "tigrinya": "የቐንየለይ",
+        "oromo": "Galatoomi",
+        "hadiya": "thank you"
+      },
+      {
+        "english": "welcome",
+        "spanish": "Bienvenido",
+        "french": "Bienvenue",
+        "amharic": "እንኳን ደህና መጡ",
+        "tigrinya": "እንቋዕ ብደሓን መጻእኩም",
+        "oromo": "Baga nagaan dhufte",
+        "hadiya": "welcome"
+      },
+      {
+        "english": "what",
+        "spanish": "Qué",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "እንታይ",
+        "oromo": "Maal",
+        "hadiya": "what"
+      },
+      {
+        "english": "when",
+        "spanish": "Cuándo",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "መዓስ",
+        "oromo": "Yoom",
+        "hadiya": "when"
+      },
+      {
+        "english": "where",
+        "spanish": "Dónde",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ኣበይ",
+        "oromo": "Eessa",
+        "hadiya": "where"
+      },
+      {
+        "english": "why",
+        "spanish": "Por qué",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ስለምንታይ",
+        "oromo": "Maaliif",
+        "hadiya": "why"
+      },
+      {
+        "english": "yes",
+        "spanish": "Sí",
+        "french": "Oui",
+        "amharic": "አዎ",
+        "tigrinya": "እወ",
+        "oromo": "Eeyyee",
+        "hadiya": "yes"
+      }
+    ],
+    "body": [
+      {
+        "english": "ears",
+        "spanish": "Oídos",
+        "french": "Oreilles",
+        "amharic": "ጆሮ",
+        "tigrinya": "እዝኒ",
+        "oromo": "Gurra",
+        "hadiya": "ears"
+      },
+      {
+        "english": "eyes",
+        "spanish": "Ojos",
+        "french": "Yeux",
+        "amharic": "አይን",
+        "tigrinya": "ኣዒንቲ",
+        "oromo": "Ija",
+        "hadiya": "eyes"
+      },
+      {
+        "english": "feet",
+        "spanish": "Pies",
+        "french": "Pieds",
+        "amharic": "እግር",
+        "tigrinya": "እግሪ",
+        "oromo": "Miila",
+        "hadiya": "feet"
+      },
+      {
+        "english": "fingers",
+        "spanish": "Dedos",
+        "french": "Doigts",
+        "amharic": "ጣት",
+        "tigrinya": "ጣቕቲ",
+        "oromo": "Quba",
+        "hadiya": "fingers"
+      },
+      {
+        "english": "hair",
+        "spanish": "Pelo",
+        "french": "Cheveux",
+        "amharic": "ፀጉር",
+        "tigrinya": "ጸጉሪ",
+        "oromo": "Rifeensa",
+        "hadiya": "hair"
+      },
+      {
+        "english": "hands",
+        "spanish": "Manos",
+        "french": "Mains",
+        "amharic": "እጅ",
+        "tigrinya": "ኢድ",
+        "oromo": "Harka",
+        "hadiya": "hands"
+      },
+      {
+        "english": "head",
+        "spanish": "Cabeza",
+        "french": "Tête",
+        "amharic": "ራስ",
+        "tigrinya": "ርእሲ",
+        "oromo": "Mataa",
+        "hadiya": "head"
+      },
+      {
+        "english": "mouth",
+        "spanish": "Boca",
+        "french": "Bouche",
+        "amharic": "አፍ",
+        "tigrinya": "ኣፍ",
+        "oromo": "Afaan",
+        "hadiya": "mouth"
+      },
+      {
+        "english": "nose",
+        "spanish": "Nariz",
+        "french": "Nez",
+        "amharic": "አፍንጫ",
+        "tigrinya": "ኣፍንጫ",
+        "oromo": "Funyaan",
+        "hadiya": "nose"
+      },
+      {
+        "english": "stomach",
+        "spanish": "Estómago",
+        "french": "Estomac",
+        "amharic": "ሆድ",
+        "tigrinya": "ከብዲ",
+        "oromo": "Garaacha",
+        "hadiya": "stomach"
+      },
+      {
+        "english": "teeth",
+        "spanish": "Dientes",
+        "french": "Dents",
+        "amharic": "ጥርስ",
+        "tigrinya": "ስኒ",
+        "oromo": "Ilkaan",
+        "hadiya": "teeth"
+      }
+    ],
+    "clothing": [
+      {
+        "english": "coat",
+        "spanish": "Abrigo",
+        "french": "Manteau",
+        "amharic": "ኮት",
+        "tigrinya": "ኮት",
+        "oromo": "Koochii",
+        "hadiya": "coat"
+      },
+      {
+        "english": "dress",
+        "spanish": "Vestido",
+        "french": "Robe",
+        "amharic": "ኮንዶ",
+        "tigrinya": "ኮፍያ",
+        "oromo": "Diresii",
+        "hadiya": "dress"
+      },
+      {
+        "english": "gloves",
+        "spanish": "Guantes",
+        "french": "Gants",
+        "amharic": "ግብፅ",
+        "tigrinya": "ግዕዝ",
+        "oromo": "Gulufii",
+        "hadiya": "gloves"
+      },
+      {
+        "english": "hat",
+        "spanish": "Sombrero",
+        "french": "Chapeau",
+        "amharic": "ቆብ",
+        "tigrinya": "በረንዳ",
+        "oromo": "Faaruu",
+        "hadiya": "hat"
+      },
+      {
+        "english": "pants",
+        "spanish": "Pantalones",
+        "french": "Pantalon",
+        "amharic": "ሱሪ",
+        "tigrinya": "ሱራት",
+        "oromo": "Surree",
+        "hadiya": "pants"
+      },
+      {
+        "english": "shirt",
+        "spanish": "Camisa",
+        "french": "Chemise",
+        "amharic": "ሸሚዝ",
+        "tigrinya": "ሸሚዝ",
+        "oromo": "Hamacca",
+        "hadiya": "shirt"
+      },
+      {
+        "english": "shoes",
+        "spanish": "Zapatos",
+        "french": "Chaussures",
+        "amharic": "ጫማ",
+        "tigrinya": "ሳእኒ",
+        "oromo": "Kobxii",
+        "hadiya": "shoes"
+      },
+      {
+        "english": "socks",
+        "spanish": "Calcetines",
+        "french": "Chaussettes",
+        "amharic": "ጫማ ልብስ",
+        "tigrinya": "ካልሲ",
+        "oromo": "Sokisii",
+        "hadiya": "socks"
+      }
+    ],
+    "colors": [
+      {
+        "english": "black",
+        "spanish": "Negro",
+        "french": "Noir",
+        "amharic": "ጥቁር",
+        "tigrinya": "ጸሊም",
+        "oromo": "Gurraacha",
+        "hadiya": "black"
+      },
+      {
+        "english": "blue",
+        "spanish": "Azul",
+        "french": "Bleu",
+        "amharic": "ሰማያዊ",
+        "tigrinya": "ሰማያዊ",
+        "oromo": "Doogii",
+        "hadiya": "blue"
+      },
+      {
+        "english": "brown",
+        "spanish": "Marrón",
+        "french": "Marron",
+        "amharic": "ቡናዊ",
+        "tigrinya": "ቡናዊ",
+        "oromo": "Bunaawaa",
+        "hadiya": "brown"
+      },
+      {
+        "english": "green",
+        "spanish": "Verde",
+        "french": "Vert",
+        "amharic": "አረንጓዴ",
+        "tigrinya": "ሓምሊ",
+        "oromo": "Magariisa",
+        "hadiya": "green"
+      },
+      {
+        "english": "orange",
+        "spanish": "Naranja",
+        "french": "Orange",
+        "amharic": "ብርቱካናማ",
+        "tigrinya": "ብርቱካናዊ",
+        "oromo": "Burtukaanaa",
+        "hadiya": "orange"
+      },
+      {
+        "english": "pink",
+        "spanish": "Rosado",
+        "french": "Rose",
+        "amharic": "ሮዝ",
+        "tigrinya": "ሮዝ",
+        "oromo": "Roozii",
+        "hadiya": "pink"
+      },
+      {
+        "english": "purple",
+        "spanish": "Morado",
+        "french": "Violet",
+        "amharic": "ሐምራዊ",
+        "tigrinya": "ሐምራዊ",
+        "oromo": "Bisiniilaa",
+        "hadiya": "purple"
+      },
+      {
+        "english": "rainbow",
+        "spanish": "Arcoíris",
+        "french": "Arc-en-ciel",
+        "amharic": "ቀስተ ደመና",
+        "tigrinya": "ቀስተ ደበና",
+        "oromo": "Simbiraa bokkaa",
+        "hadiya": "rainbow"
+      },
+      {
+        "english": "red",
+        "spanish": "Rojo",
+        "french": "Rouge",
+        "amharic": "ቀይ",
+        "tigrinya": "ቀይሕ",
+        "oromo": "Diimaa",
+        "hadiya": "red"
+      },
+      {
+        "english": "white",
+        "spanish": "Blanco",
+        "french": "Blanc",
+        "amharic": "ነጭ",
+        "tigrinya": "ጻዕዳ",
+        "oromo": "Adii",
+        "hadiya": "white"
+      },
+      {
+        "english": "yellow",
+        "spanish": "Amarillo",
+        "french": "Jaune",
+        "amharic": "ቢጫ",
+        "tigrinya": "ቢጫ",
+        "oromo": "Kelloo",
+        "hadiya": "yellow"
+      }
+    ],
+    "descriptive": [
+      {
+        "english": "big",
+        "spanish": "Grande",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ዓቢ",
+        "oromo": "Guddaa",
+        "hadiya": "big"
+      },
+      {
+        "english": "clean",
+        "spanish": "Limpio",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ንጹህ",
+        "oromo": "Qulqulluu",
+        "hadiya": "clean"
+      },
+      {
+        "english": "dirty",
+        "spanish": "Sucio",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ጭላንጭል",
+        "oromo": "Dhoqqee",
+        "hadiya": "dirty"
+      },
+      {
+        "english": "down",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Gadi",
+        "hadiya": "down"
+      },
+      {
+        "english": "fast",
+        "spanish": "Rápido",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ቅልጡፍ",
+        "oromo": "Saffisa",
+        "hadiya": "fast"
+      },
+      {
+        "english": "left",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Bitaa",
+        "hadiya": "left"
+      },
+      {
+        "english": "right",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Mirga",
+        "hadiya": "right"
+      },
+      {
+        "english": "slow",
+        "spanish": "Lento",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ደንጉዝ",
+        "oromo": "Daddafaa",
+        "hadiya": "slow"
+      },
+      {
+        "english": "small",
+        "spanish": "Pequeño",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ንእሽቶ",
+        "oromo": "Xiqqaa",
+        "hadiya": "small"
+      },
+      {
+        "english": "up",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Ol",
+        "hadiya": "up"
+      }
+    ],
+    "emotions": [
+      {
+        "english": "angry",
+        "spanish": "Enojado",
+        "french": "Fâché",
+        "amharic": "ተናደደ",
+        "tigrinya": "ሓሪኹ",
+        "oromo": "Aarii",
+        "hadiya": "angry"
+      },
+      {
+        "english": "excited",
+        "spanish": "Emocionado",
+        "french": "Excité",
+        "amharic": "ከባድ",
+        "tigrinya": "ተለዓለ",
+        "oromo": "Bareedaa",
+        "hadiya": "excited"
+      },
+      {
+        "english": "happy",
+        "spanish": "Feliz",
+        "french": "Heureux",
+        "amharic": "ደስተኛ",
+        "tigrinya": "ሕጉስ",
+        "oromo": "Gammadaa",
+        "hadiya": "happy"
+      },
+      {
+        "english": "love",
+        "spanish": "Amor",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "love"
+      },
+      {
+        "english": "sad",
+        "spanish": "Triste",
+        "french": "Triste",
+        "amharic": "አዘንተኛ",
+        "tigrinya": "ደንጎል",
+        "oromo": "Yaaddoo",
+        "hadiya": "sad"
+      },
+      {
+        "english": "scared",
+        "spanish": "Asustado",
+        "french": "Peur",
+        "amharic": "ፈራ",
+        "tigrinya": "ፈሪሁ",
+        "oromo": "Sodaa",
+        "hadiya": "scared"
+      },
+      {
+        "english": "surprised",
+        "spanish": "Sorprendido",
+        "french": "Surpris",
+        "amharic": "ደነቀ",
+        "tigrinya": "ተደናገረ",
+        "oromo": "Dinquu",
+        "hadiya": "surprised"
+      },
+      {
+        "english": "tired",
+        "spanish": "Cansado",
+        "french": "Fatigué",
+        "amharic": "ድካም",
+        "tigrinya": "ድኻም",
+        "oromo": "Ga'ee",
+        "hadiya": "tired"
+      }
+    ],
+    "equipment": [
+      {
+        "english": "uniform",
+        "spanish": "Uniforme",
+        "french": "",
+        "amharic": "አንድ ዓይነት ልብስ",
+        "tigrinya": "ዩኒፎርም",
+        "oromo": "Yuunifoormii",
+        "hadiya": "uniform"
+      }
+    ],
+    "family": [
+      {
+        "english": "aunt",
+        "spanish": "Tía",
+        "french": "Tante",
+        "amharic": "አክስት",
+        "tigrinya": "ኣኼ",
+        "oromo": "Adaadaa",
+        "hadiya": "aunt"
+      },
+      {
+        "english": "baby",
+        "spanish": "Bebé",
+        "french": "Bébé",
+        "amharic": "ህፃን",
+        "tigrinya": "ህጻን",
+        "oromo": "Da'a",
+        "hadiya": "baby"
+      },
+      {
+        "english": "brother",
+        "spanish": "Hermano",
+        "french": "Frère",
+        "amharic": "ወንድም",
+        "tigrinya": "ሓወ",
+        "oromo": "Obboleessa",
+        "hadiya": "brother"
+      },
+      {
+        "english": "child",
+        "spanish": "Niño/Niña",
+        "french": "Enfant",
+        "amharic": "ልጅ",
+        "tigrinya": "ቈልዓ",
+        "oromo": "Da'a",
+        "hadiya": "child"
+      },
+      {
+        "english": "children",
+        "spanish": "Niños",
+        "french": "Enfants",
+        "amharic": "ልጆች",
+        "tigrinya": "ቈልዑ",
+        "oromo": "Da'oota",
+        "hadiya": "children"
+      },
+      {
+        "english": "cousin",
+        "spanish": "Primo/Prima",
+        "french": "Cousin/Cousine",
+        "amharic": "አጎቴ",
+        "tigrinya": "ወዲ ኣጎ",
+        "oromo": "Ilma eessumaa",
+        "hadiya": "cousin"
+      },
+      {
+        "english": "family",
+        "spanish": "Familia",
+        "french": "Famille",
+        "amharic": "ቤተሰብ",
+        "tigrinya": "ስድራ",
+        "oromo": "Maatii",
+        "hadiya": "family"
+      },
+      {
+        "english": "father",
+        "spanish": "Padre",
+        "french": "Père",
+        "amharic": "አባት",
+        "tigrinya": "ኣቦ",
+        "oromo": "Abaa",
+        "hadiya": "father"
+      },
+      {
+        "english": "grandfather",
+        "spanish": "Abuelo",
+        "french": "Grand-père",
+        "amharic": "አያት",
+        "tigrinya": "ኣያ",
+        "oromo": "Akaakayyuu",
+        "hadiya": "grandfather"
+      },
+      {
+        "english": "grandmother",
+        "spanish": "Abuela",
+        "french": "Grand-mère",
+        "amharic": "አያት",
+        "tigrinya": "ሓሊ",
+        "oromo": "Akkokko",
+        "hadiya": "grandmother"
+      },
+      {
+        "english": "mother",
+        "spanish": "Madre",
+        "french": "Mère",
+        "amharic": "እናት",
+        "tigrinya": "ኣደ",
+        "oromo": "Haadha",
+        "hadiya": "mother"
+      },
+      {
+        "english": "sister",
+        "spanish": "Hermana",
+        "french": "Sœur",
+        "amharic": "እህት",
+        "tigrinya": "ሓተት",
+        "oromo": "Obboleettii",
+        "hadiya": "sister"
+      },
+      {
+        "english": "uncle",
+        "spanish": "Tío",
+        "french": "Oncle",
+        "amharic": "አጎት",
+        "tigrinya": "ኣጎ",
+        "oromo": "Eessuma",
+        "hadiya": "uncle"
+      }
+    ],
+    "food": [
+      {
+        "english": "apple",
+        "spanish": "Manzana",
+        "french": "Pomme",
+        "amharic": "ፖም",
+        "tigrinya": "ፖም",
+        "oromo": "Aapilii",
+        "hadiya": "apple"
+      },
+      {
+        "english": "banana",
+        "spanish": "Plátano",
+        "french": "Banane",
+        "amharic": "ሙዝ",
+        "tigrinya": "ሙዝ",
+        "oromo": "Muuzii",
+        "hadiya": "banana"
+      },
+      {
+        "english": "bread",
+        "spanish": "Pan",
+        "french": "Pain",
+        "amharic": "ዳቦ",
+        "tigrinya": "ባኒ",
+        "oromo": "Daabboo",
+        "hadiya": "bread"
+      },
+      {
+        "english": "breakfast",
+        "spanish": "Desayuno",
+        "french": "Petit déjeuner",
+        "amharic": "ቁርስ",
+        "tigrinya": "ቁርሲ",
+        "oromo": "Ciree",
+        "hadiya": "breakfast"
+      },
+      {
+        "english": "cake",
+        "spanish": "Pastel",
+        "french": "",
+        "amharic": "ኬክ",
+        "tigrinya": "ኬክ",
+        "oromo": "Keekii",
+        "hadiya": "cake"
+      },
+      {
+        "english": "candy",
+        "spanish": "Caramelo",
+        "french": "",
+        "amharic": "ስኳር",
+        "tigrinya": "ሽኮር",
+        "oromo": "Sukaraa",
+        "hadiya": "candy"
+      },
+      {
+        "english": "coffee",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Buna",
+        "hadiya": "coffee"
+      },
+      {
+        "english": "dinner",
+        "spanish": "Cena",
+        "french": "Dîner",
+        "amharic": "እራት",
+        "tigrinya": "ድራር",
+        "oromo": "Dhaabata",
+        "hadiya": "dinner"
+      },
+      {
+        "english": "egg",
+        "spanish": "Huevo",
+        "french": "Œuf",
+        "amharic": "እንቁላል",
+        "tigrinya": "እንቋቑሖ",
+        "oromo": "Hanqaaquu",
+        "hadiya": "egg"
+      },
+      {
+        "english": "food",
+        "spanish": "Comida",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "food"
+      },
+      {
+        "english": "fruit",
+        "spanish": "Fruta",
+        "french": "Fruit",
+        "amharic": "ፍራፍሬ",
+        "tigrinya": "ፍረ",
+        "oromo": "Fuduraa",
+        "hadiya": "fruit"
+      },
+      {
+        "english": "juice",
+        "spanish": "Jugo",
+        "french": "Jus",
+        "amharic": "ጭማቂ",
+        "tigrinya": "ማይ ፍረ",
+        "oromo": "Juusii",
+        "hadiya": "juice"
+      },
+      {
+        "english": "lunch",
+        "spanish": "Almuerzo",
+        "french": "Déjeuner",
+        "amharic": "ምሳ",
+        "tigrinya": "ምሳ",
+        "oromo": "Waraabessaa",
+        "hadiya": "lunch"
+      },
+      {
+        "english": "meat",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Foon",
+        "hadiya": "meat"
+      },
+      {
+        "english": "milk",
+        "spanish": "Leche",
+        "french": "Lait",
+        "amharic": "ወተት",
+        "tigrinya": "ጸላም",
+        "oromo": "Anaan",
+        "hadiya": "milk"
+      },
+      {
+        "english": "rice",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Ruuzii",
+        "hadiya": "rice"
+      },
+      {
+        "english": "soup",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Marqaa",
+        "hadiya": "soup"
+      },
+      {
+        "english": "tea",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Shaahii",
+        "hadiya": "tea"
+      },
+      {
+        "english": "vegetable",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Baala",
+        "hadiya": "vegetable"
+      }
+    ],
+    "holidays": [
+      {
+        "english": "Christmas",
+        "spanish": "Navidad",
+        "french": "",
+        "amharic": "ገና",
+        "tigrinya": "ገና",
+        "oromo": "Ayyaana Geezii",
+        "hadiya": "Christmas"
+      },
+      {
+        "english": "birthday",
+        "spanish": "Cumpleaños",
+        "french": "",
+        "amharic": "የልደት ቀን",
+        "tigrinya": "ውላድ መዓልቲ",
+        "oromo": "Guyyaa dhalootaa",
+        "hadiya": "birthday"
+      },
+      {
+        "english": "gift",
+        "spanish": "Regalo",
+        "french": "",
+        "amharic": "ስጦታ",
+        "tigrinya": "ህያብ",
+        "oromo": "Kennaa",
+        "hadiya": "gift"
+      },
+      {
+        "english": "party",
+        "spanish": "Fiesta",
+        "french": "",
+        "amharic": "ድግስ",
+        "tigrinya": "ድግስ",
+        "oromo": "Poolisii",
+        "hadiya": "party"
+      }
+    ],
+    "house": [
+      {
+        "english": "bath",
+        "spanish": "Baño",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ሓጺብ",
+        "oromo": "Dhiignuu",
+        "hadiya": "bath"
+      },
+      {
+        "english": "bed",
+        "spanish": "Cama",
+        "french": "Lit",
+        "amharic": "አልጋ",
+        "tigrinya": "ዓራት",
+        "oromo": "Siree",
+        "hadiya": "bed"
+      },
+      {
+        "english": "blanket",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Uffata siree",
+        "hadiya": "blanket"
+      },
+      {
+        "english": "chair",
+        "spanish": "Silla",
+        "french": "Chaise",
+        "amharic": "ወንበር",
+        "tigrinya": "ኮሻ",
+        "oromo": "Barcumaa",
+        "hadiya": "chair"
+      },
+      {
+        "english": "door",
+        "spanish": "Puerta",
+        "french": "Porte",
+        "amharic": "በር",
+        "tigrinya": "ደጃፍ",
+        "oromo": "Balbala",
+        "hadiya": "door"
+      },
+      {
+        "english": "dream",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Abjuu",
+        "hadiya": "dream"
+      },
+      {
+        "english": "home",
+        "spanish": "Hogar",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "home"
+      },
+      {
+        "english": "house",
+        "spanish": "Casa",
+        "french": "Maison",
+        "amharic": "ቤት",
+        "tigrinya": "ቤት",
+        "oromo": "Mana",
+        "hadiya": "house"
+      },
+      {
+        "english": "kitchen",
+        "spanish": "Cocina",
+        "french": "Cuisine",
+        "amharic": "ማዕከላዊ ቤት",
+        "tigrinya": "መግቢ ቤት",
+        "oromo": "Mana nyaataa",
+        "hadiya": "kitchen"
+      },
+      {
+        "english": "pillow",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Barcuma siree",
+        "hadiya": "pillow"
+      },
+      {
+        "english": "room",
+        "spanish": "Cuarto",
+        "french": "Chambre",
+        "amharic": "ክፍል",
+        "tigrinya": "ዋዒ",
+        "oromo": "Kutaa",
+        "hadiya": "room"
+      },
+      {
+        "english": "soap",
+        "spanish": "Jabón",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ሳሙና",
+        "oromo": "Saqiiqqii",
+        "hadiya": "soap"
+      },
+      {
+        "english": "table",
+        "spanish": "Mesa",
+        "french": "Table",
+        "amharic": "ጠረጴዛ",
+        "tigrinya": "መኣዲ",
+        "oromo": "Miseensa",
+        "hadiya": "table"
+      },
+      {
+        "english": "toothbrush",
+        "spanish": "Cepillo de dientes",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "መጽሓፍ ስኒ",
+        "oromo": "Boorsaa ilkaa",
+        "hadiya": "toothbrush"
+      },
+      {
+        "english": "window",
+        "spanish": "Ventana",
+        "french": "Fenêtre",
+        "amharic": "መስኮት",
+        "tigrinya": "መስኮት",
+        "oromo": "Fadensa",
+        "hadiya": "window"
+      }
+    ],
+    "medical": [
+      {
+        "english": "death",
+        "spanish": "Muerte",
+        "french": "",
+        "amharic": "ሞት",
+        "tigrinya": "ሞት",
+        "oromo": "Du'aa",
+        "hadiya": "death"
+      },
+      {
+        "english": "wound",
+        "spanish": "Herida",
+        "french": "",
+        "amharic": "ጉዳት",
+        "tigrinya": "ቁስሊ",
+        "oromo": "Rukkisa",
+        "hadiya": "wound"
+      }
+    ],
+    "military": [
+      {
+        "english": "army",
+        "spanish": "Ejército",
+        "french": "",
+        "amharic": "ሰራዊት",
+        "tigrinya": "ሰንደቅ ዕላማ",
+        "oromo": "Waraana",
+        "hadiya": "army"
+      },
+      {
+        "english": "battle",
+        "spanish": "Batalla",
+        "french": "",
+        "amharic": "ትግል",
+        "tigrinya": "ግጭት",
+        "oromo": "Wal'itii",
+        "hadiya": "battle"
+      },
+      {
+        "english": "ceasefire",
+        "spanish": "Alto el fuego",
+        "french": "",
+        "amharic": "እልፍ አድማ",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "ceasefire"
+      },
+      {
+        "english": "peace",
+        "spanish": "Paz",
+        "french": "",
+        "amharic": "ሰላም",
+        "tigrinya": "ሰላም",
+        "oromo": "Naga",
+        "hadiya": "peace"
+      },
+      {
+        "english": "soldier",
+        "spanish": "Soldado",
+        "french": "",
+        "amharic": "ወታደር",
+        "tigrinya": "ወተሃደር",
+        "oromo": "Waraana",
+        "hadiya": "soldier"
+      },
+      {
+        "english": "war",
+        "spanish": "Guerra",
+        "french": "",
+        "amharic": "ጦርነት",
+        "tigrinya": "ውግእ",
+        "oromo": "Lola",
+        "hadiya": "war"
+      }
+    ],
+    "music": [
+      {
+        "english": "dance",
+        "spanish": "Bailar",
+        "french": "",
+        "amharic": "መዝፈን",
+        "tigrinya": "ጸወታ",
+        "oromo": "Shaggyyee",
+        "hadiya": "dance"
+      },
+      {
+        "english": "music",
+        "spanish": "Música",
+        "french": "",
+        "amharic": "ሙዚቃ",
+        "tigrinya": "ሙዚቃ",
+        "oromo": "Muuziqaa",
+        "hadiya": "music"
+      },
+      {
+        "english": "sing",
+        "spanish": "Cantar",
+        "french": "",
+        "amharic": "መዝፈን",
+        "tigrinya": "ዘምር",
+        "oromo": "Weellisuu",
+        "hadiya": "sing"
+      },
+      {
+        "english": "song",
+        "spanish": "Canción",
+        "french": "",
+        "amharic": "መዝሙር",
+        "tigrinya": "መዝሙር",
+        "oromo": "Weellisa",
+        "hadiya": "song"
+      }
+    ],
+    "nature": [
+      {
+        "english": "cloud",
+        "spanish": "Nube",
+        "french": "",
+        "amharic": "ደመና",
+        "tigrinya": "ደበና",
+        "oromo": "Duumessa",
+        "hadiya": "cloud"
+      },
+      {
+        "english": "flower",
+        "spanish": "Flor",
+        "french": "",
+        "amharic": "አበባ",
+        "tigrinya": "ኣዕባ",
+        "oromo": "Ababaa",
+        "hadiya": "flower"
+      },
+      {
+        "english": "lake",
+        "spanish": "Lago",
+        "french": "",
+        "amharic": "ሐይቅ",
+        "tigrinya": "ቀላይ",
+        "oromo": "Haroo",
+        "hadiya": "lake"
+      },
+      {
+        "english": "moon",
+        "spanish": "Luna",
+        "french": "",
+        "amharic": "ጨረቃ",
+        "tigrinya": "ወርሒ",
+        "oromo": "Ji'a",
+        "hadiya": "moon"
+      },
+      {
+        "english": "mountain",
+        "spanish": "Montaña",
+        "french": "",
+        "amharic": "ተራራ",
+        "tigrinya": "እምባ",
+        "oromo": "Tulluu",
+        "hadiya": "mountain"
+      },
+      {
+        "english": "rain",
+        "spanish": "Lluvia",
+        "french": "",
+        "amharic": "ዝናብ",
+        "tigrinya": "ዝናብ",
+        "oromo": "Rooba",
+        "hadiya": "rain"
+      },
+      {
+        "english": "river",
+        "spanish": "Río",
+        "french": "",
+        "amharic": "ወንዝ",
+        "tigrinya": "ፈለግ",
+        "oromo": "Laga",
+        "hadiya": "river"
+      },
+      {
+        "english": "sea",
+        "spanish": "Mar",
+        "french": "",
+        "amharic": "ባሕር",
+        "tigrinya": "ባሕሪ",
+        "oromo": "Galaana",
+        "hadiya": "sea"
+      },
+      {
+        "english": "sky",
+        "spanish": "Cielo",
+        "french": "",
+        "amharic": "ሰማይ",
+        "tigrinya": "ሰማይ",
+        "oromo": "Waaqa",
+        "hadiya": "sky"
+      },
+      {
+        "english": "snow",
+        "spanish": "Nieve",
+        "french": "",
+        "amharic": "በረዶ",
+        "tigrinya": "በረድ",
+        "oromo": "Rooba ciciyaa",
+        "hadiya": "snow"
+      },
+      {
+        "english": "star",
+        "spanish": "Estrella",
+        "french": "",
+        "amharic": "ኮከብ",
+        "tigrinya": "ኮኾብ",
+        "oromo": "Urjii",
+        "hadiya": "star"
+      },
+      {
+        "english": "sun",
+        "spanish": "Sol",
+        "french": "",
+        "amharic": "ፀሐይ",
+        "tigrinya": "ፀሐይ",
+        "oromo": "Biiftuu",
+        "hadiya": "sun"
+      },
+      {
+        "english": "tree",
+        "spanish": "Árbol",
+        "french": "",
+        "amharic": "ዛፍ",
+        "tigrinya": "ገረብ",
+        "oromo": "Muka",
+        "hadiya": "tree"
+      },
+      {
+        "english": "water",
+        "spanish": "Agua",
+        "french": "Eau",
+        "amharic": "ውሃ",
+        "tigrinya": "ማይ",
+        "oromo": "Bishaan",
+        "hadiya": "water"
+      },
+      {
+        "english": "wind",
+        "spanish": "Viento",
+        "french": "",
+        "amharic": "ነፋስ",
+        "tigrinya": "ንፋስ",
+        "oromo": "Bubbee",
+        "hadiya": "wind"
+      },
+      {
+        "english": "world",
+        "spanish": "Mundo",
+        "french": "",
+        "amharic": "ዓለም",
+        "tigrinya": "ዓለም",
+        "oromo": "Aduu",
+        "hadiya": "world"
+      }
+    ],
+    "numbers": [
+      {
+        "english": "eight",
+        "spanish": "Ocho",
+        "french": "Huit",
+        "amharic": "ስምንት",
+        "tigrinya": "ሸሞንተ",
+        "oromo": "Saddeet",
+        "hadiya": "eight"
+      },
+      {
+        "english": "five",
+        "spanish": "Cinco",
+        "french": "Cinq",
+        "amharic": "አምስት",
+        "tigrinya": "ሓሙሽተ",
+        "oromo": "Shan",
+        "hadiya": "five"
+      },
+      {
+        "english": "four",
+        "spanish": "Cuatro",
+        "french": "Quatre",
+        "amharic": "አራት",
+        "tigrinya": "ኣርባዕተ",
+        "oromo": "Afur",
+        "hadiya": "four"
+      },
+      {
+        "english": "nine",
+        "spanish": "Nueve",
+        "french": "Neuf",
+        "amharic": "ዘጠኝ",
+        "tigrinya": "ትሽዓተ",
+        "oromo": "Sagal",
+        "hadiya": "nine"
+      },
+      {
+        "english": "one",
+        "spanish": "Uno",
+        "french": "Un",
+        "amharic": "አንድ",
+        "tigrinya": "ሓደ",
+        "oromo": "Tokko",
+        "hadiya": "one"
+      },
+      {
+        "english": "seven",
+        "spanish": "Siete",
+        "french": "Sept",
+        "amharic": "ሰባት",
+        "tigrinya": "ሸውዓተ",
+        "oromo": "Torba",
+        "hadiya": "seven"
+      },
+      {
+        "english": "six",
+        "spanish": "Seis",
+        "french": "Six",
+        "amharic": "ስድስት",
+        "tigrinya": "ሽድሽተ",
+        "oromo": "Jaha",
+        "hadiya": "six"
+      },
+      {
+        "english": "ten",
+        "spanish": "Diez",
+        "french": "Dix",
+        "amharic": "አስር",
+        "tigrinya": "ዓሰርተ",
+        "oromo": "Kudhan",
+        "hadiya": "ten"
+      },
+      {
+        "english": "three",
+        "spanish": "Tres",
+        "french": "Trois",
+        "amharic": "ሶስት",
+        "tigrinya": "ሰለስተ",
+        "oromo": "Sadi",
+        "hadiya": "three"
+      },
+      {
+        "english": "two",
+        "spanish": "Dos",
+        "french": "Deux",
+        "amharic": "ሁለት",
+        "tigrinya": "ክልተ",
+        "oromo": "Lama",
+        "hadiya": "two"
+      },
+      {
+        "english": "zero",
+        "spanish": "Cero",
+        "french": "Zéro",
+        "amharic": "ዜሮ",
+        "tigrinya": "ዜሮ",
+        "oromo": "Zeeroo",
+        "hadiya": "zero"
+      }
+    ],
+    "objects": [
+      {
+        "english": "bag",
+        "spanish": "Bolsa",
+        "french": "",
+        "amharic": "ቦርሳ",
+        "tigrinya": "ቦርሳ",
+        "oromo": "Shakilla",
+        "hadiya": "bag"
+      },
+      {
+        "english": "book",
+        "spanish": "Libro",
+        "french": "",
+        "amharic": "መጽሐፍ",
+        "tigrinya": "መጽሓፍ",
+        "oromo": "Kitaaba",
+        "hadiya": "book"
+      },
+      {
+        "english": "clock",
+        "spanish": "Reloj",
+        "french": "",
+        "amharic": "ሰዓት",
+        "tigrinya": "ሰዓት",
+        "oromo": "Sa'aatii",
+        "hadiya": "clock"
+      },
+      {
+        "english": "computer",
+        "spanish": "Computadora",
+        "french": "",
+        "amharic": "ኮምፒውተር",
+        "tigrinya": "ኮምፒዩተር",
+        "oromo": "Kompiitaraa",
+        "hadiya": "computer"
+      },
+      {
+        "english": "key",
+        "spanish": "Llave",
+        "french": "",
+        "amharic": "ቁልፍ",
+        "tigrinya": "መፍትሕ",
+        "oromo": "Funyaan",
+        "hadiya": "key"
+      },
+      {
+        "english": "light",
+        "spanish": "Luz",
+        "french": "",
+        "amharic": "ብርሃን",
+        "tigrinya": "ብርሃን",
+        "oromo": "Ifaa",
+        "hadiya": "light"
+      },
+      {
+        "english": "money",
+        "spanish": "Dinero",
+        "french": "",
+        "amharic": "ገንዘብ",
+        "tigrinya": "ገንዘብ",
+        "oromo": "Qarshii",
+        "hadiya": "money"
+      },
+      {
+        "english": "phone",
+        "spanish": "Teléfono",
+        "french": "",
+        "amharic": "ስልክ",
+        "tigrinya": "ተሌፎን",
+        "oromo": "Bilbila",
+        "hadiya": "phone"
+      }
+    ],
+    "outcomes": [
+      {
+        "english": "defeat",
+        "spanish": "Derrota",
+        "french": "",
+        "amharic": "ሽንፈት",
+        "tigrinya": "ስዕረት",
+        "oromo": "Haphuu",
+        "hadiya": "defeat"
+      },
+      {
+        "english": "victory",
+        "spanish": "Victoria",
+        "french": "",
+        "amharic": "ድል",
+        "tigrinya": "ዓወት",
+        "oromo": "Moo'ummaa",
+        "hadiya": "victory"
+      }
+    ],
+    "people": [
+      {
+        "english": "ally",
+        "spanish": "Aliado",
+        "french": "",
+        "amharic": "አጋር",
+        "tigrinya": "ተሓጋጊ",
+        "oromo": "Hiriyyaa",
+        "hadiya": "ally"
+      },
+      {
+        "english": "commander",
+        "spanish": "Comandante",
+        "french": "",
+        "amharic": "ባለሥልጣን",
+        "tigrinya": "ቃዋሚ",
+        "oromo": "Komandaaraa",
+        "hadiya": "commander"
+      },
+      {
+        "english": "doctor",
+        "spanish": "Doctor/Doctora",
+        "french": "Docteur",
+        "amharic": "ሀኪም",
+        "tigrinya": "ሓኪም",
+        "oromo": "Doktara",
+        "hadiya": "doctor"
+      },
+      {
+        "english": "enemy",
+        "spanish": "Enemigo",
+        "french": "",
+        "amharic": "ጠላት",
+        "tigrinya": "ጸላኢ",
+        "oromo": "Diina",
+        "hadiya": "enemy"
+      },
+      {
+        "english": "freedom fighter",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ተጋዳላይ",
+        "oromo": "",
+        "hadiya": "freedom fighter"
+      },
+      {
+        "english": "friend",
+        "spanish": "Amigo/Amiga",
+        "french": "Ami/Amie",
+        "amharic": "ጓደኛ",
+        "tigrinya": "መሓዛ",
+        "oromo": "Hiriyaa",
+        "hadiya": "friend"
+      },
+      {
+        "english": "student",
+        "spanish": "Estudiante",
+        "french": "Étudiant/Étudiante",
+        "amharic": "ተማሪ",
+        "tigrinya": "ተማሃራይ",
+        "oromo": "Barataa",
+        "hadiya": "student"
+      },
+      {
+        "english": "teacher",
+        "spanish": "Maestro/Maestra",
+        "french": "Professeur",
+        "amharic": "መምህር",
+        "tigrinya": "መምህር",
+        "oromo": "Barsiisaa",
+        "hadiya": "teacher"
+      },
+      {
+        "english": "warrior",
+        "spanish": "Guerrero",
+        "french": "",
+        "amharic": "ወታደር",
+        "tigrinya": "ተመራመርቲ",
+        "oromo": "Abbaa Duulaa",
+        "hadiya": "warrior"
+      }
+    ],
+    "places": [
+      {
+        "english": "camp",
+        "spanish": "Campamento",
+        "french": "",
+        "amharic": "ሰፈር",
+        "tigrinya": "መደበር",
+        "oromo": "Buufata",
+        "hadiya": "camp"
+      },
+      {
+        "english": "church",
+        "spanish": "Iglesia",
+        "french": "",
+        "amharic": "ቤተ ክርስቲያን",
+        "tigrinya": "ቤተ ክርስትያን",
+        "oromo": "Mana hayyootaa",
+        "hadiya": "church"
+      },
+      {
+        "english": "front line",
+        "spanish": "Línea del frente",
+        "french": "",
+        "amharic": "ፊት ለፊት መስመር",
+        "tigrinya": "ፊት መስመር",
+        "oromo": "Fuula duraa",
+        "hadiya": "front line"
+      },
+      {
+        "english": "hospital",
+        "spanish": "Hospital",
+        "french": "",
+        "amharic": "ጤና ቤት",
+        "tigrinya": "ሆስፒታል",
+        "oromo": "Ospitaala",
+        "hadiya": "hospital"
+      },
+      {
+        "english": "park",
+        "spanish": "Parque",
+        "french": "",
+        "amharic": "ፓርክ",
+        "tigrinya": "ፓርክ",
+        "oromo": "Paarkii",
+        "hadiya": "park"
+      },
+      {
+        "english": "store",
+        "spanish": "Tienda",
+        "french": "",
+        "amharic": "ደንበኛ",
+        "tigrinya": "ድኳን",
+        "oromo": "Maallaqaa",
+        "hadiya": "store"
+      },
+      {
+        "english": "zoo",
+        "spanish": "Zoológico",
+        "french": "",
+        "amharic": "የእንስሳት ማሳ",
+        "tigrinya": "የእንስሳት ቤት",
+        "oromo": "Mana beyladaa",
+        "hadiya": "zoo"
+      }
+    ],
+    "political": [
+      {
+        "english": "independence",
+        "spanish": "Independencia",
+        "french": "",
+        "amharic": "ነፃነት",
+        "tigrinya": "ናጽነት",
+        "oromo": "",
+        "hadiya": "independence"
+      },
+      {
+        "english": "liberation",
+        "spanish": "Liberación",
+        "french": "",
+        "amharic": "ነፃ መውጣት",
+        "tigrinya": "ሓራይ",
+        "oromo": "",
+        "hadiya": "liberation"
+      },
+      {
+        "english": "occupation",
+        "spanish": "Ocupación",
+        "french": "",
+        "amharic": "ቅኝ ግዛት",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "occupation"
+      },
+      {
+        "english": "revolution",
+        "spanish": "Revolución",
+        "french": "",
+        "amharic": "መቃወም",
+        "tigrinya": "ዕቈባ",
+        "oromo": "",
+        "hadiya": "revolution"
+      }
+    ],
+    "qualities": [
+      {
+        "english": "bravery",
+        "spanish": "Valentía",
+        "french": "",
+        "amharic": "ደፋርነት",
+        "tigrinya": "ተባዕታይ",
+        "oromo": "Jabeenya",
+        "hadiya": "bravery"
+      },
+      {
+        "english": "courage",
+        "spanish": "Coraje",
+        "french": "",
+        "amharic": "ትዕግስት",
+        "tigrinya": "ህያውነት",
+        "oromo": "Sobbaa",
+        "hadiya": "courage"
+      }
+    ],
+    "school": [
+      {
+        "english": "draw",
+        "spanish": "Dibujar",
+        "french": "Dessiner",
+        "amharic": "መሳል",
+        "tigrinya": "ስእል",
+        "oromo": "Fakkasuu",
+        "hadiya": "draw"
+      },
+      {
+        "english": "learn",
+        "spanish": "Aprender",
+        "french": "Apprendre",
+        "amharic": "መማር",
+        "tigrinya": "ተማሃር",
+        "oromo": "Baruu",
+        "hadiya": "learn"
+      },
+      {
+        "english": "paper",
+        "spanish": "Papel",
+        "french": "Papier",
+        "amharic": "ወረቀት",
+        "tigrinya": "ወረቐት",
+        "oromo": "Xalayaa",
+        "hadiya": "paper"
+      },
+      {
+        "english": "pencil",
+        "spanish": "Lápiz",
+        "french": "Crayon",
+        "amharic": "እርሳስ",
+        "tigrinya": "ርሳስ",
+        "oromo": "Qalama",
+        "hadiya": "pencil"
+      },
+      {
+        "english": "read",
+        "spanish": "Leer",
+        "french": "Lire",
+        "amharic": "መንበብ",
+        "tigrinya": "ንበብ",
+        "oromo": "Dubbisuu",
+        "hadiya": "read"
+      },
+      {
+        "english": "school",
+        "spanish": "Escuela",
+        "french": "École",
+        "amharic": "ትምህርት ቤት",
+        "tigrinya": "ቤት ትምህርቲ",
+        "oromo": "Mana barumsaa",
+        "hadiya": "school"
+      },
+      {
+        "english": "write",
+        "spanish": "Escribir",
+        "french": "Écrire",
+        "amharic": "መጻፍ",
+        "tigrinya": "ጽሕፍ",
+        "oromo": "Barreessuu",
+        "hadiya": "write"
+      }
+    ],
+    "seasons": [
+      {
+        "english": "autumn",
+        "spanish": "Otoño",
+        "french": "",
+        "amharic": "ክረምት",
+        "tigrinya": "ሓጋይ",
+        "oromo": "Birraa",
+        "hadiya": "autumn"
+      },
+      {
+        "english": "spring",
+        "spanish": "Primavera",
+        "french": "",
+        "amharic": "ጸደይ",
+        "tigrinya": "ጽባሕ",
+        "oromo": "Arfaasaa",
+        "hadiya": "spring"
+      },
+      {
+        "english": "summer",
+        "spanish": "Verano",
+        "french": "",
+        "amharic": "በጋ",
+        "tigrinya": "ጸወዳ",
+        "oromo": "Bona",
+        "hadiya": "summer"
+      },
+      {
+        "english": "winter",
+        "spanish": "Invierno",
+        "french": "",
+        "amharic": "ክረምት",
+        "tigrinya": "ክረምቲ",
+        "oromo": "Ganna",
+        "hadiya": "winter"
+      }
+    ],
+    "shapes": [
+      {
+        "english": "circle",
+        "spanish": "Círculo",
+        "french": "",
+        "amharic": "ክብ",
+        "tigrinya": "ክብ",
+        "oromo": "Gola",
+        "hadiya": "circle"
+      },
+      {
+        "english": "heart",
+        "spanish": "Corazón",
+        "french": "Cœur",
+        "amharic": "ልብ",
+        "tigrinya": "ልቢ",
+        "oromo": "Onnee",
+        "hadiya": "heart"
+      },
+      {
+        "english": "square",
+        "spanish": "Cuadrado",
+        "french": "",
+        "amharic": "ካሬ",
+        "tigrinya": "ርቡዕ",
+        "oromo": "Kaabaa",
+        "hadiya": "square"
+      },
+      {
+        "english": "triangle",
+        "spanish": "Triángulo",
+        "french": "",
+        "amharic": "ሶስት ማእዘን",
+        "tigrinya": "ሰለስተ ክፍሊ",
+        "oromo": "Sadeen",
+        "hadiya": "triangle"
+      }
+    ],
+    "tactics": [
+      {
+        "english": "strategy",
+        "spanish": "Estrategia",
+        "french": "",
+        "amharic": "ስልት",
+        "tigrinya": "ስልቲ",
+        "oromo": "Haala ittiin bulma",
+        "hadiya": "strategy"
+      }
+    ],
+    "time": [
+      {
+        "english": "afternoon",
+        "spanish": "Tarde",
+        "french": "",
+        "amharic": "ከሰዓት በኋላ",
+        "tigrinya": "ድሕሪ ቀትሪ",
+        "oromo": "Waaree booda",
+        "hadiya": "afternoon"
+      },
+      {
+        "english": "day",
+        "spanish": "Día",
+        "french": "",
+        "amharic": "ቀን",
+        "tigrinya": "መዓልቲ",
+        "oromo": "Guyyaa",
+        "hadiya": "day"
+      },
+      {
+        "english": "evening",
+        "spanish": "Noche",
+        "french": "",
+        "amharic": "ማታ",
+        "tigrinya": "ማለዶ",
+        "oromo": "Galgalama",
+        "hadiya": "evening"
+      },
+      {
+        "english": "morning",
+        "spanish": "Mañana",
+        "french": "",
+        "amharic": "ጠዋት",
+        "tigrinya": "ንግሆ",
+        "oromo": "Ganama",
+        "hadiya": "morning"
+      },
+      {
+        "english": "night",
+        "spanish": "Noche",
+        "french": "",
+        "amharic": "ሌሊት",
+        "tigrinya": "ለይቲ",
+        "oromo": "Halkan",
+        "hadiya": "night"
+      },
+      {
+        "english": "time",
+        "spanish": "Tiempo",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "",
+        "hadiya": "time"
+      },
+      {
+        "english": "today",
+        "spanish": "Hoy",
+        "french": "",
+        "amharic": "ዛሬ",
+        "tigrinya": "ሎሚ",
+        "oromo": "Har'a",
+        "hadiya": "today"
+      },
+      {
+        "english": "tomorrow",
+        "spanish": "Mañana",
+        "french": "",
+        "amharic": "ነገ",
+        "tigrinya": "ጽባሕ",
+        "oromo": "Boru",
+        "hadiya": "tomorrow"
+      },
+      {
+        "english": "yesterday",
+        "spanish": "Ayer",
+        "french": "",
+        "amharic": "ትላንት",
+        "tigrinya": "ትማሊ",
+        "oromo": "Kaleessa",
+        "hadiya": "yesterday"
+      }
+    ],
+    "toys": [
+      {
+        "english": "ball",
+        "spanish": "Pelota",
+        "french": "Balle",
+        "amharic": "ኳስ",
+        "tigrinya": "ኩዕሶ",
+        "oromo": "Kubbaa",
+        "hadiya": "ball"
+      },
+      {
+        "english": "doll",
+        "spanish": "Muñeca",
+        "french": "Poupée",
+        "amharic": "አሻንጉሊት",
+        "tigrinya": "ኣሻንጉሊት",
+        "oromo": "Qalamaa",
+        "hadiya": "doll"
+      },
+      {
+        "english": "fun",
+        "spanish": "Diversión",
+        "french": "Amusant",
+        "amharic": "ደስታ",
+        "tigrinya": "ሓጎስ",
+        "oromo": "Gammachuu",
+        "hadiya": "fun"
+      },
+      {
+        "english": "game",
+        "spanish": "Juego",
+        "french": "Jeu",
+        "amharic": "ጨዋታ",
+        "tigrinya": "ጸወታ",
+        "oromo": "Tapha",
+        "hadiya": "game"
+      },
+      {
+        "english": "hide",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Dhoksuu",
+        "hadiya": "hide"
+      },
+      {
+        "english": "lose",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Haphuu",
+        "hadiya": "lose"
+      },
+      {
+        "english": "play",
+        "spanish": "Jugar",
+        "french": "Jouer",
+        "amharic": "መጫወት",
+        "tigrinya": "ጻወት",
+        "oromo": "Taphachuu",
+        "hadiya": "play"
+      },
+      {
+        "english": "seek",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Barbaachuu",
+        "hadiya": "seek"
+      },
+      {
+        "english": "toy",
+        "spanish": "Juguete",
+        "french": "Jouet",
+        "amharic": "መጫወቻ",
+        "tigrinya": "መጻወቲ",
+        "oromo": "Meeshaa taphaa",
+        "hadiya": "toy"
+      },
+      {
+        "english": "win",
+        "spanish": "",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "",
+        "oromo": "Moo'uu",
+        "hadiya": "win"
+      }
+    ],
+    "transport": [
+      {
+        "english": "airplane",
+        "spanish": "Avión",
+        "french": "",
+        "amharic": "አውሮፕላን",
+        "tigrinya": "ነይሮፕላን",
+        "oromo": "Xiyyaara",
+        "hadiya": "airplane"
+      },
+      {
+        "english": "bicycle",
+        "spanish": "Bicicleta",
+        "french": "",
+        "amharic": "ብስክሌት",
+        "tigrinya": "ብስክሌት",
+        "oromo": "Baaskiilii",
+        "hadiya": "bicycle"
+      },
+      {
+        "english": "boat",
+        "spanish": "Barco",
+        "french": "",
+        "amharic": "መርከብ",
+        "tigrinya": "መርከብ",
+        "oromo": "Doonii",
+        "hadiya": "boat"
+      },
+      {
+        "english": "bus",
+        "spanish": "Autobús",
+        "french": "",
+        "amharic": "አውቶቡስ",
+        "tigrinya": "ኣውቶቡስ",
+        "oromo": "Baasi",
+        "hadiya": "bus"
+      },
+      {
+        "english": "car",
+        "spanish": "Coche",
+        "french": "",
+        "amharic": "መኪና",
+        "tigrinya": "መኪና",
+        "oromo": "Makiinaa",
+        "hadiya": "car"
+      },
+      {
+        "english": "train",
+        "spanish": "Tren",
+        "french": "",
+        "amharic": "ባቡር",
+        "tigrinya": "ባቡር",
+        "oromo": "Tireenii",
+        "hadiya": "train"
+      },
+      {
+        "english": "truck",
+        "spanish": "Camión",
+        "french": "",
+        "amharic": "ጭነት መኪና",
+        "tigrinya": "ጽዕነት መኪና",
+        "oromo": "Tarakii",
+        "hadiya": "truck"
+      }
+    ],
+    "vehicles": [
+      {
+        "english": "helicopter",
+        "spanish": "Helicóptero",
+        "french": "",
+        "amharic": "ሄሊኮፕተር",
+        "tigrinya": "ሄሊኮፕተር",
+        "oromo": "Hilikoptaarii",
+        "hadiya": "helicopter"
+      },
+      {
+        "english": "tank",
+        "spanish": "Tanque",
+        "french": "",
+        "amharic": "ታንክ",
+        "tigrinya": "ታንኪ",
+        "oromo": "Taankii",
+        "hadiya": "tank"
+      }
+    ],
+    "weapons": [
+      {
+        "english": "gun",
+        "spanish": "Arma",
+        "french": "",
+        "amharic": "ሽጉጥ",
+        "tigrinya": "ሽጉጥ",
+        "oromo": "Qawwee",
+        "hadiya": "gun"
+      },
+      {
+        "english": "knife",
+        "spanish": "Cuchillo",
+        "french": "",
+        "amharic": "ቢላ",
+        "tigrinya": "ቸንጎ",
+        "oromo": "Haaduu",
+        "hadiya": "knife"
+      },
+      {
+        "english": "shield",
+        "spanish": "Escudo",
+        "french": "",
+        "amharic": "ጋሻ",
+        "tigrinya": "ኽፍል",
+        "oromo": "Gaachana",
+        "hadiya": "shield"
+      },
+      {
+        "english": "sword",
+        "spanish": "Espada",
+        "french": "",
+        "amharic": "ነጭ ሰይፍ",
+        "tigrinya": "ሰይፍ",
+        "oromo": "Safara",
+        "hadiya": "sword"
+      },
+      {
+        "english": "weapon",
+        "spanish": "Arma",
+        "french": "",
+        "amharic": "የጦር መሣርያ",
+        "tigrinya": "መሳርያ",
+        "oromo": "Meeshaa waraanaa",
+        "hadiya": "weapon"
+      }
+    ],
+    "weather": [
+      {
+        "english": "cold",
+        "spanish": "Frío",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ጽልዋ",
+        "oromo": "Qabaa",
+        "hadiya": "cold"
+      },
+      {
+        "english": "hot",
+        "spanish": "Calor",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ሙቐት",
+        "oromo": "Ho'aa",
+        "hadiya": "hot"
+      },
+      {
+        "english": "sunny",
+        "spanish": "Soleado",
+        "french": "",
+        "amharic": "",
+        "tigrinya": "ፀሐያዊ",
+        "oromo": "Biiftuu",
+        "hadiya": "sunny"
+      }
+    ]
+  },
+  "categoryNames": {
+    "basics": "Uffannaa",
+    "greetings": "Salamtaa",
+    "food": "Nyaata",
+    "family": "Maata",
+    "shopping": "Bittaa",
+    "travel": "Deemuu",
+    "health": "Fayyaa",
+    "weather": "Haala Qillee",
+    "time": "Sa'aa",
+    "numbers": "Lakkuu",
+    "colors": "Kalleessa",
+    "animals": "Konne",
+    "clothing": "Uffata",
+    "emotions": "Miira",
+    "directions": "Kallattii",
+    "body": "Qaama",
+    "education": "Barnoota",
+    "work": "Hojii",
+    "technology": "Teknologii",
+    "sports": "Ispoortii",
+    "music": "Muuziqaa",
+    "nature": "Uumama",
+    "transportation": "Geejjibaa",
+    "home": "Mana",
+    "hobbies": "Bohaaboo",
+    "religion": "Amantii",
+    "government": "Mootummaa",
+    "business": "Daldala",
+    "emergency": "Balaa",
+    "communication": "Quunnamtii",
+    "celebrations": "Ayyaana",
+    "actions": "Gocha",
+    "questions": "Gaaffii",
+    "common_phrases": "Hima Baratamoo"
+  }
+}

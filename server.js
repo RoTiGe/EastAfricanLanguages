@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 // API endpoint to get categories for a language
 app.get('/api/categories/:language', (req, res) => {
     const language = req.params.language;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo'];
+    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
     
     if (!validLanguages.includes(language)) {
         return res.status(404).json({ error: 'Language not supported' });
@@ -57,7 +57,7 @@ app.get('/api/categories/:language', (req, res) => {
 // API endpoint to get phrases for a specific category
 app.get('/api/phrases/:language/:category', (req, res) => {
     const { language, category } = req.params;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo'];
+    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
     
     if (!validLanguages.includes(language)) {
         return res.status(404).json({ error: 'Language not supported' });
@@ -91,14 +91,14 @@ app.get('/api/phrases/:language/:category', (req, res) => {
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Multi-language TTS Game',
-        languages: ['spanish', 'french', 'amharic', 'tigrinya', 'oromo']
+        languages: ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo']
     });
 });
 
 // Language-specific demo pages
 app.get('/demo/:language', (req, res) => {
     const language = req.params.language;
-    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo'];
+    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo', 'somali', 'arabic', 'hadiyaa', 'wolyitta', 'afar', 'gamo'];
     
     if (!validLanguages.includes(language)) {
         return res.status(404).send('Language not supported');
