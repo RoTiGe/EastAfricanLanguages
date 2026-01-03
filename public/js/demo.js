@@ -183,15 +183,25 @@ function useSelectedPhrase() {
     const phraseSelect = document.getElementById('phraseSelect');
     const selectedOption = phraseSelect.options[phraseSelect.selectedIndex];
     
+    console.log('=== USE SELECTED PHRASE ===');
+    console.log('showBilingual:', showBilingual);
+    console.log('translationLanguage:', translationLanguage);
+    
     if (selectedOption && selectedOption.value) {
         if (showBilingual) {
             const translationText = selectedOption.getAttribute('data-translation-text');
+            console.log('Bilingual mode - using translation:', translationText);
+            console.log('Original value:', selectedOption.value);
             document.getElementById('demoText').value = translationText || selectedOption.value;
         } else {
+            console.log('Monolingual mode - using original:', selectedOption.value);
             document.getElementById('demoText').value = selectedOption.value;
         }
+        console.log('Text box value set to:', document.getElementById('demoText').value);
+        console.log('Calling speak()...');
         speak();
     }
+    console.log('=== END USE SELECTED PHRASE ===\n');
 }
 
 // Handle translation toggle
@@ -199,27 +209,48 @@ function onTranslationToggle() {
     const checkbox = document.getElementById('showTranslation');
     const translationSelect = document.getElementById('translationLang');
     
+    console.log('=== TRANSLATION TOGGLE ===');
+    console.log('Checkbox checked:', checkbox.checked);
+    console.log('Previous showBilingual:', showBilingual);
+    
     showBilingual = checkbox.checked;
     translationSelect.disabled = !showBilingual;
     
+    console.log('New showBilingual:', showBilingual);
+    console.log('Translation select disabled:', translationSelect.disabled);
+    
     if (showBilingual) {
         translationLanguage = translationSelect.value;
+        console.log('Translation language set to:', translationLanguage);
     }
     
     // Refresh phrase dropdown if category is selected
     if (currentCategory && currentPhrases.length > 0) {
+        console.log('Refreshing phrase dropdown for category:', currentCategory);
         populatePhraseDropdown();
+    } else {
+        console.log('No category selected, skipping dropdown refresh');
     }
+    console.log('=== END TRANSLATION TOGGLE ===\n');
 }
 
 // Handle translation language change
 function onTranslationLanguageChange() {
     const translationSelect = document.getElementById('translationLang');
+    const oldLang = translationLanguage;
     translationLanguage = translationSelect.value;
     
+    console.log('=== TRANSLATION LANGUAGE CHANGE ===');
+    console.log('Changed from:', oldLang, 'to:', translationLanguage);
+    console.log('showBilingual:', showBilingual);
+    console.log('currentCategory:', currentCategory);
+    console.log('currentPhrases count:', currentPhrases.length);
+    
     if (showBilingual && currentCategory && currentPhrases.length > 0) {
+        console.log('Refreshing phrase dropdown with new translation language');
         populatePhraseDropdown();
     }
+    console.log('=== END TRANSLATION LANGUAGE CHANGE ===\n');
 }
 
 async function speak() {
@@ -227,15 +258,25 @@ async function speak() {
     const status = document.getElementById('demoStatus');
     const audioPlayer = document.getElementById('demoAudioPlayer');
     
+    console.log('=== SPEAK FUNCTION ===');
+    console.log('Text to speak:', text);
+    console.log('showBilingual:', showBilingual);
+    console.log('translationLanguage:', translationLanguage);
+    console.log('LANGUAGE (page language):', LANGUAGE);
+    
     if (!text) {
         showDemoStatus('Please enter some text', 'error');
         return;
     }
     
     const speechLanguage = (showBilingual && translationLanguage) ? translationLanguage : LANGUAGE;
+    console.log('Speech will be generated in:', speechLanguage);
+    console.log('Calculation: showBilingual =', showBilingual, ', translationLanguage =', translationLanguage);
     
     try {
         showDemoStatus(`Generating ${speechLanguage} speech...`, 'loading');
+        
+        console.log('Sending request to /api/speak with:', { text, language: speechLanguage });
         
         const response = await fetch('/api/speak', {
             method: 'POST',
@@ -247,6 +288,8 @@ async function speak() {
                 language: speechLanguage
             })
         });
+        
+        console.log('Response status:', response.status);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -261,11 +304,13 @@ async function speak() {
         audioPlayer.play();
         
         showDemoStatus('✓ Speech generated successfully!', 'success');
+        console.log('Speech generated successfully');
         
     } catch (error) {
         console.error('Error:', error);
         showDemoStatus('Error: ' + error.message, 'error');
     }
+    console.log('=== END SPEAK FUNCTION ===\n');
 }
 
 function clearText() {
@@ -283,6 +328,11 @@ function showDemoStatus(message, type) {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('=== PAGE LOADED ===');
+    console.log('LANGUAGE:', LANGUAGE);
+    console.log('Initial showBilingual:', showBilingual);
+    console.log('Initial translationLanguage:', translationLanguage);
+    
     const textarea = document.getElementById('demoText');
     if (textarea) {
         textarea.addEventListener('keydown', (e) => {
@@ -299,16 +349,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.getElementById('categorySelect');
     const phraseSelect = document.getElementById('phraseSelect');
     const translationLangSelect = document.getElementById('translationLang');
+    const showTranslationCheckbox = document.getElementById('showTranslation');
+    
+    console.log('Setting up event listeners...');
+    console.log('  categorySelect:', !!categorySelect);
+    console.log('  phraseSelect:', !!phraseSelect);
+    console.log('  translationLangSelect:', !!translationLangSelect);
+    console.log('  showTranslationCheckbox:', !!showTranslationCheckbox);
     
     if (categorySelect) {
         categorySelect.addEventListener('change', onCategoryChange);
+        console.log('  ✓ Category change listener attached');
     }
     
     if (phraseSelect) {
         phraseSelect.addEventListener('change', onPhraseChange);
+        console.log('  ✓ Phrase change listener attached');
     }
     
     if (translationLangSelect) {
         translationLangSelect.addEventListener('change', onTranslationLanguageChange);
+        console.log('  ✓ Translation language change listener attached');
     }
+    
+    if (showTranslationCheckbox) {
+        showTranslationCheckbox.addEventListener('change', onTranslationToggle);
+        console.log('  ✓ Translation toggle listener attached');
+    }
+    
+    console.log('=== INITIALIZATION COMPLETE ===\n');
 });
