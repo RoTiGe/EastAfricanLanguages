@@ -1,0 +1,261 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "description": "Contextual language learning framework with time-of-day and relationship variations",
+    "created": "2026-01-03",
+    "purpose": "Enable learners to understand how the same meaning is expressed differently based on context"
+  },
+  "contexts": {
+    "time_of_day": [
+      {
+        "id": "morning",
+        "name": "Morning (6 AM - 12 PM)",
+        "description": "Early day greetings and interactions",
+        "typical_phrases": ["good morning", "breakfast", "start work", "wake up"]
+      },
+      {
+        "id": "midday",
+        "name": "Midday/Lunch (12 PM - 2 PM)",
+        "description": "Lunch time and midday interactions",
+        "typical_phrases": ["lunch", "break time", "hungry", "eat"]
+      },
+      {
+        "id": "afternoon",
+        "name": "Afternoon (2 PM - 6 PM)",
+        "description": "Afternoon work and activities",
+        "typical_phrases": ["good afternoon", "continue", "almost done", "tired"]
+      },
+      {
+        "id": "evening",
+        "name": "Evening (6 PM - 10 PM)",
+        "description": "End of day, dinner, relaxation",
+        "typical_phrases": ["good evening", "dinner", "going home", "rest"]
+      },
+      {
+        "id": "night",
+        "name": "Night (10 PM - 6 AM)",
+        "description": "Late night and overnight",
+        "typical_phrases": ["good night", "sleep", "emergency", "late"]
+      }
+    ],
+    "relationships": [
+      {
+        "id": "formal_stranger",
+        "name": "Formal - Stranger",
+        "formality": "high",
+        "trust_level": "low",
+        "description": "First meeting, professional distance",
+        "language_features": ["titles", "formal pronouns", "polite forms", "indirect requests"]
+      },
+      {
+        "id": "formal_professional",
+        "name": "Formal - Professional (Boss/Employee)",
+        "formality": "high",
+        "trust_level": "medium",
+        "description": "Workplace hierarchy, respectful",
+        "language_features": ["titles", "formal pronouns", "clear instructions", "professional courtesy"]
+      },
+      {
+        "id": "formal_authority",
+        "name": "Formal - Authority (Police/Official)",
+        "formality": "very_high",
+        "trust_level": "variable",
+        "description": "Dealing with officials, law enforcement",
+        "language_features": ["very formal", "respectful", "clear", "compliant"]
+      },
+      {
+        "id": "neutral_acquaintance",
+        "name": "Neutral - Acquaintance",
+        "formality": "medium",
+        "trust_level": "medium",
+        "description": "Neighbors, regular customers, casual contacts",
+        "language_features": ["polite", "friendly", "some informality"]
+      },
+      {
+        "id": "informal_friend",
+        "name": "Informal - Friend",
+        "formality": "low",
+        "trust_level": "high",
+        "description": "Friends, peers, trusted colleagues",
+        "language_features": ["casual", "slang", "jokes", "informal pronouns"]
+      },
+      {
+        "id": "intimate_family",
+        "name": "Intimate - Family",
+        "formality": "very_low",
+        "trust_level": "very_high",
+        "description": "Close family members",
+        "language_features": ["very casual", "terms of endearment", "direct", "emotional"]
+      },
+      {
+        "id": "intimate_romantic",
+        "name": "Intimate - Romantic Partner",
+        "formality": "very_low",
+        "trust_level": "very_high",
+        "description": "Spouse, romantic partner",
+        "language_features": ["affectionate", "terms of endearment", "intimate", "supportive"]
+      },
+      {
+        "id": "hierarchical_parent_child",
+        "name": "Hierarchical - Parent to Child",
+        "formality": "low",
+        "trust_level": "very_high",
+        "description": "Parent speaking to child",
+        "language_features": ["instructive", "caring", "simple", "patient"]
+      },
+      {
+        "id": "hierarchical_child_parent",
+        "name": "Hierarchical - Child to Parent",
+        "formality": "medium",
+        "trust_level": "very_high",
+        "description": "Child speaking to parent",
+        "language_features": ["respectful", "seeking approval", "honest"]
+      },
+      {
+        "id": "hierarchical_elder",
+        "name": "Hierarchical - Addressing Elder",
+        "formality": "high",
+        "trust_level": "high",
+        "description": "Speaking to community elders, grandparents",
+        "language_features": ["very respectful", "honorifics", "formal", "deferential"]
+      },
+      {
+        "id": "transactional_service",
+        "name": "Transactional - Service Provider",
+        "formality": "medium",
+        "trust_level": "medium",
+        "description": "Shop keeper, waiter, taxi driver",
+        "language_features": ["polite", "clear", "transactional", "efficient"]
+      },
+      {
+        "id": "cautious_distrust",
+        "name": "Cautious - Distrust",
+        "formality": "high",
+        "trust_level": "low",
+        "description": "Suspicious situations, potential scams",
+        "language_features": ["guarded", "questioning", "firm boundaries", "verification"]
+      },
+      {
+        "id": "playful_fun",
+        "name": "Playful - Fun/Joking",
+        "formality": "very_low",
+        "trust_level": "high",
+        "description": "Joking with friends, playful banter",
+        "language_features": ["humor", "teasing", "slang", "exaggeration"]
+      }
+    ]
+  },
+  "contextual_categories": [
+    {
+      "id": "greetings_contextual",
+      "name": "Greetings (Contextual)",
+      "base_category": "basic_communication",
+      "description": "Greetings that vary by time of day and relationship",
+      "priority": 1,
+      "contexts_used": ["time_of_day", "relationships"],
+      "phrase_templates": [
+        {
+          "template_id": "morning_greeting",
+          "base_meaning": "Good morning",
+          "time_context": "morning",
+          "variations": {
+            "formal_stranger": "Good morning, sir/madam",
+            "formal_professional": "Good morning, [Title] [Name]",
+            "formal_authority": "Good morning, officer/sir",
+            "neutral_acquaintance": "Good morning! How are you?",
+            "informal_friend": "Morning! / Hey, morning!",
+            "intimate_family": "Morning, dear/love/honey",
+            "intimate_romantic": "Good morning, my love",
+            "hierarchical_parent_child": "Good morning, sweetheart/darling",
+            "hierarchical_child_parent": "Good morning, Mom/Dad/Mama/Papa",
+            "hierarchical_elder": "Good morning, [respectful title]",
+            "transactional_service": "Good morning, how can I help you?",
+            "playful_fun": "Mornin'! / Rise and shine!"
+          }
+        },
+        {
+          "template_id": "midday_greeting",
+          "base_meaning": "Midday greeting",
+          "time_context": "midday",
+          "variations": {
+            "formal_stranger": "Good afternoon",
+            "formal_professional": "Good afternoon, how are you?",
+            "neutral_acquaintance": "Hi! / Hello there!",
+            "informal_friend": "Hey! What's up?",
+            "transactional_service": "Hello, what would you like?",
+            "hierarchical_child_parent": "Hi Mom/Dad, what's for lunch?"
+          }
+        },
+        {
+          "template_id": "evening_greeting",
+          "base_meaning": "Good evening",
+          "time_context": "evening",
+          "variations": {
+            "formal_stranger": "Good evening",
+            "formal_professional": "Good evening, see you tomorrow",
+            "neutral_acquaintance": "Evening! How was your day?",
+            "informal_friend": "Hey! Done for the day?",
+            "intimate_family": "Hi! I'm home!",
+            "intimate_romantic": "Hi honey/darling, how was your day?",
+            "hierarchical_child_parent": "Hi Mom/Dad, I'm home",
+            "hierarchical_parent_child": "Welcome home, how was school/work?"
+          }
+        },
+        {
+          "template_id": "night_farewell",
+          "base_meaning": "Good night",
+          "time_context": "night",
+          "variations": {
+            "formal_professional": "Good night, see you tomorrow",
+            "neutral_acquaintance": "Good night, take care",
+            "informal_friend": "Night! Sleep well!",
+            "intimate_family": "Good night, sleep tight",
+            "intimate_romantic": "Good night, my love. Sweet dreams",
+            "hierarchical_parent_child": "Time for bed, sweetie. Good night",
+            "hierarchical_child_parent": "Good night, Mom/Dad. Love you"
+          }
+        }
+      ]
+    },
+    {
+      "id": "requests_help_contextual",
+      "name": "Requesting Help (Contextual)",
+      "base_category": "survival",
+      "description": "How to ask for help varies greatly by relationship and urgency",
+      "priority": 2,
+      "contexts_used": ["relationships", "urgency"],
+      "phrase_templates": [
+        {
+          "template_id": "polite_help_request",
+          "base_meaning": "Can you help me?",
+          "urgency": "low",
+          "variations": {
+            "formal_stranger": "Excuse me, could you please help me?",
+            "formal_professional": "Could I ask for your assistance?",
+            "formal_authority": "Officer/Sir, I need assistance, please",
+            "neutral_acquaintance": "Hi, can you help me with something?",
+            "informal_friend": "Hey, can you give me a hand?",
+            "intimate_family": "Can you help me real quick?",
+            "hierarchical_child_parent": "Mom/Dad, can you help me?",
+            "hierarchical_parent_child": "Let me help you with that",
+            "cautious_distrust": "I need help, but could you identify yourself first?"
+          }
+        },
+        {
+          "template_id": "urgent_help_request",
+          "base_meaning": "I need help now!",
+          "urgency": "high",
+          "variations": {
+            "formal_stranger": "Please help me! It's urgent!",
+            "formal_authority": "Officer! I need immediate help!",
+            "neutral_acquaintance": "Please help! Emergency!",
+            "informal_friend": "Help me! Quick!",
+            "intimate_family": "Help! I need you now!",
+            "hierarchical_child_parent": "Mom/Dad! Help!"
+          }
+        }
+      ]
+    }
+  ]
+}
+

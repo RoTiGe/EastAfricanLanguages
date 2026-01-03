@@ -1,0 +1,104 @@
+{
+  "phrase_variations": [
+    {
+      "base_meaning": "greeting",
+      "category": "basic_communication",
+      "subcategory": "greetings",
+      "variations": {
+        "time_of_day": {
+          "morning": {
+            "formal_stranger": "Good morning, sir/madam",
+            "formal_professional": "Good morning, Mr./Ms. [Name]",
+            "neutral_acquaintance": "Morning! How are you?",
+            "informal_friend": "Hey! Morning!",
+            "intimate_family": "Morning, love!",
+            "hierarchical_child_parent": "Good morning, Mom/Dad",
+            "hierarchical_parent_child": "Good morning, sweetheart"
+          },
+          "midday": {
+            "formal_stranger": "Good afternoon",
+            "formal_professional": "Good afternoon, how can I help you?",
+            "neutral_acquaintance": "Hi there!",
+            "informal_friend": "Hey! What's up?",
+            "transactional_service": "Hello, what would you like?"
+          },
+          "evening": {
+            "formal_stranger": "Good evening",
+            "formal_professional": "Good evening, see you tomorrow",
+            "informal_friend": "Hey! Done for the day?",
+            "intimate_romantic": "Hi honey, how was your day?",
+            "hierarchical_child_parent": "Hi Mom/Dad, I'm home"
+          },
+          "night": {
+            "intimate_family": "Good night, sleep well",
+            "intimate_romantic": "Good night, my love",
+            "hierarchical_parent_child": "Time for bed, sweetie",
+            "informal_friend": "See you tomorrow, sleep tight"
+          }
+        }
+      }
+    },
+    {
+      "base_meaning": "asking_for_help",
+      "category": "survival",
+      "subcategory": "emergency_help",
+      "variations": {
+        "relationship": {
+          "formal_stranger": "Excuse me, could you please help me?",
+          "formal_authority": "Officer, I need assistance please",
+          "neutral_acquaintance": "Hi, can you help me with something?",
+          "informal_friend": "Hey, can you give me a hand?",
+          "intimate_family": "Can you help me real quick?",
+          "cautious_distrust": "I need help, but I'd like to verify your identity first",
+          "hierarchical_child_parent": "Mom/Dad, I need your help"
+        }
+      }
+    },
+    {
+      "base_meaning": "requesting_food",
+      "category": "food_water",
+      "subcategory": "restaurant",
+      "variations": {
+        "time_of_day": {
+          "morning": {
+            "transactional_service": "I'd like breakfast, please",
+            "formal_professional": "Could I see the breakfast menu?",
+            "informal_friend": "Want to grab breakfast?",
+            "intimate_family": "What's for breakfast?"
+          },
+          "midday": {
+            "transactional_service": "I'd like to order lunch",
+            "formal_professional": "Shall we have lunch together?",
+            "informal_friend": "Lunch time! You hungry?",
+            "hierarchical_parent_child": "Time for lunch, wash your hands"
+          },
+          "evening": {
+            "transactional_service": "Table for dinner, please",
+            "intimate_romantic": "Let's have a nice dinner together",
+            "informal_friend": "Dinner and drinks?",
+            "intimate_family": "Dinner's ready!"
+          }
+        }
+      }
+    },
+    {
+      "base_meaning": "asking_about_wellbeing",
+      "category": "basic_communication",
+      "subcategory": "small_talk",
+      "variations": {
+        "relationship": {
+          "formal_stranger": "How do you do?",
+          "formal_professional": "How are you today?",
+          "neutral_acquaintance": "How's it going?",
+          "informal_friend": "How are you doing?",
+          "intimate_family": "How was your day, dear?",
+          "intimate_romantic": "How are you feeling, my love?",
+          "hierarchical_parent_child": "How are you feeling, sweetie?",
+          "hierarchical_child_parent": "How was work today, Dad?",
+          "playful_fun": "What's up, buddy?"
+        }
+      }
+    }
+  ]
+}
+

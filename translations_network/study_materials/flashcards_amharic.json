@@ -1,0 +1,177 @@
+[
+  {
+    "front": "Good morning, sir/madam",
+    "back": "እንደምን አደሩ (əndemin aderu)",
+    "context": {
+      "time": "morning",
+      "relationship": "formal_stranger",
+      "formality": "very_high",
+      "trust": "low"
+    },
+    "usage_notes": "Use when meeting someone for the first time in the morning, or in very formal situations",
+    "cultural_notes": "In East African cultures, greetings are very important and should not be rushed",
+    "category": "basic_communication",
+    "subcategory": "greetings"
+  },
+  {
+    "front": "Morning! / Hey, morning!",
+    "back": "እንደምን አደርክ/ሽ! (əndemin aderk/sh!)",
+    "context": {
+      "time": "morning",
+      "relationship": "informal_friend",
+      "formality": "low",
+      "trust": "high"
+    },
+    "usage_notes": "Use with friends, close colleagues, or people you know well",
+    "cultural_notes": "Can be shortened or made more casual among close friends",
+    "category": "basic_communication",
+    "subcategory": "greetings"
+  },
+  {
+    "front": "Good morning, sweetheart/darling",
+    "back": "እንደምን አደርክ ፍቅሬ (əndemin aderk fiqre)",
+    "context": {
+      "time": "morning",
+      "relationship": "hierarchical_parent_child",
+      "formality": "low",
+      "trust": "very_high"
+    },
+    "usage_notes": "Affectionate morning greeting from parent to child",
+    "cultural_notes": "Terms of endearment vary by culture and family",
+    "category": "basic_communication",
+    "subcategory": "greetings"
+  },
+  {
+    "front": "Hi honey/darling, how was your day?",
+    "back": "ሰላም ፍቅሬ፣ ቀንሽ እንዴት ነበር? (selam fiqre, qensh indet neber?)",
+    "context": {
+      "time": "evening",
+      "relationship": "intimate_romantic",
+      "formality": "very_low",
+      "trust": "very_high"
+    },
+    "usage_notes": "Affectionate evening greeting between romantic partners",
+    "cultural_notes": "Shows care and interest in partner's day",
+    "category": "basic_communication",
+    "subcategory": "greetings"
+  },
+  {
+    "front": "Excuse me, could you please help me?",
+    "back": "ይቅርታ፣ እባክዎ ሊረዱኝ ይችላሉ? (yiqirta, ibakwo lireduñ yichilalu?)",
+    "context": {
+      "relationship": "formal_stranger",
+      "formality": "high",
+      "trust": "low",
+      "urgency": "low"
+    },
+    "usage_notes": "Polite way to ask for help from someone you don't know",
+    "cultural_notes": "Always start with an apology/excuse me in most cultures",
+    "category": "survival",
+    "subcategory": "emergency_help"
+  },
+  {
+    "front": "Hey, can you give me a hand?",
+    "back": "ሄይ፣ ትረዳኛለህ/ሽ? (hey, tiredañaleh/sh?)",
+    "context": {
+      "relationship": "informal_friend",
+      "formality": "low",
+      "trust": "high",
+      "urgency": "low"
+    },
+    "usage_notes": "Casual way to ask a friend for help",
+    "cultural_notes": "Friends are expected to help each other readily",
+    "category": "survival",
+    "subcategory": "emergency_help"
+  },
+  {
+    "front": "Help! Emergency!",
+    "back": "እርዳታ! አደጋ! (irdata! adega!)",
+    "context": {
+      "urgency": "critical",
+      "formality": "none",
+      "situation": "emergency"
+    },
+    "usage_notes": "Use in any emergency situation regardless of who is around",
+    "cultural_notes": "Shout loudly to attract attention in emergencies",
+    "category": "survival",
+    "subcategory": "emergency_help"
+  },
+  {
+    "front": "Thank you very much, sir/madam",
+    "back": "በጣም አመሰግናለሁ (betam ameseginalehu)",
+    "context": {
+      "relationship": "formal_stranger",
+      "formality": "high",
+      "trust": "low"
+    },
+    "usage_notes": "Formal expression of gratitude to strangers or in professional settings",
+    "cultural_notes": "Showing gratitude is highly valued in all East African cultures",
+    "category": "basic_communication",
+    "subcategory": "gratitude"
+  },
+  {
+    "front": "Thanks! / Thanks a lot!",
+    "back": "አመሰግናለሁ! (ameseginalehu!)",
+    "context": {
+      "relationship": "informal_friend",
+      "formality": "low",
+      "trust": "high"
+    },
+    "usage_notes": "Casual thanks to friends and people you know well",
+    "cultural_notes": "Can be shortened among close friends",
+    "category": "basic_communication",
+    "subcategory": "gratitude"
+  },
+  {
+    "front": "Excuse me, could I have some water, please?",
+    "back": "ይቅርታ፣ እባክዎ ውሃ ማግኘት እችላለሁ? (yiqirta, ibakwo wiha maget ichilalewu?)",
+    "context": {
+      "relationship": "formal_stranger",
+      "formality": "high",
+      "need": "basic"
+    },
+    "usage_notes": "Polite way to request water in formal settings or from strangers",
+    "cultural_notes": "Water is considered a basic right; most people will help",
+    "category": "food_water",
+    "subcategory": "water_requests"
+  },
+  {
+    "front": "Got any water? / Can I get some water?",
+    "back": "ውሃ አለ? (wiha ale?)",
+    "context": {
+      "relationship": "informal_friend",
+      "formality": "low",
+      "need": "basic"
+    },
+    "usage_notes": "Casual way to ask for water from friends or family",
+    "cultural_notes": "Very direct and informal",
+    "category": "food_water",
+    "subcategory": "water_requests"
+  },
+  {
+    "front": "Excuse me, where is the hospital, please?",
+    "back": "ይቅርታ፣ ሆስፒታሉ የት ነው እባክዎ? (yiqirta, hospitalu yet new ibakwo?)",
+    "context": {
+      "relationship": "formal_stranger",
+      "formality": "high",
+      "urgency": "medium"
+    },
+    "usage_notes": "Polite way to ask for directions to hospital",
+    "cultural_notes": "People will usually help with medical emergencies",
+    "category": "navigation",
+    "subcategory": "directions"
+  },
+  {
+    "front": "I'd like to order lunch, please",
+    "back": "እባክዎ ምሳ ማዘዝ እፈልጋለሁ (ibakwo misa mazez ifeliagalehu)",
+    "context": {
+      "time": "midday",
+      "relationship": "transactional_service",
+      "formality": "medium"
+    },
+    "usage_notes": "Standard phrase for ordering lunch at a restaurant",
+    "cultural_notes": "Lunch is typically the main meal in many East African cultures",
+    "category": "food_water",
+    "subcategory": "restaurant"
+  }
+]

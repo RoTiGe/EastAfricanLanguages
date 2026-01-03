@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Priority contextual phrases with full translations",
+    "languages": ["english", "amharic", "tigrinya", "oromo", "somali", "arabic", "swahili", "french", "spanish"],
+    "total_phrases": 50,
+    "priority_level": "critical"
+  },
+  "phrases": [
+    {
+      "phrase_id": "greeting_morning_formal_stranger",
+      "base_meaning": "Good morning (formal, to stranger)",
+      "category": "basic_communication",
+      "subcategory": "greetings",
+      "contexts": {
+        "time": "morning",
+        "relationship": "formal_stranger",
+        "formality": "very_high",
+        "trust": "low"
+      },
+      "translations": {
+        "english": "Good morning, sir/madam",
+        "amharic": "እንደምን አደሩ (əndemin aderu)",
+        "tigrinya": "ደሓን ዋዓልኩም (dehan wa'alikum)",
+        "oromo": "Akkam bultanii (formal)",
+        "somali": "Subax wanaagsan, mudane/marwo",
+        "arabic": "صباح الخير، سيدي/سيدتي (sabah al-khayr, sayidi/sayidati)",
+        "swahili": "Habari za asubuhi, bwana/bibi",
+        "french": "Bonjour, monsieur/madame",
+        "spanish": "Buenos días, señor/señora"
+      },
+      "usage_notes": "Use when meeting someone for the first time in the morning, or in very formal situations",
+      "cultural_notes": "In East African cultures, greetings are very important and should not be rushed"
+    },
+    {
+      "phrase_id": "greeting_morning_informal_friend",
+      "base_meaning": "Good morning (casual, to friend)",
+      "category": "basic_communication",
+      "subcategory": "greetings",
+      "contexts": {
+        "time": "morning",
+        "relationship": "informal_friend",
+        "formality": "low",
+        "trust": "high"
+      },
+      "translations": {
+        "english": "Morning! / Hey, morning!",
+        "amharic": "እንደምን አደርክ/ሽ! (əndemin aderk/sh!)",
+        "tigrinya": "ደሓን ዋዓልካ/ኺ! (dehan wa'alka/ki!)",
+        "oromo": "Akkam bulte!",
+        "somali": "Subax wanaagsan, saaxiib!",
+        "arabic": "صباح الخير يا صديقي! (sabah al-khayr ya sadiqi!)",
+        "swahili": "Habari ya asubuhi, rafiki!",
+        "french": "Salut! Bonjour!",
+        "spanish": "¡Hola! ¡Buenos días!"
+      },
+      "usage_notes": "Use with friends, close colleagues, or people you know well",
+      "cultural_notes": "Can be shortened or made more casual among close friends"
+    },
+    {
+      "phrase_id": "greeting_morning_parent_child",
+      "base_meaning": "Good morning (parent to child)",
+      "category": "basic_communication",
+      "subcategory": "greetings",
+      "contexts": {
+        "time": "morning",
+        "relationship": "hierarchical_parent_child",
+        "formality": "low",
+        "trust": "very_high"
+      },
+      "translations": {
+        "english": "Good morning, sweetheart/darling",
+        "amharic": "እንደምን አደርክ ፍቅሬ (əndemin aderk fiqre)",
+        "tigrinya": "ደሓን ዋዓልካ ፍቕረይ (dehan wa'alka fiqrey)",
+        "oromo": "Akkam bulte jaalala koo",
+        "somali": "Subax wanaagsan, gacaliso",
+        "arabic": "صباح الخير يا حبيبي/حبيبتي (sabah al-khayr ya habibi/habibti)",
+        "swahili": "Habari za asubuhi, mpenzi wangu",
+        "french": "Bonjour, mon chéri/ma chérie",
+        "spanish": "Buenos días, cariño/mi amor"
+      },
+      "usage_notes": "Affectionate morning greeting from parent to child",
+      "cultural_notes": "Terms of endearment vary by culture and family"
+    },
+    {
+      "phrase_id": "greeting_evening_intimate_romantic",
+      "base_meaning": "Good evening (to romantic partner)",
+      "category": "basic_communication",
+      "subcategory": "greetings",
+      "contexts": {
+        "time": "evening",
+        "relationship": "intimate_romantic",
+        "formality": "very_low",
+        "trust": "very_high"
+      },
+      "translations": {
+        "english": "Hi honey/darling, how was your day?",
+        "amharic": "ሰላም ፍቅሬ፣ ቀንሽ እንዴት ነበር? (selam fiqre, qensh indet neber?)",
+        "tigrinya": "ሰላም ፍቕረይ፣ መዓልትኻ ከመይ ነበረ? (selam fiqrey, me'altika kemey nebere?)",
+        "oromo": "Akkam jirta jaalala koo, guyyaan kee akkam ture?",
+        "somali": "Nabad gacaliso, maalintaadu sidee ahayd?",
+        "arabic": "مرحباً حبيبي/حبيبتي، كيف كان يومك؟ (marhaban habibi/habibti, kayfa kana yawmuk?)",
+        "swahili": "Habari mpenzi, siku yako ilikuwaje?",
+        "french": "Salut mon amour, comment s'est passée ta journée?",
+        "spanish": "Hola mi amor, ¿cómo estuvo tu día?"
+      },
+      "usage_notes": "Affectionate evening greeting between romantic partners",
+      "cultural_notes": "Shows care and interest in partner's day"
+    },
+    {
+      "phrase_id": "help_request_formal_stranger",
+      "base_meaning": "Can you help me? (formal, to stranger)",
+      "category": "survival",
+      "subcategory": "emergency_help",
+      "contexts": {
+        "relationship": "formal_stranger",
+        "formality": "high",
+        "trust": "low",
+        "urgency": "low"
+      },
+      "translations": {
+        "english": "Excuse me, could you please help me?",
+        "amharic": "ይቅርታ፣ እባክዎ ሊረዱኝ ይችላሉ? (yiqirta, ibakwo lireduñ yichilalu?)",
+        "tigrinya": "ይቕረታ፣ በጃኹም ክትሕግዙኒ ትኽእሉ ዲኹም? (yiqreta, bejakum kitihgizuni tik'ilu dikum?)",
+        "oromo": "Dhiifama, maaloo na gargaaruu dandeessu?",
+        "somali": "Raali noqo, fadlan i caawin kartaa?",
+        "arabic": "عفواً، هل يمكنك مساعدتي من فضلك؟ ('afwan, hal yumkinuka musa'adati min fadlik?)",
+        "swahili": "Samahani, unaweza kunisaidia tafadhali?",
+        "french": "Excusez-moi, pourriez-vous m'aider s'il vous plaît?",
+        "spanish": "Disculpe, ¿podría ayudarme por favor?"
+      },
+      "usage_notes": "Polite way to ask for help from someone you don't know",
+      "cultural_notes": "Always start with an apology/excuse me in most cultures"
+    },
+    {
+      "phrase_id": "help_request_informal_friend",
+      "base_meaning": "Can you help me? (casual, to friend)",
+      "category": "survival",
+      "subcategory": "emergency_help",
+      "contexts": {
+        "relationship": "informal_friend",
+        "formality": "low",
+        "trust": "high",
+        "urgency": "low"
+      },
+      "translations": {
+        "english": "Hey, can you give me a hand?",
+        "amharic": "ሄይ፣ ትረዳኛለህ/ሽ? (hey, tiredañaleh/sh?)",
+        "tigrinya": "ሄይ፣ ክትሕግዘኒ ትኽእል/ትኽእሊ? (hey, kitihgizeni tik'il/tik'ili?)",
+        "oromo": "Hey, na gargaaruu dandeessa?",
+        "somali": "Haye, i caawin kartaa saaxiib?",
+        "arabic": "هاي، ممكن تساعدني؟ (hay, mumkin tisa'idni?)",
+        "swahili": "Haya, unaweza kunisaidia?",
+        "french": "Hé, tu peux me donner un coup de main?",
+        "spanish": "Oye, ¿me puedes echar una mano?"
+      },
+      "usage_notes": "Casual way to ask a friend for help",
+      "cultural_notes": "Friends are expected to help each other readily"
+    },
+    {
+      "phrase_id": "help_urgent_any",
+      "base_meaning": "Help! Emergency!",
+      "category": "survival",
+      "subcategory": "emergency_help",
+      "contexts": {
+        "urgency": "critical",
+        "formality": "none",
+        "situation": "emergency"
+      },
+      "translations": {
+        "english": "Help! Emergency!",
+        "amharic": "እርዳታ! አደጋ! (irdata! adega!)",
+        "tigrinya": "ሓግዙኒ! ሓደጋ! (hagizuni! hadega!)",
+        "oromo": "Gargaarsa! Balaa!",
+        "somali": "Caawiyo! Degdeg!",
+        "arabic": "النجدة! طوارئ! (an-najda! tawari'!)",
+        "swahili": "Msaada! Dharura!",
+        "french": "Au secours! Urgence!",
+        "spanish": "¡Ayuda! ¡Emergencia!"
+      },
+      "usage_notes": "Use in any emergency situation regardless of who is around",
+      "cultural_notes": "Shout loudly to attract attention in emergencies"
+    },
+    {
+      "phrase_id": "thank_you_formal_stranger",
+      "base_meaning": "Thank you (formal)",
+      "category": "basic_communication",
+      "subcategory": "gratitude",
+      "contexts": {
+        "relationship": "formal_stranger",
+        "formality": "high",
+        "trust": "low"
+      },
+      "translations": {
+        "english": "Thank you very much, sir/madam",
+        "amharic": "በጣም አመሰግናለሁ (betam ameseginalehu)",
+        "tigrinya": "ብጣዕሚ የቐንየለይ (bit'a'mi yeqeniyeley)",
+        "oromo": "Baay'ee galatoomaa",
+        "somali": "Aad ayaan ugu mahad celinayaa, mudane/marwo",
+        "arabic": "شكراً جزيلاً، سيدي/سيدتي (shukran jazilan, sayidi/sayidati)",
+        "swahili": "Asante sana, bwana/bibi",
+        "french": "Merci beaucoup, monsieur/madame",
+        "spanish": "Muchas gracias, señor/señora"
+      },
+      "usage_notes": "Formal expression of gratitude to strangers or in professional settings",
+      "cultural_notes": "Showing gratitude is highly valued in all East African cultures"
+    },
+    {
+      "phrase_id": "thank_you_informal_friend",
+      "base_meaning": "Thank you (casual)",
+      "category": "basic_communication",
+      "subcategory": "gratitude",
+      "contexts": {
+        "relationship": "informal_friend",
+        "formality": "low",
+        "trust": "high"
+      },
+      "translations": {
+        "english": "Thanks! / Thanks a lot!",
+        "amharic": "አመሰግናለሁ! (ameseginalehu!)",
+        "tigrinya": "የቐንየለይ! (yeqeniyeley!)",
+        "oromo": "Galatoomaa!",
+        "somali": "Mahadsanid!",
+        "arabic": "شكراً! (shukran!)",
+        "swahili": "Asante!",
+        "french": "Merci! / Merci beaucoup!",
+        "spanish": "¡Gracias! / ¡Muchas gracias!"
+      },
+      "usage_notes": "Casual thanks to friends and people you know well",
+      "cultural_notes": "Can be shortened among close friends"
+    },
+    {
+      "phrase_id": "water_request_formal",
+      "base_meaning": "May I have water? (formal)",
+      "category": "food_water",
+      "subcategory": "water_requests",
+      "contexts": {
+        "relationship": "formal_stranger",
+        "formality": "high",
+        "need": "basic"
+      },
+      "translations": {
+        "english": "Excuse me, could I have some water, please?",
+        "amharic": "ይቅርታ፣ እባክዎ ውሃ ማግኘት እችላለሁ? (yiqirta, ibakwo wiha maget ichilalewu?)",
+        "tigrinya": "ይቕረታ፣ በጃኹም ማይ ክረክብ እኽእል ድየ? (yiqreta, bejakum may kirekib ik'il diye?)",
+        "oromo": "Dhiifama, maaloo bishaan argachuu danda'aa?",
+        "somali": "Raali noqo, fadlan biyo heli karaa?",
+        "arabic": "عفواً، هل يمكنني الحصول على ماء من فضلك؟ ('afwan, hal yumkinuni al-husul 'ala ma' min fadlik?)",
+        "swahili": "Samahani, naweza kupata maji tafadhali?",
+        "french": "Excusez-moi, pourrais-je avoir de l'eau s'il vous plaît?",
+        "spanish": "Disculpe, ¿podría darme agua por favor?"
+      },
+      "usage_notes": "Polite way to request water in formal settings or from strangers",
+      "cultural_notes": "Water is considered a basic right; most people will help"
+    },
+    {
+      "phrase_id": "water_request_informal",
+      "base_meaning": "Can I get some water? (casual)",
+      "category": "food_water",
+      "subcategory": "water_requests",
+      "contexts": {
+        "relationship": "informal_friend",
+        "formality": "low",
+        "need": "basic"
+      },
+      "translations": {
+        "english": "Got any water? / Can I get some water?",
+        "amharic": "ውሃ አለ? (wiha ale?)",
+        "tigrinya": "ማይ ኣሎ? (may alo?)",
+        "oromo": "Bishaan jiraa?",
+        "somali": "Biyo ma jiraa?",
+        "arabic": "في ماء؟ (fi ma'?)",
+        "swahili": "Kuna maji?",
+        "french": "T'as de l'eau?",
+        "spanish": "¿Hay agua? / ¿Tienes agua?"
+      },
+      "usage_notes": "Casual way to ask for water from friends or family",
+      "cultural_notes": "Very direct and informal"
+    },
+    {
+      "phrase_id": "direction_where_hospital_formal",
+      "base_meaning": "Where is the hospital? (formal)",
+      "category": "navigation",
+      "subcategory": "directions",
+      "contexts": {
+        "relationship": "formal_stranger",
+        "formality": "high",
+        "urgency": "medium"
+      },
+      "translations": {
+        "english": "Excuse me, where is the hospital, please?",
+        "amharic": "ይቅርታ፣ ሆስፒታሉ የት ነው እባክዎ? (yiqirta, hospitalu yet new ibakwo?)",
+        "tigrinya": "ይቕረታ፣ ሆስፒታል ኣበይ ኣሎ በጃኹም? (yiqreta, hospital abey alo bejakum?)",
+        "oromo": "Dhiifama, hospitaalli eessa jira maaloo?",
+        "somali": "Raali noqo, isbitaalku xagee ku yaal fadlan?",
+        "arabic": "عفواً، أين المستشفى من فضلك؟ ('afwan, ayna al-mustashfa min fadlik?)",
+        "swahili": "Samahani, hospitali iko wapi tafadhali?",
+        "french": "Excusez-moi, où est l'hôpital s'il vous plaît?",
+        "spanish": "Disculpe, ¿dónde está el hospital por favor?"
+      },
+      "usage_notes": "Polite way to ask for directions to hospital",
+      "cultural_notes": "People will usually help with medical emergencies"
+    },
+    {
+      "phrase_id": "food_request_lunch_transactional",
+      "base_meaning": "I'd like to order lunch",
+      "category": "food_water",
+      "subcategory": "restaurant",
+      "contexts": {
+        "time": "midday",
+        "relationship": "transactional_service",
+        "formality": "medium"
+      },
+      "translations": {
+        "english": "I'd like to order lunch, please",
+        "amharic": "እባክዎ ምሳ ማዘዝ እፈልጋለሁ (ibakwo misa mazez ifeliagalehu)",
+        "tigrinya": "በጃኹም ምሳሕ ክእዝዝ እደሊ (bejakum misah ki'iziz ideli)",
+        "oromo": "Maaloo laaqana ajajuu barbaada",
+        "somali": "Fadlan qado doonayaa",
+        "arabic": "أريد طلب الغداء من فضلك (uridu talab al-ghada' min fadlik)",
+        "swahili": "Nataka kuagiza chakula cha mchana tafadhali",
+        "french": "Je voudrais commander le déjeuner s'il vous plaît",
+        "spanish": "Me gustaría pedir el almuerzo por favor"
+      },
+      "usage_notes": "Standard phrase for ordering lunch at a restaurant",
+      "cultural_notes": "Lunch is typically the main meal in many East African cultures"
+    }
+  ]
+}
+

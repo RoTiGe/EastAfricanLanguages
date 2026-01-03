@@ -1,0 +1,356 @@
+{
+  "categories": [
+    {
+      "id": "survival",
+      "name": "Survival & Emergency",
+      "priority": 1,
+      "description": "Critical phrases for immediate safety and basic needs",
+      "personas": ["all"],
+      "subcategories": [
+        "emergency_help",
+        "medical_urgent",
+        "basic_needs",
+        "safety"
+      ]
+    },
+    {
+      "id": "basic_communication",
+      "name": "Basic Communication",
+      "priority": 2,
+      "description": "Essential greetings and politeness phrases",
+      "personas": ["all"],
+      "subcategories": [
+        "greetings",
+        "politeness",
+        "yes_no_questions",
+        "gratitude"
+      ]
+    },
+    {
+      "id": "navigation",
+      "name": "Navigation & Transportation",
+      "priority": 3,
+      "description": "Finding your way and getting around",
+      "personas": ["tourist", "asylum_seeker", "day_laborer", "house_maid", "trader"],
+      "subcategories": [
+        "directions",
+        "transportation",
+        "locations",
+        "addresses"
+      ]
+    },
+    {
+      "id": "accommodation",
+      "name": "Accommodation & Shelter",
+      "priority": 4,
+      "description": "Finding and managing housing",
+      "personas": ["asylum_seeker", "house_maid", "day_laborer", "tourist"],
+      "subcategories": [
+        "hotel_hostel",
+        "rental",
+        "facilities",
+        "complaints"
+      ]
+    },
+    {
+      "id": "food_water",
+      "name": "Food & Water",
+      "priority": 5,
+      "description": "Ordering food and getting basic sustenance",
+      "personas": ["all"],
+      "subcategories": [
+        "restaurant",
+        "market",
+        "dietary_needs",
+        "water_requests"
+      ]
+    },
+    {
+      "id": "numbers_money",
+      "name": "Numbers & Money",
+      "priority": 6,
+      "description": "Counting, prices, and financial transactions",
+      "personas": ["all"],
+      "subcategories": [
+        "counting",
+        "prices",
+        "bargaining",
+        "currency_exchange"
+      ]
+    },
+    {
+      "id": "work_basic",
+      "name": "Basic Work Communication",
+      "priority": 7,
+      "description": "Essential workplace phrases",
+      "personas": ["house_maid", "day_laborer", "engineer", "trader"],
+      "subcategories": [
+        "job_seeking",
+        "understanding_instructions",
+        "work_schedule",
+        "salary_payment"
+      ]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare & Medical",
+      "priority": 8,
+      "description": "Non-emergency medical communication",
+      "personas": ["all"],
+      "subcategories": [
+        "symptoms",
+        "pharmacy",
+        "appointments",
+        "prescriptions"
+      ]
+    },
+    {
+      "id": "documentation",
+      "name": "Documentation & Legal",
+      "priority": 9,
+      "description": "Dealing with official procedures",
+      "personas": ["asylum_seeker", "engineer", "trader"],
+      "subcategories": [
+        "immigration",
+        "permits",
+        "identification",
+        "forms"
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "Shopping & Services",
+      "priority": 10,
+      "description": "Retail and service interactions",
+      "personas": ["all"],
+      "subcategories": [
+        "clothing",
+        "electronics",
+        "repairs",
+        "returns"
+      ]
+    },
+    {
+      "id": "social_basic",
+      "name": "Social Interaction",
+      "priority": 11,
+      "description": "Building relationships and small talk",
+      "personas": ["all"],
+      "subcategories": [
+        "introductions",
+        "small_talk",
+        "invitations",
+        "refusals"
+      ]
+    },
+    {
+      "id": "work_specialized",
+      "name": "Specialized Work Terms",
+      "priority": 12,
+      "description": "Professional and technical vocabulary",
+      "personas": ["engineer", "trader"],
+      "subcategories": [
+        "technical_terms",
+        "meetings",
+        "reports",
+        "negotiations"
+      ]
+    },
+    {
+      "id": "household",
+      "name": "Household Management",
+      "priority": 13,
+      "description": "Managing a home and daily tasks",
+      "personas": ["house_maid"],
+      "subcategories": [
+        "cleaning",
+        "cooking",
+        "childcare",
+        "appliances"
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Education & Learning",
+      "priority": 14,
+      "description": "School and training contexts",
+      "personas": ["asylum_seeker", "engineer"],
+      "subcategories": [
+        "enrollment",
+        "classroom",
+        "homework",
+        "certificates"
+      ]
+    },
+    {
+      "id": "cultural",
+      "name": "Cultural & Religious",
+      "priority": 15,
+      "description": "Cultural practices and religious needs",
+      "personas": ["all"],
+      "subcategories": [
+        
+        "religious_places",
+        "holidays",
+        "customs",
+        "respect"
+      ]
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment & Leisure",
+      "priority": 16,
+      "description": "Recreation and tourism",
+      "personas": ["tourist", "engineer"],
+      "subcategories": [
+        "sightseeing",
+        "sports",
+        "events",
+        "hobbies"
+      ]
+    },
+    {
+      "id": "advanced_legal",
+      "name": "Advanced Legal & Rights",
+      "priority": 17,
+      "description": "Rights, contracts, and legal matters",
+      "personas": ["asylum_seeker", "engineer", "trader"],
+      "subcategories": [
+        "contracts",
+        "rights",
+        "complaints",
+        "legal_aid"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business & Trade",
+      "priority": 18,
+      "description": "Commercial and business transactions",
+      "personas": ["trader", "engineer"],
+      "subcategories": [
+        "import_export",
+        "invoices",
+        "quality_control",
+        "shipping"
+      ]
+    }
+  ],
+  "personas": [
+    {
+      "id": "tourist",
+      "name": "Tourist",
+      "description": "Short-term visitor for leisure",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.9,
+        "accommodation": 0.8,
+        "food_water": 0.9,
+        "numbers_money": 0.8,
+        "shopping": 0.7,
+        "social_basic": 0.6,
+        "entertainment": 0.9,
+        "cultural": 0.7
+      }
+    },
+    {
+      "id": "house_maid",
+      "name": "House Maid / Domestic Worker",
+      "description": "Employed in household services",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.8,
+        "accommodation": 0.7,
+        "food_water": 0.8,
+        "numbers_money": 0.9,
+        "work_basic": 1.0,
+        "healthcare": 0.8,
+        "household": 1.0,
+        "social_basic": 0.7,
+        "documentation": 0.6
+      }
+    },
+    {
+      "id": "engineer",
+      "name": "Engineer / Professional",
+      "description": "Skilled professional worker",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.7,
+        "accommodation": 0.8,
+        "food_water": 0.7,
+        "numbers_money": 0.8,
+        "work_basic": 0.9,
+        "work_specialized": 1.0,
+        "healthcare": 0.7,
+        "documentation": 0.9,
+        "shopping": 0.6,
+        "social_basic": 0.8,
+        "education": 0.7,
+        "business": 0.8,
+        "entertainment": 0.6
+      }
+    },
+    {
+      "id": "day_laborer",
+      "name": "Day Laborer / Manual Worker",
+      "description": "Casual or construction worker",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.9,
+        "accommodation": 0.8,
+        "food_water": 0.9,
+        "numbers_money": 1.0,
+        "work_basic": 1.0,
+        "healthcare": 0.8,
+        "documentation": 0.7,
+        "shopping": 0.6,
+        "social_basic": 0.7
+      }
+    },
+    {
+      "id": "asylum_seeker",
+      "name": "Asylum Seeker / Refugee",
+      "description": "Person seeking international protection",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.9,
+        "accommodation": 0.9,
+        "food_water": 0.9,
+        "numbers_money": 0.8,
+        "healthcare": 0.9,
+        "documentation": 1.0,
+        "shopping": 0.6,
+        "social_basic": 0.8,
+        "advanced_legal": 0.9,
+        "education": 0.7,
+        "cultural": 0.7
+      }
+    },
+    {
+      "id": "trader",
+      "name": "Trader / Merchant",
+      "description": "Person involved in buying and selling goods",
+      "priority_weights": {
+        "survival": 1.0,
+        "basic_communication": 1.0,
+        "navigation": 0.8,
+        "accommodation": 0.7,
+        "food_water": 0.7,
+        "numbers_money": 1.0,
+        "work_basic": 0.8,
+        "documentation": 0.8,
+        "shopping": 0.9,
+        "social_basic": 0.8,
+        "business": 1.0,
+        "advanced_legal": 0.7,
+        "cultural": 0.6
+      }
+    }
+  ]
+}
