@@ -18,13 +18,74 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use('/translations', express.static(path.join(__dirname, 'translations')));
+// Translation files are NOT publicly accessible - served only via API
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Routes
+
+// API endpoint to get categories for a language
+app.get('/api/categories/:language', (req, res) => {
+    const language = req.params.language;
+    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo'];
+    
+    if (!validLanguages.includes(language)) {
+        return res.status(404).json({ error: 'Language not supported' });
+    }
+    
+    const fs = require('fs');
+    const translationPath = path.join(__dirname, 'translations', `${language}.json`);
+    
+    try {
+        const translationData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
+        
+        // Return only category names, not the phrases
+        res.json({
+            language: translationData.language,
+            nativeLanguageField: translationData.nativeLanguageField,
+            categoryNames: translationData.categoryNames,
+            categories: Object.keys(translationData.categories)
+        });
+    } catch (error) {
+        console.error(`Error loading categories for ${language}:`, error);
+        res.status(500).json({ error: 'Failed to load categories' });
+    }
+});
+
+// API endpoint to get phrases for a specific category
+app.get('/api/phrases/:language/:category', (req, res) => {
+    const { language, category } = req.params;
+    const validLanguages = ['spanish', 'french', 'amharic', 'tigrinya', 'oromo'];
+    
+    if (!validLanguages.includes(language)) {
+        return res.status(404).json({ error: 'Language not supported' });
+    }
+    
+    const fs = require('fs');
+    const translationPath = path.join(__dirname, 'translations', `${language}.json`);
+    
+    try {
+        const translationData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
+        
+        if (!translationData.categories[category]) {
+            return res.status(404).json({ error: 'Category not found' });
+        }
+        
+        // Return phrases for the requested category only
+        res.json({
+            language: translationData.language,
+            nativeLanguageField: translationData.nativeLanguageField,
+            category: category,
+            categoryName: translationData.categoryNames ? translationData.categoryNames[category] : category,
+            phrases: translationData.categories[category]
+        });
+    } catch (error) {
+        console.error(`Error loading phrases for ${language}/${category}:`, error);
+        res.status(500).json({ error: 'Failed to load phrases' });
+    }
+});
 
 // Home page
 app.get('/', (req, res) => {

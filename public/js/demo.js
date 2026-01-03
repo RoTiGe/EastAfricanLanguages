@@ -1,26 +1,41 @@
 /**
  * Demo page JavaScript for language-specific TTS
+ * API-based architecture - translation data protected on server
  */
 
-// Store translation data
-let translationData = null;
+// Global variables
+let translationData = {
+    language: null,
+    nativeLanguageField: null,
+    categoryNames: {},
+    categories: []
+};
+let currentCategory = null;
+let currentPhrases = [];
 let showBilingual = false;
 let translationLanguage = 'english';
 
-// Load translations when page loads
-async function loadTranslations() {
+// Load categories when page loads
+async function loadCategories() {
     try {
-        const response = await fetch(`/translations/${LANGUAGE}.json`);
-        if (!response.ok) {
-            throw new Error('Failed to load translations');
-        }
-        translationData = await response.json();
-        populateCategoryDropdown();
+        const response = await fetch(`/api/categories/${LANGUAGE}`);
         
-        // Remove current language from translation options
+        if (!response.ok) {
+            throw new Error('Failed to load categories');
+        }
+        
+        const data = await response.json();
+        translationData.language = data.language;
+        translationData.nativeLanguageField = data.nativeLanguageField;
+        translationData.categoryNames = data.categoryNames || {};
+        translationData.categories = data.categories || [];
+        
+        populateCategoryDropdown();
         removeCurrentLanguageOption();
+        
     } catch (error) {
-        console.error('Error loading translations:', error);
+        console.error('Error loading categories:', error);
+        showDemoStatus('Error loading categories. Please refresh the page.', 'error');
     }
 }
 
@@ -37,54 +52,23 @@ function removeCurrentLanguageOption() {
     });
 }
 
-// Handle translation toggle
-function onTranslationToggle() {
-    const checkbox = document.getElementById('showTranslation');
-    const translationSelect = document.getElementById('translationLang');
-    
-    showBilingual = checkbox.checked;
-    translationSelect.disabled = !showBilingual;
-    
-    // Repopulate phrase dropdown if a category is selected
-    const categorySelect = document.getElementById('categorySelect');
-    if (categorySelect.value) {
-        onCategoryChange();
-    }
-}
-
-// Handle translation language change
-function onTranslationLanguageChange() {
-    const translationSelect = document.getElementById('translationLang');
-    translationLanguage = translationSelect.value;
-    
-    // Repopulate phrase dropdown if a category is selected
-    const categorySelect = document.getElementById('categorySelect');
-    if (categorySelect.value) {
-        onCategoryChange();
-    }
-}
-
 // Populate category dropdown
 function populateCategoryDropdown() {
     const categorySelect = document.getElementById('categorySelect');
-    if (!categorySelect || !translationData) return;
+    if (!categorySelect || !translationData.categories) return;
     
-    // Clear existing options except the first one
     categorySelect.innerHTML = '<option value="">-- Choose a category --</option>';
     
-    // Add categories
-    Object.keys(translationData.categories).forEach(categoryKey => {
-        const category = translationData.categories[categoryKey];
+    translationData.categories.forEach(categoryKey => {
         const option = document.createElement('option');
         option.value = categoryKey;
-        // Use translated category name if available, otherwise use key
-        option.textContent = translationData.categoryNames ? translationData.categoryNames[categoryKey] : categoryKey;
+        option.textContent = translationData.categoryNames[categoryKey] || categoryKey;
         categorySelect.appendChild(option);
     });
 }
 
-// Handle category selection
-function onCategoryChange() {
+// Handle category selection - fetches phrases from API
+async function onCategoryChange() {
     const categorySelect = document.getElementById('categorySelect');
     const phraseSelect = document.getElementById('phraseSelect');
     const usePhraseBtn = document.getElementById('usePhraseBtn');
@@ -94,40 +78,67 @@ function onCategoryChange() {
     phraseSelect.innerHTML = '<option value="">-- Choose a phrase --</option>';
     phraseSelect.disabled = true;
     usePhraseBtn.disabled = true;
+    currentPhrases = [];
     
-    if (!selectedCategory || !translationData) return;
+    if (!selectedCategory) return;
     
-    // Populate phrases for selected category
-    const category = translationData.categories[selectedCategory];
-    if (category && Array.isArray(category)) {
-        category.forEach((phraseObj, index) => {
-            const option = document.createElement('option');
-            
-            // Get the target language text
-            const targetLangField = translationData.nativeLanguageField || LANGUAGE;
-            const targetText = phraseObj[targetLangField] || phraseObj[LANGUAGE];
-            
-            // Store the target language text as value
-            option.value = targetText;
-            option.setAttribute('data-phrase-index', index);
-            option.setAttribute('data-category', selectedCategory);
-            
-            // Store translation text if bilingual mode
-            if (showBilingual && phraseObj[translationLanguage]) {
-                option.setAttribute('data-translation-text', phraseObj[translationLanguage]);
-            }
-            
-            // Display bilingual or monolingual
-            if (showBilingual && phraseObj[translationLanguage]) {
-                option.textContent = `${targetText} — ${phraseObj[translationLanguage]}`;
-            } else {
-                option.textContent = targetText;
-            }
-            
-            phraseSelect.appendChild(option);
-        });
-        phraseSelect.disabled = false;
+    try {
+        // Show loading state
+        phraseSelect.innerHTML = '<option value="">Loading phrases...</option>';
+        
+        const response = await fetch(`/api/phrases/${LANGUAGE}/${selectedCategory}`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to load phrases');
+        }
+        
+        const data = await response.json();
+        currentCategory = selectedCategory;
+        currentPhrases = data.phrases || [];
+        
+        populatePhraseDropdown();
+        
+    } catch (error) {
+        console.error('Error loading phrases:', error);
+        phraseSelect.innerHTML = '<option value="">Error loading phrases</option>';
+        showDemoStatus('Error loading phrases. Please try again.', 'error');
     }
+}
+
+// Populate phrase dropdown with fetched phrases
+function populatePhraseDropdown() {
+    const phraseSelect = document.getElementById('phraseSelect');
+    const usePhraseBtn = document.getElementById('usePhraseBtn');
+    
+    phraseSelect.innerHTML = '<option value="">-- Choose a phrase --</option>';
+    
+    if (!currentPhrases || currentPhrases.length === 0) {
+        phraseSelect.disabled = true;
+        return;
+    }
+    
+    currentPhrases.forEach((phraseObj, index) => {
+        const option = document.createElement('option');
+        
+        const targetLangField = translationData.nativeLanguageField || LANGUAGE;
+        const targetText = phraseObj[targetLangField] || phraseObj[LANGUAGE];
+        
+        option.value = targetText;
+        option.setAttribute('data-phrase-index', index);
+        option.setAttribute('data-category', currentCategory);
+        
+        if (showBilingual && phraseObj[translationLanguage]) {
+            option.setAttribute('data-translation-text', phraseObj[translationLanguage]);
+            option.textContent = `${targetText} — ${phraseObj[translationLanguage]}`;
+        } else {
+            option.textContent = targetText;
+        }
+        
+        phraseSelect.appendChild(option);
+    });
+    
+    phraseSelect.disabled = false;
+    usePhraseBtn.disabled = true;
 }
 
 // Handle phrase selection
@@ -135,11 +146,7 @@ function onPhraseChange() {
     const phraseSelect = document.getElementById('phraseSelect');
     const usePhraseBtn = document.getElementById('usePhraseBtn');
     
-    if (phraseSelect.value) {
-        usePhraseBtn.disabled = false;
-    } else {
-        usePhraseBtn.disabled = true;
-    }
+    usePhraseBtn.disabled = !phraseSelect.value;
 }
 
 // Use selected phrase
@@ -148,19 +155,41 @@ function useSelectedPhrase() {
     const selectedOption = phraseSelect.options[phraseSelect.selectedIndex];
     
     if (selectedOption && selectedOption.value) {
-        // If bilingual mode is active, use translation text
         if (showBilingual) {
             const translationText = selectedOption.getAttribute('data-translation-text');
-            if (translationText) {
-                document.getElementById('demoText').value = translationText;
-            } else {
-                document.getElementById('demoText').value = selectedOption.value;
-            }
+            document.getElementById('demoText').value = translationText || selectedOption.value;
         } else {
             document.getElementById('demoText').value = selectedOption.value;
         }
-        // Optionally auto-play
         speak();
+    }
+}
+
+// Handle translation toggle
+function onTranslationToggle() {
+    const checkbox = document.getElementById('showTranslation');
+    const translationSelect = document.getElementById('translationLang');
+    
+    showBilingual = checkbox.checked;
+    translationSelect.disabled = !showBilingual;
+    
+    if (showBilingual) {
+        translationLanguage = translationSelect.value;
+    }
+    
+    // Refresh phrase dropdown if category is selected
+    if (currentCategory && currentPhrases.length > 0) {
+        populatePhraseDropdown();
+    }
+}
+
+// Handle translation language change
+function onTranslationLanguageChange() {
+    const translationSelect = document.getElementById('translationLang');
+    translationLanguage = translationSelect.value;
+    
+    if (showBilingual && currentCategory && currentPhrases.length > 0) {
+        populatePhraseDropdown();
     }
 }
 
@@ -174,7 +203,6 @@ async function speak() {
         return;
     }
     
-    // Use translation language if bilingual mode is active
     const speechLanguage = (showBilingual && translationLanguage) ? translationLanguage : LANGUAGE;
     
     try {
@@ -196,11 +224,9 @@ async function speak() {
             throw new Error(errorData.error || 'Failed to generate speech');
         }
         
-        // Convert response to blob and create audio URL
         const audioBlob = await response.blob();
         const audioUrl = URL.createObjectURL(audioBlob);
         
-        // Set audio source and play
         audioPlayer.src = audioUrl;
         audioPlayer.style.display = 'block';
         audioPlayer.play();
@@ -219,12 +245,6 @@ function clearText() {
     document.getElementById('demoAudioPlayer').style.display = 'none';
 }
 
-function useExample(text) {
-    document.getElementById('demoText').value = text;
-    // Optionally auto-play
-    speak();
-}
-
 function showDemoStatus(message, type) {
     const status = document.getElementById('demoStatus');
     status.textContent = message;
@@ -232,11 +252,10 @@ function showDemoStatus(message, type) {
     status.style.display = 'block';
 }
 
-// Keyboard shortcuts
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('demoText');
     if (textarea) {
-        // Ctrl+Enter to speak
         textarea.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && e.ctrlKey) {
                 e.preventDefault();
@@ -245,10 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Load translations and set up dropdowns
-    loadTranslations();
+    // Load categories and set up event listeners
+    loadCategories();
     
-    // Add event listeners for dropdowns
     const categorySelect = document.getElementById('categorySelect');
     const phraseSelect = document.getElementById('phraseSelect');
     const translationLangSelect = document.getElementById('translationLang');
