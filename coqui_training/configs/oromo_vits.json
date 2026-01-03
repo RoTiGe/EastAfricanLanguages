@@ -1,0 +1,114 @@
+{
+  "model": "vits",
+  "run_name": "oromo_vits",
+  "run_description": "VITS model training for Oromo language",
+  
+  "audio": {
+    "sample_rate": 22050,
+    "hop_length": 256,
+    "win_length": 1024,
+    "fft_size": 1024,
+    "mel_fmin": 0,
+    "mel_fmax": null,
+    "num_mels": 80,
+    "ref_level_db": 20,
+    "do_trim_silence": true,
+    "trim_db": 45,
+    "power": 1.5,
+    "preemphasis": 0.0,
+    "signal_norm": false,
+    "do_amp_to_db_linear": true,
+    "do_sound_norm": false,
+    "stats_path": null
+  },
+  
+  "phoneme_language": "en-us",
+  "text_cleaner": "basic_cleaners",
+  "enable_eos_bos_chars": false,
+  "phoneme_cache_path": "datasets/oromo/phoneme_cache",
+  "characters": {
+    "characters_class": "TTS.tts.utils.text.characters.IPAPhonemes",
+    "pad": "<PAD>",
+    "eos": "<EOS>",
+    "bos": "<BOS>",
+    "blank": "<BLNK>",
+    "punctuations": "!'(),-.:;? ",
+    "phonemes": "ɑɐɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨɪʝɭɬɫɮʟɱɯɰŋɳɲɴøɵɸθœɶʘɹɺɾɻʀʁɽʂʃʈʧʉʊʋⱱʌɣɤʍχʎʏʑʐʒʔʡʕʢǀǁǂǃˈˌːˑʼʴʰʱʲʷˠˤ˞↓↑→↗↘'̩'ᵻ"
+  },
+  
+  "datasets": [
+    {
+      "name": "oromo",
+      "path": "datasets/oromo/",
+      "meta_file_train": "metadata.csv",
+      "meta_file_val": "metadata_val.csv"
+    }
+  ],
+  
+  "model_args": {
+    "use_speaker_embedding": false,
+    "use_d_vector_file": false,
+    "d_vector_dim": 0,
+    "num_chars": 256,
+    "hidden_channels": 192,
+    "hidden_channels_ffn_text_encoder": 768,
+    "num_heads_text_encoder": 2,
+    "num_layers_text_encoder": 6,
+    "kernel_size_text_encoder": 3,
+    "dropout_p_text_encoder": 0.1,
+    "dropout_p_duration_predictor": 0.5,
+    "kernel_size_posterior_encoder": 5,
+    "dilation_rate_posterior_encoder": 1,
+    "num_layers_posterior_encoder": 16,
+    "kernel_size_flow": 5,
+    "dilation_rate_flow": 1,
+    "num_layers_flow": 4,
+    "resblock_type_decoder": "1",
+    "resblock_kernel_sizes_decoder": [3, 7, 11],
+    "resblock_dilation_sizes_decoder": [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+    "upsample_rates_decoder": [8, 8, 2, 2],
+    "upsample_initial_channel_decoder": 512,
+    "upsample_kernel_sizes_decoder": [16, 16, 4, 4],
+    "use_sdp": true,
+    "noise_scale": 1.0,
+    "inference_noise_scale": 0.667,
+    "length_scale": 1.0,
+    "noise_scale_dp": 1.0,
+    "inference_noise_scale_dp": 0.8,
+    "max_inference_len": null,
+    "init_discriminator": true,
+    "use_spectral_norm_discriminator": false,
+    "use_speaker_embedding": false
+  },
+  
+  "batch_size": 32,
+  "eval_batch_size": 16,
+  "num_loader_workers": 4,
+  "num_eval_loader_workers": 2,
+  "run_eval": true,
+  "test_delay_epochs": 0,
+  
+  "epochs": 1000,
+  "lr": 0.0002,
+  "lr_scheduler": "ExponentialLR",
+  "lr_scheduler_params": {
+    "gamma": 0.999875,
+    "last_epoch": -1
+  },
+  
+  "grad_clip": 1.0,
+  "mixed_precision": false,
+  
+  "print_step": 25,
+  "plot_step": 100,
+  "log_model_step": 1000,
+  "save_step": 5000,
+  "save_n_checkpoints": 3,
+  "save_checkpoints": true,
+  "save_all_best": false,
+  "save_best_after": 10000,
+  
+  "output_path": "checkpoints/oromo_vits/",
+  "distributed_backend": "nccl",
+  "distributed_url": "tcp://localhost:54321"
+}

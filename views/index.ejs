@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 <%= title %></h1>
+            <p class="subtitle">Text-to-Speech in Multiple Languages</p>
+        </header>
+
+        <main>
+            <div class="language-grid">
+                <% languages.forEach(language => { %>
+                <div class="language-card">
+                    <h2><%= language.charAt(0).toUpperCase() + language.slice(1) %></h2>
+                    <a href="/demo/<%= language %>" class="btn">Try <%= language %></a>
+                </div>
+                <% }) %>
+            </div>
+
+            <section class="quick-test">
+                <h2>Quick Test</h2>
+                <div class="input-group">
+                    <select id="quickLanguage" class="form-select">
+                        <% languages.forEach(language => { %>
+                        <option value="<%= language %>"><%= language.charAt(0).toUpperCase() + language.slice(1) %></option>
+                        <% }) %>
+                    </select>
+                    
+                    <textarea 
+                        id="quickText" 
+                        class="form-textarea" 
+                        placeholder="Enter text to speak..."
+                        rows="3"
+                    >Hello! This is a test.</textarea>
+                    
+                    <button onclick="speakText()" class="btn btn-primary">🔊 Speak</button>
+                </div>
+
+                <div id="status" class="status"></div>
+                <audio id="audioPlayer" controls class="audio-player"></audio>
+            </section>
+
+            <section class="info">
+                <h3>Sample Texts by Language</h3>
+                <ul>
+                    <li><strong>Spanish:</strong> "Hola, bienvenido al juego de entrenamiento de sonido."</li>
+                    <li><strong>French:</strong> "Bonjour, bienvenue au jeu d'entraînement sonore."</li>
+                    <li><strong>Amharic:</strong> "ሰላም፣ ወደ ድምፅ ስልጠና ጨዋታ እንኳን በደህና መጡ።"</li>
+                    <li><strong>Tigrinya:</strong> "ሰላም፣ ናብ ድምፂ ስልጠና ጸወታ እንቋዕ ብደሓን መፃእኩም።"</li>
+                    <li><strong>Oromo:</strong> "Nagaa, gara taphaatiitti baga dhuftan." (Uses Windows TTS)</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Google TTS (gTTS) + pyttsx3 | Express + EJS</p>
+        </footer>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

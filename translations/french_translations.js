@@ -1,0 +1,133 @@
+const frenchTranslations = {
+  // --- 1. BASICS & GREETINGS ---
+  "hello": { "french": "Bonjour", "phonetic": "bohn-zhoor", "category": "basics" },
+  "goodbye": { "french": "Au revoir", "phonetic": "oh ruh-vwahr", "category": "basics" },
+  "thank you": { "french": "Merci", "phonetic": "mehr-see", "category": "basics" },
+  "please": { "french": "S'il vous plaît", "phonetic": "seel voo pleh", "category": "basics" },
+  "sorry": { "french": "Pardon", "phonetic": "pahr-dohn", "category": "basics" },
+  "yes": { "french": "Oui", "phonetic": "wee", "category": "basics" },
+  "no": { "french": "Non", "phonetic": "nohn", "category": "basics" },
+  "okay": { "french": "D'accord", "phonetic": "dah-kor", "category": "basics" },
+  "excuse me": { "french": "Excusez-moi", "phonetic": "ek-skoo-zay mwah", "category": "basics" },
+  "welcome": { "french": "Bienvenue", "phonetic": "byan-vuh-noo", "category": "basics" },
+
+  // --- 2. FAMILY ---
+  "mother": { "french": "Mère", "phonetic": "mehr", "category": "family" },
+  "father": { "french": "Père", "phonetic": "pehr", "category": "family" },
+  "baby": { "french": "Bébé", "phonetic": "bay-bay", "category": "family" },
+  "sister": { "french": "Sœur", "phonetic": "suhr", "category": "family" },
+  "brother": { "french": "Frère", "phonetic": "frehr", "category": "family" },
+  "uncle": { "french": "Oncle", "phonetic": "ohn-kluh", "category": "family" },
+  "aunt": { "french": "Tante", "phonetic": "tahnt", "category": "family" },
+  "grandmother": { "french": "Grand-mère", "phonetic": "grahn-mehr", "category": "family" },
+  "grandfather": { "french": "Grand-père", "phonetic": "grahn-pehr", "category": "family" },
+  "cousin": { "french": "Cousin/Cousine", "phonetic": "koo-zan / koo-zeen", "category": "family" },
+  "family": { "french": "Famille", "phonetic": "fah-mee", "category": "family" },
+  "child": { "french": "Enfant", "phonetic": "ahn-fahn", "category": "family" },
+  "children": { "french": "Enfants", "phonetic": "ahn-fahn", "category": "family" },
+
+  // --- 3. PEOPLE ---
+  "friend": { "french": "Ami/Amie", "phonetic": "ah-mee", "category": "people" },
+  "teacher": { "french": "Professeur", "phonetic": "pro-feh-suhr", "category": "people" },
+  "doctor": { "french": "Docteur", "phonetic": "dok-tuhr", "category": "people" },
+  "student": { "french": "Étudiant/Étudiante", "phonetic": "ay-too-dyan(t)", "category": "people" },
+
+  // --- 4. BODY PARTS ---
+  "head": { "french": "Tête", "phonetic": "tet", "category": "body" },
+  "eyes": { "french": "Yeux", "phonetic": "yuh", "category": "body" },
+  "nose": { "french": "Nez", "phonetic": "nay", "category": "body" },
+  "mouth": { "french": "Bouche", "phonetic": "boosh", "category": "body" },
+  "hands": { "french": "Mains", "phonetic": "man", "category": "body" },
+  "ears": { "french": "Oreilles", "phonetic": "oh-ray", "category": "body" },
+  "hair": { "french": "Cheveux", "phonetic": "shuh-vuh", "category": "body" },
+  "teeth": { "french": "Dents", "phonetic": "dahn", "category": "body" },
+  "feet": { "french": "Pieds", "phonetic": "pyay", "category": "body" },
+  "fingers": { "french": "Doigts", "phonetic": "dwah", "category": "body" },
+  "stomach": { "french": "Estomac", "phonetic": "es-toh-mah", "category": "body" },
+  "heart": { "french": "Cœur", "phonetic": "kuhr", "category": "body" },
+
+  // --- 5. CLOTHING ---
+  "shirt": { "french": "Chemise", "phonetic": "shuh-meez", "category": "clothing" },
+  "shoes": { "french": "Chaussures", "phonetic": "shoh-suhr", "category": "clothing" },
+  "hat": { "french": "Chapeau", "phonetic": "shah-poh", "category": "clothing" },
+  "pants": { "french": "Pantalon", "phonetic": "pahn-tah-lohn", "category": "clothing" },
+  "dress": { "french": "Robe", "phonetic": "rob", "category": "clothing" },
+  "socks": { "french": "Chaussettes", "phonetic": "shoh-set", "category": "clothing" },
+  "coat": { "french": "Manteau", "phonetic": "mahn-toh", "category": "clothing" },
+  "gloves": { "french": "Gants", "phonetic": "gahn", "category": "clothing" },
+
+  // --- 6. COLORS ---
+  "red": { "french": "Rouge", "phonetic": "roozh", "category": "colors" },
+  "blue": { "french": "Bleu", "phonetic": "bluh", "category": "colors" },
+  "yellow": { "french": "Jaune", "phonetic": "zhohn", "category": "colors" },
+  "green": { "french": "Vert", "phonetic": "vehr", "category": "colors" },
+  "orange": { "french": "Orange", "phonetic": "oh-rahnzh", "category": "colors" },
+  "purple": { "french": "Violet", "phonetic": "vee-oh-leh", "category": "colors" },
+  "pink": { "french": "Rose", "phonetic": "roz", "category": "colors" },
+  "brown": { "french": "Marron", "phonetic": "mah-rohn", "category": "colors" },
+  "black": { "french": "Noir", "phonetic": "nwahr", "category": "colors" },
+  "white": { "french": "Blanc", "phonetic": "blahn", "category": "colors" },
+  "rainbow": { "french": "Arc-en-ciel", "phonetic": "ark ahn syel", "category": "colors" },
+
+  // --- 7. NUMBERS ---
+  "one": { "french": "Un", "phonetic": "uhn", "category": "numbers" },
+  "two": { "french": "Deux", "phonetic": "duh", "category": "numbers" },
+  "three": { "french": "Trois", "phonetic": "trwah", "category": "numbers" },
+  "four": { "french": "Quatre", "phonetic": "kaht-ruh", "category": "numbers" },
+  "five": { "french": "Cinq", "phonetic": "sank", "category": "numbers" },
+  "six": { "french": "Six", "phonetic": "sees", "category": "numbers" },
+  "seven": { "french": "Sept", "phonetic": "set", "category": "numbers" },
+  "eight": { "french": "Huit", "phonetic": "weet", "category": "numbers" },
+  "nine": { "french": "Neuf", "phonetic": "nuhf", "category": "numbers" },
+  "ten": { "french": "Dix", "phonetic": "dees", "category": "numbers" },
+  "zero": { "french": "Zéro", "phonetic": "zay-roh", "category": "numbers" },
+
+  // --- 8. EMOTIONS ---
+  "happy": { "french": "Heureux", "phonetic": "uh-ruh", "category": "emotions" },
+  "sad": { "french": "Triste", "phonetic": "treest", "category": "emotions" },
+  "angry": { "french": "Fâché", "phonetic": "fah-shay", "category": "emotions" },
+  "scared": { "french": "Peur", "phonetic": "puhr", "category": "emotions" },
+  "surprised": { "french": "Surpris", "phonetic": "sur-pree", "category": "emotions" },
+  "excited": { "french": "Excité", "phonetic": "ek-see-tay", "category": "emotions" },
+  "tired": { "french": "Fatigué", "phonetic": "fah-tee-gay", "category": "emotions" },
+
+  // --- 9. SCHOOL ---
+  "school": { "french": "École", "phonetic": "ay-kol", "category": "school" },
+  "pencil": { "french": "Crayon", "phonetic": "kray-yon", "category": "school" },
+  "paper": { "french": "Papier", "phonetic": "pah-pyay", "category": "school" },
+  "draw": { "french": "Dessiner", "phonetic": "day-see-nay", "category": "school" },
+  "write": { "french": "Écrire", "phonetic": "ay-kreer", "category": "school" },
+  "read": { "french": "Lire", "phonetic": "leer", "category": "school" },
+  "learn": { "french": "Apprendre", "phonetic": "ah-prahnd-ruh", "category": "school" },
+
+  // --- 10. TOYS & PLAY ---
+  "toy": { "french": "Jouet", "phonetic": "zhoo-ay", "category": "toys" },
+  "ball": { "french": "Balle", "phonetic": "bahl", "category": "toys" },
+  "doll": { "french": "Poupée", "phonetic": "poo-pay", "category": "toys" },
+  "game": { "french": "Jeu", "phonetic": "zhuh", "category": "toys" },
+  "play": { "french": "Jouer", "phonetic": "zhoo-ay", "category": "toys" },
+  "fun": { "french": "Amusant", "phonetic": "ah-moo-zahn", "category": "toys" },
+
+  // --- 11. HOUSE ---
+  "house": { "french": "Maison", "phonetic": "may-zon", "category": "house" },
+  "room": { "french": "Chambre", "phonetic": "shahm-bruh", "category": "house" },
+  "door": { "french": "Porte", "phonetic": "port", "category": "house" },
+  "window": { "french": "Fenêtre", "phonetic": "fuh-net-ruh", "category": "house" },
+  "bed": { "french": "Lit", "phonetic": "lee", "category": "house" },
+  "table": { "french": "Table", "phonetic": "tah-bluh", "category": "house" },
+  "chair": { "french": "Chaise", "phonetic": "shez", "category": "house" },
+  "kitchen": { "french": "Cuisine", "phonetic": "kwee-zeen", "category": "house" },
+
+  // --- 12. FOOD ---
+  "bread": { "french": "Pain", "phonetic": "pan", "category": "food" },
+  "milk": { "french": "Lait", "phonetic": "lay", "category": "food" },
+  "egg": { "french": "Œuf", "phonetic": "uhf", "category": "food" },
+  "fruit": { "french": "Fruit", "phonetic": "frwee", "category": "food" },
+  "apple": { "french": "Pomme", "phonetic": "pom", "category": "food" },
+  "banana": { "french": "Banane", "phonetic": "bah-nahn", "category": "food" },
+  "juice": { "french": "Jus", "phonetic": "zhoo", "category": "food" },
+  "water": { "french": "Eau", "phonetic": "oh", "category": "food" },
+  "breakfast": { "french": "Petit déjeuner", "phonetic": "puh-tee day-zhuh-nay", "category": "food" },
+  "lunch": { "french": "Déjeuner", "phonetic": "day-zhuh-nay", "category": "food" },
+  "dinner": { "french": "Dîner", "phonetic": "dee-nay", "category": "food" },
+ 

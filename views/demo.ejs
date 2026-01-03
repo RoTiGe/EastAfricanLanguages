@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Home</a>
+            <h1><%= title %></h1>
+        </header>
+
+        <main>
+            <div class="demo-container">
+                <div class="input-section">
+                    <h2><%= ui.enterText || 'Enter Text' %></h2>
+                    <textarea 
+                        id="demoText" 
+                        class="form-textarea" 
+                        placeholder="<%= ui.placeholder || 'Type or paste text in ' + language + '...' %>"
+                        rows="6"
+                    ></textarea>
+                    
+                    <div class="button-group">
+                        <button onclick="speak()" class="btn btn-primary">🔊 <%= ui.speakButton || 'Speak' %></button>
+                        <button onclick="clearText()" class="btn btn-secondary"><%= ui.clearButton || 'Clear' %></button>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <h2><%= ui.audioOutput || 'Audio Output' %></h2>
+                    <div id="demoStatus" class="status"></div>
+                    <audio id="demoAudioPlayer" controls class="audio-player"></audio>
+                    
+                    <div class="info-box">
+                        <h3><%= ui.languageLabel || 'Language' %>: <%= language.charAt(0).toUpperCase() + language.slice(1) %></h3>
+                        <p class="language-code">Code: <%= language %></p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="examples">
+                <h3><%= ui.examplePhrases || 'Example Phrases' %></h3>
+                <div class="dropdown-container">
+                    <div class="bilingual-settings">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="showTranslation" onchange="onTranslationToggle()">
+                            <span><%= ui.showTranslation || 'Show translation in:' %></span>
+                        </label>
+                        <select id="translationLang" class="small-dropdown" disabled>
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="french">French</option>
+                            <option value="amharic">Amharic</option>
+                            <option value="tigrinya">Tigrinya</option>
+                            <option value="oromo">Oromo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="dropdown-group">
+                        <label for="categorySelect"><%= ui.selectCategory || 'Select Category:' %></label>
+                        <select id="categorySelect" class="dropdown-select">
+                            <option value="">-- Choose a category --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="dropdown-group">
+                        <label for="phraseSelect"><%= ui.selectPhrase || 'Select Phrase:' %></label>
+                        <select id="phraseSelect" class="dropdown-select" disabled>
+                            <option value="">-- Choose a phrase --</option>
+                        </select>
+                    </div>
+                    
+                    <button id="usePhraseBtn" class="btn btn-primary" onclick="useSelectedPhrase()" disabled>
+                        <%= ui.usePhrase || 'Use This Phrase' %>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><%= ui.footer || 'Powered by Google TTS (gTTS) + pyttsx3' %></p>
+        </footer>
+    </div>
+
+    <script>
+        const LANGUAGE = '<%= language %>';
+    </script>
+    <script src="/js/demo.js"></script>
+</body>
+</html>

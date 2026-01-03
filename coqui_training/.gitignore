@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Training outputs
+checkpoints/
+outputs/
+logs/
+runs/
+*.log
+
+# Dataset files (large)
+datasets/*/wavs/*.wav
+datasets/*/wavs/*.mp3
+datasets/*/wavs/*.flac
+datasets/*/*.wav
+datasets/*/*.mp3
+
+# Keep example files but ignore actual data
+!datasets/metadata_example.csv
+!datasets/DATASET_GUIDE.md
+
+# Preprocessed data
+datasets/*/phoneme_cache/
+datasets/*/phonemes/
+datasets/*/attention/
+datasets/*/mels/
+
+# Model files (large)
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.h5
+*.pb
+
+# TensorBoard
+events.out.tfevents*
+
+# Audio outputs
+*.wav
+*.mp3
+test*.wav
+output*.wav
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.cache

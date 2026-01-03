@@ -1,0 +1,112 @@
+{
+  "model": "tacotron2",
+  "run_name": "oromo_tacotron2",
+  "run_description": "Tacotron2 model training for Oromo language",
+  
+  "audio": {
+    "sample_rate": 22050,
+    "hop_length": 256,
+    "win_length": 1024,
+    "fft_size": 1024,
+    "mel_fmin": 0.0,
+    "mel_fmax": 8000.0,
+    "num_mels": 80,
+    "ref_level_db": 20,
+    "do_trim_silence": true,
+    "trim_db": 45,
+    "power": 1.5,
+    "preemphasis": 0.0,
+    "signal_norm": false,
+    "do_amp_to_db_linear": true,
+    "do_sound_norm": false
+  },
+  
+  "phoneme_language": "en-us",
+  "text_cleaner": "phoneme_cleaners",
+  "enable_eos_bos_chars": true,
+  "phoneme_cache_path": "datasets/oromo/phoneme_cache",
+  
+  "datasets": [
+    {
+      "name": "oromo",
+      "path": "datasets/oromo/",
+      "meta_file_train": "metadata.csv",
+      "meta_file_val": "metadata_val.csv"
+    }
+  ],
+  
+  "model_args": {
+    "mask_padding": true,
+    "embedding_dim": 512,
+    "encoder_kernel_size": 5,
+    "decoder_output_dim": 80,
+    "postnet_output_dim": 80,
+    "decoder_rnn_dim": 1024,
+    "prenet_type": "original",
+    "prenet_dims": [256, 256],
+    "attention_type": "graves",
+    "attention_rnn_dim": 1024,
+    "attention_dim": 128,
+    "location_attention": {
+      "attention_location_n_filters": 32,
+      "attention_location_kernel_size": 31
+    },
+    "windowing": false,
+    "use_forward_attn": false,
+    "forward_attn_mask": false,
+    "transition_agent": false,
+    "location_attn": true,
+    "bidirectional_decoder": false,
+    "double_decoder_consistency": false,
+    "ddc_r": 6,
+    "encoder_in_features": 512,
+    "decoder_in_features": 512,
+    "speaker_embedding_dim": 0
+  },
+  
+  "batch_size": 32,
+  "eval_batch_size": 16,
+  "num_loader_workers": 4,
+  "num_eval_loader_workers": 2,
+  "run_eval": true,
+  "test_delay_epochs": 0,
+  
+  "r": 2,
+  "gradual_training": [[0, 7, 32], [10000, 5, 32], [50000, 3, 32], [100000, 2, 32]],
+  "loss_masking": true,
+  "decoder_loss_alpha": 0.25,
+  "postnet_loss_alpha": 0.25,
+  "postnet_diff_spec_alpha": 0.25,
+  "decoder_diff_spec_alpha": 0.25,
+  "decoder_ssim_alpha": 0.0,
+  "postnet_ssim_alpha": 0.0,
+  
+  "epochs": 1000,
+  "lr": 0.0001,
+  "lr_scheduler": "NoamLR",
+  "lr_scheduler_params": {
+    "warmup_steps": 4000
+  },
+  
+  "optimizer": "RAdam",
+  "optimizer_params": {
+    "betas": [0.9, 0.998],
+    "weight_decay": 0.000001
+  },
+  
+  "grad_clip": 1.0,
+  "mixed_precision": false,
+  
+  "print_step": 25,
+  "plot_step": 100,
+  "log_model_step": 1000,
+  "save_step": 5000,
+  "save_n_checkpoints": 3,
+  "save_checkpoints": true,
+  "save_all_best": false,
+  "save_best_after": 10000,
+  
+  "output_path": "checkpoints/oromo_tacotron2/",
+  "distributed_backend": "nccl",
+  "distributed_url": "tcp://localhost:54321"
+}
