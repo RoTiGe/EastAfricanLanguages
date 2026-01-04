@@ -1,8 +1,8 @@
-# Quick Start Script for Multi-language TTS Game
+# Quick Start Script for African Translator
 
 Write-Host ""
 Write-Host ("="*60) -ForegroundColor Cyan
-Write-Host "  Multi-language TTS Game - Quick Start" -ForegroundColor Yellow
+Write-Host "  African Translator - Quick Start" -ForegroundColor Yellow
 Write-Host ("="*60) -ForegroundColor Cyan
 Write-Host ""
 

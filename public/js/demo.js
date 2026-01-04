@@ -12,8 +12,6 @@ let translationData = {
 };
 let currentCategory = null;
 let currentPhrases = [];
-let showBilingual = false;
-let translationLanguage = 'english';
 
 // Load categories when page loads
 async function loadCategories() {
@@ -40,7 +38,6 @@ async function loadCategories() {
         translationData.categories = data.categories || [];
 
         populateCategoryDropdown();
-        removeCurrentLanguageOption();
 
     } catch (error) {
         console.error('Error loading categories:', error);
@@ -49,19 +46,6 @@ async function loadCategories() {
         }
         showDemoStatus('Error loading categories. Please refresh the page.', 'error');
     }
-}
-
-// Remove the current language from translation language dropdown
-function removeCurrentLanguageOption() {
-    const translationSelect = document.getElementById('translationLang');
-    if (!translationSelect) return;
-    
-    const options = translationSelect.querySelectorAll('option');
-    options.forEach(option => {
-        if (option.value === LANGUAGE) {
-            option.remove();
-        }
-    });
 }
 
 // Populate category dropdown
@@ -149,14 +133,7 @@ function populatePhraseDropdown() {
         option.value = targetText;
         option.setAttribute('data-phrase-index', index);
         option.setAttribute('data-category', currentCategory);
-
-        if (showBilingual && phraseObj[translationLanguage]) {
-            const translationText = phraseObj[translationLanguage];
-            option.setAttribute('data-translation-text', translationText);
-            option.textContent = `${targetText} — ${translationText}`;
-        } else {
-            option.textContent = targetText;
-        }
+        option.textContent = targetText;
 
         phraseSelect.appendChild(option);
     });
@@ -179,38 +156,8 @@ function useSelectedPhrase() {
     const selectedOption = phraseSelect.options[phraseSelect.selectedIndex];
 
     if (selectedOption && selectedOption.value) {
-        // ALWAYS use the target language (original value), never the translation
-        // The translation is just a visual aid for understanding, not for TTS
         document.getElementById('demoText').value = selectedOption.value;
         speak();
-    }
-}
-
-// Handle translation toggle
-function onTranslationToggle() {
-    const checkbox = document.getElementById('showTranslation');
-    const translationSelect = document.getElementById('translationLang');
-
-    showBilingual = checkbox.checked;
-    translationSelect.disabled = !showBilingual;
-
-    if (showBilingual) {
-        translationLanguage = translationSelect.value;
-    }
-
-    // Refresh phrase dropdown if category is selected
-    if (currentCategory && currentPhrases.length > 0) {
-        populatePhraseDropdown();
-    }
-}
-
-// Handle translation language change
-function onTranslationLanguageChange() {
-    const translationSelect = document.getElementById('translationLang');
-    translationLanguage = translationSelect.value;
-
-    if (showBilingual && currentCategory && currentPhrases.length > 0) {
-        populatePhraseDropdown();
     }
 }
 
@@ -304,8 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const categorySelect = document.getElementById('categorySelect');
     const phraseSelect = document.getElementById('phraseSelect');
-    const translationLangSelect = document.getElementById('translationLang');
-    const showTranslationCheckbox = document.getElementById('showTranslation');
 
     if (categorySelect) {
         categorySelect.addEventListener('change', onCategoryChange);
@@ -314,12 +259,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (phraseSelect) {
         phraseSelect.addEventListener('change', onPhraseChange);
     }
-
-    if (translationLangSelect) {
-        translationLangSelect.addEventListener('change', onTranslationLanguageChange);
-    }
-
-    if (showTranslationCheckbox) {
-        showTranslationCheckbox.addEventListener('change', onTranslationToggle);
+    
+    // Load advanced mode state from localStorage
+    const advancedMode = localStorage.getItem('advancedMode') === 'true';
+    const checkbox = document.getElementById('advancedMode');
+    if (checkbox) {
+        checkbox.checked = advancedMode;
+        toggleAdvancedMode();
     }
 });
+
+// Toggle advanced mode
+function toggleAdvancedMode() {
+    const checkbox = document.getElementById('advancedMode');
+    const advancedSection = document.getElementById('advancedSection');
+    
+    if (checkbox && advancedSection) {
+        const isAdvanced = checkbox.checked;
+        advancedSection.style.display = isAdvanced ? 'block' : 'none';
+        
+        // Save state to localStorage
+        localStorage.setItem('advancedMode', isAdvanced);
+    }
+}

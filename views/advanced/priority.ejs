@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-4 position-relative">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <h1 class="text-center display-5 fw-bold"><%= title %></h1>
+            </div>
+        </header>
+
+        <main class="container my-4">
+            <div class="alert alert-warning mb-4">
+                <i class="bi bi-star-fill me-2"></i>
+                <strong>Priority <%= priorityData.metadata.priority_level.toUpperCase() %> phrases</strong> - 
+                <%= priorityData.metadata.total_phrases %> essential phrases across <%= priorityData.metadata.languages.length %> languages
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Select Language</h3>
+                            <select class="form-select form-select-lg" id="languageSelect" onchange="updateLanguage()">
+                                <% priorityData.metadata.languages.forEach(lang => { %>
+                                <option value="<%= lang %>"><%= lang.charAt(0).toUpperCase() + lang.slice(1) %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="phrases-container">
+                <% priorityData.phrases.forEach((phrase, index) => { %>
+                <div class="card shadow-sm mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="h6 mb-0">
+                            <i class="bi bi-chat-quote me-2"></i>
+                            <%= phrase.base_meaning %>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5 class="h6 mb-2">Translations:</h5>
+                                <div class="translation-grid">
+                                    <% Object.entries(phrase.translations).forEach(([lang, trans]) => { %>
+                                    <div class="translation-item mb-2" data-language="<%= lang %>">
+                                        <strong class="text-primary"><%= lang %>:</strong>
+                                        <span><%= trans %></span>
+                                    </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="h6 mb-2">Context:</h5>
+                                <ul class="list-unstyled small">
+                                    <% Object.entries(phrase.contexts).forEach(([key, value]) => { %>
+                                    <li><strong><%= key %>:</strong> <%= value %></li>
+                                    <% }) %>
+                                </ul>
+                                <% if (phrase.usage_notes) { %>
+                                <div class="mt-2">
+                                    <small class="text-muted"><i class="bi bi-info-circle me-1"></i><%= phrase.usage_notes %></small>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">Priority Phrases - Advanced Mode</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function updateLanguage() {
+            const selectedLang = document.getElementById('languageSelect').value;
+            const allTranslations = document.querySelectorAll('.translation-item');
+            
+            allTranslations.forEach(item => {
+                if (item.dataset.language === selectedLang || item.dataset.language === 'english') {
+                    item.style.display = 'block';
+                    if (item.dataset.language === selectedLang) {
+                        item.style.fontWeight = 'bold';
+                        item.style.fontSize = '1.1em';
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize with English selected
+        window.addEventListener('load', () => {
+            document.getElementById('languageSelect').value = 'english';
+            updateLanguage();
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -66,4 +66,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // Load advanced mode state from localStorage
+    const advancedMode = localStorage.getItem('advancedMode') === 'true';
+    const checkbox = document.getElementById('advancedMode');
+    if (checkbox) {
+        checkbox.checked = advancedMode;
+        toggleAdvancedMode();
+    }
 });
+
+// Toggle advanced mode
+function toggleAdvancedMode() {
+    const checkbox = document.getElementById('advancedMode');
+    const advancedSection = document.getElementById('advancedSection');
+    
+    if (checkbox && advancedSection) {
+        const isAdvanced = checkbox.checked;
+        advancedSection.style.display = isAdvanced ? 'block' : 'none';
+        
+        // Save state to localStorage
+        localStorage.setItem('advancedMode', isAdvanced);
+    }
+}
+

@@ -1,5 +1,5 @@
 /**
- * Express Server for Multi-language TTS Game
+ * Express Server for African Translator
  * Integrates with Python TTS service
  */
 
@@ -96,7 +96,7 @@ app.get('/api/phrases/:language/:category', (req, res) => {
 // Home page
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Multi-language TTS Game',
+        title: 'African Translator',
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
@@ -211,6 +211,90 @@ app.get('/health', async (req, res) => {
             express: 'ok',
             tts: 'unavailable'
         });
+    }
+});
+
+// ===== ADVANCED ROUTES (translations_network) =====
+
+// Advanced: Category Network Browser
+app.get('/advanced/categories', (req, res) => {
+    try {
+        const categoriesData = JSON.parse(fs.readFileSync(
+            path.join(__dirname, 'translations_network', 'categories.json'), 
+            'utf8'
+        ));
+        res.render('advanced/categories', {
+            title: 'Category Network Browser',
+            categories: categoriesData.categories
+        });
+    } catch (error) {
+        console.error('Error loading categories:', error);
+        res.status(500).send('Failed to load categories');
+    }
+});
+
+// Advanced: Network Visualizer
+app.get('/advanced/visualizer', (req, res) => {
+    try {
+        const categoriesData = JSON.parse(fs.readFileSync(
+            path.join(__dirname, 'translations_network', 'categories.json'), 
+            'utf8'
+        ));
+        res.render('advanced/visualizer', {
+            title: 'Network Visualizer',
+            categoriesJson: JSON.stringify(categoriesData)
+        });
+    } catch (error) {
+        console.error('Error loading network data:', error);
+        res.status(500).send('Failed to load network data');
+    }
+});
+
+// Advanced: Contextual Phrases
+app.get('/advanced/contextual', (req, res) => {
+    try {
+        const contextualData = JSON.parse(fs.readFileSync(
+            path.join(__dirname, 'translations_network', 'categories_contextual.json'), 
+            'utf8'
+        ));
+        res.render('advanced/contextual', {
+            title: 'Contextual Phrases',
+            contextualData: contextualData
+        });
+    } catch (error) {
+        console.error('Error loading contextual data:', error);
+        res.status(500).send('Failed to load contextual data');
+    }
+});
+
+// Advanced: Priority Phrases
+app.get('/advanced/priority', (req, res) => {
+    try {
+        const priorityData = JSON.parse(fs.readFileSync(
+            path.join(__dirname, 'translations_network', 'priority_contextual_phrases.json'), 
+            'utf8'
+        ));
+        res.render('advanced/priority', {
+            title: 'Priority Phrases',
+            priorityData: priorityData
+        });
+    } catch (error) {
+        console.error('Error loading priority data:', error);
+        res.status(500).send('Failed to load priority data');
+    }
+});
+
+// API endpoint to get full categories data for advanced features
+app.get('/api/advanced/categories', (req, res) => {
+    try {
+        const categoriesData = JSON.parse(fs.readFileSync(
+            path.join(__dirname, 'translations_network', 'categories.json'), 
+            'utf8'
+        ));
+        res.json(categoriesData);
+    } catch (error) {
+        console.error('Error loading categories:', error);
+        res.status(500).json({ error: 'Failed to load categories' });
     }
 });
 

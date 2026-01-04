@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-4 position-relative">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <h1 class="text-center display-5 fw-bold"><%= title %></h1>
+            </div>
+        </header>
+
+        <main class="container my-4">
+            <div class="alert alert-info mb-4">
+                <i class="bi bi-info-circle me-2"></i>
+                Context-aware phrases organized by time, relationship, formality, and trust levels
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Filter by Context</h3>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label">Time</label>
+                                    <select class="form-select" id="filterTime" onchange="filterPhrases()">
+                                        <option value="">All</option>
+                                        <option value="morning">Morning</option>
+                                        <option value="afternoon">Afternoon</option>
+                                        <option value="evening">Evening</option>
+                                        <option value="night">Night</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Relationship</label>
+                                    <select class="form-select" id="filterRelationship" onchange="filterPhrases()">
+                                        <option value="">All</option>
+                                        <option value="formal_stranger">Formal Stranger</option>
+                                        <option value="informal_friend">Informal Friend</option>
+                                        <option value="family">Family</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Formality</label>
+                                    <select class="form-select" id="filterFormality" onchange="filterPhrases()">
+                                        <option value="">All</option>
+                                        <option value="very_high">Very High</option>
+                                        <option value="high">High</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="low">Low</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Trust</label>
+                                    <select class="form-select" id="filterTrust" onchange="filterPhrases()">
+                                        <option value="">All</option>
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contextual-content">
+                <p class="text-center text-muted">Contextual phrase system loaded. Use filters above to explore.</p>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">Contextual Phrases - Advanced Mode</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function filterPhrases() {
+            // Placeholder for filtering logic
+            const content = document.getElementById('contextual-content');
+            content.innerHTML = '<div class="alert alert-success">Filter functionality coming soon - exploring contextual data structure</div>';
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

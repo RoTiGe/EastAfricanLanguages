@@ -25,83 +25,53 @@
 
         <!-- Main Content -->
         <main class="container my-4">
-            <div class="row g-4 mb-4">
-                <!-- Input Section -->
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h2 class="h4 mb-3 text-primary">
-                                <i class="bi bi-pencil-square me-2"></i><%= ui.enterText || 'Enter Text' %>
-                            </h2>
-                            <div class="mb-3">
-                                <textarea 
-                                    id="demoText" 
-                                    class="form-control form-control-lg" 
-                                    placeholder="<%= ui.placeholder || 'Type or paste text in ' + language + '...' %>"
-                                    rows="8"
-                                ></textarea>
-                            </div>
-                            
-                            <div class="d-grid gap-2 d-md-flex">
-                                <button onclick="speak()" class="btn btn-primary btn-lg flex-fill">
-                                    <i class="bi bi-volume-up me-2"></i><%= ui.speakButton || 'Speak' %>
-                                </button>
-                                <button onclick="clearText()" class="btn btn-secondary btn-lg flex-fill">
-                                    <i class="bi bi-trash me-2"></i><%= ui.clearButton || 'Clear' %>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Advanced Mode Toggle -->
+            <div class="alert alert-light border border-primary mb-4">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="advancedMode" onchange="toggleAdvancedMode()">
+                    <label class="form-check-label fw-semibold" for="advancedMode">
+                        <i class="bi bi-gear-fill me-2"></i>Advanced Mode (Network Analysis &amp; Contextual Phrases)
+                    </label>
                 </div>
+            </div>
 
-                <!-- Output Section -->
-                <div class="col-12 col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h2 class="h4 mb-3 text-primary">
-                                <i class="bi bi-speaker me-2"></i><%= ui.audioOutput || 'Audio Output' %>
-                            </h2>
-                            <div id="demoStatus" class="status mb-3"></div>
-                            <audio id="demoAudioPlayer" controls class="w-100 mb-4"></audio>
-                            
-                            <div class="alert alert-info border-0">
-                                <h3 class="h6 fw-bold mb-2">
-                                    <i class="bi bi-info-circle me-2"></i><%= ui.languageLabel || 'Language' %>: <%= language.charAt(0).toUpperCase() + language.slice(1) %>
-                                </h3>
-                                <p class="mb-0 font-monospace small">Code: <%= language %></p>
-                            </div>
+            <!-- Advanced Features Section (Hidden by default) -->
+            <div id="advancedSection" class="card shadow-sm mb-4" style="display: none;">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-4 text-primary">
+                        <i class="bi bi-diagram-3 me-2"></i>Advanced Features
+                    </h2>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <a href="/advanced/categories" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-folder-fill me-2"></i>Category Network Browser
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="/advanced/visualizer" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-diagram-3-fill me-2"></i>Network Visualizer
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="/advanced/contextual" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-chat-square-text-fill me-2"></i>Contextual Phrases
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="/advanced/priority" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-star-fill me-2"></i>Priority Phrases
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Example Phrases Section -->
-            <section class="card shadow-sm">
+            <section class="card shadow-sm mb-4">
                 <div class="card-body p-4">
                     <h3 class="h4 mb-4 text-primary">
                         <i class="bi bi-chat-quote me-2"></i><%= ui.examplePhrases || 'Example Phrases' %>
                     </h3>
-                    
-                    <!-- Bilingual Settings -->
-                    <div class="alert alert-light border border-primary mb-4">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-12 col-md-6">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="showTranslation" onchange="onTranslationToggle()">
-                                    <label class="form-check-label fw-semibold" for="showTranslation">
-                                        <i class="bi bi-translate me-2"></i><%= ui.showTranslation || 'Show meaning in another language (visual aid only):' %>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <select id="translationLang" class="form-select form-select-lg" disabled onchange="onTranslationLanguageChange()">
-                                    <% languages.forEach(lang => { %>
-                                    <option value="<%= lang %>"><%= languageNames[lang] || lang %></option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     
                     <!-- Category & Phrase Dropdowns -->
                     <div class="row g-3 mb-3">
@@ -127,6 +97,54 @@
                     <div class="d-grid">
                         <button id="usePhraseBtn" class="btn btn-primary btn-lg" onclick="useSelectedPhrase()" disabled>
                             <i class="bi bi-check-circle me-2"></i><%= ui.usePhrase || 'Use This Phrase' %>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row g-4 mb-4">
+                <!-- Output Section -->
+                <div class="col-12">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="h4 mb-3 text-primary">
+                                <i class="bi bi-speaker me-2"></i><%= ui.audioOutput || 'Audio Output' %>
+                            </h2>
+                            <div id="demoStatus" class="status mb-3"></div>
+                            <audio id="demoAudioPlayer" controls class="w-100 mb-4"></audio>
+                            
+                            <div class="alert alert-info border-0">
+                                <h3 class="h6 fw-bold mb-2">
+                                    <i class="bi bi-info-circle me-2"></i><%= ui.languageLabel || 'Language' %>: <%= language.charAt(0).toUpperCase() + language.slice(1) %>
+                                </h3>
+                                <p class="mb-0 font-monospace small">Code: <%= language %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <section class="card shadow-sm mt-4">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-3 text-primary">
+                        <i class="bi bi-pencil-square me-2"></i><%= ui.enterText || 'Enter Text' %>
+                    </h2>
+                    <div class="mb-3">
+                        <textarea 
+                            id="demoText" 
+                            class="form-control form-control-lg" 
+                            placeholder="<%= ui.placeholder || 'Type or paste text in ' + language + '...' %>"
+                            rows="8"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex">
+                        <button onclick="speak()" class="btn btn-primary btn-lg flex-fill">
+                            <i class="bi bi-volume-up me-2"></i><%= ui.speakButton || 'Speak' %>
+                        </button>
+                        <button onclick="clearText()" class="btn btn-secondary btn-lg flex-fill">
+                            <i class="bi bi-trash me-2"></i><%= ui.clearButton || 'Clear' %>
                         </button>
                     </div>
                 </div>
