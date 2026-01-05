@@ -1,0 +1,23 @@
+services:
+  # Single service running both Node.js and Python (Option 1)
+  - type: web
+    name: eastafrican-languages
+    env: node
+    plan: free  # or 'starter' for production ($7/month)
+    buildCommand: bash render-build.sh
+    startCommand: bash start-render.sh
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TTS_SERVICE_URL
+        value: http://localhost:5000
+      - key: TTS_SERVICE_PORT
+        value: 5000
+      - key: MAX_TEXT_LENGTH
+        value: 5000
+      - key: AUDIO_DIR
+        value: /tmp/audio_output
+      - key: UPLOAD_DIR
+        value: /tmp/uploads
+      - key: ENABLE_CLEANUP
+        value: false  # Let Linux handle /tmp cleanup

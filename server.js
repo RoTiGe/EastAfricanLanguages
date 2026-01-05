@@ -20,7 +20,12 @@ const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const uploadDir = path.join(__dirname, 'uploads');
+        // Use /tmp in production (ephemeral on Render), local uploads in dev
+        const uploadDir = process.env.UPLOAD_DIR || (
+            process.env.NODE_ENV === 'production' 
+                ? '/tmp/uploads' 
+                : path.join(__dirname, 'uploads')
+        );
         // Create uploads directory if it doesn't exist
         if (!fsSync.existsSync(uploadDir)) {
             fsSync.mkdirSync(uploadDir, { recursive: true });
@@ -335,7 +340,12 @@ app.post('/api/submit-translation', upload.single('translationFile'), async (req
         };
 
         // Save submission log
-        const logPath = path.join(__dirname, 'uploads', 'submissions.log');
+        const uploadDir = process.env.UPLOAD_DIR || (
+            process.env.NODE_ENV === 'production' 
+                ? '/tmp/uploads' 
+                : path.join(__dirname, 'uploads')
+        );
+        const logPath = path.join(uploadDir, 'submissions.log');
         await fs.appendFile(logPath, JSON.stringify(submissionData, null, 2) + '\n\n');
 
         console.log('New translation submission:', submissionData);
