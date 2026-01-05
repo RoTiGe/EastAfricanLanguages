@@ -1,15 +1,20 @@
-# Multi-language TTS Web Game
+# East African Languages Sound Training App
 
-A web-based application for Text-to-Speech in multiple languages including Spanish, French, Amharic, Tigrinya, and Oromo.
+A comprehensive web-based application for Text-to-Speech and language learning, featuring multiple East African and European languages with extensive translation support.
 
 ## Features
 
-- **Multi-language Support**: Spanish, French, Amharic, Tigrinya, Oromo
+- **Extensive Language Support**: 
+  - **East African Languages**: Amharic, Tigrinya, Oromo, Somali, Afar, Gamo, Hadiyaa, Wolayitta, Kinyarwanda, Kirundi, Luo
+  - **European Languages**: Spanish, French, Italian, Arabic
+- **Comprehensive Translations**: 286+ phrases across 34 categories
+- **Multiple Translation Formats**: Both `.js` and `.json` formats supported
 - **Dual TTS Engines**:
-  - Google TTS (gTTS): Spanish, French, Amharic, Tigrinya
-  - pyttsx3 (Windows SAPI): Oromo
+  - Google TTS (gTTS): Multiple language support
+  - pyttsx3 (Windows SAPI): Local voice synthesis
 - **Web Interface**: Built with Express + EJS
 - **Real-time Generation**: Generate speech on-demand
+- **Categorized Content**: Organized by topics (family, food, animals, etc.)
 
 ## Tech Stack
 

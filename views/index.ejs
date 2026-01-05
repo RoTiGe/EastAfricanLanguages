@@ -16,16 +16,97 @@
         <!-- Header -->
         <header class="text-white text-center py-5">
             <div class="container">
-                <h1 class="display-4 fw-bold mb-3">
+                <h1 class="display-3 fw-bold mb-3">
                     <i class="bi bi-soundwave"></i> <%= title %>
                 </h1>
-                <p class="lead subtitle">Text-to-Speech in Multiple Languages</p>
+                <p class="lead subtitle mb-4">Learn East African Languages with Context</p>
+                <p class="fs-5 mb-4">Master not just WHAT to say, but HOW to say it appropriately</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="/emergency" class="btn btn-danger btn-lg shadow">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Emergency Phrases
+                    </a>
+                    <a href="/demo/amharic" class="btn btn-light btn-lg shadow">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Start Learning
+                    </a>
+                    <a href="/advanced/contextual" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        Explore Contextual Learning
+                    </a>
+                </div>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="container my-5">
+            <!-- Emergency Access Banner -->
+            <div class="alert alert-danger shadow-lg mb-5 border-0" role="alert">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="alert-heading h4 mb-2">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            Need Emergency Help?
+                        </h3>
+                        <p class="mb-0">
+                            Access critical survival phrases instantly in multiple languages.
+                            Perfect for emergencies, travelers, and refugees.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="/emergency" class="btn btn-light btn-lg shadow">
+                            <i class="bi bi-megaphone-fill me-2"></i>
+                            Emergency Phrases
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section class="mb-5">
+                <h2 class="text-center mb-4 h3">Why Choose Our Platform?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-volume-up-fill text-primary fs-1 mb-3"></i>
+                                <h3 class="h5 mb-3">Hear Native Pronunciation</h3>
+                                <p class="text-muted">
+                                    Advanced text-to-speech in 6 East African languages.
+                                    Learn the correct pronunciation instantly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-people-fill text-success fs-1 mb-3"></i>
+                                <h3 class="h5 mb-3">Context-Aware Learning</h3>
+                                <p class="text-muted">
+                                    Learn appropriate phrases for every situation.
+                                    Understand formality, relationships, and cultural context.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-star-fill text-warning fs-1 mb-3"></i>
+                                <h3 class="h5 mb-3">Priority-Based</h3>
+                                <p class="text-muted">
+                                    Focus on the most important phrases first.
+                                    50+ critical phrases for survival and daily life.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Language Cards -->
+            <h2 class="text-center mb-4 h3">Select Your Language</h2>
             <div class="row g-4 mb-5">
                 <% languages.forEach(language => { %>
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3">

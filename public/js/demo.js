@@ -12,6 +12,8 @@ let translationData = {
 };
 let currentCategory = null;
 let currentPhrases = [];
+// FIX: Track current request to prevent race conditions
+let currentPhraseRequest = null;
 
 // Load categories when page loads
 async function loadCategories() {
@@ -85,12 +87,22 @@ async function onCategoryChange() {
 
     if (!selectedCategory) return;
 
+    // FIX: Cancel previous request to prevent race conditions
+    if (currentPhraseRequest) {
+        currentPhraseRequest.abort();
+    }
+
+    const controller = new AbortController();
+    currentPhraseRequest = controller;
+
     try {
         // Show loading state
         categorySelect.disabled = true;
         phraseSelect.innerHTML = '<option value="">⏳ Loading phrases...</option>';
 
-        const response = await fetch(`/api/phrases/${LANGUAGE}/${selectedCategory}`);
+        const response = await fetch(`/api/phrases/${LANGUAGE}/${selectedCategory}`, {
+            signal: controller.signal
+        });
 
         if (!response.ok) {
             throw new Error('Failed to load phrases');
@@ -104,11 +116,19 @@ async function onCategoryChange() {
         populatePhraseDropdown();
 
     } catch (error) {
+        // FIX: Ignore aborted requests
+        if (error.name === 'AbortError') {
+            return;
+        }
         console.error('Error loading phrases:', error);
         phraseSelect.innerHTML = '<option value="">❌ Error loading phrases</option>';
         showDemoStatus('Error loading phrases. Please try again.', 'error');
     } finally {
         categorySelect.disabled = false;
+        // Clear request tracker if this was the current request
+        if (currentPhraseRequest === controller) {
+            currentPhraseRequest = null;
+        }
     }
 }
 
@@ -196,16 +216,34 @@ async function speak() {
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Failed to generate speech');
+            let errorMessage = 'Failed to generate speech';
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.error || errorData.details || errorMessage;
+            } catch (e) {
+                // Response wasn't JSON, use status text
+                errorMessage = `Server error: ${response.status} ${response.statusText}`;
+            }
+            throw new Error(errorMessage);
         }
 
         const audioBlob = await response.blob();
+
+        // FIX: Revoke old blob URL before creating new one to prevent memory leak
+        if (audioPlayer.src && audioPlayer.src.startsWith('blob:')) {
+            URL.revokeObjectURL(audioPlayer.src);
+        }
+
         const audioUrl = URL.createObjectURL(audioBlob);
 
         audioPlayer.src = audioUrl;
         audioPlayer.style.display = 'block';
         audioPlayer.play();
+
+        // FIX: Revoke blob URL when audio ends to free memory
+        audioPlayer.addEventListener('ended', () => {
+            URL.revokeObjectURL(audioUrl);
+        }, { once: true });
 
         showDemoStatus('✓ Speech generated successfully!', 'success');
 
@@ -238,8 +276,9 @@ function showDemoStatus(message, type) {
 document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('demoText');
     if (textarea) {
+        // FIX: Standardize keyboard shortcut - Enter (without Shift) to speak, Shift+Enter for newline
         textarea.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && e.ctrlKey) {
+            if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 speak();
             }

@@ -1,72 +1,90 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read all .js translation files
-const oromoJS = fs.readFileSync('./translations/oromo_translations.js', 'utf8');
-const spanishJS = fs.readFileSync('./translations/spanish_translations.js', 'utf8');
-const frenchJS = fs.readFileSync('./translations/french_translations.js', 'utf8');
-const amharicJS = fs.readFileSync('./translations/amharic_translations.js', 'utf8');
-const tigrignaJS = fs.readFileSync('./translations/tigrigna_translations.js', 'utf8');
+// Automatically discover all .js translation files
+const translationsDir = './translations';
+const jsFiles = fs.readdirSync(translationsDir)
+  .filter(file => file.endsWith('_translations.js'))
+  .map(file => ({
+    filename: file,
+    language: file.replace('_translations.js', '')
+  }));
+
+console.log('Found translation files:', jsFiles.map(f => f.filename).join(', '));
 
 // Extract translation objects using eval (safe since we control the source)
-const extractTranslations = (jsContent) => {
+const extractTranslations = (jsContent, filename) => {
   // Create a safe execution context with window object
   const window = {};
   let translations = null;
   let frenchTranslations = null;
   
-  // Execute the code in current scope
-  eval(jsContent);
-  
-  return window.translations || translations || frenchTranslations;
+  try {
+    // Execute the code in current scope
+    eval(jsContent);
+    
+    const result = window.translations || translations || frenchTranslations;
+    if (!result) {
+      console.warn(`⚠️  Warning: Could not extract translations from ${filename}`);
+      return {};
+    }
+    return result;
+  } catch (error) {
+    console.error(`❌ Error extracting translations from ${filename}:`, error.message);
+    return {};
+  }
 };
 
-const oromoData = extractTranslations(oromoJS);
-const spanishData = extractTranslations(spanishJS);
-const frenchData = extractTranslations(frenchJS);
-const amharicData = extractTranslations(amharicJS);
-const tigrignaData = extractTranslations(tigrignaJS);
+// Read and extract all translation data
+const translationData = {};
+jsFiles.forEach(({ filename, language }) => {
+  const filePath = path.join(translationsDir, filename);
+  const jsContent = fs.readFileSync(filePath, 'utf8');
+  translationData[language] = extractTranslations(jsContent, filename);
+});
+
 
 console.log('Loaded translation data:');
-console.log('- Oromo entries:', Object.keys(oromoData).length);
-console.log('- Spanish entries:', Object.keys(spanishData).length);
-console.log('- French entries:', Object.keys(frenchData).length);
-console.log('- Amharic entries:', Object.keys(amharicData).length);
-console.log('- Tigrinya entries:', Object.keys(tigrignaData).length);
+jsFiles.forEach(({ language }) => {
+  const count = Object.keys(translationData[language] || {}).length;
+  console.log(`- ${language}: ${count} entries`);
+});
 
-// Collect all unique English keys
-const allKeys = new Set([
-  ...Object.keys(oromoData),
-  ...Object.keys(spanishData),
-  ...Object.keys(frenchData),
-  ...Object.keys(amharicData),
-  ...Object.keys(tigrignaData)
-]);
+// Collect all unique English keys from all languages
+const allKeys = new Set();
+jsFiles.forEach(({ language }) => {
+  Object.keys(translationData[language] || {}).forEach(key => allKeys.add(key));
+});
 
 console.log('\nTotal unique phrases:', allKeys.size);
+
 
 // Build multi-language phrase objects
 const multiLangPhrases = {};
 const categoryPhrases = {};
 
 allKeys.forEach(key => {
-  const oromo = oromoData[key];
-  const spanish = spanishData[key];
-  const french = frenchData[key];
-  const amharic = amharicData[key];
-  const tigrinya = tigrignaData[key];
+  // Get translations from all languages
+  const languageTranslations = {};
+  let category = 'other';
   
-  // Determine category (prefer non-undefined)
-  const category = oromo?.category || spanish?.category || french?.category || amharic?.category || tigrinya?.category || 'other';
+  jsFiles.forEach(({ language }) => {
+    const data = translationData[language];
+    if (data && data[key]) {
+      languageTranslations[language] = data[key][language] || '';
+      // Get category from first available source
+      if (category === 'other' && data[key].category) {
+        category = data[key].category;
+      }
+    } else {
+      languageTranslations[language] = '';
+    }
+  });
   
   // Build multi-language object
   const phraseObj = {
     english: key,
-    spanish: spanish?.spanish || '',
-    french: french?.french || '',
-    amharic: amharic?.amharic || '',
-    tigrinya: tigrinya?.tigrinya || '',
-    oromo: oromo?.oromo || ''
+    ...languageTranslations
   };
   
   // Organize by category
@@ -76,265 +94,303 @@ allKeys.forEach(key => {
   categoryPhrases[category].push(phraseObj);
 });
 
+
 console.log('\nCategories found:', Object.keys(categoryPhrases).sort());
 
-// Category name translations
+// Category name translations - dynamically include all languages
 const categoryNames = {
   basics: {
     spanish: 'Básicos & Saludos',
     french: 'Bases & Salutations',
     amharic: 'መሰረታዊ & ሰላምታዎች',
-    tigrinya: 'መሰረታዊ & ሰላምታት',
-    oromo: 'Bu\'uuraalee & Nagannoowwan'
+    tigrigna: 'መሰረታዊ & ሰላምታት',
+    oromo: 'Bu\'uuraalee & Nagannoowwan',
+    italian: 'Base & Saluti'
   },
   family: {
     spanish: 'Familia',
     french: 'Famille',
     amharic: 'ቤተሰብ',
-    tigrinya: 'ስድራ',
-    oromo: 'Maatii'
+    tigrigna: 'ስድራ',
+    oromo: 'Maatii',
+    italian: 'Famiglia'
   },
   people: {
     spanish: 'Personas',
     french: 'Personnes',
     amharic: 'ሰዎች',
-    tigrinya: 'ሰባት',
-    oromo: 'Namoota'
+    tigrigna: 'ሰባት',
+    oromo: 'Namoota',
+    italian: 'Persone'
   },
   body: {
     spanish: 'Partes del Cuerpo',
     french: 'Parties du Corps',
     amharic: 'የሰውነት ክፍሎች',
-    tigrinya: 'ክፍልታት ኣካላት',
-    oromo: 'Qaamolee Qaama'
+    tigrigna: 'ክፍልታት ኣካላት',
+    oromo: 'Qaamolee Qaama',
+    italian: 'Parti del Corpo'
   },
   clothing: {
     spanish: 'Ropa',
     french: 'Vêtements',
     amharic: 'ልብሶች',
-    tigrinya: 'ክዳውንቲ',
-    oromo: 'Uffata'
+    tigrigna: 'ክዳውንቲ',
+    oromo: 'Uffata',
+    italian: 'Abbigliamento'
   },
   colors: {
     spanish: 'Colores',
     french: 'Couleurs',
     amharic: 'ቀለሞች',
-    tigrinya: 'ሕብሪታት',
-    oromo: 'Halluulee'
+    tigrigna: 'ሕብሪታት',
+    oromo: 'Halluulee',
+    italian: 'Colori'
   },
   numbers: {
     spanish: 'Números',
     french: 'Nombres',
     amharic: 'ቁጥሮች',
-    tigrinya: 'ኣሃዱታት',
-    oromo: 'Lakkoofsa'
+    tigrigna: 'ኣሃዱታት',
+    oromo: 'Lakkoofsa',
+    italian: 'Numeri'
   },
   emotions: {
     spanish: 'Emociones',
     french: 'Émotions',
     amharic: 'ስሜቶች',
-    tigrinya: 'ስምዒታት',
-    oromo: 'Miiraa'
+    tigrigna: 'ስምዒታት',
+    oromo: 'Miiraa',
+    italian: 'Emozioni'
   },
   school: {
     spanish: 'Escuela',
     french: 'École',
     amharic: 'ትምህርት ቤት',
-    tigrinya: 'ቤት ትምህርቲ',
-    oromo: 'Mana Barumsaa'
+    tigrigna: 'ቤት ትምህርቲ',
+    oromo: 'Mana Barumsaa',
+    italian: 'Scuola'
   },
   toys: {
     spanish: 'Juguetes & Juegos',
     french: 'Jouets & Jeux',
     amharic: 'መጫወቻዎች & ጨዋታዎች',
-    tigrinya: 'መጻወቲታት & ጸወታታት',
-    oromo: 'Meeshaalee Tapha & Tapha'
+    tigrigna: 'መጻወቲታት & ጸወታታት',
+    oromo: 'Meeshaalee Tapha & Tapha',
+    italian: 'Giocattoli & Giochi'
   },
   house: {
     spanish: 'Casa',
     french: 'Maison',
     amharic: 'ቤት',
-    tigrinya: 'ቤት',
-    oromo: 'Mana'
+    tigrigna: 'ቤት',
+    oromo: 'Mana',
+    italian: 'Casa'
   },
   food: {
     spanish: 'Comida',
     french: 'Nourriture',
     amharic: 'ምግብ',
-    tigrinya: 'መግቢ',
-    oromo: 'Nyaata'
+    tigrigna: 'መግቢ',
+    oromo: 'Nyaata',
+    italian: 'Cibo'
   },
   animals: {
     spanish: 'Animales',
     french: 'Animaux',
     amharic: 'እንስሳት',
-    tigrinya: 'እንስሳታት',
-    oromo: 'Bineensota'
+    tigrigna: 'እንስሳታት',
+    oromo: 'Bineensota',
+    italian: 'Animali'
   },
   nature: {
     spanish: 'Naturaleza',
     french: 'Nature',
     amharic: 'ተፈጥሮ',
-    tigrinya: 'ተፈጥሮ',
-    oromo: 'Uumama'
+    tigrigna: 'ተፈጥሮ',
+    oromo: 'Uumama',
+    italian: 'Natura'
   },
   time: {
     spanish: 'Tiempo',
     french: 'Temps',
     amharic: 'ጊዜ',
-    tigrinya: 'ግዜ',
-    oromo: 'Yeroo'
+    tigrigna: 'ግዜ',
+    oromo: 'Yeroo',
+    italian: 'Tempo'
   },
   seasons: {
     spanish: 'Estaciones',
     french: 'Saisons',
     amharic: 'ወቅቶች',
-    tigrinya: 'ወቕትታት',
-    oromo: 'Waqtilee'
+    tigrigna: 'ወቕትታት',
+    oromo: 'Waqtilee',
+    italian: 'Stagioni'
   },
   transport: {
     spanish: 'Transporte',
     french: 'Transport',
     amharic: 'ትራንስፖርት',
-    tigrinya: 'መጎዓዝያ',
-    oromo: 'Geejjiba'
+    tigrigna: 'መጎዓዝያ',
+    oromo: 'Geejjiba',
+    italian: 'Trasporto'
   },
   places: {
     spanish: 'Lugares',
     french: 'Lieux',
     amharic: 'ቦታዎች',
-    tigrinya: 'ቦታታት',
-    oromo: 'Bakkeewwan'
+    tigrigna: 'ቦታታት',
+    oromo: 'Bakkeewwan',
+    italian: 'Luoghi'
   },
   music: {
     spanish: 'Música',
     french: 'Musique',
     amharic: 'ሙዚቃ',
-    tigrinya: 'ሙዚቃ',
-    oromo: 'Muuziqaa'
+    tigrigna: 'ሙዚቃ',
+    oromo: 'Muuziqaa',
+    italian: 'Musica'
   },
   actions: {
     spanish: 'Acciones',
     french: 'Actions',
     amharic: 'ድርጊቶች',
-    tigrinya: 'ተግባራት',
-    oromo: 'Gochaalee'
+    tigrigna: 'ተግባራት',
+    oromo: 'Gochaalee',
+    italian: 'Azioni'
   },
   objects: {
     spanish: 'Objetos',
     french: 'Objets',
     amharic: 'ነገሮች',
-    tigrinya: 'ነገራት',
-    oromo: 'Meesha'
+    tigrigna: 'ነገራት',
+    oromo: 'Meesha',
+    italian: 'Oggetti'
   },
   shapes: {
     spanish: 'Formas',
     french: 'Formes',
     amharic: 'ቅርጾች',
-    tigrinya: 'ቅርጽታት',
-    oromo: 'Bocawwan'
+    tigrigna: 'ቅርጽታት',
+    oromo: 'Bocawwan',
+    italian: 'Forme'
   },
   holidays: {
     spanish: 'Días Festivos',
     french: 'Jours Fériés',
     amharic: 'በዓላት',
-    tigrinya: 'በዓላት',
-    oromo: 'Ayyaanalee'
+    tigrigna: 'በዓላት',
+    oromo: 'Ayyaanalee',
+    italian: 'Festività'
   },
   weather: {
     spanish: 'Clima',
     french: 'Météo',
     amharic: 'የአየር ሁኔታ',
-    tigrinya: 'ኩነታት ኣየር',
-    oromo: 'Haala Qilleensaa'
+    tigrigna: 'ኩነታት ኣየር',
+    oromo: 'Haala Qilleensaa',
+    italian: 'Tempo'
   },
   descriptive: {
     spanish: 'Descriptivos',
     french: 'Descriptifs',
     amharic: 'መግለጫ',
-    tigrinya: 'መግለጺ',
-    oromo: 'Ibsituu'
+    tigrigna: 'መግለጺ',
+    oromo: 'Ibsituu',
+    italian: 'Descrittivo'
   },
   military: {
     spanish: 'Militar',
     french: 'Militaire',
     amharic: 'ወታደራዊ',
-    tigrinya: 'ወተሃደራዊ',
-    oromo: 'Waraanaa'
+    tigrigna: 'ወተሃደራዊ',
+    oromo: 'Waraanaa',
+    italian: 'Militare'
   },
   weapons: {
     spanish: 'Armas',
     french: 'Armes',
     amharic: 'የጦር መሳሪያዎች',
-    tigrinya: 'መሳርያታት',
-    oromo: 'Meeshaalee Waraanaa'
+    tigrigna: 'መሳርያታት',
+    oromo: 'Meeshaalee Waraanaa',
+    italian: 'Armi'
   },
   vehicles: {
     spanish: 'Vehículos',
     french: 'Véhicules',
     amharic: 'ተሽከርካሪዎች',
-    tigrinya: 'መጎዓዝያታት',
-    oromo: 'Konkolaatalee'
+    tigrigna: 'መጎዓዝያታት',
+    oromo: 'Konkolaatalee',
+    italian: 'Veicoli'
   },
   medical: {
     spanish: 'Médico',
     french: 'Médical',
     amharic: 'ሕክምና',
-    tigrinya: 'ሕክምናዊ',
-    oromo: 'Yaalaa'
+    tigrigna: 'ሕክምናዊ',
+    oromo: 'Yaalaa',
+    italian: 'Medico'
   },
   outcomes: {
     spanish: 'Resultados',
     french: 'Résultats',
     amharic: 'ውጤቶች',
-    tigrinya: 'ውጽኢታት',
-    oromo: 'Bu\'uuraa'
+    tigrigna: 'ውጽኢታት',
+    oromo: 'Bu\'uuraa',
+    italian: 'Risultati'
   },
   qualities: {
     spanish: 'Cualidades',
     french: 'Qualités',
     amharic: 'ባህሪያት',
-    tigrinya: 'ባህርያት',
-    oromo: 'Amalalee'
+    tigrigna: 'ባህርያት',
+    oromo: 'Amalalee',
+    italian: 'Qualità'
   },
   tactics: {
     spanish: 'Tácticas',
     french: 'Tactiques',
     amharic: 'ስልቶች',
-    tigrinya: 'ስልቲታት',
-    oromo: 'Tooftaalee'
+    tigrigna: 'ስልቲታት',
+    oromo: 'Tooftaalee',
+    italian: 'Tattiche'
   },
   equipment: {
     spanish: 'Equipamiento',
     french: 'Équipement',
     amharic: 'መሳሪያዎች',
-    tigrinya: 'መሳርሒታት',
-    oromo: 'Meeshaalee'
+    tigrigna: 'መሳርሒታት',
+    oromo: 'Meeshaalee',
+    italian: 'Attrezzatura'
   },
   political: {
     spanish: 'Político',
     french: 'Politique',
     amharic: 'ፖለቲካ',
-    tigrinya: 'ፖለቲካዊ',
-    oromo: 'Siyaasaa'
+    tigrigna: 'ፖለቲካዊ',
+    oromo: 'Siyaasaa',
+    italian: 'Politico'
   },
   games: {
     spanish: 'Juegos',
     french: 'Jeux',
     amharic: 'ጨዋታዎች',
-    tigrinya: 'ጸወታታት',
-    oromo: 'Taphaalee'
+    tigrigna: 'ጸወታታት',
+    oromo: 'Taphaalee',
+    italian: 'Giochi'
   },
   other: {
     spanish: 'Otros',
     french: 'Autres',
     amharic: 'ሌሎች',
-    tigrinya: 'ካልኦት',
-    oromo: 'Biroo'
+    tigrigna: 'ካልኦት',
+    oromo: 'Biroo',
+    italian: 'Altri'
   }
 };
 
-// UI translations
+
+// UI translations - dynamically include all languages
 const uiTranslations = {
   oromo: {
     pageTitle: 'Afaan Oromoo Baruu',
@@ -396,7 +452,7 @@ const uiTranslations = {
     usePhrase: 'ሀረግ ተጠቀም',
     footer: '© 2026 Sound Training App. መብቱ በህግ የተጠበቀ ነው።'
   },
-  tigrinya: {
+  tigrigna: {
     pageTitle: 'ትግርኛ ተማሃሩ',
     enterText: 'ጽሑፍኩም ኣእትውዎ',
     placeholder: 'ኣብዚ ጽሑፍኩም ጽሓፉ...',
@@ -410,28 +466,48 @@ const uiTranslations = {
     selectPhrase: 'ሓሳብ መረጽ',
     usePhrase: 'ሓሳብ ተጠቐም',
     footer: '© 2026 Sound Training App. ኩሉ መሰል ተሓልዩ።'
+  },
+  italian: {
+    pageTitle: 'Impara l\'Italiano',
+    enterText: 'Inserisci il tuo testo',
+    placeholder: 'Scrivi il tuo testo qui...',
+    speakButton: 'Parla',
+    clearButton: 'Cancella',
+    audioOutput: 'Uscita Audio',
+    languageLabel: 'Lingua:',
+    examplePhrases: 'Frasi di Esempio',
+    showTranslation: 'Mostra traduzione in:',
+    selectCategory: 'Seleziona una categoria',
+    selectPhrase: 'Seleziona una frase',
+    usePhrase: 'Usa frase',
+    footer: '© 2026 Sound Training App. Tutti i diritti riservati.'
   }
 };
 
-// Generate JSON files for each language
-const languages = ['oromo', 'spanish', 'french', 'amharic', 'tigrinya'];
 
-languages.forEach(lang => {
+// Generate JSON files for each language
+jsFiles.forEach(({ language }) => {
+  // Skip if no UI translations defined for this language
+  if (!uiTranslations[language]) {
+    console.log(`\n⚠️  Skipping ${language} - no UI translations defined`);
+    return;
+  }
+  
   const jsonData = {
-    language: lang,
-    nativeLanguageField: lang,
-    ui: uiTranslations[lang],
+    language: language,
+    nativeLanguageField: language,
+    ui: uiTranslations[language],
     categories: {}
   };
   
   // Add all categories with translated names and phrases
   Object.keys(categoryPhrases).forEach(catKey => {
-    const catName = categoryNames[catKey]?.[lang] || catKey;
+    const catName = categoryNames[catKey]?.[language] || catKey;
     jsonData.categories[catName] = categoryPhrases[catKey];
   });
   
   // Write to file
-  const filename = `./translations/${lang}.json`;
+  const filename = `./translations/${language}.json`;
   fs.writeFileSync(filename, JSON.stringify(jsonData, null, 2), 'utf8');
   console.log(`\n✓ Created ${filename} with ${Object.keys(jsonData.categories).length} categories`);
 });

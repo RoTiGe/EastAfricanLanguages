@@ -7,15 +7,25 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const cors = require('cors');
-const fs = require('fs');
+const fs = require('fs').promises;
+const fsSync = require('fs');
 const config = require('./config');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = config.SERVER_CONFIG.EXPRESS_PORT;
 const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
 
 // Middleware
-app.use(cors());
+// FIX: Configure CORS properly - restrict in production
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production'
+        ? (process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : 'http://localhost:3000')
+        : '*',
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
@@ -34,21 +44,33 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Rate limiting for TTS endpoint to prevent abuse
+const ttsLimiter = rateLimit({
+    windowMs: 60 * 1000, // 1 minute
+    max: 10, // 10 requests per minute per IP
+    message: { error: 'Too many TTS requests, please try again later' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
 // Routes
 
 // API endpoint to get categories for a language
-app.get('/api/categories/:language', (req, res) => {
-    const language = req.params.language;
+app.get('/api/categories/:language', async (req, res) => {
+    // FIX: Sanitize language parameter to prevent path traversal
+    const language = path.basename(req.params.language);
 
     if (!config.isValidLanguage(language)) {
         return res.status(404).json({ error: 'Language not supported' });
     }
 
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
-    
+
     try {
-        const translationData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
-        
+        // FIX: Use async file reading to prevent blocking event loop
+        const fileContent = await fs.readFile(translationPath, 'utf8');
+        const translationData = JSON.parse(fileContent);
+
         // Return only category names, not the phrases
         res.json({
             language: translationData.language,
@@ -57,28 +79,44 @@ app.get('/api/categories/:language', (req, res) => {
             categories: Object.keys(translationData.categories)
         });
     } catch (error) {
+        if (error.code === 'ENOENT') {
+            return res.status(404).json({ error: 'Translation file not found' });
+        }
+        if (error instanceof SyntaxError) {
+            console.error(`Malformed JSON in ${language}:`, error);
+            return res.status(500).json({ error: 'Translation file is corrupted' });
+        }
         console.error(`Error loading categories for ${language}:`, error);
         res.status(500).json({ error: 'Failed to load categories' });
     }
 });
 
 // API endpoint to get phrases for a specific category
-app.get('/api/phrases/:language/:category', (req, res) => {
-    const { language, category } = req.params;
+app.get('/api/phrases/:language/:category', async (req, res) => {
+    // FIX: Sanitize parameters to prevent path traversal and prototype pollution
+    const language = path.basename(req.params.language);
+    const category = req.params.category;
 
     if (!config.isValidLanguage(language)) {
         return res.status(404).json({ error: 'Language not supported' });
     }
 
+    // FIX: Validate category format to prevent prototype pollution
+    if (typeof category !== 'string' || !/^[a-z_]+$/.test(category)) {
+        return res.status(400).json({ error: 'Invalid category format' });
+    }
+
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
-    
+
     try {
-        const translationData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
-        
-        if (!translationData.categories[category]) {
+        // FIX: Use async file reading to prevent blocking event loop
+        const fileContent = await fs.readFile(translationPath, 'utf8');
+        const translationData = JSON.parse(fileContent);
+
+        if (!translationData.categories.hasOwnProperty(category)) {
             return res.status(404).json({ error: 'Category not found' });
         }
-        
+
         // Return phrases for the requested category only
         res.json({
             language: translationData.language,
@@ -88,8 +126,30 @@ app.get('/api/phrases/:language/:category', (req, res) => {
             phrases: translationData.categories[category]
         });
     } catch (error) {
+        if (error.code === 'ENOENT') {
+            return res.status(404).json({ error: 'Translation file not found' });
+        }
+        if (error instanceof SyntaxError) {
+            console.error(`Malformed JSON in ${language}:`, error);
+            return res.status(500).json({ error: 'Translation file is corrupted' });
+        }
         console.error(`Error loading phrases for ${language}/${category}:`, error);
         res.status(500).json({ error: 'Failed to load phrases' });
+    }
+});
+
+// API endpoint to get contextual phrases
+app.get('/api/contextual/phrases', async (req, res) => {
+    try {
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'priority_contextual_phrases.json'),
+            'utf8'
+        );
+        const phrasesData = JSON.parse(fileContent);
+        res.json(phrasesData);
+    } catch (error) {
+        console.error('Error loading contextual phrases:', error);
+        res.status(500).json({ error: 'Failed to load contextual phrases' });
     }
 });
 
@@ -103,8 +163,9 @@ app.get('/', (req, res) => {
 });
 
 // Language-specific demo pages
-app.get('/demo/:language', (req, res) => {
-    const language = req.params.language;
+app.get('/demo/:language', async (req, res) => {
+    // FIX: Sanitize language parameter to prevent path traversal
+    const language = path.basename(req.params.language);
 
     if (!config.isValidLanguage(language)) {
         return res.status(404).send('Language not supported');
@@ -113,14 +174,16 @@ app.get('/demo/:language', (req, res) => {
     // Load translation file to get UI strings
     const translationPath = path.join(__dirname, 'translations', `${language}.json`);
     let ui = {};
-    
+
     try {
-        const translationData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
+        // FIX: Use async file reading to prevent blocking event loop
+        const fileContent = await fs.readFile(translationPath, 'utf8');
+        const translationData = JSON.parse(fileContent);
         ui = translationData.ui || {};
     } catch (error) {
         console.error(`Error loading translations for ${language}:`, error);
     }
-    
+
     res.render('demo', {
         title: ui.pageTitle || `${language.charAt(0).toUpperCase() + language.slice(1)} TTS Demo`,
         language: language,
@@ -130,8 +193,8 @@ app.get('/demo/:language', (req, res) => {
     });
 });
 
-// API endpoint to generate speech
-app.post('/api/speak', async (req, res) => {
+// API endpoint to generate speech (with rate limiting)
+app.post('/api/speak', ttsLimiter, async (req, res) => {
     try {
         const { text, language } = req.body;
 
@@ -217,12 +280,13 @@ app.get('/health', async (req, res) => {
 // ===== ADVANCED ROUTES (translations_network) =====
 
 // Advanced: Category Network Browser
-app.get('/advanced/categories', (req, res) => {
+app.get('/advanced/categories', async (req, res) => {
     try {
-        const categoriesData = JSON.parse(fs.readFileSync(
-            path.join(__dirname, 'translations_network', 'categories.json'), 
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'categories.json'),
             'utf8'
-        ));
+        );
+        const categoriesData = JSON.parse(fileContent);
         res.render('advanced/categories', {
             title: 'Category Network Browser',
             categories: categoriesData.categories
@@ -234,12 +298,13 @@ app.get('/advanced/categories', (req, res) => {
 });
 
 // Advanced: Network Visualizer
-app.get('/advanced/visualizer', (req, res) => {
+app.get('/advanced/visualizer', async (req, res) => {
     try {
-        const categoriesData = JSON.parse(fs.readFileSync(
-            path.join(__dirname, 'translations_network', 'categories.json'), 
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'categories.json'),
             'utf8'
-        ));
+        );
+        const categoriesData = JSON.parse(fileContent);
         res.render('advanced/visualizer', {
             title: 'Network Visualizer',
             categoriesJson: JSON.stringify(categoriesData)
@@ -251,12 +316,13 @@ app.get('/advanced/visualizer', (req, res) => {
 });
 
 // Advanced: Contextual Phrases
-app.get('/advanced/contextual', (req, res) => {
+app.get('/advanced/contextual', async (req, res) => {
     try {
-        const contextualData = JSON.parse(fs.readFileSync(
-            path.join(__dirname, 'translations_network', 'categories_contextual.json'), 
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'categories_contextual.json'),
             'utf8'
-        ));
+        );
+        const contextualData = JSON.parse(fileContent);
         res.render('advanced/contextual', {
             title: 'Contextual Phrases',
             contextualData: contextualData
@@ -268,12 +334,13 @@ app.get('/advanced/contextual', (req, res) => {
 });
 
 // Advanced: Priority Phrases
-app.get('/advanced/priority', (req, res) => {
+app.get('/advanced/priority', async (req, res) => {
     try {
-        const priorityData = JSON.parse(fs.readFileSync(
-            path.join(__dirname, 'translations_network', 'priority_contextual_phrases.json'), 
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'priority_contextual_phrases.json'),
             'utf8'
-        ));
+        );
+        const priorityData = JSON.parse(fileContent);
         res.render('advanced/priority', {
             title: 'Priority Phrases',
             priorityData: priorityData
@@ -284,13 +351,42 @@ app.get('/advanced/priority', (req, res) => {
     }
 });
 
-// API endpoint to get full categories data for advanced features
-app.get('/api/advanced/categories', (req, res) => {
+// Emergency Phrases Page
+app.get('/emergency', async (req, res) => {
     try {
-        const categoriesData = JSON.parse(fs.readFileSync(
-            path.join(__dirname, 'translations_network', 'categories.json'), 
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'priority_contextual_phrases.json'),
             'utf8'
-        ));
+        );
+        const priorityData = JSON.parse(fileContent);
+
+        // Filter for emergency/critical phrases
+        const emergencyPhrases = priorityData.phrases.filter(phrase => {
+            return phrase.subcategory === 'emergency_help' ||
+                   phrase.contexts?.urgency === 'critical' ||
+                   phrase.phrase_id.includes('help_urgent') ||
+                   phrase.phrase_id.includes('water_request') ||
+                   phrase.phrase_id.includes('hospital');
+        });
+
+        res.render('emergency', {
+            title: 'Emergency Phrases',
+            emergencyPhrases: emergencyPhrases
+        });
+    } catch (error) {
+        console.error('Error loading emergency phrases:', error);
+        res.status(500).send('Failed to load emergency phrases');
+    }
+});
+
+// API endpoint to get full categories data for advanced features
+app.get('/api/advanced/categories', async (req, res) => {
+    try {
+        const fileContent = await fs.readFile(
+            path.join(__dirname, 'translations_network', 'categories.json'),
+            'utf8'
+        );
+        const categoriesData = JSON.parse(fileContent);
         res.json(categoriesData);
     } catch (error) {
         console.error('Error loading categories:', error);
@@ -302,6 +398,6 @@ app.get('/api/advanced/categories', (req, res) => {
 app.listen(PORT, () => {
     console.log(`\n${'='.repeat(50)}`);
     console.log(`🚀 Express Server running on http://localhost:${PORT}`);
-    console.log(`🎤 Make sure Python TTS service is running on port 5000`);
+    console.log(`🎤 Make sure Python TTS service is running on port ${config.SERVER_CONFIG.TTS_SERVICE_PORT}`);
     console.log(`${'='.repeat(50)}\n`);
 });

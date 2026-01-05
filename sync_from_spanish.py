@@ -11,10 +11,21 @@ print(f"Master has {total_phrases} total phrases")
 
 # Load existing translations for other languages
 languages = {
-    'oromo': './translations/oromo.json',
-    'french': './translations/french.json',
+    'afar': './translations/afar.json',
     'amharic': './translations/amharic.json',
-    'tigrinya': './translations/tigrinya.json'
+    'arabic': './translations/arabic.json',
+    'english': './translations/english.json',
+    'french': './translations/french.json',
+    'gamo': './translations/gamo.json',
+    'hadiyaa': './translations/hadiyaa.json',
+    'kinyarwanda': './translations/kinyarwanda.json',
+    'kirundi': './translations/kirundi.json',
+    'luo': './translations/luo.json',
+    'oromo': './translations/oromo.json',
+    'somali': './translations/somali.json',
+    'swahili': './translations/swahili.json',
+    'tigrinya': './translations/tigrinya.json',
+    'wolyitta': './translations/wolyitta.json'
 }
 
 for lang_code, filepath in languages.items():

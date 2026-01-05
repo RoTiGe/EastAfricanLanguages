@@ -80,17 +80,19 @@ function validateTextInput(text) {
     if (!text || typeof text !== 'string') {
         return { valid: false, error: 'Text is required and must be a string' };
     }
-    
-    const trimmedText = text.trim();
-    
+
+    // FIX: Remove null bytes and control characters (except newlines/tabs) to prevent injection
+    const sanitized = text.replace(/[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]/g, '');
+    const trimmedText = sanitized.trim();
+
     if (trimmedText.length < VALIDATION.MIN_TEXT_LENGTH) {
         return { valid: false, error: 'Text cannot be empty' };
     }
-    
+
     if (trimmedText.length > VALIDATION.MAX_TEXT_LENGTH) {
         return { valid: false, error: `Text exceeds maximum length of ${VALIDATION.MAX_TEXT_LENGTH} characters` };
     }
-    
+
     return { valid: true, text: trimmedText };
 }
 

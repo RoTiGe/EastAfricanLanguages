@@ -11,6 +11,8 @@ from gtts import gTTS
 import pyttsx3
 import os
 import uuid
+import time
+from threading import Thread
 
 app = Flask(__name__)
 CORS(app)
@@ -51,6 +53,32 @@ LANGUAGE_CODES = {
 
 # Languages that use pyttsx3 instead of gTTS (because gTTS doesn't support them)
 PYTTSX3_LANGUAGES = ['oromo', 'somali', 'hadiyaa', 'wolyitta', 'afar', 'gamo', 'luo']
+
+def cleanup_old_files():
+    """
+    Background thread to delete audio files older than 24 hours
+    Prevents disk space exhaustion
+    """
+    while True:
+        try:
+            now = time.time()
+            deleted_count = 0
+            for filename in os.listdir(AUDIO_DIR):
+                filepath = os.path.join(AUDIO_DIR, filename)
+                if os.path.isfile(filepath):
+                    # Check file age in hours
+                    age_hours = (now - os.path.getmtime(filepath)) / 3600
+                    if age_hours > 24:
+                        os.remove(filepath)
+                        deleted_count += 1
+
+            if deleted_count > 0:
+                print(f"🧹 Cleaned up {deleted_count} old audio files")
+        except Exception as e:
+            print(f"⚠️ Cleanup error: {e}")
+
+        # Run cleanup every hour
+        time.sleep(3600)
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -101,7 +129,8 @@ def text_to_speech():
         
         # Use appropriate TTS engine
         if language in PYTTSX3_LANGUAGES:
-            # Use pyttsx3 for Oromo
+            # Use pyttsx3 for languages not supported by gTTS
+            engine = None
             try:
                 engine = pyttsx3.init()
                 engine.save_to_file(text, output_path)
@@ -111,6 +140,14 @@ def text_to_speech():
             except Exception as e:
                 print(f"pyttsx3 error: {str(e)}")
                 raise
+            finally:
+                # FIX: Properly close and cleanup pyttsx3 engine to prevent resource leak
+                if engine:
+                    try:
+                        engine.stop()
+                        del engine
+                    except:
+                        pass
         else:
             # Use gTTS for other languages
             try:
@@ -156,10 +193,15 @@ def get_languages():
     })
 
 if __name__ == '__main__':
+    # Start background cleanup thread
+    cleanup_thread = Thread(target=cleanup_old_files, daemon=True)
+    cleanup_thread.start()
+
     print("\n" + "="*50)
     print("TTS Service Ready!")
     print(f"Running on port: {PORT}")
     print("Supported languages:", ", ".join(LANGUAGE_CODES.keys()))
     print(f"Max text length: {MAX_TEXT_LENGTH} characters")
+    print("🧹 Audio cleanup: Enabled (24-hour retention)")
     print("="*50 + "\n")
     app.run(host='0.0.0.0', port=PORT, debug=True)

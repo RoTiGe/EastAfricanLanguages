@@ -7,15 +7,15 @@ async function speakText() {
     const language = document.getElementById('quickLanguage').value;
     const status = document.getElementById('status');
     const audioPlayer = document.getElementById('audioPlayer');
-    
+
     if (!text) {
         showStatus('Please enter some text', 'error');
         return;
     }
-    
+
     try {
         showStatus('Generating speech...', 'loading');
-        
+
         const response = await fetch('/api/speak', {
             method: 'POST',
             headers: {
@@ -26,22 +26,41 @@ async function speakText() {
                 language: language
             })
         });
-        
+
         if (!response.ok) {
-            throw new Error('Failed to generate speech');
+            let errorMessage = 'Failed to generate speech';
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.error || errorData.details || errorMessage;
+            } catch (e) {
+                // Response wasn't JSON, use status text
+                errorMessage = `Server error: ${response.status} ${response.statusText}`;
+            }
+            throw new Error(errorMessage);
         }
-        
+
         // Convert response to blob and create audio URL
         const audioBlob = await response.blob();
+
+        // FIX: Revoke old blob URL before creating new one to prevent memory leak
+        if (audioPlayer.src && audioPlayer.src.startsWith('blob:')) {
+            URL.revokeObjectURL(audioPlayer.src);
+        }
+
         const audioUrl = URL.createObjectURL(audioBlob);
-        
+
         // Set audio source and play
         audioPlayer.src = audioUrl;
         audioPlayer.style.display = 'block';
         audioPlayer.play();
-        
+
+        // FIX: Revoke blob URL when audio ends to free memory
+        audioPlayer.addEventListener('ended', () => {
+            URL.revokeObjectURL(audioUrl);
+        }, { once: true });
+
         showStatus('Speech generated successfully!', 'success');
-        
+
     } catch (error) {
         console.error('Error:', error);
         showStatus('Error: ' + error.message, 'error');
