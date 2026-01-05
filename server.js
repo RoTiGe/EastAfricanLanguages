@@ -153,10 +153,83 @@ app.get('/api/contextual/phrases', async (req, res) => {
     }
 });
 
+// API endpoint to translate a phrase from source to target language
+app.get('/api/translate/:sourceLanguage/:targetLanguage/:category/:english', async (req, res) => {
+    const sourceLanguage = path.basename(req.params.sourceLanguage);
+    const targetLanguage = path.basename(req.params.targetLanguage);
+    const category = req.params.category;
+    const englishPhrase = decodeURIComponent(req.params.english);
+
+    if (!config.isValidLanguage(sourceLanguage) || !config.isValidLanguage(targetLanguage)) {
+        return res.status(404).json({ error: 'Language not supported' });
+    }
+
+    try {
+        // Load both source and target language files
+        const sourceContent = await fs.readFile(
+            path.join(__dirname, 'translations', `${sourceLanguage}.json`),
+            'utf8'
+        );
+        const targetContent = await fs.readFile(
+            path.join(__dirname, 'translations', `${targetLanguage}.json`),
+            'utf8'
+        );
+
+        const sourceData = JSON.parse(sourceContent);
+        const targetData = JSON.parse(targetContent);
+
+        // Find the phrase in source language by English text
+        let sourcePhrase = null;
+        let targetPhrase = null;
+
+        if (sourceData.categories[category]) {
+            sourcePhrase = sourceData.categories[category].find(p => p.english === englishPhrase);
+        }
+
+        if (targetData.categories[category]) {
+            targetPhrase = targetData.categories[category].find(p => p.english === englishPhrase);
+        }
+
+        if (!sourcePhrase || !targetPhrase) {
+            return res.status(404).json({ error: 'Phrase not found in one or both languages' });
+        }
+
+        res.json({
+            source: {
+                language: sourceLanguage,
+                languageField: sourceData.nativeLanguageField,
+                text: sourcePhrase[sourceData.nativeLanguageField],
+                phonetic: sourcePhrase.phonetic,
+                english: sourcePhrase.english
+            },
+            target: {
+                language: targetLanguage,
+                languageField: targetData.nativeLanguageField,
+                text: targetPhrase[targetData.nativeLanguageField],
+                phonetic: targetPhrase.phonetic,
+                english: targetPhrase.english
+            },
+            category: category
+        });
+    } catch (error) {
+        console.error('Translation error:', error);
+        res.status(500).json({ error: 'Failed to translate phrase' });
+    }
+});
+
 // Home page
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'African Translator',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// Translation mode page
+app.get('/translate', (req, res) => {
+    res.render('translate', {
+        title: 'Translation Mode',
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
