@@ -216,14 +216,23 @@ async function playTargetAudio() {
         });
 
         if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.error || 'TTS service not available');
+            const errorText = await response.text();
+            let errorMsg = 'TTS service not available';
+            try {
+                const errorJson = JSON.parse(errorText);
+                errorMsg = errorJson.error || errorMsg;
+            } catch (e) {
+                // If not JSON, use default message
+            }
+            throw new Error(errorMsg);
         }
 
-        const data = await response.json();
+        // Get audio blob from response
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
         
         // Play audio
-        audioPlayer.src = data.audioPath;
+        audioPlayer.src = audioUrl;
         audioPlayer.style.display = 'block';
         audioPlayer.play();
         
@@ -231,6 +240,8 @@ async function playTargetAudio() {
         
         audioPlayer.onended = () => {
             showStatus('Audio playback complete', 'success', audioStatus);
+            // Clean up the blob URL
+            URL.revokeObjectURL(audioUrl);
         };
     } catch (error) {
         console.error('TTS Error:', error);

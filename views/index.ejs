@@ -13,13 +13,44 @@
 </head>
 <body>
     <div class="container-fluid p-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <i class="bi bi-soundwave me-2"></i>Language Bridge
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/participate">
+                                <i class="bi bi-upload me-1"></i>Participate
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/donate">
+                                <i class="bi bi-heart-fill me-1"></i>Donate
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">
+                                <i class="bi bi-info-circle me-1"></i>About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
         <!-- Header -->
         <header class="text-white text-center py-5">
             <div class="container">
                 <h1 class="display-3 fw-bold mb-3">
                     <i class="bi bi-soundwave"></i> <%= title %>
                 </h1>
-                <p class="lead subtitle mb-4">Learn East African Languages with Context</p>
+                <p class="lead subtitle mb-4">Tour world languages one at a time</p>
                 <p class="fs-5 mb-4">Master not just WHAT to say, but HOW to say it appropriately</p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
                     <a href="/translate" class="btn btn-success btn-lg shadow">
@@ -121,21 +152,109 @@
                 </div>
             </section>
 
-            <!-- Language Cards -->
+            <!-- Language Map -->
             <h2 class="text-center mb-4 h3">Select Your Language</h2>
-            <div class="row g-4 mb-5">
-                <% languages.forEach(language => { %>
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 language-card border-0 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-translate fs-1 text-primary mb-3"></i>
-                            <a href="/demo/<%= language %>" class="btn btn-primary btn-lg w-100">
-                                <%= languageNames[language] || language %>
-                            </a>
-                        </div>
-                    </div>
+            <p class="text-center text-muted mb-5">Languages positioned by geographic region</p>
+            <div class="language-map position-relative mb-5" style="min-height: 550px;">
+                <!-- European Languages (North-Center) -->
+                <div class="position-absolute" style="top: 5%; left: 20%;">
+                    <a href="/demo/english" class="btn btn-primary btn-lg shadow-sm mb-2">
+                        <i class="bi bi-globe-americas me-2"></i>English
+                    </a>
                 </div>
-                <% }) %>
+                <div class="position-absolute" style="top: 8%; left: 42%;">
+                    <a href="/demo/french" class="btn btn-primary btn-lg shadow-sm mb-2">
+                        <i class="bi bi-flag me-2"></i>Français
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 3%; left: 50%;">
+                    <a href="/demo/italian" class="btn btn-primary btn-lg shadow-sm mb-2">
+                        <i class="bi bi-cup-hot me-2"></i>Italiano
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 10%; left: 8%;">
+                    <a href="/demo/spanish" class="btn btn-primary btn-lg shadow-sm mb-2">
+                        <i class="bi bi-sun me-2"></i>Español
+                    </a>
+                </div>
+                
+                <!-- Middle Eastern/Asian (East-Center) -->
+                <div class="position-absolute" style="top: 18%; left: 78%;">
+                    <a href="/demo/chinese" class="btn btn-success btn-lg shadow-sm mb-2">
+                        <i class="bi bi-yin-yang me-2"></i>中文
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 25%; left: 70%;">
+                    <a href="/demo/arabic" class="btn btn-success btn-lg shadow-sm mb-2">
+                        <i class="bi bi-moon-stars me-2"></i>العربية
+                    </a>
+                </div>
+                
+                <!-- Horn of Africa/Ethiopian Languages (Center-East) -->
+                <div class="position-absolute" style="top: 35%; left: 58%;">
+                    <a href="/demo/amharic" class="btn btn-warning btn-lg shadow-sm mb-2">
+                        <i class="bi bi-star-fill me-2"></i>አማርኛ
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 30%; left: 62%;">
+                    <a href="/demo/tigrinya" class="btn btn-warning btn-lg shadow-sm mb-2">
+                        <i class="bi bi-brightness-high me-2"></i>ትግርኛ
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 42%; left: 54%;">
+                    <a href="/demo/oromo" class="btn btn-warning btn-lg shadow-sm mb-2">
+                        <i class="bi bi-tree me-2"></i>Afaan Oromoo
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 38%; left: 68%;">
+                    <a href="/demo/somali" class="btn btn-warning btn-lg shadow-sm mb-2">
+                        <i class="bi bi-cloud me-2"></i>Soomaali
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 50%; left: 48%;">
+                    <a href="/demo/afar" class="btn btn-warning btn-lg shadow-sm mb-2">
+                        <i class="bi bi-wind me-2"></i>Afar
+                    </a>
+                </div>
+                
+                <!-- Southern Ethiopian Languages (Center-South) -->
+                <div class="position-absolute" style="top: 58%; left: 52%;">
+                    <a href="/demo/hadiyaa" class="btn btn-info btn-lg shadow-sm mb-2">
+                        <i class="bi bi-flower1 me-2"></i>Hadiyaa
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 62%; left: 46%;">
+                    <a href="/demo/wolayitta" class="btn btn-info btn-lg shadow-sm mb-2">
+                        <i class="bi bi-heart me-2"></i>Wolayitta
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 65%; left: 58%;">
+                    <a href="/demo/gamo" class="btn btn-info btn-lg shadow-sm mb-2">
+                        <i class="bi bi-gem me-2"></i>Gamo
+                    </a>
+                </div>
+                
+                <!-- East African (South-Center) -->
+                <div class="position-absolute" style="top: 72%; left: 50%;">
+                    <a href="/demo/swahili" class="btn btn-danger btn-lg shadow-sm mb-2">
+                        <i class="bi bi-water me-2"></i>Kiswahili
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 68%; left: 35%;">
+                    <a href="/demo/kinyarwanda" class="btn btn-danger btn-lg shadow-sm mb-2">
+                        <i class="bi bi-mountains me-2"></i>Kinyarwanda
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 75%; left: 38%;">
+                    <a href="/demo/kirundi" class="btn btn-danger btn-lg shadow-sm mb-2">
+                        <i class="bi bi-house me-2"></i>Kirundi
+                    </a>
+                </div>
+                <div class="position-absolute" style="top: 78%; left: 28%;">
+                    <a href="/demo/luo" class="btn btn-danger btn-lg shadow-sm mb-2">
+                        <i class="bi bi-fish me-2"></i>Luo
+                    </a>
+                </div>
             </div>
 
             <!-- Quick Test Section -->

@@ -11,10 +11,53 @@ const fs = require('fs').promises;
 const fsSync = require('fs');
 const config = require('./config');
 const rateLimit = require('express-rate-limit');
+const multer = require('multer');
 
 const app = express();
 const PORT = config.SERVER_CONFIG.EXPRESS_PORT;
 const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        const uploadDir = path.join(__dirname, 'uploads');
+        // Create uploads directory if it doesn't exist
+        if (!fsSync.existsSync(uploadDir)) {
+            fsSync.mkdirSync(uploadDir, { recursive: true });
+        }
+        cb(null, uploadDir);
+    },
+    filename: function (req, file, cb) {
+        // Create unique filename with timestamp
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 5 * 1024 * 1024 // 5MB limit
+    },
+    fileFilter: function (req, file, cb) {
+        // Accept only specific file types
+        const allowedTypes = [
+            'application/json',
+            'text/plain',
+            'text/csv',
+            'application/vnd.ms-excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        ];
+        
+        if (allowedTypes.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new Error('Invalid file type. Only JSON, TXT, CSV, Excel, and Word files are allowed.'));
+        }
+    }
+});
 
 // Middleware
 // FIX: Configure CORS properly - restrict in production
@@ -233,6 +276,149 @@ app.get('/translate', (req, res) => {
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
+});
+
+// Participate page
+app.get('/participate', (req, res) => {
+    res.render('participate', {
+        title: 'Participate',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// Donate page
+app.get('/donate', (req, res) => {
+    res.render('donate', {
+        title: 'Donate'
+    });
+});
+
+// About Us page
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Us'
+    });
+});
+
+// API endpoint to submit translations
+app.post('/api/submit-translation', upload.single('translationFile'), async (req, res) => {
+    try {
+        const { sourceLanguage, targetLanguage, contributorName, contributorEmail, organization, comments } = req.body;
+        
+        if (!req.file) {
+            return res.status(400).json({ error: 'No file uploaded' });
+        }
+
+        // Validate required fields
+        if (!sourceLanguage || !targetLanguage || !contributorName || !contributorEmail) {
+            return res.status(400).json({ error: 'Missing required fields' });
+        }
+
+        // Log the submission (in production, you'd save to database or send email)
+        const submissionData = {
+            timestamp: new Date().toISOString(),
+            file: {
+                originalName: req.file.originalname,
+                savedName: req.file.filename,
+                size: req.file.size,
+                path: req.file.path
+            },
+            sourceLanguage,
+            targetLanguage,
+            contributor: {
+                name: contributorName,
+                email: contributorEmail,
+                organization: organization || 'N/A'
+            },
+            comments: comments || 'No comments provided'
+        };
+
+        // Save submission log
+        const logPath = path.join(__dirname, 'uploads', 'submissions.log');
+        await fs.appendFile(logPath, JSON.stringify(submissionData, null, 2) + '\n\n');
+
+        console.log('New translation submission:', submissionData);
+
+        res.json({
+            success: true,
+            message: 'Translation submitted successfully! We will review it and get back to you.',
+            submissionId: req.file.filename
+        });
+
+    } catch (error) {
+        console.error('Translation submission error:', error);
+        res.status(500).json({
+            error: 'Failed to submit translation',
+            details: error.message
+        });
+    }
+});
+
+// API endpoint to download translation template
+app.get('/api/translation-template', (req, res) => {
+    const template = {
+        language: "language_name",
+        nativeLanguageField: "native_field",
+        categoryNames: {
+            greetings: "Greetings",
+            basic: "Basic Phrases",
+            questions: "Common Questions",
+            directions: "Directions",
+            numbers: "Numbers",
+            time: "Time",
+            food: "Food & Dining",
+            shopping: "Shopping",
+            emergency: "Emergency",
+            health: "Health",
+            travel: "Travel",
+            family: "Family",
+            weather: "Weather",
+            colors: "Colors",
+            animals: "Animals"
+        },
+        ui: {
+            pageTitle: "Language Name Learning",
+            selectCategory: "Select a Category",
+            playAudio: "Play Audio",
+            stopAudio: "Stop",
+            nextPhrase: "Next Phrase",
+            previousPhrase: "Previous Phrase",
+            shuffle: "Shuffle",
+            repeat: "Repeat",
+            progress: "Progress"
+        },
+        categories: {
+            greetings: [
+                {
+                    english: "Hello",
+                    native_field: "Translation",
+                    phonetic: "Phonetic spelling"
+                },
+                {
+                    english: "Good morning",
+                    native_field: "Translation",
+                    phonetic: "Phonetic spelling"
+                }
+            ],
+            basic: [
+                {
+                    english: "Yes",
+                    native_field: "Translation",
+                    phonetic: "Phonetic spelling"
+                },
+                {
+                    english: "No",
+                    native_field: "Translation",
+                    phonetic: "Phonetic spelling"
+                }
+            ]
+        }
+    };
+
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', 'attachment; filename="translation_template.json"');
+    res.json(template);
 });
 
 // Language-specific demo pages

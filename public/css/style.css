@@ -181,3 +181,67 @@ a,
     height: 1rem;
     border-width: 0.15em;
 }
+
+/* Language Map */
+.language-map {
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(240, 248, 255, 0.95) 20%,
+        rgba(255, 250, 240, 0.95) 45%,
+        rgba(255, 245, 238, 0.95) 65%,
+        rgba(245, 255, 250, 0.95) 100%
+    );
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.language-map::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.03"><circle cx="600" cy="300" r="200" fill="%23000"/><circle cx="300" cy="200" r="100" fill="%23000"/><circle cx="900" cy="400" r="150" fill="%23000"/></svg>') center/cover no-repeat;
+    pointer-events: none;
+}
+
+.language-map .btn {
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.language-map .btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    z-index: 20;
+}
+
+/* Responsive adjustments for language map */
+@media (max-width: 992px) {
+    .language-map {
+        min-height: 800px !important;
+    }
+    
+    .language-map .position-absolute {
+        position: static !important;
+        display: inline-block;
+        margin: 10px 5px;
+    }
+    
+    .language-map {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .language-map .btn-lg {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}

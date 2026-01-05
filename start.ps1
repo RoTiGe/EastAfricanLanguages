@@ -36,7 +36,7 @@ Write-Host "  Starting on port 5000..." -ForegroundColor Yellow
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PSScriptRoot'; & '$pythonPath' tts_service.py" -WindowStyle Normal
 
 Write-Host "  ✓ TTS service starting in new window..." -ForegroundColor Gray
-Write-Host "  (Supported: 16 languages including Italian)" -ForegroundColor Yellow
+Write-Host "  Supported: 16 languages including Italian" -ForegroundColor Yellow
 
 # Wait for service to initialize
 Write-Host "  Waiting for TTS service to be ready..." -ForegroundColor Yellow

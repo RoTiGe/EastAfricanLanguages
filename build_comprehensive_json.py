@@ -89,7 +89,8 @@ category_names = {
         'tigrinya': 'መሰረታዊ & ሰላምታት',
         'tigrigna': 'መሰረታዊ & ሰላምታት',
         'oromo': "Bu'uuraalee & Nagannoowwan",
-        'italian': 'Base & Saluti'
+        'italian': 'Base & Saluti',
+        'chinese': '基础 & 问候'
     },
     'family': {
         'spanish': 'Familia',
@@ -98,7 +99,8 @@ category_names = {
         'tigrinya': 'ስድራ',
         'tigrigna': 'ስድራ',
         'oromo': 'Maatii',
-        'italian': 'Famiglia'
+        'italian': 'Famiglia',
+        'chinese': '家庭'
     },
     'people': {
         'spanish': 'Personas',
@@ -107,7 +109,8 @@ category_names = {
         'tigrinya': 'ሰባት',
         'tigrigna': 'ሰባት',
         'oromo': 'Namoota',
-        'italian': 'Persone'
+        'italian': 'Persone',
+        'chinese': '人'
     },
     'body': {
         'spanish': 'Partes del Cuerpo',
@@ -116,7 +119,8 @@ category_names = {
         'tigrinya': 'ክፍልታት ኣካላት',
         'tigrigna': 'ክፍልታት ኣካላት',
         'oromo': 'Qaamolee Qaama',
-        'italian': 'Parti del Corpo'
+        'italian': 'Parti del Corpo',
+        'chinese': '身体部位'
     },
     'clothing': {
         'spanish': 'Ropa',
@@ -125,7 +129,8 @@ category_names = {
         'tigrinya': 'ክዳውንቲ',
         'tigrigna': 'ክዳውንቲ',
         'oromo': 'Uffata',
-        'italian': 'Abbigliamento'
+        'italian': 'Abbigliamento',
+        'chinese': '衣服'
     },
     'colors': {
         'spanish': 'Colores',
@@ -134,7 +139,8 @@ category_names = {
         'tigrinya': 'ሕብሪታት',
         'tigrigna': 'ሕብሪታት',
         'oromo': 'Halluulee',
-        'italian': 'Colori'
+        'italian': 'Colori',
+        'chinese': '颜色'
     },
     'numbers': {
         'spanish': 'Números',
@@ -143,7 +149,8 @@ category_names = {
         'tigrinya': 'ኣሃዱታት',
         'tigrigna': 'ኣሃዱታት',
         'oromo': 'Lakkoofsa',
-        'italian': 'Numeri'
+        'italian': 'Numeri',
+        'chinese': '数字'
     },
     'emotions': {
         'spanish': 'Emociones',
@@ -152,7 +159,8 @@ category_names = {
         'tigrinya': 'ስምዒታት',
         'tigrigna': 'ስምዒታት',
         'oromo': 'Miiraa',
-        'italian': 'Emozioni'
+        'italian': 'Emozioni',
+        'chinese': '情感'
     },
     'school': {
         'spanish': 'Escuela',
@@ -161,7 +169,8 @@ category_names = {
         'tigrinya': 'ቤት ትምህርቲ',
         'tigrigna': 'ቤት ትምህርቲ',
         'oromo': 'Mana Barumsaa',
-        'italian': 'Scuola'
+        'italian': 'Scuola',
+        'chinese': '学校'
     },
     'toys': {
         'spanish': 'Juguetes & Juegos',
@@ -170,7 +179,8 @@ category_names = {
         'tigrinya': 'መጻወቲታት & ጸወታታት',
         'tigrigna': 'መጻወቲታት & ጸወታታት',
         'oromo': 'Meeshaalee Tapha & Taphaalee',
-        'italian': 'Giocattoli & Giochi'
+        'italian': 'Giocattoli & Giochi',
+        'chinese': '玩具 & 游戏'
     },
     'house': {
         'spanish': 'Casa',
@@ -179,7 +189,8 @@ category_names = {
         'tigrinya': 'ቤት',
         'tigrigna': 'ቤት',
         'oromo': 'Mana',
-        'italian': 'Casa'
+        'italian': 'Casa',
+        'chinese': '房子'
     },
     'food': {
         'spanish': 'Comida',
@@ -188,7 +199,8 @@ category_names = {
         'tigrinya': 'መግቢ',
         'tigrigna': 'መግቢ',
         'oromo': 'Nyaata',
-        'italian': 'Cibo'
+        'italian': 'Cibo',
+        'chinese': '食物'
     },
     'animals': {
         'spanish': 'Animales',
@@ -197,7 +209,8 @@ category_names = {
         'tigrinya': 'እንስሳታት',
         'tigrigna': 'እንስሳታት',
         'oromo': 'Bineensota',
-        'italian': 'Animali'
+        'italian': 'Animali',
+        'chinese': '动物'
     },
     'nature': {
         'spanish': 'Naturaleza',
@@ -206,7 +219,8 @@ category_names = {
         'tigrinya': 'ተፈጥሮ',
         'tigrigna': 'ተፈጥሮ',
         'oromo': 'Uumama',
-        'italian': 'Natura'
+        'italian': 'Natura',
+        'chinese': '自然'
     },
     'time': {
         'spanish': 'Tiempo',
@@ -215,7 +229,8 @@ category_names = {
         'tigrinya': 'ግዜ',
         'tigrigna': 'ግዜ',
         'oromo': 'Yeroo',
-        'italian': 'Tempo'
+        'italian': 'Tempo',
+        'chinese': '时间'
     },
     'seasons': {
         'spanish': 'Estaciones',
@@ -224,7 +239,8 @@ category_names = {
         'tigrinya': 'ወቕትታት',
         'tigrigna': 'ወቕትታት',
         'oromo': 'Waqtilee',
-        'italian': 'Stagioni'
+        'italian': 'Stagioni',
+        'chinese': '季节'
     },
     'transport': {
         'spanish': 'Transporte',
@@ -233,7 +249,8 @@ category_names = {
         'tigrinya': 'መጎዓዝያ',
         'tigrigna': 'መጎዓዝያ',
         'oromo': 'Geejjiba',
-        'italian': 'Trasporto'
+        'italian': 'Trasporto',
+        'chinese': '交通'
     },
     'places': {
         'spanish': 'Lugares',
@@ -242,7 +259,8 @@ category_names = {
         'tigrinya': 'ቦታታት',
         'tigrigna': 'ቦታታት',
         'oromo': 'Bakkeewwan',
-        'italian': 'Luoghi'
+        'italian': 'Luoghi',
+        'chinese': '地点'
     },
     'music': {
         'spanish': 'Música',
@@ -499,6 +517,21 @@ ui_translations = {
         'selectPhrase': 'ሓሳብ መረጽ',
         'usePhrase': 'ሓሳብ ተጠቐም',
         'footer': '© 2026 Sound Training App. ኩሉ መሰል ተሓልዩ።'
+    },
+    'chinese': {
+        'pageTitle': '中文学习',
+        'enterText': '输入文本',
+        'placeholder': '在这里输入您的文本...',
+        'speakButton': '说话',
+        'clearButton': '清除',
+        'audioOutput': '音频输出',
+        'languageLabel': '语言：',
+        'examplePhrases': '示例短语',
+        'showTranslation': '显示翻译：',
+        'selectCategory': '选择类别',
+        'selectPhrase': '选择短语',
+        'usePhrase': '使用短语',
+        'footer': '© 2026 Sound Training App. 保留所有权利。'
     },
     'italian': {
         'pageTitle': 'Impara l\'Italiano',
