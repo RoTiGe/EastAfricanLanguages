@@ -504,7 +504,9 @@
             const isCustomer = exchange.speaker === customerName ||
                               (exchange.speaker && exchange.speaker.includes(customerName)) ||
                               (exchange.speaker && exchange.speaker.toLowerCase().includes('customer')) ||
-                              (exchange.speaker && exchange.speaker.includes('ደንበኛ'));
+                              (exchange.speaker && exchange.speaker.toLowerCase().includes('passenger')) ||
+                              (exchange.speaker && exchange.speaker.includes('ደንበኛ')) ||
+                              (exchange.speaker && exchange.speaker.includes('ጓደኛ'));
 
             const alignmentClass = isCustomer ? 'align-left' : 'align-right';
             const isHidden = currentMode === 'role-play' && isCustomer;

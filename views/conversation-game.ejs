@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Sound Training</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .conversation-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .conversation-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: #667eea;
+        }
+
+        .conversation-item.answered {
+            background: linear-gradient(135deg, #d4edda 0%, #a8d5ba 100%);
+            border-color: #28a745;
+            cursor: default;
+        }
+
+        .conversation-item.answered:hover {
+            transform: none;
+        }
+
+        .sentence-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .sentence-phonetic {
+            font-size: 0.9rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .speaker-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .dropdown-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f7fafc;
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-item.correct {
+            background: linear-gradient(135deg, #d4edda 0%, #a8d5ba 100%);
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .dropdown-item.wrong {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .score-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-value {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            animation: celebrate 1s ease-out;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+
+        .check-mark {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .game-card {
+                padding: 1rem;
+            }
+
+            .sentence-text {
+                font-size: 1rem;
+            }
+
+            .score-panel {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .score-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container game-container">
+        <!-- Language Selection -->
+        <div id="languageSelection" class="game-card">
+            <h1 class="text-center mb-4">
+                <i class="bi bi-chat-left-quote text-primary"></i>
+                Conversation Matching Game
+            </h1>
+            
+            <p class="text-center text-muted mb-4">
+                Click on sentences in your native language and select the correct translation from the dropdown
+            </p>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Select Conversation Context:</label>
+                    <select id="contextSelect" class="form-select form-select-lg">
+                        <option value="">Choose a context...</option>
+                        <option value="airport">Airport</option>
+                        <option value="market">Market</option>
+                        <option value="restaurant">Restaurant</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Your Native Language:</label>
+                    <select id="nativeLanguageSelect" class="form-select form-select-lg">
+                        <option value="">Choose your language...</option>
+                        <% Object.keys(languageNames).forEach(lang => { %>
+                            <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Target Language to Learn:</label>
+                    <select id="targetLanguageSelect" class="form-select form-select-lg">
+                        <option value="">Choose target language...</option>
+                        <% Object.keys(languageNames).forEach(lang => { %>
+                            <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Number of Sentences:</label>
+                    <select id="sentenceCountSelect" class="form-select form-select-lg">
+                        <option value="5">5 sentences</option>
+                        <option value="10" selected>10 sentences</option>
+                        <option value="15">15 sentences</option>
+                        <option value="20">All sentences</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button id="startGameBtn" class="btn btn-primary btn-lg px-5">
+                    <i class="bi bi-play-fill me-2"></i>Start Game
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div id="gameBoard" style="display: none;">
+            <div class="game-card">
+                <!-- Score Panel -->
+                <div class="score-panel">
+                    <div class="score-item">
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="answeredValue">0</span>
+                        <span class="score-label">Answered</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="remainingValue">0</span>
+                        <span class="score-label">Remaining</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="timerValue">0:00</span>
+                        <span class="score-label">Time</span>
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div id="gameProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                </div>
+
+                <!-- Conversation Title -->
+                <div class="text-center my-4">
+                    <h3 id="conversationTitle"></h3>
+                    <p class="text-muted" id="conversationScenario"></p>
+                </div>
+
+                <!-- Sentences Container -->
+                <div id="sentencesContainer"></div>
+
+                <!-- Control Buttons -->
+                <div class="text-center mt-4">
+                    <button onclick="resetGame()" class="btn btn-warning me-2">
+                        <i class="bi bi-arrow-clockwise me-2"></i>Reset
+                    </button>
+                    <button onclick="backToSelection()" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left me-2"></i>Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game State
+        let gameState = {
+            context: '',
+            nativeLanguage: '',
+            targetLanguage: '',
+            conversationData: null,
+            sentences: [],
+            answered: 0,
+            score: 0,
+            startTime: null,
+            timerInterval: null,
+            activeDropdown: null
+        };
+
+        // Start Game
+        document.getElementById('startGameBtn').addEventListener('click', async () => {
+            const context = document.getElementById('contextSelect').value;
+            const nativeLanguage = document.getElementById('nativeLanguageSelect').value;
+            const targetLanguage = document.getElementById('targetLanguageSelect').value;
+            const sentenceCount = parseInt(document.getElementById('sentenceCountSelect').value);
+
+            if (!context || !nativeLanguage || !targetLanguage) {
+                alert('Please select all options');
+                return;
+            }
+
+            if (nativeLanguage === targetLanguage) {
+                alert('Please select different languages');
+                return;
+            }
+
+            gameState.context = context;
+            gameState.nativeLanguage = nativeLanguage;
+            gameState.targetLanguage = targetLanguage;
+
+            // Load conversation data
+            try {
+                const response = await fetch(`/api/conversation/${context}`);
+                if (!response.ok) throw new Error('Failed to load conversation');
+                
+                gameState.conversationData = await response.json();
+                
+                // Extract sentences from conversation
+                const exchanges = gameState.conversationData.stages[0].exchanges;
+                let allSentences = exchanges.map((exchange, index) => ({
+                    index,
+                    speaker: exchange.speaker,
+                    nativeText: exchange[nativeLanguage] || exchange.english,
+                    nativePhonetic: exchange[nativeLanguage + '_phonetic'] || '',
+                    targetText: exchange[targetLanguage] || exchange.english,
+                    targetPhonetic: exchange[targetLanguage + '_phonetic'] || ''
+                }));
+
+                // Limit sentences
+                if (sentenceCount < allSentences.length) {
+                    allSentences = allSentences.slice(0, sentenceCount);
+                }
+
+                gameState.sentences = allSentences;
+                startGame();
+            } catch (error) {
+                alert('Error loading conversation: ' + error.message);
+            }
+        });
+
+        function startGame() {
+            document.getElementById('languageSelection').style.display = 'none';
+            document.getElementById('gameBoard').style.display = 'block';
+
+            gameState.answered = 0;
+            gameState.score = 0;
+
+            // Set conversation title
+            const title = gameState.conversationData.conversation_title[gameState.nativeLanguage] || 
+                         gameState.conversationData.conversation_title.english;
+            document.getElementById('conversationTitle').textContent = title;
+
+            const scenario = gameState.conversationData.scenario[gameState.nativeLanguage] || 
+                           gameState.conversationData.scenario.english;
+            document.getElementById('conversationScenario').textContent = scenario;
+
+            renderSentences();
+            updateScore();
+            startTimer();
+        }
+
+        function renderSentences() {
+            const container = document.getElementById('sentencesContainer');
+            container.innerHTML = '';
+
+            gameState.sentences.forEach((sentence, index) => {
+                const item = document.createElement('div');
+                item.className = 'conversation-item';
+                item.dataset.index = index;
+
+                // Get speaker name in native language
+                const participants = gameState.conversationData.participants[gameState.nativeLanguage] || 
+                                   gameState.conversationData.participants.english;
+                const speakerIndex = sentence.speaker === participants[0] ? 0 : 1;
+                const speakerName = participants[speakerIndex];
+
+                item.innerHTML = `
+                    <div class="speaker-badge">${speakerName}</div>
+                    <div class="sentence-text">${sentence.nativeText}</div>
+                    ${sentence.nativePhonetic ? `<div class="sentence-phonetic">${sentence.nativePhonetic}</div>` : ''}
+                `;
+
+                item.addEventListener('click', (e) => showDropdown(e, index));
+                
+                container.appendChild(item);
+            });
+        }
+
+        function showDropdown(event, sentenceIndex) {
+            const item = event.currentTarget;
+            
+            // Don't show dropdown if already answered
+            if (item.classList.contains('answered')) return;
+
+            // Close existing dropdown
+            closeActiveDropdown();
+
+            // Create dropdown with all target sentences shuffled
+            const correctSentence = gameState.sentences[sentenceIndex];
+            const allOptions = gameState.sentences.map((s, i) => ({
+                text: s.targetText,
+                phonetic: s.targetPhonetic,
+                isCorrect: i === sentenceIndex
+            }));
+
+            // Shuffle options
+            const shuffledOptions = shuffleArray(allOptions);
+
+            // Create dropdown
+            const dropdown = document.createElement('div');
+            dropdown.className = 'dropdown-menu show';
+            dropdown.style.position = 'absolute';
+            dropdown.style.top = (item.offsetTop + item.offsetHeight) + 'px';
+            dropdown.style.left = item.offsetLeft + 'px';
+            dropdown.style.right = '15px';
+            dropdown.style.zIndex = '1000';
+
+            shuffledOptions.forEach(option => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'dropdown-item';
+                optionElement.innerHTML = `
+                    <div style="font-weight: 500;">${option.text}</div>
+                    ${option.phonetic ? `<div style="font-size: 0.85rem; color: #718096; font-style: italic;">${option.phonetic}</div>` : ''}
+                `;
+
+                optionElement.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    checkAnswer(sentenceIndex, option.isCorrect, optionElement);
+                });
+
+                dropdown.appendChild(optionElement);
+            });
+
+            item.parentElement.appendChild(dropdown);
+            gameState.activeDropdown = { dropdown, item, sentenceIndex };
+
+            // Close dropdown when clicking outside
+            setTimeout(() => {
+                document.addEventListener('click', closeDropdownOnClickOutside);
+            }, 100);
+        }
+
+        function closeActiveDropdown() {
+            if (gameState.activeDropdown) {
+                gameState.activeDropdown.dropdown.remove();
+                document.removeEventListener('click', closeDropdownOnClickOutside);
+                gameState.activeDropdown = null;
+            }
+        }
+
+        function closeDropdownOnClickOutside(e) {
+            if (gameState.activeDropdown && 
+                !gameState.activeDropdown.dropdown.contains(e.target) &&
+                !gameState.activeDropdown.item.contains(e.target)) {
+                closeActiveDropdown();
+            }
+        }
+
+        async function checkAnswer(sentenceIndex, isCorrect, optionElement) {
+            const item = document.querySelector(`[data-index="${sentenceIndex}"]`);
+
+            if (isCorrect) {
+                // Correct answer
+                optionElement.classList.add('correct');
+                
+                setTimeout(async () => {
+                    item.classList.add('answered');
+                    item.innerHTML += '<i class="bi bi-check-circle-fill check-mark"></i>';
+                    
+                    gameState.answered++;
+                    gameState.score += 10;
+                    updateScore();
+                    
+                    showCelebration('✓');
+                    closeActiveDropdown();
+
+                    // Play audio
+                    const sentence = gameState.sentences[sentenceIndex];
+                    await playAudio(sentence.targetText, gameState.targetLanguage);
+
+                    // Check if game complete
+                    if (gameState.answered === gameState.sentences.length) {
+                        setTimeout(() => gameComplete(), 1000);
+                    }
+                }, 500);
+
+            } else {
+                // Wrong answer
+                optionElement.classList.add('wrong');
+                
+                setTimeout(() => {
+                    optionElement.classList.remove('wrong');
+                }, 500);
+            }
+        }
+
+        async function playAudio(text, language) {
+            try {
+                const response = await fetch('/api/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, language })
+                });
+
+                if (!response.ok) throw new Error('TTS failed');
+
+                const blob = await response.blob();
+                const audioUrl = URL.createObjectURL(blob);
+                const audio = new Audio(audioUrl);
+                
+                return new Promise((resolve, reject) => {
+                    audio.onended = resolve;
+                    audio.onerror = reject;
+                    audio.play();
+                });
+            } catch (error) {
+                console.log('TTS not available:', error);
+            }
+        }
+
+        function showCelebration(emoji) {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            celebration.textContent = emoji;
+            document.body.appendChild(celebration);
+
+            setTimeout(() => {
+                celebration.remove();
+            }, 1000);
+        }
+
+        function updateScore() {
+            document.getElementById('scoreValue').textContent = gameState.score;
+            document.getElementById('answeredValue').textContent = gameState.answered;
+            document.getElementById('remainingValue').textContent = 
+                gameState.sentences.length - gameState.answered;
+
+            const progress = (gameState.answered / gameState.sentences.length) * 100;
+            document.getElementById('gameProgress').style.width = progress + '%';
+        }
+
+        function startTimer() {
+            gameState.startTime = Date.now();
+            
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+
+            gameState.timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timerValue').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function gameComplete() {
+            clearInterval(gameState.timerInterval);
+            
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+
+            showCelebration('🏆');
+            
+            setTimeout(() => {
+                alert(`🎊 Congratulations! 🎊\n\nYou completed the conversation!\n\nScore: ${gameState.score}\nTime: ${minutes}:${seconds.toString().padStart(2, '0')}\n\nWell done!`);
+            }, 500);
+        }
+
+        function resetGame() {
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+            
+            closeActiveDropdown();
+            
+            if (document.getElementById('gameBoard').style.display === 'block') {
+                startGame();
+            }
+        }
+
+        function backToSelection() {
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+
+            closeActiveDropdown();
+
+            document.getElementById('gameBoard').style.display = 'none';
+            document.getElementById('languageSelection').style.display = 'block';
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+    </script>
+</body>
+</html>

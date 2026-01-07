@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .game-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .word-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .word-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            cursor: grab;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            touch-action: none;
+            display: inline-block;
+            width: auto;
+            min-width: 120px;
+            max-width: 100%;
+        }
+        
+        .word-item:active {
+            cursor: grabbing;
+        }
+        
+        .word-item.dragging {
+            opacity: 0.5;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .word-item.matched {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-color: #10b981;
+            animation: matchSuccess 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .word-item.wrong {
+            animation: shake 0.5s ease;
+            border-color: #ef4444;
+            background-color: #fee;
+        }
+        
+        .word-item.drop-target {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            transform: scale(1.02);
+        }
+        
+        @keyframes matchSuccess {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .word-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .word-phonetic {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-style: italic;
+            text-align: center;
+            margin-top: 0.25rem;
+            white-space: normal;
+        }
+        
+        .match-arrow {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        .match-arrow svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .arrow-line {
+            stroke: #10b981;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawArrow 0.6s ease forwards;
+        }
+        
+        .arrow-head {
+            fill: #10b981;
+            opacity: 0;
+            animation: showArrowHead 0.3s ease 0.4s forwards;
+        }
+        
+        @keyframes drawArrow {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes showArrowHead {
+            to { opacity: 1; }
+        }
+        
+        .score-board {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .score-item {
+            text-align: center;
+        }
+        
+        .score-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            animation: celebrate 1s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+        
+        .progress-bar-game {
+            height: 12px;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .column-header {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+        
+        .language-badge {
+            background: #3b82f6;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .word-columns {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            .score-board {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .word-text {
+                font-size: 0.85rem;
+            }
+            
+            .word-phonetic {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-3">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/" class="btn btn-light btn-sm">
+                        <i class="bi bi-house me-2"></i>Home
+                    </a>
+                    <h1 class="h3 fw-bold mb-0">
+                        <i class="bi bi-puzzle me-2"></i><%= title %>
+                    </h1>
+                    <button class="btn btn-light btn-sm" id="resetGame">
+                        <i class="bi bi-arrow-clockwise me-2"></i>Reset
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-container">
+            <!-- Language Selection (shown initially) -->
+            <div class="card" id="languageSelection">
+                <div class="card-body p-4">
+                    <h4 class="card-title mb-4">
+                        <i class="bi bi-translate me-2"></i>Select Your Languages
+                    </h4>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Your Native Language</label>
+                            <select class="form-select form-select-lg" id="nativeLanguage">
+                                <option value="">Choose...</option>
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Language to Learn</label>
+                            <select class="form-select form-select-lg" id="targetLanguage">
+                                <option value="">Choose...</option>
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label class="form-label fw-bold">Select Category</label>
+                        <select class="form-select form-select-lg" id="categorySelect" disabled>
+                            <option value="">First select languages...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label class="form-label fw-bold">Number of Words</label>
+                        <select class="form-select form-select-lg" id="wordCount">
+                            <option value="5">5 words (Easy)</option>
+                            <option value="8" selected>8 words (Medium)</option>
+                            <option value="10">10 words (Hard)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-lg w-100 mt-4" id="startGame" disabled>
+                        <i class="bi bi-play-circle me-2"></i>Start Game
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game Board (hidden initially) -->
+            <div id="gameBoard" style="display: none;">
+                <!-- Score Board -->
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="matchedValue">0</span>
+                        <span class="score-label">Matched</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="remainingValue">0</span>
+                        <span class="score-label">Remaining</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value" id="timerValue">0:00</span>
+                        <span class="score-label">Time</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress progress-bar-game">
+                    <div class="progress-bar bg-success" id="gameProgress" role="progressbar" style="width: 0%"></div>
+                </div>
+
+                <!-- Word Columns -->
+                <div class="word-columns">
+                    <div>
+                        <div class="column-header">
+                            <i class="bi bi-house-heart me-2"></i>
+                            <span id="nativeLanguageName">Your Language</span>
+                        </div>
+                        <div id="nativeColumn"></div>
+                    </div>
+                    
+                    <div>
+                        <div class="column-header">
+                            <i class="bi bi-book me-2"></i>
+                            <span id="targetLanguageName">Target Language</span>
+                        </div>
+                        <div id="targetColumn"></div>
+                    </div>
+                </div>
+
+                <!-- Back to Selection Button -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-outline-secondary" id="backToSelection">
+                        <i class="bi bi-arrow-left me-2"></i>Choose Different Category
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Game State
+        let gameState = {
+            nativeLanguage: '',
+            targetLanguage: '',
+            category: '',
+            phrases: [],
+            matched: 0,
+            score: 0,
+            startTime: null,
+            timerInterval: null,
+            draggingElement: null,
+            dragStartPos: { x: 0, y: 0 },
+            arrows: [] // Store arrow elements
+        };
+
+        const languageNames = <%- JSON.stringify(languageNames) %>;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('nativeLanguage').addEventListener('change', onLanguageChange);
+            document.getElementById('targetLanguage').addEventListener('change', onLanguageChange);
+            document.getElementById('categorySelect').addEventListener('change', updateStartButton);
+            document.getElementById('startGame').addEventListener('click', startGame);
+            document.getElementById('resetGame').addEventListener('click', resetGame);
+            document.getElementById('backToSelection').addEventListener('click', backToSelection);
+        }
+
+        async function onLanguageChange() {
+            const nativeLang = document.getElementById('nativeLanguage').value;
+            const targetLang = document.getElementById('targetLanguage').value;
+            const categorySelect = document.getElementById('categorySelect');
+
+            if (nativeLang && targetLang) {
+                if (nativeLang === targetLang) {
+                    alert('Please select different languages for native and target!');
+                    document.getElementById('targetLanguage').value = '';
+                    return;
+                }
+
+                // Load categories from native language
+                try {
+                    const response = await fetch(`/api/categories/${nativeLang}`);
+                    const data = await response.json();
+
+                    categorySelect.innerHTML = '<option value="">Choose a category...</option>';
+                    data.categories.forEach(cat => {
+                        const option = document.createElement('option');
+                        option.value = cat;
+                        option.textContent = data.categoryNames[cat] || cat;
+                        categorySelect.appendChild(option);
+                    });
+
+                    categorySelect.disabled = false;
+                } catch (error) {
+                    console.error('Error loading categories:', error);
+                    alert('Failed to load categories. Please try again.');
+                }
+            } else {
+                categorySelect.innerHTML = '<option value="">First select languages...</option>';
+                categorySelect.disabled = true;
+            }
+
+            updateStartButton();
+        }
+
+        function updateStartButton() {
+            const nativeLang = document.getElementById('nativeLanguage').value;
+            const targetLang = document.getElementById('targetLanguage').value;
+            const category = document.getElementById('categorySelect').value;
+            const startBtn = document.getElementById('startGame');
+
+            startBtn.disabled = !(nativeLang && targetLang && category);
+        }
+
+        async function startGame() {
+            const nativeLang = document.getElementById('nativeLanguage').value;
+            const targetLang = document.getElementById('targetLanguage').value;
+            const category = document.getElementById('categorySelect').value;
+            const wordCount = parseInt(document.getElementById('wordCount').value);
+
+            gameState.nativeLanguage = nativeLang;
+            gameState.targetLanguage = targetLang;
+            gameState.category = category;
+            gameState.matched = 0;
+            gameState.score = 0;
+
+            // Fetch phrases
+            try {
+                const response = await fetch(`/api/phrases/${nativeLang}/${category}`);
+                const data = await response.json();
+
+                // Get random subset of phrases
+                const allPhrases = data.phrases.filter(p => 
+                    p[nativeLang] && p[targetLang]
+                );
+                
+                if (allPhrases.length < wordCount) {
+                    alert(`Not enough words in this category. Only ${allPhrases.length} available.`);
+                    return;
+                }
+
+                gameState.phrases = shuffleArray(allPhrases).slice(0, wordCount);
+
+                // Show game board
+                document.getElementById('languageSelection').style.display = 'none';
+                document.getElementById('gameBoard').style.display = 'block';
+
+                // Set language names
+                document.getElementById('nativeLanguageName').textContent = languageNames[nativeLang];
+                document.getElementById('targetLanguageName').textContent = languageNames[targetLang];
+
+                // Render game
+                renderGame();
+                startTimer();
+
+            } catch (error) {
+                console.error('Error starting game:', error);
+                alert('Failed to start game. Please try again.');
+            }
+        }
+
+        function renderGame() {
+            const nativeColumn = document.getElementById('nativeColumn');
+            const targetColumn = document.getElementById('targetColumn');
+
+            nativeColumn.innerHTML = '';
+            targetColumn.innerHTML = '';
+
+            const nativeLang = gameState.nativeLanguage;
+            const targetLang = gameState.targetLanguage;
+            const nativePhoneticField = `${nativeLang}_phonetic`;
+            const targetPhoneticField = `${targetLang}_phonetic`;
+
+            // Render native language (left column) - in order
+            gameState.phrases.forEach((phrase, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.style.marginBottom = '0.75rem';
+                const div = createWordElement(
+                    phrase[nativeLang] || phrase.english,
+                    phrase[nativePhoneticField] || '',
+                    index,
+                    'native'
+                );
+                wrapper.appendChild(div);
+                nativeColumn.appendChild(wrapper);
+            });
+
+            // Render target language (right column) - shuffled
+            const shuffledPhrases = shuffleArray([...gameState.phrases]);
+            shuffledPhrases.forEach((phrase, index) => {
+                const originalIndex = gameState.phrases.findIndex(p => p === phrase);
+                const wrapper = document.createElement('div');
+                wrapper.style.marginBottom = '0.75rem';
+                wrapper.style.textAlign = 'right';
+                const div = createWordElement(
+                    phrase[targetLang] || phrase.english,
+                    phrase[targetPhoneticField] || '',
+                    originalIndex,
+                    'target'
+                );
+                wrapper.appendChild(div);
+                targetColumn.appendChild(wrapper);
+            });
+
+            updateScore();
+        }
+
+        function createWordElement(text, phonetic, index, side) {
+            const div = document.createElement('div');
+            div.className = 'word-item';
+            div.dataset.index = index;
+            div.dataset.side = side;
+            div.draggable = true;
+
+            div.innerHTML = `
+                <div class="word-text">${text}</div>
+                ${phonetic ? `<div class="word-phonetic">${phonetic}</div>` : ''}
+            `;
+
+            // Drag events (desktop)
+            div.addEventListener('dragstart', onDragStart);
+            div.addEventListener('dragend', onDragEnd);
+            div.addEventListener('dragover', onDragOver);
+            div.addEventListener('drop', onDrop);
+
+            // Touch events (mobile)
+            div.addEventListener('touchstart', onTouchStart, { passive: false });
+            div.addEventListener('touchmove', onTouchMove, { passive: false });
+            div.addEventListener('touchend', onTouchEnd);
+
+            return div;
+        }
+
+        // Drag and Drop Handlers (Desktop)
+        function onDragStart(e) {
+            if (e.target.classList.contains('matched')) return;
+            
+            gameState.draggingElement = e.target;
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.innerHTML);
+        }
+
+        function onDragEnd(e) {
+            e.target.classList.remove('dragging');
+            document.querySelectorAll('.drop-target').forEach(el => {
+                el.classList.remove('drop-target');
+            });
+        }
+
+        function onDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            
+            const target = e.target.closest('.word-item');
+            if (target && !target.classList.contains('matched') && 
+                target !== gameState.draggingElement) {
+                target.classList.add('drop-target');
+            }
+            
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+
+        function onDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            e.preventDefault();
+
+            const target = e.target.closest('.word-item');
+            if (!target || target === gameState.draggingElement) return;
+
+            target.classList.remove('drop-target');
+            checkMatch(gameState.draggingElement, target);
+
+            return false;
+        }
+
+        // Touch Handlers (Mobile)
+        let touchClone = null;
+
+        function onTouchStart(e) {
+            if (e.target.closest('.word-item').classList.contains('matched')) return;
+            
+            const touch = e.touches[0];
+            const element = e.target.closest('.word-item');
+            
+            gameState.draggingElement = element;
+            gameState.dragStartPos = {
+                x: touch.clientX,
+                y: touch.clientY,
+                elementX: element.offsetLeft,
+                elementY: element.offsetTop
+            };
+
+            element.classList.add('dragging');
+            e.preventDefault();
+        }
+
+        function onTouchMove(e) {
+            if (!gameState.draggingElement) return;
+            
+            const touch = e.touches[0];
+            const element = gameState.draggingElement;
+            
+            e.preventDefault();
+        }
+
+        function onTouchEnd(e) {
+            if (!gameState.draggingElement) return;
+            
+            const touch = e.changedTouches[0];
+            const element = gameState.draggingElement;
+            
+            element.classList.remove('dragging');
+
+            // Find element at touch position
+            const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+            const targetWord = elementBelow?.closest('.word-item');
+
+            if (targetWord && targetWord !== element && !targetWord.classList.contains('matched')) {
+                checkMatch(element, targetWord);
+            }
+
+            gameState.draggingElement = null;
+        }
+
+        async function checkMatch(element1, element2) {
+            const index1 = parseInt(element1.dataset.index);
+            const index2 = parseInt(element2.dataset.index);
+            const side1 = element1.dataset.side;
+            const side2 = element2.dataset.side;
+
+            // Must be from different sides
+            if (side1 === side2) return;
+
+            // Check if indices match
+            if (index1 === index2) {
+                // CORRECT MATCH!
+                element1.classList.add('matched');
+                element2.classList.add('matched');
+                
+                // Draw arrow between elements
+                drawArrow(element1, element2);
+                
+                gameState.matched++;
+                gameState.score += 10;
+                updateScore();
+
+                // Celebration
+                showCelebration('🎉');
+                
+                // Play audio for both languages
+                await playMatchedAudio(index1);
+
+                // Check if game complete
+                if (gameState.matched === gameState.phrases.length) {
+                    setTimeout(() => gameComplete(), 1000);
+                }
+
+            } else {
+                // WRONG MATCH
+                element1.classList.add('wrong');
+                element2.classList.add('wrong');
+
+                setTimeout(() => {
+                    element1.classList.remove('wrong');
+                    element2.classList.remove('wrong');
+                }, 500);
+            }
+        }
+
+        function drawArrow(element1, element2) {
+            const rect1 = element1.getBoundingClientRect();
+            const rect2 = element2.getBoundingClientRect();
+
+            // Determine which is left and which is right
+            const isLeftToRight = rect1.left < rect2.left;
+            const leftRect = isLeftToRight ? rect1 : rect2;
+            const rightRect = isLeftToRight ? rect2 : rect1;
+
+            // Calculate start and end points
+            const startX = leftRect.right;
+            const startY = leftRect.top + leftRect.height / 2;
+            const endX = rightRect.left;
+            const endY = rightRect.top + rightRect.height / 2;
+
+            // Create SVG container
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            const container = document.createElement('div');
+            container.className = 'match-arrow';
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.pointerEvents = 'none';
+            container.style.zIndex = '999';
+            
+            svg.setAttribute('width', '100%');
+            svg.setAttribute('height', '100%');
+            svg.style.position = 'absolute';
+
+            // Create curved path
+            const midX = (startX + endX) / 2;
+            const curve = (endY - startY) / 3;
+            const path = `M ${startX} ${startY} Q ${midX} ${startY + curve}, ${endX - 10} ${endY}`;
+
+            // Draw line
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            line.setAttribute('d', path);
+            line.setAttribute('stroke', '#10b981');
+            line.setAttribute('stroke-width', '3');
+            line.setAttribute('fill', 'none');
+            line.setAttribute('stroke-dasharray', '1000');
+            line.setAttribute('stroke-dashoffset', '1000');
+            
+            // Animate the line
+            setTimeout(() => {
+                line.style.transition = 'stroke-dashoffset 0.6s ease';
+                line.setAttribute('stroke-dashoffset', '0');
+            }, 10);
+
+            // Draw arrowhead
+            const arrowHead = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            const headSize = 10;
+            const angle = Math.atan2(endY - startY, (endX - 10) - startX);
+            const tipX = endX;
+            const tipY = endY;
+            const base1X = tipX - headSize * Math.cos(angle - Math.PI / 6);
+            const base1Y = tipY - headSize * Math.sin(angle - Math.PI / 6);
+            const base2X = tipX - headSize * Math.cos(angle + Math.PI / 6);
+            const base2Y = tipY - headSize * Math.sin(angle + Math.PI / 6);
+            
+            arrowHead.setAttribute('points', `${tipX},${tipY} ${base1X},${base1Y} ${base2X},${base2Y}`);
+            arrowHead.setAttribute('fill', '#10b981');
+            arrowHead.style.opacity = '0';
+            arrowHead.style.transition = 'opacity 0.3s ease';
+
+            // Show arrowhead after line animation
+            setTimeout(() => {
+                arrowHead.style.opacity = '1';
+            }, 500);
+
+            svg.appendChild(line);
+            svg.appendChild(arrowHead);
+            container.appendChild(svg);
+            document.body.appendChild(container);
+
+            // Store arrow reference to remove later
+            gameState.arrows.push(container);
+        }
+
+        async function playMatchedAudio(index) {
+            const phrase = gameState.phrases[index];
+            const nativeText = phrase[gameState.nativeLanguage] || phrase.english;
+            const targetText = phrase[gameState.targetLanguage] || phrase.english;
+
+            try {
+                // Play native language
+                await playAudio(nativeText, gameState.nativeLanguage);
+                await new Promise(resolve => setTimeout(resolve, 300));
+                // Play target language
+                await playAudio(targetText, gameState.targetLanguage);
+            } catch (error) {
+                console.error('Audio playback error:', error);
+            }
+        }
+
+        async function playAudio(text, language) {
+            try {
+                const response = await fetch('/api/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, language })
+                });
+
+                if (!response.ok) throw new Error('TTS failed');
+
+                const blob = await response.blob();
+                const audioUrl = URL.createObjectURL(blob);
+                const audio = new Audio(audioUrl);
+                
+                return new Promise((resolve, reject) => {
+                    audio.onended = resolve;
+                    audio.onerror = reject;
+                    audio.play();
+                });
+            } catch (error) {
+                console.log('TTS not available:', error);
+            }
+        }
+
+        function showCelebration(emoji) {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            celebration.textContent = emoji;
+            document.body.appendChild(celebration);
+
+            setTimeout(() => {
+                celebration.remove();
+            }, 1000);
+        }
+
+        function updateScore() {
+            document.getElementById('scoreValue').textContent = gameState.score;
+            document.getElementById('matchedValue').textContent = gameState.matched;
+            document.getElementById('remainingValue').textContent = 
+                gameState.phrases.length - gameState.matched;
+
+            const progress = (gameState.matched / gameState.phrases.length) * 100;
+            document.getElementById('gameProgress').style.width = progress + '%';
+        }
+
+        function startTimer() {
+            gameState.startTime = Date.now();
+            
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+
+            gameState.timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timerValue').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function gameComplete() {
+            clearInterval(gameState.timerInterval);
+            
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+
+            showCelebration('🏆');
+            
+            setTimeout(() => {
+                alert(`🎊 Congratulations! 🎊\n\nYou matched all words!\n\nScore: ${gameState.score}\nTime: ${minutes}:${seconds.toString().padStart(2, '0')}\n\nWell done!`);
+            }, 500);
+        }
+
+        function resetGame() {
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+            
+            // Clear all arrows
+            clearAllArrows();
+            
+            if (document.getElementById('gameBoard').style.display === 'block') {
+                startGame(); // Restart current game
+            }
+        }
+
+        function backToSelection() {
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+
+            // Clear all arrows
+            clearAllArrows();
+
+            document.getElementById('gameBoard').style.display = 'none';
+            document.getElementById('languageSelection').style.display = 'block';
+        }
+
+        function clearAllArrows() {
+            gameState.arrows.forEach(arrow => {
+                if (arrow && arrow.parentNode) {
+                    arrow.remove();
+                }
+            });
+            gameState.arrows = [];
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+    </script>
+</body>
+</html>

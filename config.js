@@ -49,7 +49,7 @@ const LANGUAGE_NAMES = {
 
 // Server configuration
 const SERVER_CONFIG = {
-    EXPRESS_PORT: process.env.EXPRESS_PORT || 3000,
+    EXPRESS_PORT: process.env.PORT || process.env.EXPRESS_PORT || 3000,
     TTS_SERVICE_PORT: process.env.TTS_SERVICE_PORT || 5000,
     TTS_SERVICE_URL: process.env.TTS_SERVICE_URL || 'http://localhost:5000'
 };

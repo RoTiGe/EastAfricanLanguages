@@ -3,7 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Language Bridge - Free East African Language Translation & Learning Platform</title>
+    <meta name="title" content="Language Bridge - Free East African Language Translation & Learning Platform">
+    <meta name="description" content="Free translation and language learning for 21+ East African languages including Amharic, Tigrinya, Oromo, Somali, Swahili. Interactive games, contextual conversations, and audio pronunciation for refugees and communities.">
+    <meta name="keywords" content="East African languages, Amharic translation, Tigrinya, Oromo, Somali, Swahili, free translation, language learning, refugee resources, humanitarian aid, African language app, TTS, text to speech, language games, contextual conversations">
+    <meta name="author" content="Language Bridge">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://majelan.org/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://majelan.org/">
+    <meta property="og:title" content="Language Bridge - Free East African Language Translation & Learning">
+    <meta property="og:description" content="Free translation and language learning for 21+ East African languages. Interactive games, contextual conversations, and audio pronunciation for refugees and communities.">
+    <meta property="og:image" content="https://majelan.org/images/og-image.png">
+    <meta property="og:site_name" content="Language Bridge">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://majelan.org/">
+    <meta property="twitter:title" content="Language Bridge - Free East African Language Translation & Learning">
+    <meta property="twitter:description" content="Free translation and language learning for 21+ East African languages. Interactive games, contextual conversations, and audio pronunciation.">
+    <meta property="twitter:image" content="https://majelan.org/images/twitter-card.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Language Bridge",
+        "url": "https://majelan.org",
+        "description": "Free translation and language learning platform for 21+ East African languages including Amharic, Tigrinya, Oromo, Somali, and Swahili.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Language Bridge",
+            "url": "https://majelan.org"
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Refugees, East African Communities, Language Learners, Humanitarian Workers"
+        },
+        "inLanguage": ["en", "am", "ti", "om", "so", "sw", "ar", "fr", "es", "it", "zh"],
+        "featureList": [
+            "Translation between 21+ East African languages",
+            "Text-to-Speech audio pronunciation",
+            "Interactive word matching games",
+            "Contextual conversation learning",
+            "Emergency phrase quick access",
+            "Offline-capable translations"
+        ]
+    }
+    </script>
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -30,6 +99,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/matching-game">
+                                <i class="bi bi-puzzle me-1"></i>Matching Game
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/conversation-game">
+                                <i class="bi bi-chat-left-quote me-1"></i>Conversation Game
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/participate">
                                 <i class="bi bi-upload me-1"></i>Participate
                             </a>
@@ -50,15 +129,15 @@
         </nav>
         
         <!-- Header -->
-        <header class="text-white text-center py-5">
+        <header class="text-white text-center py-5" role="banner">
             <div class="container">
                 <h1 class="display-3 fw-bold mb-3">
-                    <i class="bi bi-soundwave"></i> Language Bridge
+                    <i class="bi bi-soundwave" aria-hidden="true"></i> Language Bridge
                 </h1>
                 <p class="lead subtitle mb-4">Tour world languages one at a time</p>
                 <p class="fs-5 mb-4">Master not just WHAT to say, but HOW to say it appropriately</p>
                 <div class="mb-4">
-                    <a href="/start" class="btn btn-light btn-lg shadow px-5 py-3" style="font-size: 1.25rem;">
+                    <a href="/start" class="btn btn-light btn-lg shadow px-5 py-3" style="font-size: 1.25rem;" aria-label="Start learning languages">
                         <i class="bi bi-globe2 me-2"></i>
                         Choose Your Languages
                     </a>
@@ -71,6 +150,14 @@
                     <a href="/translate" class="btn btn-success btn-lg shadow">
                         <i class="bi bi-translate me-2"></i>
                         Translation Mode
+                    </a>
+                    <a href="/matching-game" class="btn btn-warning btn-lg shadow">
+                        <i class="bi bi-puzzle me-2"></i>
+                        Matching Game
+                    </a>
+                    <a href="/conversation-game" class="btn btn-info btn-lg shadow text-white">
+                        <i class="bi bi-chat-left-quote me-2"></i>
+                        Conversation Game
                     </a>
                     <a href="/emergency" class="btn btn-danger btn-lg shadow">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>

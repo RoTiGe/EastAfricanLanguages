@@ -172,6 +172,17 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// SEO Routes - Sitemap and Robots
+app.get('/sitemap.xml', (req, res) => {
+    res.type('application/xml');
+    res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.sendFile(path.join(__dirname, 'public', 'robots.txt'));
+});
+
 // Rate limiting for TTS endpoint to prevent abuse
 const ttsLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
@@ -466,6 +477,42 @@ app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Us'
     });
+});
+
+// Matching Game page
+app.get('/matching-game', (req, res) => {
+    res.render('matching-game', {
+        title: 'Word Matching Game',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// Conversation Matching Game page
+app.get('/conversation-game', (req, res) => {
+    res.render('conversation-game', {
+        title: 'Conversation Matching Game',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// API endpoint to get conversation data
+app.get('/api/conversation/:context', (req, res) => {
+    const context = req.params.context;
+    const conversationFile = path.join(__dirname, 'contextual_conversations', `multilanguage_${context}.json`);
+    
+    if (!fsSync.existsSync(conversationFile)) {
+        return res.status(404).json({ error: 'Conversation not found' });
+    }
+    
+    try {
+        const conversationData = JSON.parse(fsSync.readFileSync(conversationFile, 'utf8'));
+        res.json(conversationData);
+    } catch (error) {
+        console.error('Error loading conversation:', error);
+        res.status(500).json({ error: 'Failed to load conversation' });
+    }
 });
 
 // API endpoint to submit translations
