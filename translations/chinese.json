@@ -57,7 +57,7 @@
       {
         "english": "attack",
         "amharic": "መምታት",
-        "chinese": "æ”»å‡»",
+        "chinese": "攻击",
         "french": "",
         "italian": "Attaccare",
         "oromo": "Meechuu",
@@ -87,7 +87,7 @@
       {
         "english": "defend",
         "amharic": "መከላከል",
-        "chinese": "é˜²å¾¡",
+        "chinese": "防御",
         "french": "",
         "italian": "Difendere",
         "oromo": "Itti gaafatamuu",
@@ -117,7 +117,7 @@
       {
         "english": "fight",
         "amharic": "መጋጠም",
-        "chinese": "æˆ˜æ–—",
+        "chinese": "战斗",
         "french": "",
         "italian": "Combattere",
         "oromo": "Loluu",
@@ -127,7 +127,7 @@
       {
         "english": "give",
         "amharic": "መስጠት",
-        "chinese": "ç»™",
+        "chinese": "给",
         "french": "",
         "italian": "Dare",
         "oromo": "Kennuu",
@@ -147,7 +147,7 @@
       {
         "english": "hold",
         "amharic": "መያዝ",
-        "chinese": "æ‹¿",
+        "chinese": "拿",
         "french": "",
         "italian": "Tenere",
         "oromo": "Qabuu",
@@ -157,7 +157,7 @@
       {
         "english": "invasion",
         "amharic": "መስጠበቅ",
-        "chinese": "å…¥ä¾µ",
+        "chinese": "入侵",
         "french": "",
         "italian": "Invasione",
         "oromo": "",
@@ -167,7 +167,7 @@
       {
         "english": "jump",
         "amharic": "መዝለቅ",
-        "chinese": "è·³",
+        "chinese": "跳",
         "french": "",
         "italian": "Saltare",
         "oromo": "Dhaabbachuu",
@@ -177,7 +177,7 @@
       {
         "english": "listen",
         "amharic": "መስማት",
-        "chinese": "å¬",
+        "chinese": "听",
         "french": "",
         "italian": "Ascoltare",
         "oromo": "Dhageeffachuu",
@@ -197,7 +197,7 @@
       {
         "english": "resistance",
         "amharic": "ተቃውሞ",
-        "chinese": "æŠµæŠ—",
+        "chinese": "抵抗",
         "french": "",
         "italian": "Resistenza",
         "oromo": "",
@@ -207,7 +207,7 @@
       {
         "english": "retreat",
         "amharic": "መመለስ",
-        "chinese": "æ’¤é€€",
+        "chinese": "撤退",
         "french": "",
         "italian": "Ritirarsi",
         "oromo": "Deebi'uu",
@@ -217,7 +217,7 @@
       {
         "english": "run",
         "amharic": "መሮጥ",
-        "chinese": "è·‘",
+        "chinese": "跑",
         "french": "",
         "italian": "Correre",
         "oromo": "Fiiguu",
@@ -227,7 +227,7 @@
       {
         "english": "see",
         "amharic": "መስተዋት",
-        "chinese": "çœ‹",
+        "chinese": "看",
         "french": "",
         "italian": "Vedere",
         "oromo": "Ilaaluu",
@@ -267,7 +267,7 @@
       {
         "english": "take",
         "amharic": "መውሰድ",
-        "chinese": "æ‹¿",
+        "chinese": "拿",
         "french": "",
         "italian": "Prendere",
         "oromo": "Fuudhuu",
@@ -277,7 +277,7 @@
       {
         "english": "talk",
         "amharic": "መናገር",
-        "chinese": "è¯´è¯",
+        "chinese": "说话",
         "french": "",
         "italian": "Parlare",
         "oromo": "Haasawuu",
@@ -287,7 +287,7 @@
       {
         "english": "touch",
         "amharic": "መንካት",
-        "chinese": "æ‘¸",
+        "chinese": "摸",
         "french": "",
         "italian": "Toccare",
         "oromo": "Tuquu",
@@ -307,7 +307,7 @@
       {
         "english": "walk",
         "amharic": "መጓዝ",
-        "chinese": "èµ°",
+        "chinese": "走",
         "french": "",
         "italian": "Camminare",
         "oromo": "Dee'imuu",
@@ -319,7 +319,7 @@
       {
         "english": "bee",
         "amharic": "ንቦ",
-        "chinese": "èœœèœ‚",
+        "chinese": "蜜蜂",
         "french": "",
         "italian": "Ape",
         "oromo": "Kannisa",
@@ -329,7 +329,7 @@
       {
         "english": "bird",
         "amharic": "ወፍ",
-        "chinese": "é¸Ÿ",
+        "chinese": "鸟",
         "french": "",
         "italian": "Uccello",
         "oromo": "Simbirroo",
@@ -339,7 +339,7 @@
       {
         "english": "butterfly",
         "amharic": "ቢራቢሮ",
-        "chinese": "è´è¶",
+        "chinese": "蝴蝶",
         "french": "",
         "italian": "Farfalla",
         "oromo": "Bilbilaa",
@@ -349,7 +349,7 @@
       {
         "english": "cat",
         "amharic": "ድመት",
-        "chinese": "çŒ«",
+        "chinese": "猫",
         "french": "",
         "italian": "Gatto",
         "oromo": "Adurree",
@@ -359,7 +359,7 @@
       {
         "english": "chicken",
         "amharic": "ዶሮ",
-        "chinese": "é¸¡",
+        "chinese": "鸡",
         "french": "",
         "italian": "Pollo",
         "oromo": "Lukkuu",
@@ -369,7 +369,7 @@
       {
         "english": "cow",
         "amharic": "ላም",
-        "chinese": "ç‰›",
+        "chinese": "牛",
         "french": "",
         "italian": "Mucca",
         "oromo": "Sa'a",
@@ -379,7 +379,7 @@
       {
         "english": "dog",
         "amharic": "ውሻ",
-        "chinese": "ç‹—",
+        "chinese": "狗",
         "french": "",
         "italian": "Cane",
         "oromo": "Saree",
@@ -389,7 +389,7 @@
       {
         "english": "donkey",
         "amharic": "አድጊ",
-        "chinese": "é©´",
+        "chinese": "驴",
         "french": "",
         "italian": "Asino",
         "oromo": "Harree",
@@ -399,7 +399,7 @@
       {
         "english": "elephant",
         "amharic": "ዝሆን",
-        "chinese": "å¤§è±¡",
+        "chinese": "大象",
         "french": "",
         "italian": "Elefante",
         "oromo": "Arba",
@@ -409,7 +409,7 @@
       {
         "english": "fish",
         "amharic": "አሳ",
-        "chinese": "é±¼",
+        "chinese": "鱼",
         "french": "",
         "italian": "Pesce",
         "oromo": "Qurxummii",
@@ -419,7 +419,7 @@
       {
         "english": "giraffe",
         "amharic": "ቀጭኔ",
-        "chinese": "é•¿é¢ˆé¹¿",
+        "chinese": "长颈鹿",
         "french": "",
         "italian": "Giraffa",
         "oromo": "Sigaalaa",
@@ -429,7 +429,7 @@
       {
         "english": "goat",
         "amharic": "ፍየል",
-        "chinese": "å±±ç¾Š",
+        "chinese": "山羊",
         "french": "",
         "italian": "Capra",
         "oromo": "Re'ee",
@@ -439,7 +439,7 @@
       {
         "english": "horse",
         "amharic": "ፈረስ",
-        "chinese": "é©¬",
+        "chinese": "马",
         "french": "",
         "italian": "Cavallo",
         "oromo": "Farda",
@@ -469,7 +469,7 @@
       {
         "english": "pig",
         "amharic": "አሳማ",
-        "chinese": "çŒª",
+        "chinese": "猪",
         "french": "",
         "italian": "Maiale",
         "oromo": "Booyyee",
@@ -489,7 +489,7 @@
       {
         "english": "sheep",
         "amharic": "በግ",
-        "chinese": "ç¾Š",
+        "chinese": "羊",
         "french": "",
         "italian": "Pecora",
         "oromo": "Hoolaa",
@@ -499,7 +499,7 @@
       {
         "english": "spider",
         "amharic": "ሸረሪት",
-        "chinese": "èœ˜è››",
+        "chinese": "蜘蛛",
         "french": "",
         "italian": "Ragno",
         "oromo": "Sarmuu",
@@ -509,7 +509,7 @@
       {
         "english": "zebra",
         "amharic": "የበረዶ አጥቢ",
-        "chinese": "æ–‘é©¬",
+        "chinese": "斑马",
         "french": "",
         "italian": "Zebra",
         "oromo": "Zebiraa",
@@ -521,7 +521,7 @@
       {
         "english": "excuse me",
         "amharic": "ይቅር",
-        "chinese": "æ‰“æ‰°ä¸€ä¸‹",
+        "chinese": "打扰一下",
         "french": "Excusez-moi",
         "italian": "Scusa",
         "oromo": "Dhiifama",
@@ -541,7 +541,7 @@
       {
         "english": "hello",
         "amharic": "ሀሎ",
-        "chinese": "ä½ å¥½",
+        "chinese": "你好",
         "french": "Bonjour",
         "italian": "Ciao",
         "oromo": "Akkam",
@@ -581,7 +581,7 @@
       {
         "english": "no",
         "amharic": "አይ",
-        "chinese": "ä¸",
+        "chinese": "不",
         "french": "Non",
         "italian": "No",
         "oromo": "Lakki",
@@ -591,7 +591,7 @@
       {
         "english": "okay",
         "amharic": "እሺ",
-        "chinese": "å¥½çš„",
+        "chinese": "好的",
         "french": "D'accord",
         "italian": "Va bene",
         "oromo": "Tole",
@@ -601,7 +601,7 @@
       {
         "english": "please",
         "amharic": "እባክህ",
-        "chinese": "è¯·",
+        "chinese": "请",
         "french": "S'il vous plaît",
         "italian": "Per favore",
         "oromo": "Mee",
@@ -611,7 +611,7 @@
       {
         "english": "sorry",
         "amharic": "ይቅርታ",
-        "chinese": "å¯¹ä¸èµ·",
+        "chinese": "对不起",
         "french": "Pardon",
         "italian": "Mi dispiace",
         "oromo": "Dhiifama",
@@ -621,7 +621,7 @@
       {
         "english": "thank you",
         "amharic": "አመሰግናለሁ",
-        "chinese": "è°¢è°¢",
+        "chinese": "谢谢",
         "french": "Merci",
         "italian": "Grazie",
         "oromo": "Galatoomi",
@@ -631,7 +631,7 @@
       {
         "english": "welcome",
         "amharic": "እንኳን ደህና መጡ",
-        "chinese": "æ¬¢è¿Ž",
+        "chinese": "欢迎",
         "french": "Bienvenue",
         "italian": "Benvenuto",
         "oromo": "Baga nagaan dhufte",
@@ -681,7 +681,7 @@
       {
         "english": "yes",
         "amharic": "አዎ",
-        "chinese": "æ˜¯",
+        "chinese": "是",
         "french": "Oui",
         "italian": "Sì",
         "oromo": "Eeyyee",
@@ -693,7 +693,7 @@
       {
         "english": "ears",
         "amharic": "ጆሮ",
-        "chinese": "è€³æœµ",
+        "chinese": "耳朵",
         "french": "Oreilles",
         "italian": "Orecchie",
         "oromo": "Gurra",
@@ -713,7 +713,7 @@
       {
         "english": "feet",
         "amharic": "እግር",
-        "chinese": "è„š",
+        "chinese": "脚",
         "french": "Pieds",
         "italian": "Piedi",
         "oromo": "Miila",
@@ -723,7 +723,7 @@
       {
         "english": "fingers",
         "amharic": "ጣት",
-        "chinese": "æ‰‹æŒ‡",
+        "chinese": "手指",
         "french": "Doigts",
         "italian": "Dita",
         "oromo": "Quba",
@@ -743,7 +743,7 @@
       {
         "english": "hands",
         "amharic": "እጅ",
-        "chinese": "æ‰‹",
+        "chinese": "手",
         "french": "Mains",
         "italian": "Mani",
         "oromo": "Harka",
@@ -753,7 +753,7 @@
       {
         "english": "head",
         "amharic": "ራስ",
-        "chinese": "å¤´",
+        "chinese": "头",
         "french": "Tête",
         "italian": "Testa",
         "oromo": "Mataa",
@@ -763,7 +763,7 @@
       {
         "english": "mouth",
         "amharic": "አፍ",
-        "chinese": "å˜´å·´",
+        "chinese": "嘴巴",
         "french": "Bouche",
         "italian": "Bocca",
         "oromo": "Afaan",
@@ -773,7 +773,7 @@
       {
         "english": "nose",
         "amharic": "አፍንጫ",
-        "chinese": "é¼»å­",
+        "chinese": "鼻子",
         "french": "Nez",
         "italian": "Naso",
         "oromo": "Funyaan",
@@ -783,7 +783,7 @@
       {
         "english": "stomach",
         "amharic": "ሆድ",
-        "chinese": "èƒƒ",
+        "chinese": "胃",
         "french": "Estomac",
         "italian": "Stomaco",
         "oromo": "Garaacha",
@@ -793,7 +793,7 @@
       {
         "english": "teeth",
         "amharic": "ጥርስ",
-        "chinese": "ç‰™é½¿",
+        "chinese": "牙齿",
         "french": "Dents",
         "italian": "Denti",
         "oromo": "Ilkaan",
@@ -805,7 +805,7 @@
       {
         "english": "coat",
         "amharic": "ኮት",
-        "chinese": "å¤–å¥—",
+        "chinese": "外套",
         "french": "Manteau",
         "italian": "Cappotto",
         "oromo": "Koochii",
@@ -825,7 +825,7 @@
       {
         "english": "gloves",
         "amharic": "ግብፅ",
-        "chinese": "æ‰‹å¥—",
+        "chinese": "手套",
         "french": "Gants",
         "italian": "Guanti",
         "oromo": "Gulufii",
@@ -835,7 +835,7 @@
       {
         "english": "hat",
         "amharic": "ቆብ",
-        "chinese": "å¸½å­",
+        "chinese": "帽子",
         "french": "Chapeau",
         "italian": "Cappello",
         "oromo": "Faaruu",
@@ -845,7 +845,7 @@
       {
         "english": "pants",
         "amharic": "ሱሪ",
-        "chinese": "è£¤å­",
+        "chinese": "裤子",
         "french": "Pantalon",
         "italian": "Pantaloni",
         "oromo": "Surree",
@@ -855,7 +855,7 @@
       {
         "english": "shirt",
         "amharic": "ሸሚዝ",
-        "chinese": "è¡¬è¡«",
+        "chinese": "衬衫",
         "french": "Chemise",
         "italian": "Camicia",
         "oromo": "Hamacca",
@@ -887,7 +887,7 @@
       {
         "english": "black",
         "amharic": "ጥቁር",
-        "chinese": "é»‘è‰²",
+        "chinese": "黑色",
         "french": "Noir",
         "italian": "Nero",
         "oromo": "Gurraacha",
@@ -907,7 +907,7 @@
       {
         "english": "brown",
         "amharic": "ቡናዊ",
-        "chinese": "æ£•è‰²",
+        "chinese": "棕色",
         "french": "Marron",
         "italian": "Marrone",
         "oromo": "Bunaawaa",
@@ -917,7 +917,7 @@
       {
         "english": "green",
         "amharic": "አረንጓዴ",
-        "chinese": "ç»¿è‰²",
+        "chinese": "绿色",
         "french": "Vert",
         "italian": "Verde",
         "oromo": "Magariisa",
@@ -927,7 +927,7 @@
       {
         "english": "orange",
         "amharic": "ብርቱካናማ",
-        "chinese": "æ©™è‰²",
+        "chinese": "橙色",
         "french": "Orange",
         "italian": "Arancione",
         "oromo": "Burtukaanaa",
@@ -937,7 +937,7 @@
       {
         "english": "pink",
         "amharic": "ሮዝ",
-        "chinese": "ç²‰è‰²",
+        "chinese": "粉色",
         "french": "Rose",
         "italian": "Rosa",
         "oromo": "Roozii",
@@ -947,7 +947,7 @@
       {
         "english": "purple",
         "amharic": "ሐምራዊ",
-        "chinese": "ç´«è‰²",
+        "chinese": "紫色",
         "french": "Violet",
         "italian": "Viola",
         "oromo": "Bisiniilaa",
@@ -957,7 +957,7 @@
       {
         "english": "rainbow",
         "amharic": "ቀስተ ደመና",
-        "chinese": "å½©è™¹",
+        "chinese": "彩虹",
         "french": "Arc-en-ciel",
         "italian": "Arcobaleno",
         "oromo": "Simbiraa bokkaa",
@@ -967,7 +967,7 @@
       {
         "english": "red",
         "amharic": "ቀይ",
-        "chinese": "çº¢è‰²",
+        "chinese": "红色",
         "french": "Rouge",
         "italian": "Rosso",
         "oromo": "Diimaa",
@@ -977,7 +977,7 @@
       {
         "english": "white",
         "amharic": "ነጭ",
-        "chinese": "ç™½è‰²",
+        "chinese": "白色",
         "french": "Blanc",
         "italian": "Bianco",
         "oromo": "Adii",
@@ -987,7 +987,7 @@
       {
         "english": "yellow",
         "amharic": "ቢጫ",
-        "chinese": "é»„è‰²",
+        "chinese": "黄色",
         "french": "Jaune",
         "italian": "Giallo",
         "oromo": "Kelloo",
@@ -1101,7 +1101,7 @@
       {
         "english": "angry",
         "amharic": "ተናደደ",
-        "chinese": "ç”Ÿæ°”",
+        "chinese": "生气",
         "french": "Fâché",
         "italian": "Arrabbiato",
         "oromo": "Aarii",
@@ -1111,7 +1111,7 @@
       {
         "english": "excited",
         "amharic": "ከባድ",
-        "chinese": "å…´å¥‹",
+        "chinese": "兴奋",
         "french": "Excité",
         "italian": "Eccitato",
         "oromo": "Bareedaa",
@@ -1121,7 +1121,7 @@
       {
         "english": "happy",
         "amharic": "ደስተኛ",
-        "chinese": "é«˜å…´",
+        "chinese": "高兴",
         "french": "Heureux",
         "italian": "Felice",
         "oromo": "Gammadaa",
@@ -1141,7 +1141,7 @@
       {
         "english": "sad",
         "amharic": "አዘንተኛ",
-        "chinese": "éš¾è¿‡",
+        "chinese": "难过",
         "french": "Triste",
         "italian": "Triste",
         "oromo": "Yaaddoo",
@@ -1151,7 +1151,7 @@
       {
         "english": "scared",
         "amharic": "ፈራ",
-        "chinese": "å®³æ€•",
+        "chinese": "害怕",
         "french": "Peur",
         "italian": "Spaventato",
         "oromo": "Sodaa",
@@ -1161,7 +1161,7 @@
       {
         "english": "surprised",
         "amharic": "ደነቀ",
-        "chinese": "æƒŠè®¶",
+        "chinese": "惊讶",
         "french": "Surpris",
         "italian": "Sorpreso",
         "oromo": "Dinquu",
@@ -1171,7 +1171,7 @@
       {
         "english": "tired",
         "amharic": "ድካም",
-        "chinese": "ç´¯",
+        "chinese": "累",
         "french": "Fatigué",
         "italian": "Stanco",
         "oromo": "Ga'ee",
@@ -1195,7 +1195,7 @@
       {
         "english": "aunt",
         "amharic": "አክስት",
-        "chinese": "é˜¿å§¨",
+        "chinese": "阿姨",
         "french": "Tante",
         "italian": "Zia",
         "oromo": "Adaadaa",
@@ -1205,7 +1205,7 @@
       {
         "english": "baby",
         "amharic": "ህፃን",
-        "chinese": "å©´å„¿",
+        "chinese": "婴儿",
         "french": "Bébé",
         "italian": "Bambino",
         "oromo": "Da'a",
@@ -1215,7 +1215,7 @@
       {
         "english": "brother",
         "amharic": "ወንድም",
-        "chinese": "å“¥å“¥",
+        "chinese": "哥哥",
         "french": "Frère",
         "italian": "Fratello",
         "oromo": "Obboleessa",
@@ -1225,7 +1225,7 @@
       {
         "english": "child",
         "amharic": "ልጅ",
-        "chinese": "å­©å­",
+        "chinese": "孩子",
         "french": "Enfant",
         "italian": "Bambino",
         "oromo": "Da'a",
@@ -1235,7 +1235,7 @@
       {
         "english": "children",
         "amharic": "ልጆች",
-        "chinese": "å­©å­ä»¬",
+        "chinese": "孩子们",
         "french": "Enfants",
         "italian": "Bambini",
         "oromo": "Da'oota",
@@ -1245,7 +1245,7 @@
       {
         "english": "cousin",
         "amharic": "አጎቴ",
-        "chinese": "è¡¨å…„å¼Ÿ",
+        "chinese": "表兄弟",
         "french": "Cousin/Cousine",
         "italian": "Cugino",
         "oromo": "Ilma eessumaa",
@@ -1255,7 +1255,7 @@
       {
         "english": "family",
         "amharic": "ቤተሰብ",
-        "chinese": "å®¶åº­",
+        "chinese": "家庭",
         "french": "Famille",
         "italian": "Famiglia",
         "oromo": "Maatii",
@@ -1265,7 +1265,7 @@
       {
         "english": "father",
         "amharic": "አባት",
-        "chinese": "çˆ¶äº²",
+        "chinese": "父亲",
         "french": "Père",
         "italian": "Padre",
         "oromo": "Abaa",
@@ -1275,7 +1275,7 @@
       {
         "english": "grandfather",
         "amharic": "አያት",
-        "chinese": "çˆ·çˆ·",
+        "chinese": "爷爷",
         "french": "Grand-père",
         "italian": "Nonno",
         "oromo": "Akaakayyuu",
@@ -1285,7 +1285,7 @@
       {
         "english": "grandmother",
         "amharic": "አያት",
-        "chinese": "å¥¶å¥¶",
+        "chinese": "奶奶",
         "french": "Grand-mère",
         "italian": "Nonna",
         "oromo": "Akkokko",
@@ -1295,7 +1295,7 @@
       {
         "english": "mother",
         "amharic": "እናት",
-        "chinese": "æ¯äº²",
+        "chinese": "母亲",
         "french": "Mère",
         "italian": "Madre",
         "oromo": "Haadha",
@@ -1305,7 +1305,7 @@
       {
         "english": "sister",
         "amharic": "እህት",
-        "chinese": "å§å§",
+        "chinese": "姐姐",
         "french": "Sœur",
         "italian": "Sorella",
         "oromo": "Obboleettii",
@@ -1327,7 +1327,7 @@
       {
         "english": "apple",
         "amharic": "ፖም",
-        "chinese": "è‹¹æžœ",
+        "chinese": "苹果",
         "french": "Pomme",
         "italian": "Mela",
         "oromo": "Aapilii",
@@ -1337,7 +1337,7 @@
       {
         "english": "banana",
         "amharic": "ሙዝ",
-        "chinese": "é¦™è•‰",
+        "chinese": "香蕉",
         "french": "Banane",
         "italian": "Banana",
         "oromo": "Muuzii",
@@ -1367,7 +1367,7 @@
       {
         "english": "cake",
         "amharic": "ኬክ",
-        "chinese": "è›‹ç³•",
+        "chinese": "蛋糕",
         "french": "",
         "italian": "Torta",
         "oromo": "Keekii",
@@ -1377,7 +1377,7 @@
       {
         "english": "candy",
         "amharic": "ስኳር",
-        "chinese": "ç³–æžœ",
+        "chinese": "糖果",
         "french": "",
         "italian": "Caramella",
         "oromo": "Sukaraa",
@@ -1407,7 +1407,7 @@
       {
         "english": "egg",
         "amharic": "እንቁላል",
-        "chinese": "é¸¡è›‹",
+        "chinese": "鸡蛋",
         "french": "Œuf",
         "italian": "Uovo",
         "oromo": "Hanqaaquu",
@@ -1427,7 +1427,7 @@
       {
         "english": "fruit",
         "amharic": "ፍራፍሬ",
-        "chinese": "æ°´æžœ",
+        "chinese": "水果",
         "french": "Fruit",
         "italian": "Frutta",
         "oromo": "Fuduraa",
@@ -1467,7 +1467,7 @@
       {
         "english": "milk",
         "amharic": "ወተት",
-        "chinese": "ç‰›å¥¶",
+        "chinese": "牛奶",
         "french": "Lait",
         "italian": "Latte",
         "oromo": "Anaan",
@@ -1519,7 +1519,7 @@
       {
         "english": "Christmas",
         "amharic": "ገና",
-        "chinese": "åœ£è¯žèŠ‚",
+        "chinese": "圣诞节",
         "french": "",
         "italian": "Natale",
         "oromo": "Ayyaana Geezii",
@@ -1529,7 +1529,7 @@
       {
         "english": "birthday",
         "amharic": "የልደት ቀን",
-        "chinese": "ç”Ÿæ—¥",
+        "chinese": "生日",
         "french": "",
         "italian": "Compleanno",
         "oromo": "Guyyaa dhalootaa",
@@ -1539,7 +1539,7 @@
       {
         "english": "gift",
         "amharic": "ስጦታ",
-        "chinese": "ç¤¼ç‰©",
+        "chinese": "礼物",
         "french": "",
         "italian": "Regalo",
         "oromo": "Kennaa",
@@ -1549,7 +1549,7 @@
       {
         "english": "party",
         "amharic": "ድግስ",
-        "chinese": "æ´¾å¯¹",
+        "chinese": "派对",
         "french": "",
         "italian": "Festa",
         "oromo": "Poolisii",
@@ -1571,7 +1571,7 @@
       {
         "english": "bed",
         "amharic": "አልጋ",
-        "chinese": "åºŠ",
+        "chinese": "床",
         "french": "Lit",
         "italian": "Letto",
         "oromo": "Siree",
@@ -1601,7 +1601,7 @@
       {
         "english": "door",
         "amharic": "በር",
-        "chinese": "é—¨",
+        "chinese": "门",
         "french": "Porte",
         "italian": "Porta",
         "oromo": "Balbala",
@@ -1641,7 +1641,7 @@
       {
         "english": "kitchen",
         "amharic": "ማዕከላዊ ቤት",
-        "chinese": "åŽ¨æˆ¿",
+        "chinese": "厨房",
         "french": "Cuisine",
         "italian": "Cucina",
         "oromo": "Mana nyaataa",
@@ -1661,7 +1661,7 @@
       {
         "english": "room",
         "amharic": "ክፍል",
-        "chinese": "æˆ¿é—´",
+        "chinese": "房间",
         "french": "Chambre",
         "italian": "Stanza",
         "oromo": "Kutaa",
@@ -1701,7 +1701,7 @@
       {
         "english": "window",
         "amharic": "መስኮት",
-        "chinese": "çª—æˆ·",
+        "chinese": "窗户",
         "french": "Fenêtre",
         "italian": "Finestra",
         "oromo": "Fadensa",
@@ -1713,7 +1713,7 @@
       {
         "english": "death",
         "amharic": "ሞት",
-        "chinese": "æ­»äº¡",
+        "chinese": "死亡",
         "french": "",
         "italian": "Morte",
         "oromo": "Du'aa",
@@ -1723,7 +1723,7 @@
       {
         "english": "wound",
         "amharic": "ጉዳት",
-        "chinese": "ä¼¤å£",
+        "chinese": "伤口",
         "french": "",
         "italian": "Ferita",
         "oromo": "Rukkisa",
@@ -1735,7 +1735,7 @@
       {
         "english": "army",
         "amharic": "ሰራዊት",
-        "chinese": "å†›é˜Ÿ",
+        "chinese": "军队",
         "french": "",
         "italian": "Esercito",
         "oromo": "Waraana",
@@ -1745,7 +1745,7 @@
       {
         "english": "battle",
         "amharic": "ትግል",
-        "chinese": "æˆ˜æ–—",
+        "chinese": "战斗",
         "french": "",
         "italian": "Battaglia",
         "oromo": "Wal'itii",
@@ -1765,7 +1765,7 @@
       {
         "english": "peace",
         "amharic": "ሰላም",
-        "chinese": "å’Œå¹³",
+        "chinese": "和平",
         "french": "",
         "italian": "Pace",
         "oromo": "Naga",
@@ -1775,7 +1775,7 @@
       {
         "english": "soldier",
         "amharic": "ወታደር",
-        "chinese": "å£«å…µ",
+        "chinese": "士兵",
         "french": "",
         "italian": "Soldato",
         "oromo": "Waraana",
@@ -1785,7 +1785,7 @@
       {
         "english": "war",
         "amharic": "ጦርነት",
-        "chinese": "æˆ˜äº‰",
+        "chinese": "战争",
         "french": "",
         "italian": "Guerra",
         "oromo": "Lola",
@@ -1797,7 +1797,7 @@
       {
         "english": "dance",
         "amharic": "መዝፈን",
-        "chinese": "è·³èˆž",
+        "chinese": "跳舞",
         "french": "",
         "italian": "Ballare",
         "oromo": "Shaggyyee",
@@ -1817,7 +1817,7 @@
       {
         "english": "sing",
         "amharic": "መዝፈን",
-        "chinese": "å”±æ­Œ",
+        "chinese": "唱歌",
         "french": "",
         "italian": "Cantare",
         "oromo": "Weellisuu",
@@ -1827,7 +1827,7 @@
       {
         "english": "song",
         "amharic": "መዝሙር",
-        "chinese": "æ­Œæ›²",
+        "chinese": "歌曲",
         "french": "",
         "italian": "Canzone",
         "oromo": "Weellisa",
@@ -1839,7 +1839,7 @@
       {
         "english": "cloud",
         "amharic": "ደመና",
-        "chinese": "äº‘",
+        "chinese": "云",
         "french": "",
         "italian": "Nuvola",
         "oromo": "Duumessa",
@@ -1849,7 +1849,7 @@
       {
         "english": "flower",
         "amharic": "አበባ",
-        "chinese": "èŠ±",
+        "chinese": "花",
         "french": "",
         "italian": "Fiore",
         "oromo": "Ababaa",
@@ -1859,7 +1859,7 @@
       {
         "english": "lake",
         "amharic": "ሐይቅ",
-        "chinese": "æ¹–",
+        "chinese": "湖",
         "french": "",
         "italian": "Lago",
         "oromo": "Haroo",
@@ -1869,7 +1869,7 @@
       {
         "english": "moon",
         "amharic": "ጨረቃ",
-        "chinese": "æœˆäº®",
+        "chinese": "月亮",
         "french": "",
         "italian": "Luna",
         "oromo": "Ji'a",
@@ -1879,7 +1879,7 @@
       {
         "english": "mountain",
         "amharic": "ተራራ",
-        "chinese": "å±±",
+        "chinese": "山",
         "french": "",
         "italian": "Montagna",
         "oromo": "Tulluu",
@@ -1889,7 +1889,7 @@
       {
         "english": "rain",
         "amharic": "ዝናብ",
-        "chinese": "é›¨",
+        "chinese": "雨",
         "french": "",
         "italian": "Pioggia",
         "oromo": "Rooba",
@@ -1899,7 +1899,7 @@
       {
         "english": "river",
         "amharic": "ወንዝ",
-        "chinese": "æ²³",
+        "chinese": "河",
         "french": "",
         "italian": "Fiume",
         "oromo": "Laga",
@@ -1909,7 +1909,7 @@
       {
         "english": "sea",
         "amharic": "ባሕር",
-        "chinese": "æµ·",
+        "chinese": "海",
         "french": "",
         "italian": "Mare",
         "oromo": "Galaana",
@@ -1919,7 +1919,7 @@
       {
         "english": "sky",
         "amharic": "ሰማይ",
-        "chinese": "å¤©ç©º",
+        "chinese": "天空",
         "french": "",
         "italian": "Cielo",
         "oromo": "Waaqa",
@@ -1929,7 +1929,7 @@
       {
         "english": "snow",
         "amharic": "በረዶ",
-        "chinese": "é›ª",
+        "chinese": "雪",
         "french": "",
         "italian": "Neve",
         "oromo": "Rooba ciciyaa",
@@ -1939,7 +1939,7 @@
       {
         "english": "star",
         "amharic": "ኮከብ",
-        "chinese": "æ˜Ÿæ˜Ÿ",
+        "chinese": "星星",
         "french": "",
         "italian": "Stella",
         "oromo": "Urjii",
@@ -1949,7 +1949,7 @@
       {
         "english": "sun",
         "amharic": "ፀሐይ",
-        "chinese": "å¤ªé˜³",
+        "chinese": "太阳",
         "french": "",
         "italian": "Sole",
         "oromo": "Biiftuu",
@@ -1959,7 +1959,7 @@
       {
         "english": "tree",
         "amharic": "ዛፍ",
-        "chinese": "æ ‘",
+        "chinese": "树",
         "french": "",
         "italian": "Albero",
         "oromo": "Muka",
@@ -1969,7 +1969,7 @@
       {
         "english": "water",
         "amharic": "ውሃ",
-        "chinese": "æ°´",
+        "chinese": "水",
         "french": "Eau",
         "italian": "Acqua",
         "oromo": "Bishaan",
@@ -1979,7 +1979,7 @@
       {
         "english": "wind",
         "amharic": "ነፋስ",
-        "chinese": "é£Ž",
+        "chinese": "风",
         "french": "",
         "italian": "Vento",
         "oromo": "Bubbee",
@@ -1989,7 +1989,7 @@
       {
         "english": "world",
         "amharic": "ዓለም",
-        "chinese": "ä¸–ç•Œ",
+        "chinese": "世界",
         "french": "",
         "italian": "Mondo",
         "oromo": "Aduu",
@@ -2001,7 +2001,7 @@
       {
         "english": "eight",
         "amharic": "ስምንት",
-        "chinese": "å…«",
+        "chinese": "八",
         "french": "Huit",
         "italian": "Otto",
         "oromo": "Saddeet",
@@ -2011,7 +2011,7 @@
       {
         "english": "five",
         "amharic": "አምስት",
-        "chinese": "äº”",
+        "chinese": "五",
         "french": "Cinq",
         "italian": "Cinque",
         "oromo": "Shan",
@@ -2021,7 +2021,7 @@
       {
         "english": "four",
         "amharic": "አራት",
-        "chinese": "å››",
+        "chinese": "四",
         "french": "Quatre",
         "italian": "Quattro",
         "oromo": "Afur",
@@ -2031,7 +2031,7 @@
       {
         "english": "nine",
         "amharic": "ዘጠኝ",
-        "chinese": "ä¹",
+        "chinese": "九",
         "french": "Neuf",
         "italian": "Nove",
         "oromo": "Sagal",
@@ -2041,7 +2041,7 @@
       {
         "english": "one",
         "amharic": "አንድ",
-        "chinese": "ä¸€",
+        "chinese": "一",
         "french": "Un",
         "italian": "Uno",
         "oromo": "Tokko",
@@ -2051,7 +2051,7 @@
       {
         "english": "seven",
         "amharic": "ሰባት",
-        "chinese": "ä¸ƒ",
+        "chinese": "七",
         "french": "Sept",
         "italian": "Sette",
         "oromo": "Torba",
@@ -2061,7 +2061,7 @@
       {
         "english": "six",
         "amharic": "ስድስት",
-        "chinese": "å…­",
+        "chinese": "六",
         "french": "Six",
         "italian": "Sei",
         "oromo": "Jaha",
@@ -2071,7 +2071,7 @@
       {
         "english": "ten",
         "amharic": "አስር",
-        "chinese": "å",
+        "chinese": "十",
         "french": "Dix",
         "italian": "Dieci",
         "oromo": "Kudhan",
@@ -2081,7 +2081,7 @@
       {
         "english": "three",
         "amharic": "ሶስት",
-        "chinese": "ä¸‰",
+        "chinese": "三",
         "french": "Trois",
         "italian": "Tre",
         "oromo": "Sadi",
@@ -2091,7 +2091,7 @@
       {
         "english": "two",
         "amharic": "ሁለት",
-        "chinese": "äºŒ",
+        "chinese": "二",
         "french": "Deux",
         "italian": "Due",
         "oromo": "Lama",
@@ -2101,7 +2101,7 @@
       {
         "english": "zero",
         "amharic": "ዜሮ",
-        "chinese": "é›¶",
+        "chinese": "零",
         "french": "Zéro",
         "italian": "Zero",
         "oromo": "Zeeroo",
@@ -2113,7 +2113,7 @@
       {
         "english": "bag",
         "amharic": "ቦርሳ",
-        "chinese": "åŒ…",
+        "chinese": "包",
         "french": "",
         "italian": "Borsa",
         "oromo": "Shakilla",
@@ -2123,7 +2123,7 @@
       {
         "english": "book",
         "amharic": "መጽሐፍ",
-        "chinese": "ä¹¦",
+        "chinese": "书",
         "french": "",
         "italian": "Libro",
         "oromo": "Kitaaba",
@@ -2133,7 +2133,7 @@
       {
         "english": "clock",
         "amharic": "ሰዓት",
-        "chinese": "é’Ÿ",
+        "chinese": "钟",
         "french": "",
         "italian": "Orologio",
         "oromo": "Sa'aatii",
@@ -2143,7 +2143,7 @@
       {
         "english": "computer",
         "amharic": "ኮምፒውተር",
-        "chinese": "ç”µè„‘",
+        "chinese": "电脑",
         "french": "",
         "italian": "Computer",
         "oromo": "Kompiitaraa",
@@ -2153,7 +2153,7 @@
       {
         "english": "key",
         "amharic": "ቁልፍ",
-        "chinese": "é’¥åŒ™",
+        "chinese": "钥匙",
         "french": "",
         "italian": "Chiave",
         "oromo": "Funyaan",
@@ -2163,7 +2163,7 @@
       {
         "english": "light",
         "amharic": "ብርሃን",
-        "chinese": "å…‰",
+        "chinese": "光",
         "french": "",
         "italian": "Luce",
         "oromo": "Ifaa",
@@ -2173,7 +2173,7 @@
       {
         "english": "money",
         "amharic": "ገንዘብ",
-        "chinese": "é’±",
+        "chinese": "钱",
         "french": "",
         "italian": "Soldi",
         "oromo": "Qarshii",
@@ -2195,7 +2195,7 @@
       {
         "english": "defeat",
         "amharic": "ሽንፈት",
-        "chinese": "å¤±è´¥",
+        "chinese": "失败",
         "french": "",
         "italian": "Sconfitta",
         "oromo": "Haphuu",
@@ -2205,7 +2205,7 @@
       {
         "english": "victory",
         "amharic": "ድል",
-        "chinese": "èƒœåˆ©",
+        "chinese": "胜利",
         "french": "",
         "italian": "Vittoria",
         "oromo": "Moo'ummaa",
@@ -2227,7 +2227,7 @@
       {
         "english": "commander",
         "amharic": "ባለሥልጣን",
-        "chinese": "æŒ‡æŒ¥å®˜",
+        "chinese": "指挥官",
         "french": "",
         "italian": "Comandante",
         "oromo": "Komandaaraa",
@@ -2237,7 +2237,7 @@
       {
         "english": "doctor",
         "amharic": "ሀኪም",
-        "chinese": "åŒ»ç”Ÿ",
+        "chinese": "医生",
         "french": "Docteur",
         "italian": "Dottore",
         "oromo": "Doktara",
@@ -2247,7 +2247,7 @@
       {
         "english": "enemy",
         "amharic": "ጠላት",
-        "chinese": "æ•Œäºº",
+        "chinese": "敌人",
         "french": "",
         "italian": "Nemico",
         "oromo": "Diina",
@@ -2277,7 +2277,7 @@
       {
         "english": "student",
         "amharic": "ተማሪ",
-        "chinese": "å­¦ç”Ÿ",
+        "chinese": "学生",
         "french": "Étudiant/Étudiante",
         "italian": "Studente",
         "oromo": "Barataa",
@@ -2297,7 +2297,7 @@
       {
         "english": "warrior",
         "amharic": "ወታደር",
-        "chinese": "æˆ˜å£«",
+        "chinese": "战士",
         "french": "",
         "italian": "Guerriero",
         "oromo": "Abbaa Duulaa",
@@ -2319,7 +2319,7 @@
       {
         "english": "church",
         "amharic": "ቤተ ክርስቲያን",
-        "chinese": "æ•™å ‚",
+        "chinese": "教堂",
         "french": "",
         "italian": "Chiesa",
         "oromo": "Mana hayyootaa",
@@ -2339,7 +2339,7 @@
       {
         "english": "hospital",
         "amharic": "ጤና ቤት",
-        "chinese": "åŒ»é™¢",
+        "chinese": "医院",
         "french": "",
         "italian": "Ospedale",
         "oromo": "Ospitaala",
@@ -2349,7 +2349,7 @@
       {
         "english": "park",
         "amharic": "ፓርክ",
-        "chinese": "å…¬å›­",
+        "chinese": "公园",
         "french": "",
         "italian": "Parco",
         "oromo": "Paarkii",
@@ -2359,7 +2359,7 @@
       {
         "english": "store",
         "amharic": "ደንበኛ",
-        "chinese": "å•†åº—",
+        "chinese": "商店",
         "french": "",
         "italian": "Negozio",
         "oromo": "Maallaqaa",
@@ -2369,7 +2369,7 @@
       {
         "english": "zoo",
         "amharic": "የእንስሳት ማሳ",
-        "chinese": "åŠ¨ç‰©å›­",
+        "chinese": "动物园",
         "french": "",
         "italian": "Zoo",
         "oromo": "Mana beyladaa",
@@ -2381,7 +2381,7 @@
       {
         "english": "independence",
         "amharic": "ነፃነት",
-        "chinese": "ç‹¬ç«‹",
+        "chinese": "独立",
         "french": "",
         "italian": "Indipendenza",
         "oromo": "",
@@ -2391,7 +2391,7 @@
       {
         "english": "liberation",
         "amharic": "ነፃ መውጣት",
-        "chinese": "è§£æ”¾",
+        "chinese": "解放",
         "french": "",
         "italian": "Liberazione",
         "oromo": "",
@@ -2423,7 +2423,7 @@
       {
         "english": "bravery",
         "amharic": "ደፋርነት",
-        "chinese": "å‹‡æ•¢",
+        "chinese": "勇敢",
         "french": "",
         "italian": "Coraggio",
         "oromo": "Jabeenya",
@@ -2433,7 +2433,7 @@
       {
         "english": "courage",
         "amharic": "ትዕግስት",
-        "chinese": "å‹‡æ°”",
+        "chinese": "勇气",
         "french": "",
         "italian": "Coraggio",
         "oromo": "Sobbaa",
@@ -2445,7 +2445,7 @@
       {
         "english": "draw",
         "amharic": "መሳል",
-        "chinese": "ç”»ç”»",
+        "chinese": "画画",
         "french": "Dessiner",
         "italian": "Disegnare",
         "oromo": "Fakkasuu",
@@ -2455,7 +2455,7 @@
       {
         "english": "learn",
         "amharic": "መማር",
-        "chinese": "å­¦ä¹ ",
+        "chinese": "学习",
         "french": "Apprendre",
         "italian": "Imparare",
         "oromo": "Baruu",
@@ -2465,7 +2465,7 @@
       {
         "english": "paper",
         "amharic": "ወረቀት",
-        "chinese": "çº¸",
+        "chinese": "纸",
         "french": "Papier",
         "italian": "Carta",
         "oromo": "Xalayaa",
@@ -2475,7 +2475,7 @@
       {
         "english": "pencil",
         "amharic": "እርሳስ",
-        "chinese": "é“…ç¬”",
+        "chinese": "铅笔",
         "french": "Crayon",
         "italian": "Matita",
         "oromo": "Qalama",
@@ -2485,7 +2485,7 @@
       {
         "english": "read",
         "amharic": "መንበብ",
-        "chinese": "è¯»",
+        "chinese": "读",
         "french": "Lire",
         "italian": "Leggere",
         "oromo": "Dubbisuu",
@@ -2495,7 +2495,7 @@
       {
         "english": "school",
         "amharic": "ትምህርት ቤት",
-        "chinese": "å­¦æ ¡",
+        "chinese": "学校",
         "french": "École",
         "italian": "Scuola",
         "oromo": "Mana barumsaa",
@@ -2505,7 +2505,7 @@
       {
         "english": "write",
         "amharic": "መጻፍ",
-        "chinese": "å†™",
+        "chinese": "写",
         "french": "Écrire",
         "italian": "Scrivere",
         "oromo": "Barreessuu",
@@ -2517,7 +2517,7 @@
       {
         "english": "autumn",
         "amharic": "ክረምት",
-        "chinese": "ç§‹å¤©",
+        "chinese": "秋天",
         "french": "",
         "italian": "Autunno",
         "oromo": "Birraa",
@@ -2527,7 +2527,7 @@
       {
         "english": "spring",
         "amharic": "ጸደይ",
-        "chinese": "æ˜¥å¤©",
+        "chinese": "春天",
         "french": "",
         "italian": "Primavera",
         "oromo": "Arfaasaa",
@@ -2537,7 +2537,7 @@
       {
         "english": "summer",
         "amharic": "በጋ",
-        "chinese": "å¤å¤©",
+        "chinese": "夏天",
         "french": "",
         "italian": "Estate",
         "oromo": "Bona",
@@ -2547,7 +2547,7 @@
       {
         "english": "winter",
         "amharic": "ክረምት",
-        "chinese": "å†¬å¤©",
+        "chinese": "冬天",
         "french": "",
         "italian": "Inverno",
         "oromo": "Ganna",
@@ -2559,7 +2559,7 @@
       {
         "english": "circle",
         "amharic": "ክብ",
-        "chinese": "åœ†å½¢",
+        "chinese": "圆形",
         "french": "",
         "italian": "Cerchio",
         "oromo": "Gola",
@@ -2569,7 +2569,7 @@
       {
         "english": "heart",
         "amharic": "ልብ",
-        "chinese": "å¿ƒå½¢",
+        "chinese": "心形",
         "french": "Cœur",
         "italian": "Cuore",
         "oromo": "Onnee",
@@ -2579,7 +2579,7 @@
       {
         "english": "square",
         "amharic": "ካሬ",
-        "chinese": "æ–¹å½¢",
+        "chinese": "方形",
         "french": "",
         "italian": "Quadrato",
         "oromo": "Kaabaa",
@@ -2589,7 +2589,7 @@
       {
         "english": "triangle",
         "amharic": "ሶስት ማእዘን",
-        "chinese": "ä¸‰è§’å½¢",
+        "chinese": "三角形",
         "french": "",
         "italian": "Triangolo",
         "oromo": "Sadeen",
@@ -2601,7 +2601,7 @@
       {
         "english": "strategy",
         "amharic": "ስልት",
-        "chinese": "æˆ˜ç•¥",
+        "chinese": "战略",
         "french": "",
         "italian": "Strategia",
         "oromo": "Haala ittiin bulma",
@@ -2623,7 +2623,7 @@
       {
         "english": "day",
         "amharic": "ቀን",
-        "chinese": "å¤©",
+        "chinese": "天",
         "french": "",
         "italian": "Giorno",
         "oromo": "Guyyaa",
@@ -2643,7 +2643,7 @@
       {
         "english": "morning",
         "amharic": "ጠዋት",
-        "chinese": "æ—©ä¸Š",
+        "chinese": "早上",
         "french": "",
         "italian": "Mattina",
         "oromo": "Ganama",
@@ -2653,7 +2653,7 @@
       {
         "english": "night",
         "amharic": "ሌሊት",
-        "chinese": "æ™šä¸Š",
+        "chinese": "晚上",
         "french": "",
         "italian": "Notte",
         "oromo": "Halkan",
@@ -2673,7 +2673,7 @@
       {
         "english": "today",
         "amharic": "ዛሬ",
-        "chinese": "ä»Šå¤©",
+        "chinese": "今天",
         "french": "",
         "italian": "Oggi",
         "oromo": "Har'a",
@@ -2683,7 +2683,7 @@
       {
         "english": "tomorrow",
         "amharic": "ነገ",
-        "chinese": "æ˜Žå¤©",
+        "chinese": "明天",
         "french": "",
         "italian": "Domani",
         "oromo": "Boru",
@@ -2693,7 +2693,7 @@
       {
         "english": "yesterday",
         "amharic": "ትላንት",
-        "chinese": "æ˜¨å¤©",
+        "chinese": "昨天",
         "french": "",
         "italian": "Ieri",
         "oromo": "Kaleessa",
@@ -2715,7 +2715,7 @@
       {
         "english": "doll",
         "amharic": "አሻንጉሊት",
-        "chinese": "å¨ƒå¨ƒ",
+        "chinese": "娃娃",
         "french": "Poupée",
         "italian": "Bambola",
         "oromo": "Qalamaa",
@@ -2725,7 +2725,7 @@
       {
         "english": "fun",
         "amharic": "ደስታ",
-        "chinese": "æœ‰è¶£",
+        "chinese": "有趣",
         "french": "Amusant",
         "italian": "Divertimento",
         "oromo": "Gammachuu",
@@ -2765,7 +2765,7 @@
       {
         "english": "play",
         "amharic": "መጫወት",
-        "chinese": "çŽ©",
+        "chinese": "玩",
         "french": "Jouer",
         "italian": "Giocare",
         "oromo": "Taphachuu",
@@ -2785,7 +2785,7 @@
       {
         "english": "toy",
         "amharic": "መጫወቻ",
-        "chinese": "çŽ©å…·",
+        "chinese": "玩具",
         "french": "Jouet",
         "italian": "Giocattolo",
         "oromo": "Meeshaa taphaa",
@@ -2807,7 +2807,7 @@
       {
         "english": "airplane",
         "amharic": "አውሮፕላን",
-        "chinese": "é£žæœº",
+        "chinese": "飞机",
         "french": "",
         "italian": "Aereo",
         "oromo": "Xiyyaara",
@@ -2817,7 +2817,7 @@
       {
         "english": "bicycle",
         "amharic": "ብስክሌት",
-        "chinese": "è‡ªè¡Œè½¦",
+        "chinese": "自行车",
         "french": "",
         "italian": "Bicicletta",
         "oromo": "Baaskiilii",
@@ -2827,7 +2827,7 @@
       {
         "english": "boat",
         "amharic": "መርከብ",
-        "chinese": "èˆ¹",
+        "chinese": "船",
         "french": "",
         "italian": "Barca",
         "oromo": "Doonii",
@@ -2837,7 +2837,7 @@
       {
         "english": "bus",
         "amharic": "አውቶቡስ",
-        "chinese": "å…¬äº¤è½¦",
+        "chinese": "公交车",
         "french": "",
         "italian": "Autobus",
         "oromo": "Baasi",
@@ -2847,7 +2847,7 @@
       {
         "english": "car",
         "amharic": "መኪና",
-        "chinese": "æ±½è½¦",
+        "chinese": "汽车",
         "french": "",
         "italian": "Macchina",
         "oromo": "Makiinaa",
@@ -2857,7 +2857,7 @@
       {
         "english": "train",
         "amharic": "ባቡር",
-        "chinese": "ç«è½¦",
+        "chinese": "火车",
         "french": "",
         "italian": "Treno",
         "oromo": "Tireenii",
@@ -2867,7 +2867,7 @@
       {
         "english": "truck",
         "amharic": "ጭነት መኪና",
-        "chinese": "å¡è½¦",
+        "chinese": "卡车",
         "french": "",
         "italian": "Camion",
         "oromo": "Tarakii",
@@ -2901,7 +2901,7 @@
       {
         "english": "gun",
         "amharic": "ሽጉጥ",
-        "chinese": "æžª",
+        "chinese": "枪",
         "french": "",
         "italian": "Pistola",
         "oromo": "Qawwee",
@@ -2911,7 +2911,7 @@
       {
         "english": "knife",
         "amharic": "ቢላ",
-        "chinese": "åˆ€",
+        "chinese": "刀",
         "french": "",
         "italian": "Coltello",
         "oromo": "Haaduu",
@@ -2921,7 +2921,7 @@
       {
         "english": "shield",
         "amharic": "ጋሻ",
-        "chinese": "ç›¾",
+        "chinese": "盾",
         "french": "",
         "italian": "Scudo",
         "oromo": "Gaachana",
@@ -2931,7 +2931,7 @@
       {
         "english": "sword",
         "amharic": "ነጭ ሰይፍ",
-        "chinese": "å‰‘",
+        "chinese": "剑",
         "french": "",
         "italian": "Spada",
         "oromo": "Safara",
@@ -2941,7 +2941,7 @@
       {
         "english": "weapon",
         "amharic": "የጦር መሣርያ",
-        "chinese": "æ­¦å™¨",
+        "chinese": "武器",
         "french": "",
         "italian": "Arma",
         "oromo": "Meeshaa waraanaa",

@@ -1,0 +1,72 @@
+{
+  "conversation_title": "ለመጀመሪያ ጊዜ በምግብ ቤት መግባት",
+  "participants": ["ደንበኛ", "አገልጋይ"],
+  "scenario": "አንድ ሰው ለመጀመሪያ ጊዜ አዲስ ምግብ ቤት ይጎበኛል",
+  "stages": [
+    {
+      "stage": "1. ሰላምታ እና መቀመጫ",
+      "exchanges": [
+        {
+          "speaker": "አገልጋይ",
+          "amharic": "መልካም ማታ! እንኳን ወደ ቤላ ቪስታ በደህና መጡ። ስንት ሰው ነዎት?",
+          "phonetic": "melkam mata! enkwan wede Bella Vista behdena metu. sint sew newot?"
+        },
+        {
+          "speaker": "ደንበኛ",
+          "amharic": "መልካም ማታ! አንድ ሰው ብቻ፣ እባክህ።",
+          "phonetic": "melkam mata! and sew bicha, ebach."
+        }
+      ]
+    },
+    {
+      "stage": "2. መጠጥ ትዕዛዝ",
+      "exchanges": [
+        {
+          "speaker": "አገልጋይ",
+          "amharic": "ስሜ ማርኮ ነው። በመጀመሪያ ምን መጠጥ ይፈልጋሉ? ጥሩ የቤት ቀይ ወይን ጠጅ ወይም ነጭ አለን።",
+          "phonetic": "simey Marco new. bemejemeriya min met'et yifelgalu? tiru ye bet qey wen t'ej woyim nech alen."
+        },
+        {
+          "speaker": "ደንበኛ",
+          "amharic": "አንድ ብርጭቆ የቤት ቀይ ወይን ጠጅ እፈልጋለሁ። እና ትንሽ ውሃም እባክህ።",
+          "phonetic": "and birch'iqo ye bet qey wen t'ej ifelgalehu. na tinsh wuham ebach."
+        }
+      ]
+    },
+    {
+      "stage": "3. ምግብ ትዕዛዝ",
+      "exchanges": [
+        {
+          "speaker": "አገልጋይ",
+          "amharic": "ለመብላት ዝግጁ ነዎት? የዛሬው ልዩ ምግብ የተጠበሰ የባሕር ዓሣ ነው።",
+          "phonetic": "le meblat zigiju newot? ye zarewu liyu megib ye tet'ebese ye bahir asa new."
+        },
+        {
+          "speaker": "ደንበኛ",
+          "amharic": "አዎ፣ ዝግጁ ነኝ። የባሕር ዓሣውን እፈልጋለሁ።",
+          "phonetic": "awo, zigiju neny. ye bahir asawun ifelgalehu."
+        }
+      ]
+    },
+    {
+      "stage": "4. ክፍያ እና ሰላምታ",
+      "exchanges": [
+        {
+          "speaker": "ደንበኛ",
+          "amharic": "ክፍያውን እባክህ።",
+          "phonetic": "kifiyawun ebach."
+        },
+        {
+          "speaker": "አገልጋይ",
+          "amharic": "እዚህ አለ። እንደገና ለማየት እንኳን ደህና መጡ።",
+          "phonetic": "ezih ale. endegena le mayet enkwan dehna metu."
+        },
+        {
+          "speaker": "ደንበኛ",
+          "amharic": "አመሰግናለሁ። መልካም ሌሊት።",
+          "phonetic": "ameseginalehu. melkam lelit."
+        }
+      ]
+    }
+  ]
+}

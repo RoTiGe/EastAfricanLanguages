@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Languages - Sound Training</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .language-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        .language-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .language-card.selected {
+            border-color: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+        }
+        .language-card .card-body {
+            padding: 1rem;
+            color: white;
+        }
+        .language-flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .language-card .card-title {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+        /* Regional color schemes matching home page */
+        .language-card.european {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        }
+        .language-card.european:hover {
+            background: linear-gradient(135deg, #0a58ca 0%, #084298 100%);
+            border-color: #0d6efd;
+        }
+        .language-card.middle-eastern {
+            background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+        }
+        .language-card.middle-eastern:hover {
+            background: linear-gradient(135deg, #146c43 0%, #0f5132 100%);
+            border-color: #198754;
+        }
+        .language-card.horn-africa {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+        }
+        .language-card.horn-africa:hover {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            border-color: #ffc107;
+        }
+        .language-card.southern-ethiopian {
+            background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%);
+        }
+        .language-card.southern-ethiopian:hover {
+            background: linear-gradient(135deg, #0aa2c0 0%, #087990 100%);
+            border-color: #0dcaf0;
+        }
+        .language-card.east-african {
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+        }
+        .language-card.east-african:hover {
+            background: linear-gradient(135deg, #b02a37 0%, #842029 100%);
+            border-color: #dc3545;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 1rem;
+        }
+        .step.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .step.completed {
+            background-color: #198754;
+            color: white;
+        }
+        .step-line {
+            width: 100px;
+            height: 2px;
+            background-color: #e9ecef;
+        }
+        .step-line.completed {
+            background-color: #198754;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-4">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <h1 class="text-center display-5 fw-bold">
+                    <i class="bi bi-globe me-2"></i>Choose Your Languages
+                </h1>
+                <p class="text-center lead">Select your native language and the language you want to learn</p>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active" id="step1">1</div>
+                <div class="step-line" id="line1"></div>
+                <div class="step" id="step2">2</div>
+                <div class="step-line" id="line2"></div>
+                <div class="step" id="step3">3</div>
+            </div>
+
+            <!-- Step 1: Native Language -->
+            <div id="nativeLanguageStep" class="step-content">
+                <div class="text-center mb-4">
+                    <h2 class="h3">Step 1: What is your native language?</h2>
+                    <p class="text-muted">This will be used for translations and explanations</p>
+                </div>
+                <div class="row g-4" id="nativeLanguageGrid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Step 2: Target Language -->
+            <div id="targetLanguageStep" class="step-content d-none">
+                <div class="text-center mb-4">
+                    <h2 class="h3">Step 2: Which language do you want to learn?</h2>
+                    <p class="text-muted">Choose the language you'd like to practice</p>
+                </div>
+                <div class="row g-4" id="targetLanguageGrid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div id="confirmationStep" class="step-content d-none">
+                <div class="text-center">
+                    <h2 class="h3 mb-4">Step 3: Ready to Start!</h2>
+                    <div class="card mx-auto" style="max-width: 500px;">
+                        <div class="card-body p-4">
+                            <div class="mb-4">
+                                <h5 class="text-muted mb-2">Your Native Language:</h5>
+                                <div class="h2" id="selectedNativeName"></div>
+                            </div>
+                            <div class="mb-4">
+                                <i class="bi bi-arrow-down h1 text-primary"></i>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="text-muted mb-2">Learning:</h5>
+                                <div class="h2" id="selectedTargetName"></div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-lg" id="startLearningBtn">
+                                    <i class="bi bi-play-circle me-2"></i>Start Learning
+                                </button>
+                                <button class="btn btn-outline-secondary" id="backToTargetBtn">
+                                    <i class="bi bi-arrow-left me-2"></i>Change Languages
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">© 2026 Sound Training - Language Learning Platform</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const languages = <%- JSON.stringify(languages) %>;
+        const languageNames = <%- JSON.stringify(languageNames) %>;
+        
+        // Language icons mapping (no country flags)
+        const languageIcons = {
+            'english': '🌐',
+            'spanish': '☀️',
+            'french': '🎭',
+            'italian': '☕',
+            'chinese': '☯️',
+            'amharic': '⭐',
+            'tigrinya': '🌟',
+            'oromo': '🌳',
+            'somali': '☁️',
+            'arabic': '🌙',
+            'hadiyaa': '🌺',
+            'wolayitta': '❤️',
+            'wolyitta': '❤️',
+            'afar': '💨',
+            'gamo': '💎',
+            'swahili': '💧',
+            'kinyarwanda': '⛰️',
+            'kirundi': '🏠',
+            'luo': '🐟'
+        };
+        
+        // Regional classification for color schemes
+        const languageRegions = {
+            'english': 'european',
+            'spanish': 'european',
+            'french': 'european',
+            'italian': 'european',
+            'chinese': 'middle-eastern',
+            'arabic': 'middle-eastern',
+            'amharic': 'horn-africa',
+            'tigrinya': 'horn-africa',
+            'oromo': 'horn-africa',
+            'somali': 'horn-africa',
+            'afar': 'horn-africa',
+            'hadiyaa': 'southern-ethiopian',
+            'wolayitta': 'southern-ethiopian',
+            'wolyitta': 'southern-ethiopian',
+            'gamo': 'southern-ethiopian',
+            'swahili': 'east-african',
+            'kinyarwanda': 'east-african',
+            'kirundi': 'east-african',
+            'luo': 'east-african'
+        };
+        
+        let selectedNative = null;
+        let selectedTarget = null;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNativeLanguages();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('startLearningBtn').addEventListener('click', startLearning);
+            document.getElementById('backToTargetBtn').addEventListener('click', () => {
+                showStep(2);
+            });
+        }
+
+        function renderNativeLanguages() {
+            const grid = document.getElementById('nativeLanguageGrid');
+            grid.innerHTML = languages.map(lang => createLanguageCard(lang, 'native')).join('');
+        }
+
+        function renderTargetLanguages() {
+            const grid = document.getElementById('targetLanguageGrid');
+            // Filter out the selected native language
+            const availableLanguages = languages.filter(lang => lang !== selectedNative);
+            grid.innerHTML = availableLanguages.map(lang => createLanguageCard(lang, 'target')).join('');
+        }
+
+        function createLanguageCard(language, type) {
+            const icon = languageIcons[language] || '🌐';
+            const name = languageNames[language] || language;
+            const region = languageRegions[language] || 'european';
+
+            return `
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="card language-card ${region} h-100 text-center"
+                         onclick="selectLanguage('${language}', '${type}')">
+                        <div class="card-body">
+                            <div class="language-flag">${icon}</div>
+                            <h5 class="card-title">${name}</h5>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectLanguage(language, type) {
+            if (type === 'native') {
+                selectedNative = language;
+                // Highlight selected card
+                document.querySelectorAll('#nativeLanguageGrid .language-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+                event.target.closest('.language-card').classList.add('selected');
+
+                // Move to next step after a short delay
+                setTimeout(() => {
+                    showStep(2);
+                    renderTargetLanguages();
+                }, 300);
+            } else if (type === 'target') {
+                selectedTarget = language;
+                // Highlight selected card
+                document.querySelectorAll('#targetLanguageGrid .language-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+                event.target.closest('.language-card').classList.add('selected');
+
+                // Move to confirmation step
+                setTimeout(() => {
+                    showStep(3);
+                    updateConfirmation();
+                }, 300);
+            }
+        }
+
+        function showStep(stepNumber) {
+            // Update step indicators
+            for (let i = 1; i <= 3; i++) {
+                const step = document.getElementById(`step${i}`);
+                const line = document.getElementById(`line${i}`);
+
+                if (i < stepNumber) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                    if (line) line.classList.add('completed');
+                } else if (i === stepNumber) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                    if (line) line.classList.remove('completed');
+                }
+            }
+
+            // Show/hide step content
+            document.getElementById('nativeLanguageStep').classList.toggle('d-none', stepNumber !== 1);
+            document.getElementById('targetLanguageStep').classList.toggle('d-none', stepNumber !== 2);
+            document.getElementById('confirmationStep').classList.toggle('d-none', stepNumber !== 3);
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateConfirmation() {
+            const nativeIcon = languageIcons[selectedNative] || '🌐';
+            const targetIcon = languageIcons[selectedTarget] || '🌐';
+
+            document.getElementById('selectedNativeName').innerHTML =
+                `${nativeIcon} ${languageNames[selectedNative]}`;
+            document.getElementById('selectedTargetName').innerHTML =
+                `${targetIcon} ${languageNames[selectedTarget]}`;
+        }
+
+        function startLearning() {
+            // Store both languages in localStorage
+            localStorage.setItem('nativeLanguage', selectedNative);
+            localStorage.setItem('targetLanguage', selectedTarget);
+
+            // Redirect to demo page with BOTH languages
+            // Format: /demo/:targetLanguage?native=:nativeLanguage
+            window.location.href = `/demo/${selectedTarget}?native=${selectedNative}`;
+        }
+    </script>
+</body>
+</html>
+

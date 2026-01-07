@@ -25,6 +25,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="/conversations">
+                                <i class="bi bi-chat-dots me-1"></i>Conversations
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/participate">
                                 <i class="bi bi-upload me-1"></i>Participate
                             </a>
@@ -48,11 +53,21 @@
         <header class="text-white text-center py-5">
             <div class="container">
                 <h1 class="display-3 fw-bold mb-3">
-                    <i class="bi bi-soundwave"></i> <%= title %>
+                    <i class="bi bi-soundwave"></i> Language Bridge
                 </h1>
                 <p class="lead subtitle mb-4">Tour world languages one at a time</p>
                 <p class="fs-5 mb-4">Master not just WHAT to say, but HOW to say it appropriately</p>
+                <div class="mb-4">
+                    <a href="/start" class="btn btn-light btn-lg shadow px-5 py-3" style="font-size: 1.25rem;">
+                        <i class="bi bi-globe2 me-2"></i>
+                        Choose Your Languages
+                    </a>
+                </div>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="/conversations" class="btn btn-primary btn-lg shadow">
+                        <i class="bi bi-chat-dots me-2"></i>
+                        Practice Conversations
+                    </a>
                     <a href="/translate" class="btn btn-success btn-lg shadow">
                         <i class="bi bi-translate me-2"></i>
                         Translation Mode
@@ -60,10 +75,6 @@
                     <a href="/emergency" class="btn btn-danger btn-lg shadow">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
                         Emergency Phrases
-                    </a>
-                    <a href="/demo/amharic" class="btn btn-light btn-lg shadow">
-                        <i class="bi bi-play-circle me-2"></i>
-                        Start Learning
                     </a>
                     <a href="/advanced/contextual" class="btn btn-outline-light btn-lg">
                         <i class="bi bi-diagram-3 me-2"></i>
@@ -153,8 +164,8 @@
             </section>
 
             <!-- Language Map -->
-            <h2 class="text-center mb-4 h3">Select Your Language</h2>
-            <p class="text-center text-muted mb-5">Languages positioned by geographic region</p>
+            <h2 class="text-center mb-4 h3">Quick Access by Language</h2>
+            <p class="text-center text-muted mb-5">Click any language for a quick demo, or use <a href="/start" class="text-decoration-none fw-bold">Choose Your Languages</a> to select both your native language and target language for a better learning experience</p>
             <div class="language-map position-relative mb-5" style="min-height: 550px;">
                 <!-- European Languages (North-Center) -->
                 <div class="position-absolute" style="top: 5%; left: 20%;">

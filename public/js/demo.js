@@ -26,7 +26,8 @@ async function loadCategories() {
             categorySelect.disabled = true;
         }
 
-        const response = await fetch(`/api/categories/${LANGUAGE}`);
+        // Load category names from NATIVE language (for UI display)
+        const response = await fetch(`/api/categories/${NATIVE_LANGUAGE}`);
 
         if (!response.ok) {
             throw new Error('Failed to load categories');
@@ -147,13 +148,16 @@ function populatePhraseDropdown() {
     currentPhrases.forEach((phraseObj, index) => {
         const option = document.createElement('option');
 
-        const targetLangField = translationData.nativeLanguageField || LANGUAGE;
-        const targetText = phraseObj[targetLangField] || phraseObj[LANGUAGE];
+        // Show phrase in NATIVE language in dropdown (so user can understand it)
+        const nativeText = phraseObj[NATIVE_LANGUAGE] || phraseObj.english || phraseObj[LANGUAGE];
+
+        // But store the TARGET language text as value (for TTS)
+        const targetText = phraseObj[LANGUAGE];
 
         option.value = targetText;
         option.setAttribute('data-phrase-index', index);
         option.setAttribute('data-category', currentCategory);
-        option.textContent = targetText;
+        option.textContent = nativeText;  // Display in native language
 
         phraseSelect.appendChild(option);
     });
@@ -166,8 +170,63 @@ function populatePhraseDropdown() {
 function onPhraseChange() {
     const phraseSelect = document.getElementById('phraseSelect');
     const usePhraseBtn = document.getElementById('usePhraseBtn');
-    
-    usePhraseBtn.disabled = !phraseSelect.value;
+    const translationDisplay = document.getElementById('translationDisplay');
+
+    if (!phraseSelect.value) {
+        usePhraseBtn.disabled = true;
+        translationDisplay.style.display = 'none';
+        return;
+    }
+
+    usePhraseBtn.disabled = false;
+
+    // Get the selected phrase data
+    const selectedOption = phraseSelect.options[phraseSelect.selectedIndex];
+    const phraseIndex = selectedOption.getAttribute('data-phrase-index');
+
+    if (phraseIndex !== null && currentPhrases[phraseIndex]) {
+        displayTranslation(currentPhrases[phraseIndex]);
+    }
+}
+
+// Display translation for selected phrase
+function displayTranslation(phraseObj) {
+    const translationDisplay = document.getElementById('translationDisplay');
+    const nativePhrase = document.getElementById('nativePhrase');
+    const targetPhrase = document.getElementById('targetPhrase');
+    const targetPhonetic = document.getElementById('targetPhonetic');
+    const targetPhoneticText = document.getElementById('targetPhoneticText');
+    const nativeLanguageName = document.getElementById('nativeLanguageName');
+    const targetLanguageName = document.getElementById('targetLanguageName');
+
+    // Get language names
+    const nativeLangDisplay = NATIVE_LANGUAGE.charAt(0).toUpperCase() + NATIVE_LANGUAGE.slice(1);
+    const targetLangDisplay = LANGUAGE.charAt(0).toUpperCase() + LANGUAGE.slice(1);
+
+    nativeLanguageName.textContent = nativeLangDisplay;
+    targetLanguageName.textContent = targetLangDisplay;
+
+    // Get phrase text in native language
+    const nativeText = phraseObj[NATIVE_LANGUAGE] || phraseObj.english || '-';
+    nativePhrase.textContent = nativeText;
+
+    // Get phrase text in target language
+    const targetText = phraseObj[LANGUAGE] || '-';
+    targetPhrase.textContent = targetText;
+
+    // Get phonetic for target language (if available)
+    const phoneticField = `${LANGUAGE}_phonetic`;
+    const phoneticText = phraseObj[phoneticField] || phraseObj.phonetic;
+
+    if (phoneticText) {
+        targetPhoneticText.textContent = phoneticText;
+        targetPhonetic.style.display = 'block';
+    } else {
+        targetPhonetic.style.display = 'none';
+    }
+
+    // Show the translation display
+    translationDisplay.style.display = 'block';
 }
 
 // Use selected phrase

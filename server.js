@@ -17,6 +17,57 @@ const app = express();
 const PORT = config.SERVER_CONFIG.EXPRESS_PORT;
 const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
 
+// ============================================================================
+// UNIFIED TRANSLATIONS CACHE
+// ============================================================================
+
+let unifiedTranslations = null;
+
+/**
+ * Load unified translations file into memory
+ */
+async function loadUnifiedTranslations() {
+    try {
+        const filePath = path.join(__dirname, 'translations', 'all_languages.json');
+        const content = await fs.readFile(filePath, 'utf8');
+        unifiedTranslations = JSON.parse(content);
+        console.log('✅ Loaded unified translations from all_languages.json');
+
+        // Log statistics
+        const languages = Object.keys(unifiedTranslations).filter(key => key !== 'categories');
+        const categories = unifiedTranslations.categories ? Object.keys(unifiedTranslations.categories) : [];
+        console.log(`   📊 Languages: ${languages.length}`);
+        console.log(`   📊 Categories: ${categories.length}`);
+
+        return true;
+    } catch (error) {
+        console.error('❌ Failed to load unified translations:', error.message);
+        return false;
+    }
+}
+
+/**
+ * Get language data from unified translations
+ */
+function getLanguageData(language) {
+    if (!unifiedTranslations) {
+        throw new Error('Unified translations not loaded');
+    }
+
+    if (!unifiedTranslations[language]) {
+        throw new Error(`Language '${language}' not found in unified translations`);
+    }
+
+    // Return language-specific data merged with shared categories
+    return {
+        language: unifiedTranslations[language].language,
+        nativeLanguageField: unifiedTranslations[language].nativeLanguageField,
+        ui: unifiedTranslations[language].ui || {},
+        categoryNames: unifiedTranslations[language].categoryNames || {},
+        categories: unifiedTranslations.categories || {}
+    };
+}
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -77,11 +128,40 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Disable caching for development
+// Security headers
 app.use((req, res, next) => {
+    // Disable caching for development
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
+
+    // Content Security Policy - More permissive for development
+    // In production, tighten these directives
+    const isDevelopment = process.env.NODE_ENV !== 'production';
+
+    const cspDirectives = [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
+        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+        "font-src 'self' data: https://cdn.jsdelivr.net",
+        "img-src 'self' data: https: blob:",
+        "media-src 'self' blob: data:",
+        isDevelopment
+            ? "connect-src 'self' http://localhost:* ws://localhost:* wss://localhost:* http://127.0.0.1:* ws://127.0.0.1:* https://cdn.jsdelivr.net devtools://*"
+            : "connect-src 'self' https://cdn.jsdelivr.net",
+        "frame-ancestors 'none'",
+        "base-uri 'self'",
+        "form-action 'self'"
+    ].join('; ');
+
+    res.set('Content-Security-Policy', cspDirectives);
+
+    // Additional security headers
+    res.set('X-Content-Type-Options', 'nosniff');
+    res.set('X-Frame-Options', 'DENY');
+    res.set('X-XSS-Protection', '1; mode=block');
+    res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
     next();
 });
 
@@ -112,18 +192,15 @@ app.get('/api/categories/:language', async (req, res) => {
         return res.status(404).json({ error: 'Language not supported' });
     }
 
-    const translationPath = path.join(__dirname, 'translations', `${language}.json`);
-
     try {
-        // FIX: Use async file reading to prevent blocking event loop
-        const fileContent = await fs.readFile(translationPath, 'utf8');
-        const translationData = JSON.parse(fileContent);
+        const translationData = getLanguageData(language);
 
-        // Return only category names, not the phrases
+        // Return category names and UI labels, not the phrases
         res.json({
             language: translationData.language,
             nativeLanguageField: translationData.nativeLanguageField,
             categoryNames: translationData.categoryNames,
+            ui: translationData.ui,
             categories: Object.keys(translationData.categories)
         });
     } catch (error) {
@@ -154,12 +231,8 @@ app.get('/api/phrases/:language/:category', async (req, res) => {
         return res.status(400).json({ error: 'Invalid category format' });
     }
 
-    const translationPath = path.join(__dirname, 'translations', `${language}.json`);
-
     try {
-        // FIX: Use async file reading to prevent blocking event loop
-        const fileContent = await fs.readFile(translationPath, 'utf8');
-        const translationData = JSON.parse(fileContent);
+        const translationData = getLanguageData(language);
 
         if (!translationData.categories.hasOwnProperty(category)) {
             return res.status(404).json({ error: 'Category not found' });
@@ -201,6 +274,97 @@ app.get('/api/contextual/phrases', async (req, res) => {
     }
 });
 
+// ============================================================================
+// CONTEXTUAL CONVERSATIONS API ENDPOINTS
+// ============================================================================
+
+// Get list of all available conversations
+app.get('/api/conversations', async (req, res) => {
+    try {
+        const indexPath = path.join(__dirname, 'contextual_conversations', 'index.json');
+        const fileContent = await fs.readFile(indexPath, 'utf8');
+        const indexData = JSON.parse(fileContent);
+        res.json(indexData);
+    } catch (error) {
+        console.error('Error loading conversations index:', error);
+        res.status(500).json({ error: 'Failed to load conversations index' });
+    }
+});
+
+// Get specific conversation by context and language
+app.get('/api/conversations/:context/:language', async (req, res) => {
+    const context = path.basename(req.params.context);
+    const language = path.basename(req.params.language);
+
+    // Validate inputs
+    if (!/^[a-z_]+$/.test(context) || !/^[a-z_]+$/.test(language)) {
+        return res.status(400).json({ error: 'Invalid context or language format' });
+    }
+
+    try {
+        const conversationPath = path.join(
+            __dirname,
+            'contextual_conversations',
+            `${context}_${language}.json`
+        );
+        const fileContent = await fs.readFile(conversationPath, 'utf8');
+        const conversationData = JSON.parse(fileContent);
+        res.json(conversationData);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return res.status(404).json({ error: 'Conversation not found' });
+        }
+        console.error('Error loading conversation:', error);
+        res.status(500).json({ error: 'Failed to load conversation' });
+    }
+});
+
+// Get all conversations for a specific context (all languages)
+app.get('/api/conversations/context/:context', async (req, res) => {
+    const context = path.basename(req.params.context);
+
+    if (!/^[a-z_]+$/.test(context)) {
+        return res.status(400).json({ error: 'Invalid context format' });
+    }
+
+    try {
+        const indexPath = path.join(__dirname, 'contextual_conversations', 'index.json');
+        const fileContent = await fs.readFile(indexPath, 'utf8');
+        const indexData = JSON.parse(fileContent);
+
+        const filtered = indexData.conversations.filter(c => c.context === context);
+        res.json({ conversations: filtered });
+    } catch (error) {
+        console.error('Error loading conversations by context:', error);
+        res.status(500).json({ error: 'Failed to load conversations' });
+    }
+});
+
+// Get all conversations for a specific language (all contexts)
+app.get('/api/conversations/language/:language', async (req, res) => {
+    const language = path.basename(req.params.language);
+
+    if (!config.isValidLanguage(language)) {
+        return res.status(404).json({ error: 'Language not supported' });
+    }
+
+    try {
+        const indexPath = path.join(__dirname, 'contextual_conversations', 'index.json');
+        const fileContent = await fs.readFile(indexPath, 'utf8');
+        const indexData = JSON.parse(fileContent);
+
+        const filtered = indexData.conversations.filter(c => c.language === language);
+        res.json({ conversations: filtered });
+    } catch (error) {
+        console.error('Error loading conversations by language:', error);
+        res.status(500).json({ error: 'Failed to load conversations' });
+    }
+});
+
+// ============================================================================
+// EXISTING API ENDPOINTS
+// ============================================================================
+
 // API endpoint to translate a phrase from source to target language
 app.get('/api/translate/:sourceLanguage/:targetLanguage/:category/:english', async (req, res) => {
     const sourceLanguage = path.basename(req.params.sourceLanguage);
@@ -213,49 +377,38 @@ app.get('/api/translate/:sourceLanguage/:targetLanguage/:category/:english', asy
     }
 
     try {
-        // Load both source and target language files
-        const sourceContent = await fs.readFile(
-            path.join(__dirname, 'translations', `${sourceLanguage}.json`),
-            'utf8'
-        );
-        const targetContent = await fs.readFile(
-            path.join(__dirname, 'translations', `${targetLanguage}.json`),
-            'utf8'
-        );
+        const sourceData = getLanguageData(sourceLanguage);
+        const targetData = getLanguageData(targetLanguage);
 
-        const sourceData = JSON.parse(sourceContent);
-        const targetData = JSON.parse(targetContent);
-
-        // Find the phrase in source language by English text
-        let sourcePhrase = null;
-        let targetPhrase = null;
+        // Find the phrase in category by English text
+        let phrase = null;
 
         if (sourceData.categories[category]) {
-            sourcePhrase = sourceData.categories[category].find(p => p.english === englishPhrase);
+            phrase = sourceData.categories[category].find(p => p.english === englishPhrase);
         }
 
-        if (targetData.categories[category]) {
-            targetPhrase = targetData.categories[category].find(p => p.english === englishPhrase);
+        if (!phrase) {
+            return res.status(404).json({ error: 'Phrase not found' });
         }
 
-        if (!sourcePhrase || !targetPhrase) {
-            return res.status(404).json({ error: 'Phrase not found in one or both languages' });
-        }
+        // Construct phonetic field names (e.g., "amharic_phonetic", "oromo_phonetic")
+        const sourcePhoneticField = `${sourceLanguage}_phonetic`;
+        const targetPhoneticField = `${targetLanguage}_phonetic`;
 
         res.json({
             source: {
                 language: sourceLanguage,
                 languageField: sourceData.nativeLanguageField,
-                text: sourcePhrase[sourceData.nativeLanguageField],
-                phonetic: sourcePhrase.phonetic,
-                english: sourcePhrase.english
+                text: phrase[sourceLanguage] || phrase[sourceData.nativeLanguageField],
+                phonetic: phrase[sourcePhoneticField] || null,
+                english: phrase.english
             },
             target: {
                 language: targetLanguage,
                 languageField: targetData.nativeLanguageField,
-                text: targetPhrase[targetData.nativeLanguageField],
-                phonetic: targetPhrase.phonetic,
-                english: targetPhrase.english
+                text: phrase[targetLanguage] || phrase[targetData.nativeLanguageField],
+                phonetic: phrase[targetPhoneticField] || null,
+                english: phrase.english
             },
             category: category
         });
@@ -269,6 +422,15 @@ app.get('/api/translate/:sourceLanguage/:targetLanguage/:category/:english', asy
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'African Translator',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// Language selection page
+app.get('/start', (req, res) => {
+    res.render('language-selection', {
+        title: 'Choose Your Languages',
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
@@ -434,29 +596,32 @@ app.get('/api/translation-template', (req, res) => {
 // Language-specific demo pages
 app.get('/demo/:language', async (req, res) => {
     // FIX: Sanitize language parameter to prevent path traversal
-    const language = path.basename(req.params.language);
+    const targetLanguage = path.basename(req.params.language);
+    const nativeLanguage = req.query.native ? path.basename(req.query.native) : targetLanguage;
 
-    if (!config.isValidLanguage(language)) {
-        return res.status(404).send('Language not supported');
+    if (!config.isValidLanguage(targetLanguage)) {
+        return res.status(404).send('Target language not supported');
     }
 
-    // Load translation file to get UI strings
-    const translationPath = path.join(__dirname, 'translations', `${language}.json`);
+    if (!config.isValidLanguage(nativeLanguage)) {
+        return res.status(404).send('Native language not supported');
+    }
+
+    // Load UI strings from NATIVE language (the language user understands)
     let ui = {};
 
     try {
-        // FIX: Use async file reading to prevent blocking event loop
-        const fileContent = await fs.readFile(translationPath, 'utf8');
-        const translationData = JSON.parse(fileContent);
-        ui = translationData.ui || {};
+        const nativeData = getLanguageData(nativeLanguage);
+        ui = nativeData.ui || {};
     } catch (error) {
-        console.error(`Error loading translations for ${language}:`, error);
+        console.error(`Error loading UI for native language ${nativeLanguage}:`, error);
     }
 
     res.render('demo', {
-        title: ui.pageTitle || `${language.charAt(0).toUpperCase() + language.slice(1)} TTS Demo`,
-        language: language,
-        ui: ui,
+        title: ui.pageTitle || `Learn ${config.LANGUAGE_NAMES[targetLanguage] || targetLanguage}`,
+        language: targetLanguage,  // The language being learned
+        nativeLanguage: nativeLanguage,  // The user's native language
+        ui: ui,  // UI in native language
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
@@ -544,6 +709,15 @@ app.get('/health', async (req, res) => {
             tts: 'unavailable'
         });
     }
+});
+
+// Chrome DevTools well-known endpoint (silences console warning)
+// This is optional - only to prevent DevTools CSP warnings
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+    res.status(404).json({
+        error: 'Not found',
+        message: 'This endpoint is not used by this application'
+    });
 });
 
 // ===== ADVANCED ROUTES (translations_network) =====
@@ -648,6 +822,135 @@ app.get('/emergency', async (req, res) => {
     }
 });
 
+// ============================================================================
+// CONTEXTUAL CONVERSATIONS PAGES
+// ============================================================================
+
+// Conversations index page
+app.get('/conversations', async (req, res) => {
+    try {
+        const indexPath = path.join(__dirname, 'contextual_conversations', 'index.json');
+        const fileContent = await fs.readFile(indexPath, 'utf8');
+        const indexData = JSON.parse(fileContent);
+
+        // Try to get native language from query parameter (for UI)
+        const nativeLanguage = req.query.native ? path.basename(req.query.native) : 'english';
+
+        // Load UI strings from native language
+        let ui = {};
+        try {
+            if (config.isValidLanguage(nativeLanguage)) {
+                const nativeData = getLanguageData(nativeLanguage);
+                ui = nativeData.ui || {};
+            }
+        } catch (error) {
+            console.error(`Error loading UI for native language ${nativeLanguage}:`, error);
+        }
+
+        res.render('conversations/index', {
+            title: ui.conversationsTitle || 'Contextual Conversations',
+            indexData: indexData,
+            nativeLanguage: nativeLanguage,
+            ui: ui,
+            languages: config.LANGUAGES,
+            languageNames: config.LANGUAGE_NAMES
+        });
+    } catch (error) {
+        console.error('Error loading conversations index:', error);
+        res.status(500).send('Failed to load conversations');
+    }
+});
+
+// Legacy route compatibility - redirect old 2-parameter URLs to new 3-parameter format
+app.get('/conversations/:context/:language', async (req, res) => {
+    const context = req.params.context;
+    const language = req.params.language;
+    // Default native language to English for backward compatibility
+    res.redirect(`/conversations/${context}/english/${language}`);
+});
+
+// Specific conversation viewer - Updated for multi-language files
+// URL format: /conversations/:context/:nativeLanguage/:targetLanguage
+app.get('/conversations/:context/:nativeLanguage/:targetLanguage', async (req, res) => {
+    const context = path.basename(req.params.context);
+    const nativeLanguage = path.basename(req.params.nativeLanguage);
+    const targetLanguage = path.basename(req.params.targetLanguage);
+
+    // Validate context and languages
+    if (!/^[a-z_]+$/.test(context) ||
+        !config.isValidLanguage(nativeLanguage) ||
+        !config.isValidLanguage(targetLanguage)) {
+        return res.status(404).send('Conversation not found');
+    }
+
+    try {
+        // Try to load multi-language file first
+        const multiLangPath = path.join(
+            __dirname,
+            'contextual_conversations',
+            `multilanguage_${context}.json`
+        );
+
+        let conversationData;
+        let isMultiLanguage = false;
+
+        try {
+            const fileContent = await fs.readFile(multiLangPath, 'utf8');
+            conversationData = JSON.parse(fileContent);
+            isMultiLanguage = true;
+        } catch (error) {
+            // Fallback to old single-language format for backward compatibility
+            const singleLangPath = path.join(
+                __dirname,
+                'contextual_conversations',
+                `${context}_${targetLanguage}.json`
+            );
+            const fileContent = await fs.readFile(singleLangPath, 'utf8');
+            conversationData = JSON.parse(fileContent);
+            isMultiLanguage = false;
+        }
+
+        // Extract conversation title based on format
+        let conversationTitle;
+        if (isMultiLanguage) {
+            conversationTitle = conversationData.conversation_title?.[targetLanguage] ||
+                              conversationData.conversation_title?.english ||
+                              'Conversation';
+        } else {
+            conversationTitle = conversationData.conversation_title || 'Conversation';
+        }
+
+        // Load UI strings from NATIVE language (the language user understands)
+        let ui = {};
+        try {
+            const nativeData = getLanguageData(nativeLanguage);
+            ui = nativeData.ui || {};
+        } catch (error) {
+            console.error(`Error loading UI for native language ${nativeLanguage}:`, error);
+        }
+
+        res.render('conversations/viewer', {
+            title: conversationTitle,
+            conversation: conversationData,
+            context: context,
+            nativeLanguage: nativeLanguage,
+            targetLanguage: targetLanguage,
+            nativeLanguageName: config.LANGUAGE_NAMES[nativeLanguage],
+            targetLanguageName: config.LANGUAGE_NAMES[targetLanguage],
+            isMultiLanguage: isMultiLanguage,
+            ui: ui,  // UI strings in native language
+            languages: config.LANGUAGES,
+            languageNames: config.LANGUAGE_NAMES
+        });
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return res.status(404).send('Conversation not found for this context and language combination');
+        }
+        console.error('Error loading conversation:', error);
+        res.status(500).send('Failed to load conversation');
+    }
+});
+
 // API endpoint to get full categories data for advanced features
 app.get('/api/advanced/categories', async (req, res) => {
     try {
@@ -664,9 +967,25 @@ app.get('/api/advanced/categories', async (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`\n${'='.repeat(50)}`);
-    console.log(`🚀 Express Server running on http://localhost:${PORT}`);
-    console.log(`🎤 Make sure Python TTS service is running on port ${config.SERVER_CONFIG.TTS_SERVICE_PORT}`);
-    console.log(`${'='.repeat(50)}\n`);
+async function startServer() {
+    // Load unified translations first
+    const loaded = await loadUnifiedTranslations();
+
+    if (!loaded) {
+        console.error('❌ Failed to load translations. Server cannot start.');
+        process.exit(1);
+    }
+
+    app.listen(PORT, () => {
+        console.log(`\n${'='.repeat(50)}`);
+        console.log(`🚀 Express Server running on http://localhost:${PORT}`);
+        console.log(`🎤 Make sure Python TTS service is running on port ${config.SERVER_CONFIG.TTS_SERVICE_PORT}`);
+        console.log(`${'='.repeat(50)}\n`);
+    });
+}
+
+// Start the server
+startServer().catch(error => {
+    console.error('❌ Server startup failed:', error);
+    process.exit(1);
 });

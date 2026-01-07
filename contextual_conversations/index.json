@@ -1,0 +1,216 @@
+{
+  "version": "2.0",
+  "format": "multilanguage",
+  "last_updated": "2026-01-06",
+  "total_contexts": 3,
+  "supported_languages": [
+    "english", "spanish", "french", "italian", "chinese",
+    "amharic", "tigrinya", "oromo", "somali", "arabic",
+    "hadiyaa", "wolyitta", "afar", "gamo",
+    "swahili", "kinyarwanda", "kirundi", "luo"
+  ],
+  "contexts": [
+    {
+      "context_id": "restaurant",
+      "context_name": "Restaurant",
+      "icon": "🍽️",
+      "description": "Dining out, ordering food, restaurant etiquette",
+      "priority": "high",
+      "use_cases": ["tourism", "daily_life", "business"],
+      "file": "multilanguage_restaurant.json",
+      "format": "multilanguage",
+      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "difficulty": "intermediate",
+      "stages": 3,
+      "estimated_time": "10-15 minutes",
+      "learning_objectives": [
+        "Making reservations and seating requests",
+        "Ordering food and drinks",
+        "Asking about menu items and specials",
+        "Handling payment and tipping",
+        "Restaurant etiquette and cultural norms"
+      ],
+      "key_vocabulary": {
+        "english": ["party (group)", "specials", "check (bill)", "starter", "main course"],
+        "amharic": ["መልካም ማታ (good evening)", "ወይን ጠጅ (wine)", "የባሕር ዓሣ (seafood)", "ክፍያ (bill)", "አመሰግናለሁ (thank you)"],
+        "oromo": ["akkam bulte (hello)", "wayinii (wine)", "bishaan (water)", "galatoomaa (thank you)"],
+        "tigrinya": ["ምሉእ ምሸት (good evening)", "ወይኒ (wine)", "ማይ (water)", "የቕንየለይ (thank you)"]
+      },
+      "cultural_notes": {
+        "english": "In Western restaurants, tipping 15-20% is customary. Waiters typically check on you during the meal.",
+        "amharic": "In Ethiopian restaurants, it's common to share food from a communal plate (injera). Tipping is appreciated but not as standardized.",
+        "oromo": "Traditional Oromo dining involves communal eating. Respect for elders is shown by serving them first.",
+        "tigrinya": "In Eritrean/Tigrayan culture, coffee ceremonies often follow meals. Sharing food is a sign of friendship."
+      },
+      "created_date": "2026-01-06",
+      "last_updated": "2026-01-06"
+    },
+    {
+      "context_id": "market",
+      "context_name": "Market/Shopping",
+      "icon": "🛒",
+      "description": "Traditional market shopping, bargaining, buying fresh produce",
+      "priority": "high",
+      "use_cases": ["daily_life", "tourism", "cultural_exchange"],
+      "file": "multilanguage_market.json",
+      "format": "multilanguage",
+      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "difficulty": "beginner",
+      "stages": 2,
+      "estimated_time": "8-12 minutes",
+      "learning_objectives": [
+        "Greeting vendors and asking about products",
+        "Asking prices and bargaining",
+        "Making purchases and handling payment",
+        "Common market vocabulary"
+      ],
+      "key_vocabulary": {
+        "english": ["how much", "too expensive", "discount", "fresh", "vegetables"],
+        "amharic": ["ስንት ነው (how much)", "ውድ ነው (expensive)", "ቅናሽ (discount)", "ትኩስ (fresh)"],
+        "oromo": ["meeqa (how much)", "gatii guddaa (expensive)", "hir'isa (discount)", "haaraa (fresh)"]
+      },
+      "cultural_notes": {
+        "english": "In many cultures, bargaining is expected at traditional markets.",
+        "amharic": "Ethiopian markets are vibrant places where bargaining is normal and expected.",
+        "oromo": "Market days are important social events in Oromo communities."
+      },
+      "created_date": "2026-01-06",
+      "last_updated": "2026-01-06"
+    },
+    {
+      "context_id": "airport",
+      "context_name": "Airport",
+      "icon": "✈️",
+      "description": "Airport check-in, security, boarding procedures",
+      "priority": "high",
+      "use_cases": ["tourism", "business", "travel"],
+      "file": "multilanguage_airport.json",
+      "format": "multilanguage",
+      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "difficulty": "intermediate",
+      "stages": 3,
+      "estimated_time": "12-15 minutes",
+      "learning_objectives": [
+        "Check-in procedures and ticket confirmation",
+        "Security screening communication",
+        "Finding gates and understanding boarding announcements",
+        "Airport vocabulary and signage"
+      ],
+      "key_vocabulary": {
+        "english": ["boarding pass", "gate", "departure", "luggage", "passport"],
+        "amharic": ["የመሳፈሪያ ካርድ (boarding pass)", "በር (gate)", "መነሳት (departure)", "ሻንጣ (luggage)"],
+        "arabic": ["بطاقة صعود (boarding pass)", "بوابة (gate)", "مغادرة (departure)"]
+      },
+      "cultural_notes": {
+        "english": "Arrive 2-3 hours early for international flights.",
+        "amharic": "በአዲስ አበባ አየር ማረፊያ, በመጀመሪያ ቅድሚያ ለትክክለኛ የመስመር መረጃ ይዘጋጁ.",
+        "arabic": "في المطارات العربية، احترم قواعد اللباس المحافظ."
+      },
+      "created_date": "2026-01-06",
+      "last_updated": "2026-01-06"
+    }
+  ],
+  "planned_contexts": [
+    {
+      "context_id": "hotel",
+      "context_name": "Hotel",
+      "icon": "🏨",
+      "priority": "high",
+      "status": "planned",
+      "file": "multilanguage_hotel.json"
+    },
+    {
+      "context_id": "taxi",
+      "context_name": "Taxi/Transportation",
+      "icon": "🚕",
+      "priority": "high",
+      "status": "planned",
+      "file": "multilanguage_taxi.json"
+    },
+    {
+      "context_id": "doctor",
+      "context_name": "Doctor/Medical",
+      "icon": "🏥",
+      "priority": "medium",
+      "status": "planned",
+      "file": "multilanguage_doctor.json"
+    },
+    {
+      "context_id": "bank",
+      "context_name": "Bank",
+      "icon": "🏦",
+      "priority": "medium",
+      "status": "planned",
+      "file": "multilanguage_bank.json"
+    },
+    {
+      "context_id": "pharmacy",
+      "context_name": "Pharmacy",
+      "icon": "💊",
+      "priority": "medium",
+      "status": "planned",
+      "file": "multilanguage_pharmacy.json"
+    },
+    {
+      "context_id": "post_office",
+      "context_name": "Post Office",
+      "icon": "📮",
+      "priority": "low",
+      "status": "planned",
+      "file": "multilanguage_post_office.json"
+    },
+    {
+      "context_id": "greetings",
+      "context_name": "Greetings & Introductions",
+      "icon": "👋",
+      "priority": "high",
+      "status": "planned",
+      "file": "multilanguage_greetings.json"
+    },
+    {
+      "context_id": "business_meeting",
+      "context_name": "Business Meeting",
+      "icon": "💼",
+      "priority": "medium",
+      "status": "planned",
+      "file": "multilanguage_business_meeting.json"
+    }
+  ],
+  "statistics": {
+    "total_contexts": 3,
+    "active_contexts": 3,
+    "planned_contexts": 8,
+    "total_supported_languages": 18,
+    "by_context": {
+      "restaurant": {
+        "format": "multilanguage",
+        "available_languages": 18
+      },
+      "market": {
+        "format": "multilanguage",
+        "available_languages": 18
+      },
+      "airport": {
+        "format": "multilanguage",
+        "available_languages": 18
+      }
+    },
+    "by_difficulty": {
+      "beginner": 1,
+      "intermediate": 2,
+      "advanced": 0
+    }
+  },
+  "metadata": {
+    "format_version": "1.0",
+    "schema_url": "https://github.com/yourusername/sound-training/docs/conversation-schema.json",
+    "license": "MIT",
+    "contributors": [
+      {
+        "name": "Sound Training Team",
+        "role": "Content Creator"
+      }
+    ]
+  }
+}
+

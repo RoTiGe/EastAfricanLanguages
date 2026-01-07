@@ -6,6 +6,7 @@ let currentSourceLanguage = '';
 let currentTargetLanguage = '';
 let currentCategory = '';
 let currentPhrases = [];
+let currentUILabels = null;
 
 // DOM Elements
 const sourceLanguageSelect = document.getElementById('sourceLanguage');
@@ -48,8 +49,24 @@ async function onSourceLanguageChange() {
         
         const data = await response.json();
         
+        // Store UI labels for use in other functions
+        currentUILabels = data.ui;
+        
+        // Update UI labels if available
+        if (data.ui) {
+            document.querySelector('label[for="sourceLanguage"]').innerHTML = 
+                `<i class="bi bi-translate me-2"></i>${data.ui.sourceLanguage || 'Your Language'}`;
+            document.querySelector('label[for="targetLanguage"]').innerHTML = 
+                `<i class="bi bi-translate me-2"></i>${data.ui.targetLanguage || 'Target Language'}`;
+            document.querySelector('label[for="categorySelect"]').innerHTML = 
+                `<i class="bi bi-folder me-2"></i>${data.ui.category || 'Category'}`;
+            document.querySelector('label[for="phraseSelect"]').innerHTML = 
+                `<i class="bi bi-chat-left-text me-2"></i>${data.ui.phrase || 'Phrase'}`;
+        }
+        
         // Populate category dropdown
-        categorySelect.innerHTML = '<option value="">-- Choose a category --</option>';
+        const chooseCategoryText = data.ui?.chooseCategory || '-- Choose a category --';
+        categorySelect.innerHTML = `<option value="">${chooseCategoryText}</option>`;
         data.categories.forEach(cat => {
             const option = document.createElement('option');
             option.value = cat;
@@ -95,7 +112,8 @@ async function onCategoryChange() {
         currentPhrases = data.phrases;
         
         // Populate phrase dropdown with text in source language
-        phraseSelect.innerHTML = '<option value="">-- Choose a phrase --</option>';
+        const choosePhraseText = currentUILabels?.choosePhrase || '-- Choose a phrase --';
+        phraseSelect.innerHTML = `<option value="">${choosePhraseText}</option>`;
         data.phrases.forEach((phrase, index) => {
             const option = document.createElement('option');
             option.value = index;
@@ -114,10 +132,17 @@ async function onCategoryChange() {
 }
 
 /**
- * Handle phrase selection
+ * Handle phrase selection - Auto-translate immediately
  */
 function onPhraseChange() {
-    checkReadyToTranslate();
+    const phraseIndex = phraseSelect.value;
+    
+    if (phraseIndex && currentSourceLanguage && currentTargetLanguage) {
+        // Auto-translate when phrase is selected
+        translatePhrase();
+    } else {
+        checkReadyToTranslate();
+    }
 }
 
 /**
@@ -170,17 +195,34 @@ async function translatePhrase() {
  */
 function displayTranslation(data) {
     // Update source language section
-    document.getElementById('sourceLangName').textContent = 
+    document.getElementById('sourceLangName').textContent =
         sourceLanguageSelect.options[sourceLanguageSelect.selectedIndex].text;
     document.getElementById('sourceText').textContent = data.source.text;
-    document.getElementById('sourcePhonetic').textContent = data.source.phonetic || 'N/A';
+
+    // Show/hide phonetic based on availability
+    const sourcePhoneticContainer = document.getElementById('sourcePhonetic').parentElement;
+    if (data.source.phonetic) {
+        document.getElementById('sourcePhonetic').textContent = data.source.phonetic;
+        sourcePhoneticContainer.style.display = 'block';
+    } else {
+        sourcePhoneticContainer.style.display = 'none';
+    }
+
     document.getElementById('sourceEnglish').textContent = data.source.english;
 
     // Update target language section
-    document.getElementById('targetLangName').textContent = 
+    document.getElementById('targetLangName').textContent =
         targetLanguageSelect.options[targetLanguageSelect.selectedIndex].text;
     document.getElementById('targetText').textContent = data.target.text;
-    document.getElementById('targetPhonetic').textContent = data.target.phonetic || 'N/A';
+
+    // Show/hide phonetic based on availability
+    const targetPhoneticContainer = document.getElementById('targetPhonetic').parentElement;
+    if (data.target.phonetic) {
+        document.getElementById('targetPhonetic').textContent = data.target.phonetic;
+        targetPhoneticContainer.style.display = 'block';
+    } else {
+        targetPhoneticContainer.style.display = 'none';
+    }
 
     // Store target text for audio playback
     speakBtn.dataset.text = data.target.text;
@@ -188,7 +230,7 @@ function displayTranslation(data) {
 
     // Show results
     resultsSection.style.display = 'block';
-    
+
     // Scroll to results
     resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

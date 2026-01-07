@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .hover-shadow {
+            transition: all 0.3s ease;
+        }
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-4 position-relative">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <h1 class="text-center display-5 fw-bold">
+                    <i class="bi bi-chat-dots me-2"></i><%= title %>
+                </h1>
+                <p class="text-center lead">Learn through real-world dialogues</p>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <!-- Language Selection Card (shown initially) -->
+            <div class="card mb-4" id="languageSelectionCard">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-translate me-2"></i><%= ui.selectYourLanguages || 'Select Your Languages' %>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="bi bi-house-heart me-2"></i><%= ui.myNativeLanguage || 'My Native Language' %>
+                            </label>
+                            <select class="form-select form-select-lg" id="nativeLanguage">
+                                <option value=""><%= ui.chooseNativeLanguage || 'Choose your native language...' %></option>
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                            <small class="text-muted"><%= ui.nativeLanguageHelp || 'The language you\'re most comfortable with' %></small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="bi bi-book me-2"></i><%= ui.languageToLearn || 'Language I Want to Learn' %>
+                            </label>
+                            <select class="form-select form-select-lg" id="learningLanguage">
+                                <option value=""><%= ui.chooseTargetLanguage || 'Choose language to learn...' %></option>
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                            <small class="text-muted"><%= ui.targetLanguageHelp || 'The language you want to practice' %></small>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button class="btn btn-primary btn-lg" id="confirmLanguages" disabled>
+                            <i class="bi bi-check-circle me-2"></i><%= ui.continueToConversations || 'Continue to Conversations' %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Alert -->
+            <div class="alert alert-info mb-4" id="conversationsInfo" style="display: none;">
+                <i class="bi bi-info-circle me-2"></i>
+                <strong><%= ui.interactiveConversations || 'Interactive Conversations' %>:</strong> <%= ui.conversationsDescription || 'Practice real-world scenarios with native pronunciation. Click any conversation to start learning!' %>
+                <button class="btn btn-sm btn-outline-info float-end" id="changeLanguages">
+                    <i class="bi bi-arrow-left-right me-1"></i><%= ui.changeLanguages || 'Change Languages' %>
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="card mb-4" id="filtersCard" style="display: none;">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><%= ui.filterContext || 'Context' %></label>
+                            <select class="form-select" id="filterContext">
+                                <option value=""><%= ui.allContexts || 'All Contexts' %></option>
+                                <% indexData.contexts.forEach(ctx => { %>
+                                    <option value="<%= ctx.context_id %>">
+                                        <%= ctx.icon %> <%= ctx.context_name %>
+                                    </option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><%= ui.filterDifficulty || 'Difficulty' %></label>
+                            <select class="form-select" id="filterDifficulty">
+                                <option value=""><%= ui.allLevels || 'All Levels' %></option>
+                                <option value="beginner"><%= ui.beginner || 'Beginner' %></option>
+                                <option value="intermediate"><%= ui.intermediate || 'Intermediate' %></option>
+                                <option value="advanced"><%= ui.advanced || 'Advanced' %></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversations Grid -->
+            <div id="conversationsGrid" class="row g-4" style="display: none;">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">© 2026 Sound Training - Contextual Conversations</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const contexts = <%- JSON.stringify(indexData.contexts) %>;
+        const languageNames = <%- JSON.stringify(languageNames) %>;
+        const allLanguages = <%- JSON.stringify(languages) %>;
+
+        let selectedNativeLanguage = '';
+        let selectedLearningLanguage = '';
+
+        // Load languages from localStorage if available
+        function loadSavedLanguages() {
+            const savedNative = localStorage.getItem('nativeLanguage');
+            const savedTarget = localStorage.getItem('targetLanguage');
+
+            if (savedNative && savedTarget) {
+                document.getElementById('nativeLanguage').value = savedNative;
+                document.getElementById('learningLanguage').value = savedTarget;
+                checkLanguageSelection();
+
+                // Auto-confirm if both languages are valid
+                if (savedNative !== savedTarget) {
+                    confirmLanguages();
+                }
+            }
+        }
+
+        // Language selection event listeners
+        document.getElementById('nativeLanguage').addEventListener('change', checkLanguageSelection);
+        document.getElementById('learningLanguage').addEventListener('change', checkLanguageSelection);
+        document.getElementById('confirmLanguages').addEventListener('click', confirmLanguages);
+        document.getElementById('changeLanguages').addEventListener('click', showLanguageSelection);
+
+        // Filter event listeners
+        document.getElementById('filterContext').addEventListener('change', filterConversations);
+        document.getElementById('filterDifficulty').addEventListener('change', filterConversations);
+
+        // Load saved languages on page load
+        loadSavedLanguages();
+
+        function checkLanguageSelection() {
+            const native = document.getElementById('nativeLanguage').value;
+            const learning = document.getElementById('learningLanguage').value;
+            const confirmBtn = document.getElementById('confirmLanguages');
+
+            if (native && learning) {
+                if (native === learning) {
+                    confirmBtn.disabled = true;
+                    confirmBtn.innerHTML = '<i class="bi bi-x-circle me-2"></i>Please select different languages';
+                    confirmBtn.classList.remove('btn-primary');
+                    confirmBtn.classList.add('btn-danger');
+                } else {
+                    confirmBtn.disabled = false;
+                    confirmBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Continue to Conversations';
+                    confirmBtn.classList.remove('btn-danger');
+                    confirmBtn.classList.add('btn-primary');
+                }
+            } else {
+                confirmBtn.disabled = true;
+                confirmBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Continue to Conversations';
+                confirmBtn.classList.remove('btn-danger');
+                confirmBtn.classList.add('btn-primary');
+            }
+        }
+
+        function confirmLanguages() {
+            selectedNativeLanguage = document.getElementById('nativeLanguage').value;
+            selectedLearningLanguage = document.getElementById('learningLanguage').value;
+
+            // Hide language selection, show conversations
+            document.getElementById('languageSelectionCard').style.display = 'none';
+            document.getElementById('conversationsInfo').style.display = 'block';
+            document.getElementById('filtersCard').style.display = 'block';
+            document.getElementById('conversationsGrid').style.display = 'flex';
+
+            // Update info alert with selected languages
+            const infoAlert = document.getElementById('conversationsInfo');
+            infoAlert.innerHTML = `
+                <i class="bi bi-info-circle me-2"></i>
+                <strong>Learning ${languageNames[selectedLearningLanguage]}</strong> from ${languageNames[selectedNativeLanguage]} •
+                Practice real-world scenarios with native pronunciation
+                <button class="btn btn-sm btn-outline-info float-end" id="changeLanguagesBtn">
+                    <i class="bi bi-arrow-left-right me-1"></i>Change Languages
+                </button>
+            `;
+            document.getElementById('changeLanguagesBtn').addEventListener('click', showLanguageSelection);
+
+            // Display conversations
+            filterConversations();
+        }
+
+        function showLanguageSelection() {
+            document.getElementById('languageSelectionCard').style.display = 'block';
+            document.getElementById('conversationsInfo').style.display = 'none';
+            document.getElementById('filtersCard').style.display = 'none';
+            document.getElementById('conversationsGrid').style.display = 'none';
+        }
+
+        function filterConversations() {
+            const contextFilter = document.getElementById('filterContext').value;
+            const difficultyFilter = document.getElementById('filterDifficulty').value;
+
+            // Filter contexts based on criteria and language availability
+            const filtered = contexts.filter(ctx => {
+                // Check if context has the learning language available
+                if (selectedLearningLanguage && ctx.available_languages &&
+                    !ctx.available_languages.includes(selectedLearningLanguage)) {
+                    return false;
+                }
+                if (contextFilter && ctx.context_id !== contextFilter) return false;
+                if (difficultyFilter && ctx.difficulty !== difficultyFilter) return false;
+                return true;
+            });
+
+            displayConversations(filtered);
+        }
+        
+        function displayConversations(contextList) {
+            const grid = document.getElementById('conversationsGrid');
+
+            if (contextList.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            No conversations available for ${languageNames[selectedLearningLanguage] || 'this language'}.
+                            Try adjusting your filters or selecting a different language.
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = contextList.map(ctx => {
+                const difficultyBadge = getDifficultyBadge(ctx.difficulty);
+                const languageCount = ctx.available_languages ? ctx.available_languages.length : 0;
+                const hasTargetLanguage = ctx.available_languages &&
+                                         ctx.available_languages.includes(selectedLearningLanguage);
+
+                // Get learning objectives for display
+                const objectives = ctx.learning_objectives ? ctx.learning_objectives.slice(0, 3) : [];
+                const objectivesList = objectives.map(obj =>
+                    `<li class="small text-muted">${obj}</li>`
+                ).join('');
+
+                return `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm hover-shadow">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="h1 mb-0">${ctx.icon}</h3>
+                                    ${difficultyBadge}
+                                </div>
+                                <h5 class="card-title">${ctx.context_name}</h5>
+                                <p class="text-muted small mb-2">${ctx.description}</p>
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-translate me-1"></i>
+                                    <strong>${languageNames[selectedLearningLanguage]}</strong>
+                                    ${hasTargetLanguage ?
+                                        '<span class="badge bg-success ms-1">Available</span>' :
+                                        '<span class="badge bg-warning ms-1">Coming Soon</span>'}
+                                </p>
+                                <p class="text-muted mb-3">
+                                    <i class="bi bi-clock me-1"></i>${ctx.estimated_time || '10-15 min'} •
+                                    <i class="bi bi-list-ol me-1"></i>${ctx.stages || 'Multiple'} stages
+                                </p>
+                                ${objectivesList ? `
+                                    <div class="mb-3">
+                                        <small class="text-muted fw-bold">You'll learn:</small>
+                                        <ul class="mb-0 ps-3">${objectivesList}</ul>
+                                    </div>
+                                ` : ''}
+                                <a href="/conversations/${ctx.context_id}/${selectedNativeLanguage}/${selectedLearningLanguage}"
+                                   class="btn btn-primary w-100 ${!hasTargetLanguage ? 'disabled' : ''}">
+                                    <i class="bi bi-play-circle me-2"></i>Start Conversation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getDifficultyBadge(difficulty) {
+            const badges = {
+                'beginner': '<span class="badge bg-success">⭐ Beginner</span>',
+                'intermediate': '<span class="badge bg-warning">⭐⭐ Intermediate</span>',
+                'advanced': '<span class="badge bg-danger">⭐⭐⭐ Advanced</span>'
+            };
+            return badges[difficulty] || '<span class="badge bg-secondary">N/A</span>';
+        }
+    </script>
+</body>
+</html>
+
