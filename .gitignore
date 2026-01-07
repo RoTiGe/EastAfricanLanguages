@@ -55,3 +55,11 @@ tmp/
 
 # User uploads
 uploads/
+
+# Sensitive folders
+Contacts for funding opportunity/
+
+# Documentation (except specific files)
+*.md
+!README.md
+!RENDER_DEPLOYMENT.md
