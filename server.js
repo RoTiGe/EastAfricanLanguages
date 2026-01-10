@@ -146,9 +146,9 @@ app.use((req, res, next) => {
         "font-src 'self' data: https://cdn.jsdelivr.net",
         "img-src 'self' data: https: blob:",
         "media-src 'self' blob: data:",
-        isDevelopment
-            ? "connect-src 'self' http://localhost:* ws://localhost:* wss://localhost:* http://127.0.0.1:* ws://127.0.0.1:* https://cdn.jsdelivr.net devtools://*"
-            : "connect-src 'self' https://cdn.jsdelivr.net",
+            isDevelopment
+                ? "connect-src 'self' http://localhost:* ws://localhost:* wss://localhost:* http://127.0.0.1:* ws://127.0.0.1:* https://cdn.jsdelivr.net"
+                : "connect-src 'self' https://cdn.jsdelivr.net",
         "frame-ancestors 'none'",
         "base-uri 'self'",
         "form-action 'self'"
@@ -171,6 +171,64 @@ app.use(express.static('public'));
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+// In-memory store for demo (replace with DB in production)
+const pendingAdverts = {};
+const verifiedAdverts = [];
+const crypto = require('crypto');
+
+// GET: Advertiser upload page
+app.get('/advertiser/upload', (req, res) => {
+    res.render('advertiser_upload', {
+        title: 'Upload Advert',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
+});
+
+// POST: Handle advert upload and send verification email
+app.post('/advertiser/upload', upload.single('file'), async (req, res) => {
+    const { email, language, content } = req.body;
+    if (!config.isValidLanguage(language)) {
+        return res.status(400).send('Invalid language selected.');
+    }
+    // Generate verification token
+    const token = crypto.randomBytes(24).toString('hex');
+    pendingAdverts[token] = {
+        email,
+        language,
+        content,
+        file: req.file ? req.file.filename : null,
+        verified: false
+    };
+    // TODO: Send verification email with link (placeholder)
+    const verifyUrl = `${req.protocol}://${req.get('host')}/advertiser/verify/${token}`;
+    console.log(`Verification link for ${email}: ${verifyUrl}`);
+    res.render('advertiser_upload', {
+        title: 'Upload Advert',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES,
+        message: 'Check your email for a verification link to publish your advert.'
+    });
+});
+
+// GET: Email verification link
+app.get('/advertiser/verify/:token', (req, res) => {
+    const { token } = req.params;
+    const advert = pendingAdverts[token];
+    if (!advert) {
+        return res.status(404).send('Invalid or expired verification link.');
+    }
+    advert.verified = true;
+    verifiedAdverts.push(advert);
+    delete pendingAdverts[token];
+    res.render('advertiser_upload', {
+        title: 'Upload Advert',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES,
+        message: 'Your advert is now published!'
+    });
+});
 
 // SEO Routes - Sitemap and Robots
 app.get('/sitemap.xml', (req, res) => {
@@ -733,25 +791,28 @@ app.post('/api/speak', ttsLimiter, async (req, res) => {
 });
 
 // Get available languages
-app.get('/api/languages', async (req, res) => {
-    try {
-        const response = await axios.get(`${TTS_SERVICE_URL}/languages`);
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch languages' });
+app.get('/demo/:language', async (req, res) => {
+    const language = path.basename(req.params.language);
+    if (!config.isValidLanguage(language)) {
+        return res.status(404).render('error', { message: 'Language not supported' });
     }
-});
-
-// Health check
-app.get('/health', async (req, res) => {
     try {
-        const ttsHealth = await axios.get(`${TTS_SERVICE_URL}/health`);
-        res.json({
-            express: 'ok',
-            tts: ttsHealth.data
+        const translationData = getLanguageData(language);
+        // Find a verified advert for this language (show the first one)
+        const advertForLanguage = verifiedAdverts.find(a => a.language === language);
+        res.render('demo', {
+            title: `Demo: ${config.LANGUAGE_NAMES[language] || language}`,
+            language,
+            languages: config.LANGUAGES,
+            languageNames: config.LANGUAGE_NAMES,
+            ui: translationData.ui || {},
+            nativeLanguage: req.query.native || language,
+            advertForLanguage
         });
     } catch (error) {
-        res.json({
+        res.status(500).render('error', { message: 'Failed to load language data' });
+    }
+});
             express: 'ok',
             tts: 'unavailable'
         });
@@ -761,6 +822,17 @@ app.get('/health', async (req, res) => {
 // Chrome DevTools well-known endpoint (silences console warning)
 // This is optional - only to prevent DevTools CSP warnings
 app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+    res.status(404).json({
+        error: 'Not found',
+        message: 'This endpoint is not used by this application'
+    });
+});
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+    // Set a permissive CSP for this endpoint only to silence DevTools warning
+    res.set('Content-Security-Policy', [
+        "default-src 'none'",
+        "connect-src 'self' devtools://*",
+    ].join('; '));
     res.status(404).json({
         error: 'Not found',
         message: 'This endpoint is not used by this application'

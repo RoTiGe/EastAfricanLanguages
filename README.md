@@ -4,9 +4,13 @@ A comprehensive web-based application for Text-to-Speech and language learning, 
 
 ## Features
 
-- **Extensive Language Support**: 
-  - **East African Languages**: Amharic, Tigrinya, Oromo, Somali, Afar, Gamo, Hadiyaa, Wolayitta, Kinyarwanda, Kirundi, Luo
-  - **European Languages**: Spanish, French, Italian, Arabic
+- **Extensive Language Support (25 Languages)**: 
+  - **European Languages**: English, Spanish, French, German, Italian
+  - **East Asian Languages**: Chinese, Korean
+  - **South Asian Languages**: Hindi, Bengali, Telugu
+  - **Middle Eastern Languages**: Arabic, Farsi, Kurdish
+  - **East African Languages**: Amharic, Tigrinya, Oromo, Somali, Swahili, Kinyarwanda, Kirundi, Luganda, Luo, Dinka, Nuer
+  - **African Language Families**: Bantu languages
 - **Comprehensive Translations**: 286+ phrases across 34 categories
 - **Multiple Translation Formats**: Both `.js` and `.json` formats supported
 - **Dual TTS Engines**:

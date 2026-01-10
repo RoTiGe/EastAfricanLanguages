@@ -5,46 +5,85 @@
 
 // Supported languages configuration
 const LANGUAGES = [
-    'english',
-    'spanish', 
-    'french',
-    'italian',
-    'chinese',
-    'amharic',
-    'tigrinya',
-    'oromo',
-    'somali',
-    'arabic',
-    'hadiyaa',
-    'wolyitta',
-    'afar',
-    'gamo',
-    'swahili',
-    'kinyarwanda',
-    'kirundi',
-    'luo'
+
+  "english",
+  "spanish",
+  "french",
+  "italian",
+  "chinese",
+  "arabic",
+  "amharic",
+  "tigrinya",
+  "oromo",
+  "somali",
+  "hadiyaa",
+  "wolayitta",
+  "afar",
+  "gamo",
+  "swahili",
+  "kinyarwanda",
+  "kirundi",
+  "luo",
+  "luganda",
+  "dinka",
+  "nuer",
+  "korean",
+  "hindi",
+  "bengali",
+  "telugu",
+  "kurdish",
+  "farsi",
+  "german"
+
 ];
 
 // Language display names (native + English)
 const LANGUAGE_NAMES = {
     'english': 'English',
     'spanish': 'Español (Spanish)',
+
     'french': 'Français (French)',
+
     'italian': 'Italiano (Italian)',
+
     'chinese': '中文 (Chinese)',
-    'amharic': 'አማርኛ (Amharic)',
-    'tigrinya': 'ትግርኛ (Tigrinya)',
-    'oromo': 'Afaan Oromoo (Oromo)',
-    'somali': 'Af-Soomaali (Somali)',
+
     'arabic': 'العربية (Arabic)',
+
+    'amharic': 'አማርኛ (Amharic)',
+
+    'tigrinya': 'ትግርኛ (Tigrinya)',
+
+    'oromo': 'Afaan Oromoo (Oromo)',
+
+    'somali': 'Af-Soomaali (Somali)',
     'hadiyaa': 'Hadiyyisa (Hadiyaa)',
-    'wolyitta': 'Wolaytta (Wolayitta)',
+    'hadiyaa_phonetic': 'Hadiyaa (Phonetic)',
+    'wolayitta': 'Wolaytta (Wolayitta)',
+
     'afar': 'Qafar (Afar)',
+    'afar_phonetic': 'Afar (Phonetic)',
     'gamo': 'Gamoñña (Gamo)',
+
     'swahili': 'Kiswahili (Swahili)',
+
     'kinyarwanda': 'Ikinyarwanda (Kinyarwanda)',
+
     'kirundi': 'Ikirundi (Kirundi)',
-    'luo': 'Dholuo (Luo)'
+    'kirundi_phonetic': 'Kirundi (Phonetic)',
+    'luo': 'Dholuo (Luo)',
+    'luo_phonetic': 'Luo (Phonetic)',
+    'luganda': 'Luganda',
+    'dinka': 'Dinka',
+    'nuer': 'Nuer',
+    'korean': '한국어 (Korean)',
+    'hindi': 'हिन्दी (Hindi)',
+    'bengali': 'বাংলা (Bengali)',
+    'telugu': 'తెలుగు (Telugu)',
+    'kurdish': 'Kurdî (Kurdish)',
+    'farsi': 'فارسی (Farsi)',
+    'bantu': 'Bantu',
+    'german': 'Deutsch (German)'
 };
 
 // Server configuration
@@ -60,6 +99,7 @@ const VALIDATION = {
     MIN_TEXT_LENGTH: 1,
     MAX_AUDIO_AGE_HOURS: 24  // Auto-cleanup audio files older than this
 };
+
 
 // Audio file configuration
 const AUDIO_CONFIG = {

@@ -1,0 +1,20 @@
+{
+  "test_phrases": {
+    "greeting": "Hello, how are you?",
+    "goodbye": "Goodbye, have a safe trip",
+    "thank_you": "Thank you very much",
+    "welcome": "Welcome to Ethiopia"
+  },
+  "airport_basics": {
+    "check_in": "Where is the check-in counter?",
+    "boarding_pass": "Here is my boarding pass",
+    "baggage": "I have two bags to check",
+    "gate": "What is my gate number?"
+  },
+  "common_questions": {
+    "help": "Can you help me?",
+    "restroom": "Where is the restroom?",
+    "food": "Where can I get food?",
+    "time": "What time does the flight leave?"
+  }
+}
