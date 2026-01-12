@@ -5,7 +5,6 @@
 
 // Supported languages configuration
 const LANGUAGES = [
-
   "english",
   "spanish",
   "french",
@@ -33,8 +32,8 @@ const LANGUAGES = [
   "telugu",
   "kurdish",
   "farsi",
+  "bantu",
   "german"
-
 ];
 
 // Language display names (native + English)

@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .hover-shadow {
             transition: all 0.3s ease;
@@ -32,88 +34,109 @@
         </header>
 
         <main class="container my-5">
-            <!-- Language Selection Card (shown initially) -->
-            <div class="card mb-4" id="languageSelectionCard">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">
-                        <i class="bi bi-translate me-2"></i><%= ui.selectYourLanguages || 'Select Your Languages' %>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">
-                                <i class="bi bi-house-heart me-2"></i><%= ui.myNativeLanguage || 'My Native Language' %>
-                            </label>
-                            <select class="form-select form-select-lg" id="nativeLanguage">
-                                <option value=""><%= ui.chooseNativeLanguage || 'Choose your native language...' %></option>
-                                <% languages.forEach(lang => { %>
-                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
-                                <% }); %>
-                            </select>
-                            <small class="text-muted"><%= ui.nativeLanguageHelp || 'The language you\'re most comfortable with' %></small>
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <!-- Language Selection Card (shown initially) -->
+                    <div class="card mb-4" id="languageSelectionCard">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-translate me-2"></i><%= ui.selectYourLanguages || 'Select Your Languages' %>
+                            </h5>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">
-                                <i class="bi bi-book me-2"></i><%= ui.languageToLearn || 'Language I Want to Learn' %>
-                            </label>
-                            <select class="form-select form-select-lg" id="learningLanguage">
-                                <option value=""><%= ui.chooseTargetLanguage || 'Choose language to learn...' %></option>
-                                <% languages.forEach(lang => { %>
-                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
-                                <% }); %>
-                            </select>
-                            <small class="text-muted"><%= ui.targetLanguageHelp || 'The language you want to practice' %></small>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="bi bi-house-heart me-2"></i><%= ui.myNativeLanguage || 'My Native Language' %>
+                                    </label>
+                                    <select class="form-select form-select-lg" id="nativeLanguage">
+                                        <option value=""><%= ui.chooseNativeLanguage || 'Choose your native language...' %></option>
+                                        <% languages.forEach(lang => { %>
+                                            <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                        <% }); %>
+                                    </select>
+                                    <small class="text-muted"><%= ui.nativeLanguageHelp || 'The language you\'re most comfortable with' %></small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="bi bi-book me-2"></i><%= ui.languageToLearn || 'Language I Want to Learn' %>
+                                    </label>
+                                    <select class="form-select form-select-lg" id="learningLanguage">
+                                        <option value=""><%= ui.chooseTargetLanguage || 'Choose language to learn...' %></option>
+                                        <% languages.forEach(lang => { %>
+                                            <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                        <% }); %>
+                                    </select>
+                                    <small class="text-muted"><%= ui.targetLanguageHelp || 'The language you want to practice' %></small>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <button class="btn btn-primary btn-lg" id="confirmLanguages" disabled>
+                                    <i class="bi bi-check-circle me-2"></i><%= ui.continueToConversations || 'Continue to Conversations' %>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4 text-center">
-                        <button class="btn btn-primary btn-lg" id="confirmLanguages" disabled>
-                            <i class="bi bi-check-circle me-2"></i><%= ui.continueToConversations || 'Continue to Conversations' %>
+
+                    <!-- Info Alert -->
+                    <div class="alert alert-info mb-4" id="conversationsInfo" style="display: none;">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong><%= ui.interactiveConversations || 'Interactive Conversations' %>:</strong> <%= ui.conversationsDescription || 'Practice real-world scenarios with native pronunciation. Click any conversation to start learning!' %>
+                        <button class="btn btn-sm btn-outline-info float-end" id="changeLanguages">
+                            <i class="bi bi-arrow-left-right me-1"></i><%= ui.changeLanguages || 'Change Languages' %>
                         </button>
                     </div>
-                </div>
-            </div>
 
-            <!-- Info Alert -->
-            <div class="alert alert-info mb-4" id="conversationsInfo" style="display: none;">
-                <i class="bi bi-info-circle me-2"></i>
-                <strong><%= ui.interactiveConversations || 'Interactive Conversations' %>:</strong> <%= ui.conversationsDescription || 'Practice real-world scenarios with native pronunciation. Click any conversation to start learning!' %>
-                <button class="btn btn-sm btn-outline-info float-end" id="changeLanguages">
-                    <i class="bi bi-arrow-left-right me-1"></i><%= ui.changeLanguages || 'Change Languages' %>
-                </button>
-            </div>
-
-            <!-- Filters -->
-            <div class="card mb-4" id="filtersCard" style="display: none;">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label"><%= ui.filterContext || 'Context' %></label>
-                            <select class="form-select" id="filterContext">
-                                <option value=""><%= ui.allContexts || 'All Contexts' %></option>
-                                <% indexData.contexts.forEach(ctx => { %>
-                                    <option value="<%= ctx.context_id %>">
-                                        <%= ctx.icon %> <%= ctx.context_name %>
-                                    </option>
-                                <% }); %>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label"><%= ui.filterDifficulty || 'Difficulty' %></label>
-                            <select class="form-select" id="filterDifficulty">
-                                <option value=""><%= ui.allLevels || 'All Levels' %></option>
-                                <option value="beginner"><%= ui.beginner || 'Beginner' %></option>
-                                <option value="intermediate"><%= ui.intermediate || 'Intermediate' %></option>
-                                <option value="advanced"><%= ui.advanced || 'Advanced' %></option>
-                            </select>
+                    <!-- Filters -->
+                    <div class="card mb-4" id="filtersCard" style="display: none;">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label"><%= ui.filterContext || 'Context' %></label>
+                                    <select class="form-select" id="filterContext">
+                                        <option value=""><%= ui.allContexts || 'All Contexts' %></option>
+                                        <% indexData.contexts.forEach(ctx => { %>
+                                            <option value="<%= ctx.context_id %>">
+                                                <%= ctx.icon %> <%= ctx.context_name %>
+                                            </option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label"><%= ui.filterDifficulty || 'Difficulty' %></label>
+                                    <select class="form-select" id="filterDifficulty">
+                                        <option value=""><%= ui.allLevels || 'All Levels' %></option>
+                                        <option value="beginner"><%= ui.beginner || 'Beginner' %></option>
+                                        <option value="intermediate"><%= ui.intermediate || 'Intermediate' %></option>
+                                        <option value="advanced"><%= ui.advanced || 'Advanced' %></option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Conversations Grid -->
-            <div id="conversationsGrid" class="row g-4" style="display: none;">
-                <!-- Will be populated by JavaScript -->
+                    <!-- Conversations Grid -->
+                    <div id="conversationsGrid" class="row g-4" style="display: none;">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                <!-- Advert Frame: Only show if advertForLanguage is present -->
+                <% if (typeof advertForLanguage !== 'undefined' && advertForLanguage) { %>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <aside class="card shadow-sm h-100 mt-4 mt-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-megaphone me-2"></i>Sponsored Advert</h5>
+                            <div class="mb-2"><%= advertForLanguage.content %></div>
+                            <% if (advertForLanguage.file) { %>
+                                <div class="mb-2">
+                                    <img src="/uploads/<%= advertForLanguage.file %>" alt="Advert Media" class="img-fluid rounded">
+                                </div>
+                            <% } %>
+                            <div class="text-muted small">Advertiser: <%= advertForLanguage.email %></div>
+                        </div>
+                    </aside>
+                </div>
+                <% } %>
             </div>
         </main>
 
@@ -314,7 +337,25 @@
             return badges[difficulty] || '<span class="badge bg-secondary">N/A</span>';
         }
     </script>
-    <script src="/js/select2-init.js"></script>
+    <!-- jQuery (required for Select2) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#nativeLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose your native language...'
+            }).on('select2:select', function() {
+                this.dispatchEvent(new Event('change'));
+            });
+            $('#learningLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose language to learn...'
+            }).on('select2:select', function() {
+                this.dispatchEvent(new Event('change'));
+            });
+        });
+    </script>
 </body>
 </html>
-

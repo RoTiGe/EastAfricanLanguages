@@ -71,6 +71,13 @@
             background: linear-gradient(135deg, #b02a37 0%, #842029 100%);
             border-color: #dc3545;
         }
+        .language-card.south-asian {
+            background: linear-gradient(135deg, #fd7e14 0%, #e55a00 100%);
+        }
+        .language-card.south-asian:hover {
+            background: linear-gradient(135deg, #e55a00 0%, #cc4d00 100%);
+            border-color: #fd7e14;
+        }
         .step-indicator {
             display: flex;
             justify-content: center;
@@ -220,7 +227,18 @@
             'swahili': '💧',
             'kinyarwanda': '⛰️',
             'kirundi': '🏠',
-            'luo': '🐟'
+            'luo': '🐟',
+            'luganda': '🏡',
+            'dinka': '🌾',
+            'nuer': '🌿',
+            'korean': '🎮',
+            'hindi': '🕉️',
+            'bengali': '🪶',
+            'telugu': '🏆',
+            'kurdish': '🏔️',
+            'farsi': '📖',
+            'bantu': '🌍',
+            'german': '🍺'
         };
         
         // Regional classification for color schemes
@@ -229,8 +247,15 @@
             'spanish': 'european',
             'french': 'european',
             'italian': 'european',
+            'german': 'european',
             'chinese': 'middle-eastern',
             'arabic': 'middle-eastern',
+            'farsi': 'middle-eastern',
+            'kurdish': 'middle-eastern',
+            'korean': 'middle-eastern',
+            'hindi': 'south-asian',
+            'bengali': 'south-asian',
+            'telugu': 'south-asian',
             'amharic': 'horn-africa',
             'tigrinya': 'horn-africa',
             'oromo': 'horn-africa',
@@ -243,7 +268,11 @@
             'swahili': 'east-african',
             'kinyarwanda': 'east-african',
             'kirundi': 'east-african',
-            'luo': 'east-african'
+            'luo': 'east-african',
+            'luganda': 'east-african',
+            'dinka': 'east-african',
+            'nuer': 'east-african',
+            'bantu': 'east-african'
         };
         
         let selectedNative = null;

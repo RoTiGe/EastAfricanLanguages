@@ -79,15 +79,15 @@
         }
         
         .word-text {
-            font-size: 1rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: #1f2937;
             text-align: center;
             white-space: nowrap;
         }
-        
+
         .word-phonetic {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: #6b7280;
             font-style: italic;
             text-align: center;
@@ -212,11 +212,11 @@
             }
             
             .word-text {
-                font-size: 0.85rem;
+                font-size: 1.1rem;
             }
-            
+
             .word-phonetic {
-                font-size: 0.65rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -249,6 +249,11 @@
                     <h4 class="card-title mb-4">
                         <i class="bi bi-translate me-2"></i>Select Your Languages
                     </h4>
+
+                    <div class="alert alert-info mb-4">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong>How to play:</strong> Drag words from the left column and drop them onto their matching translations on the right. Match all pairs as quickly as you can!
+                    </div>
                     
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -905,12 +910,26 @@
             return newArray;
         }
     </script>
-</body>
-</html>
 
     <!-- jQuery (required for Select2) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- Select2 Initializer -->
-    <script src="/js/select2-init.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#nativeLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose your language...'
+            }).on('select2:select', function() {
+                this.dispatchEvent(new Event('change'));
+            });
+            $('#targetLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose target language...'
+            }).on('select2:select', function() {
+                this.dispatchEvent(new Event('change'));
+            });
+        });
+    </script>
+</body>
+</html>

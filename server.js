@@ -12,10 +12,25 @@ const fsSync = require('fs');
 const config = require('./config');
 const rateLimit = require('express-rate-limit');
 const multer = require('multer');
+const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = config.SERVER_CONFIG.EXPRESS_PORT;
 const TTS_SERVICE_URL = config.SERVER_CONFIG.TTS_SERVICE_URL;
+
+// ============================================================================
+// MONGODB CONNECTION
+// ============================================================================
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sound_training';
+
+mongoose.connect(MONGODB_URI)
+    .then(() => console.log('✅ Connected to MongoDB'))
+    .catch(err => console.log('⚠️ MongoDB connection optional:', err.message));
+
+// Import Advert model
+const Advert = require('./models/advert');
 
 // ============================================================================
 // UNIFIED TRANSLATIONS CACHE
@@ -141,7 +156,7 @@ app.use((req, res, next) => {
 
     const cspDirectives = [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com",
         "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
         "font-src 'self' data: https://cdn.jsdelivr.net",
         "img-src 'self' data: https: blob:",
@@ -490,7 +505,7 @@ app.get('/api/translate/:sourceLanguage/:targetLanguage/:category/:english', asy
 // Home page
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'African Translator',
+        title: 'Language Bridge - Free Multi-Language Translator',
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
@@ -813,11 +828,7 @@ app.get('/demo/:language', async (req, res) => {
         res.status(500).render('error', { message: 'Failed to load language data' });
     }
 });
-            express: 'ok',
-            tts: 'unavailable'
-        });
-    }
-});
+
 
 // Chrome DevTools well-known endpoint (silences console warning)
 // This is optional - only to prevent DevTools CSP warnings
@@ -966,13 +977,16 @@ app.get('/conversations', async (req, res) => {
             console.error(`Error loading UI for native language ${nativeLanguage}:`, error);
         }
 
+        // Find a verified advert for the native language (show the first one)
+        const advertForLanguage = verifiedAdverts.find(a => a.language === nativeLanguage);
         res.render('conversations/index', {
             title: ui.conversationsTitle || 'Contextual Conversations',
             indexData: indexData,
             nativeLanguage: nativeLanguage,
             ui: ui,
             languages: config.LANGUAGES,
-            languageNames: config.LANGUAGE_NAMES
+            languageNames: config.LANGUAGE_NAMES,
+            advertForLanguage
         });
     } catch (error) {
         console.error('Error loading conversations index:', error);
@@ -1083,6 +1097,172 @@ app.get('/api/advanced/categories', async (req, res) => {
         console.error('Error loading categories:', error);
         res.status(500).json({ error: 'Failed to load categories' });
     }
+});
+
+// ============================================================================
+// ADVERT ROUTES
+// ============================================================================
+
+// Configure multer for advert image uploads
+const advertStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        const uploadDir = path.join(__dirname, 'public', 'uploads', 'adverts');
+        if (!fsSync.existsSync(uploadDir)) {
+            fsSync.mkdirSync(uploadDir, { recursive: true });
+        }
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
+        const uniqueName = `${uuidv4()}${path.extname(file.originalname)}`;
+        cb(null, uniqueName);
+    }
+});
+
+const advertUpload = multer({
+    storage: advertStorage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|png|gif|webp/;
+        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        const mimetype = allowedTypes.test(file.mimetype);
+        if (extname && mimetype) {
+            cb(null, true);
+        } else {
+            cb(new Error('Only image files are allowed'));
+        }
+    }
+});
+
+// Get all verified adverts (public)
+app.get('/api/adverts', async (req, res) => {
+    try {
+        const { language } = req.query;
+        const filter = { verified: true, expiresAt: { $gt: new Date() } };
+        if (language) filter.language = language;
+
+        const adverts = await Advert.find(filter).sort({ createdAt: -1 }).limit(20);
+        res.json(adverts);
+    } catch (error) {
+        console.error('Error fetching adverts:', error);
+        res.status(500).json({ error: 'Failed to fetch adverts' });
+    }
+});
+
+// Get adverts by language
+app.get('/api/adverts/language/:language', async (req, res) => {
+    try {
+        const language = req.params.language;
+        const adverts = await Advert.find({
+            language,
+            verified: true,
+            expiresAt: { $gt: new Date() }
+        }).sort({ createdAt: -1 });
+        res.json(adverts);
+    } catch (error) {
+        console.error('Error fetching adverts:', error);
+        res.status(500).json({ error: 'Failed to fetch adverts' });
+    }
+});
+
+// Submit a new advert
+app.post('/api/adverts', advertUpload.single('image'), async (req, res) => {
+    try {
+        const { email, language, title, description } = req.body;
+
+        if (!email || !language || !title || !description) {
+            return res.status(400).json({ error: 'Missing required fields' });
+        }
+
+        // Generate verification token
+        const verificationToken = uuidv4();
+
+        // Set expiration to 30 days from now
+        const expiresAt = new Date();
+        expiresAt.setDate(expiresAt.getDate() + 30);
+
+        const advert = new Advert({
+            email,
+            language,
+            title,
+            description,
+            imagePath: req.file ? `/uploads/adverts/${req.file.filename}` : null,
+            verificationToken,
+            expiresAt,
+            verified: false
+        });
+
+        await advert.save();
+
+        // In production, you would send a verification email here
+        console.log(`📧 Verification link: /api/adverts/verify/${verificationToken}`);
+
+        res.status(201).json({
+            message: 'Advert submitted successfully. Please check your email for verification.',
+            advertId: advert._id
+        });
+    } catch (error) {
+        console.error('Error creating advert:', error);
+        res.status(500).json({ error: 'Failed to create advert' });
+    }
+});
+
+// Verify an advert
+app.get('/api/adverts/verify/:token', async (req, res) => {
+    try {
+        const advert = await Advert.findOne({ verificationToken: req.params.token });
+
+        if (!advert) {
+            return res.status(404).json({ error: 'Invalid verification token' });
+        }
+
+        advert.verified = true;
+        advert.verificationToken = null;
+        await advert.save();
+
+        res.json({ message: 'Advert verified successfully!' });
+    } catch (error) {
+        console.error('Error verifying advert:', error);
+        res.status(500).json({ error: 'Failed to verify advert' });
+    }
+});
+
+// Delete an advert (by email owner)
+app.delete('/api/adverts/:id', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const advert = await Advert.findById(req.params.id);
+
+        if (!advert) {
+            return res.status(404).json({ error: 'Advert not found' });
+        }
+
+        if (advert.email !== email) {
+            return res.status(403).json({ error: 'Unauthorized' });
+        }
+
+        // Delete the image file if it exists
+        if (advert.imagePath) {
+            const imagePath = path.join(__dirname, 'public', advert.imagePath);
+            if (fsSync.existsSync(imagePath)) {
+                fsSync.unlinkSync(imagePath);
+            }
+        }
+
+        await Advert.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Advert deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting advert:', error);
+        res.status(500).json({ error: 'Failed to delete advert' });
+    }
+});
+
+// Adverts page
+app.get('/adverts', (req, res) => {
+    res.render('adverts', {
+        title: 'Community Adverts',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES
+    });
 });
 
 // Start server

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -25,9 +27,6 @@
                 <p class="text-center lead">Communicate across languages in real-time</p>
             </div>
         </header>
-
-    <!-- Select2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
         <!-- Main Content -->
         <main class="container my-4">
@@ -53,25 +52,25 @@
                     </h3>
                     <div class="row g-3">
                         <div class="col-12 col-md-6">
-                            <label for="sourceLanguage" class="form-label fw-semibold">
-                                <i class="bi bi-person-fill me-2"></i>Your Language (Source)
+                            <label for="sourceLanguage" class="form-label fw-bold">
+                                <i class="bi bi-person-fill me-2"></i>Your Native Language
                             </label>
                             <select id="sourceLanguage" class="form-select form-select-lg">
-                                <option value="">-- Select your language --</option>
-                                <% languages.forEach(language => { %>
-                                <option value="<%= language %>"><%= languageNames[language] || language %></option>
-                                <% }) %>
+                                <option value="">Choose your language...</option>
+                                <% Object.keys(languageNames).filter(lang => !lang.includes('_phonetic')).forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
                             </select>
                         </div>
                         <div class="col-12 col-md-6">
-                            <label for="targetLanguage" class="form-label fw-semibold">
-                                <i class="bi bi-person-badge-fill me-2"></i>Their Language (Target)
+                            <label for="targetLanguage" class="form-label fw-bold">
+                                <i class="bi bi-person-badge-fill me-2"></i>Target Language to Learn
                             </label>
                             <select id="targetLanguage" class="form-select form-select-lg">
-                                <option value="">-- Select target language --</option>
-                                <% languages.forEach(language => { %>
-                                <option value="<%= language %>"><%= languageNames[language] || language %></option>
-                                <% }) %>
+                                <option value="">Choose target language...</option>
+                                <% Object.keys(languageNames).filter(lang => !lang.includes('_phonetic')).forEach(lang => { %>
+                                    <option value="<%= lang %>"><%= languageNames[lang] %></option>
+                                <% }); %>
                             </select>
                         </div>
                     </div>
@@ -184,14 +183,30 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="/js/translate.js?v=2.1"></script>
-</body>
-</html>
-
     <!-- jQuery (required for Select2) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- Select2 Initializer -->
-    <script src="/js/select2-init.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/translate.js?v=2.1"></script>
+    <script>
+        // Initialize Select2 on language dropdowns
+        $(document).ready(function() {
+            $('#sourceLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose your language...'
+            }).on('select2:select', function() {
+                // Trigger the native change event for translate.js
+                this.dispatchEvent(new Event('change'));
+            });
+            $('#targetLanguage').select2({
+                width: '100%',
+                placeholder: 'Choose target language...'
+            }).on('select2:select', function() {
+                // Trigger the native change event for translate.js
+                this.dispatchEvent(new Event('change'));
+            });
+        });
+    </script>
+</body>
+</html>

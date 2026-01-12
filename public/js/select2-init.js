@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     document.body.appendChild(script);
 
-    // Load jQuery if not present
+    // Load jQuery if not present (use jsdelivr to comply with CSP)
     if (!window.jQuery) {
         var jq = document.createElement('script');
-        jq.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+        jq.src = 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js';
         jq.onload = function() {
             document.body.appendChild(script);
         };
