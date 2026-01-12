@@ -552,6 +552,34 @@ app.get('/about', (req, res) => {
     });
 });
 
+// Learn Letters page
+app.get('/learn-letters', (req, res) => {
+    // Load alphabets data from JSON file
+    let alphabets = {};
+    let pronunciationTranslations = {};
+    try {
+        const alphabetsPath = path.join(__dirname, 'data', 'alphabets.json');
+        if (fsSync.existsSync(alphabetsPath)) {
+            alphabets = JSON.parse(fsSync.readFileSync(alphabetsPath, 'utf8'));
+        }
+        // Load pronunciation translations for native language support
+        const pronunciationPath = path.join(__dirname, 'data', 'pronunciation_translations.json');
+        if (fsSync.existsSync(pronunciationPath)) {
+            pronunciationTranslations = JSON.parse(fsSync.readFileSync(pronunciationPath, 'utf8'));
+        }
+    } catch (err) {
+        console.error('Error loading alphabets or pronunciation data:', err);
+    }
+
+    res.render('learn-letters', {
+        title: 'Learn to Read & Spell Letters',
+        languages: config.LANGUAGES,
+        languageNames: config.LANGUAGE_NAMES,
+        alphabets: alphabets,
+        pronunciationTranslations: pronunciationTranslations
+    });
+});
+
 // Matching Game page
 app.get('/matching-game', (req, res) => {
     res.render('matching-game', {
@@ -842,7 +870,7 @@ app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
     // Set a permissive CSP for this endpoint only to silence DevTools warning
     res.set('Content-Security-Policy', [
         "default-src 'none'",
-        "connect-src 'self' devtools://*",
+        "connect-src 'self' devtools://* http://localhost:3000 http://127.0.0.1:3000",
     ].join('; '));
     res.status(404).json({
         error: 'Not found',

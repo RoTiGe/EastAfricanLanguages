@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Letters - Sound Training</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="text-white py-4 position-relative">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <h1 class="text-center display-5 fw-bold">Learn to Read & Spell Letters</h1>
+                <p class="text-center lead">Select a language to see its alphabet and pronunciation guide</p>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-5">
+                    <label for="languageSelect" class="form-label fw-semibold">
+                        <i class="bi bi-translate me-2"></i>Language to Learn:
+                    </label>
+                    <select id="languageSelect" class="form-select form-select-lg">
+                        <option value="">-- Select a language --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="nativeLanguageSelect" class="form-label fw-semibold">
+                        <i class="bi bi-person-circle me-2"></i>Your Native Language:
+                    </label>
+                    <select id="nativeLanguageSelect" class="form-select form-select-lg">
+                        <option value="english">English</option>
+                    </select>
+                    <small class="text-muted">Pronunciation guide will be shown in your language</small>
+                </div>
+            </div>
+            <div id="alphabetSection" style="display:none;">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h2 class="h4 mb-3" id="alphabetTitle"></h2>
+                        <div id="alphabetTable"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">© 2026 Sound Training - Language Learning Platform</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data rendered server-side
+        const languages = <%- JSON.stringify(languages) %>;
+        const languageNames = <%- JSON.stringify(languageNames) %>;
+        const alphabets = <%- JSON.stringify(alphabets) %>;
+        const pronunciationTranslations = <%- JSON.stringify(pronunciationTranslations) %>;
+
+        // TTS language mapping (for audio pronunciation)
+        const ttsLanguageMap = {
+            'english': 'english',
+            'spanish': 'spanish',
+            'french': 'french',
+            'german': 'german',
+            'arabic': 'arabic',
+            'amharic': 'amharic',
+            'tigrinya': 'tigrinya',
+            'russian': 'russian',
+            'chinese_pinyin': 'chinese',
+            'japanese_hiragana': 'japanese',
+            'korean_hangul': 'korean',
+            'italian': 'italian',
+            'portuguese': 'portuguese',
+            'greek': 'greek',
+            'hebrew': 'hebrew',
+            'hindi': 'hindi',
+            'thai': 'thai',
+            'vietnamese': 'vietnamese',
+            'turkish': 'turkish',
+            'swedish': 'swedish',
+            'dutch': 'dutch'
+        };
+
+        let currentAudio = null;
+        let currentLanguage = '';
+        let currentNativeLanguage = 'english';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('languageSelect');
+            const nativeSelect = document.getElementById('nativeLanguageSelect');
+
+            // Populate native language dropdown
+            if (pronunciationTranslations.native_languages) {
+                nativeSelect.innerHTML = '';
+                Object.entries(pronunciationTranslations.native_languages).forEach(([key, name]) => {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = name;
+                    if (key === 'english') option.selected = true;
+                    nativeSelect.appendChild(option);
+                });
+            }
+
+            // Add languages that have alphabet data first
+            const languagesWithAlphabets = languages.filter(lang => alphabets[lang]);
+            const languagesWithoutAlphabets = languages.filter(lang => !alphabets[lang]);
+
+            if (languagesWithAlphabets.length > 0) {
+                const optgroup1 = document.createElement('optgroup');
+                optgroup1.label = 'Languages with Alphabet Data';
+                languagesWithAlphabets.forEach(lang => {
+                    const option = document.createElement('option');
+                    option.value = lang;
+                    option.textContent = languageNames[lang] || lang;
+                    optgroup1.appendChild(option);
+                });
+                select.appendChild(optgroup1);
+            }
+
+            if (languagesWithoutAlphabets.length > 0) {
+                const optgroup2 = document.createElement('optgroup');
+                optgroup2.label = 'Coming Soon';
+                languagesWithoutAlphabets.forEach(lang => {
+                    const option = document.createElement('option');
+                    option.value = lang;
+                    option.textContent = languageNames[lang] || lang;
+                    option.disabled = true;
+                    optgroup2.appendChild(option);
+                });
+                select.appendChild(optgroup2);
+            }
+
+            select.addEventListener('change', showAlphabet);
+            nativeSelect.addEventListener('change', () => {
+                currentNativeLanguage = nativeSelect.value;
+                showAlphabet(); // Re-render with new native language
+            });
+        });
+
+        // Audio pronunciation function
+        async function speakLetter(letter, lang) {
+            // Stop any currently playing audio
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+
+            // Map to TTS language code
+            const ttsLang = ttsLanguageMap[lang] || lang;
+
+            // Extract just the letter character(s) for pronunciation
+            const letterOnly = letter.split(' ')[0].trim();
+
+            try {
+                const response = await fetch('/api/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: letterOnly, language: ttsLang })
+                });
+
+                if (response.ok) {
+                    const audioBlob = await response.blob();
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    currentAudio = new Audio(audioUrl);
+                    currentAudio.play();
+                } else {
+                    console.log('TTS not available for this language');
+                }
+            } catch (error) {
+                console.log('Audio playback error:', error);
+            }
+        }
+
+        // Generate play button HTML
+        function playButton(letter, lang) {
+            const ttsLang = ttsLanguageMap[lang];
+            if (!ttsLang) return '';
+            return `<button class="btn btn-sm btn-outline-primary ms-2" onclick="speakLetter('${letter.replace(/'/g, "\\'")}', '${lang}')" title="Listen to pronunciation">
+                <i class="bi bi-volume-up"></i>
+            </button>`;
+        }
+
+        // Translate sound to native language
+        function translateSound(sound, nativeLang) {
+            if (!pronunciationTranslations.sound_translations || !pronunciationTranslations.sound_translations[nativeLang]) {
+                return sound; // Return original if no translation available
+            }
+
+            const translations = pronunciationTranslations.sound_translations[nativeLang];
+            const soundLower = sound.toLowerCase().trim();
+
+            // Try to find exact match first
+            for (const [key, value] of Object.entries(translations)) {
+                if (soundLower === key || soundLower.startsWith(key + ' ') || soundLower.includes('/' + key)) {
+                    return value;
+                }
+            }
+
+            // Try to find partial match based on the first sound element
+            const firstSound = soundLower.split(/[\s\/\(]/)[0].replace(/[^a-z]/g, '');
+            if (translations[firstSound]) {
+                return translations[firstSound];
+            }
+
+            // Return original with note if no translation found
+            return sound;
+        }
+
+        // Get native language column header
+        function getNativeColumnHeader() {
+            const nativeLang = currentNativeLanguage;
+            const nativeNames = pronunciationTranslations.native_languages || {};
+            return nativeNames[nativeLang] || 'Your Language';
+        }
+
+        function showAlphabet() {
+            const lang = document.getElementById('languageSelect').value;
+            const section = document.getElementById('alphabetSection');
+            const title = document.getElementById('alphabetTitle');
+            const table = document.getElementById('alphabetTable');
+            currentLanguage = lang;
+            currentNativeLanguage = document.getElementById('nativeLanguageSelect').value || 'english';
+
+            // Check if we should show native column (only if different from English or user selected non-English)
+            const showNativeColumn = currentNativeLanguage !== 'english' ||
+                (pronunciationTranslations.sound_translations && pronunciationTranslations.sound_translations[currentNativeLanguage]);
+
+            if (alphabets[lang]) {
+                section.style.display = '';
+                const data = alphabets[lang];
+                title.textContent = data.name;
+
+                let html = '';
+
+                // Add description if available
+                if (data.description) {
+                    html += `<p class="text-muted mb-3">${data.description}</p>`;
+                }
+
+                // Add special notes if available
+                if (data.special_notes) {
+                    html += `<div class="alert alert-info mb-3"><i class="bi bi-info-circle me-2"></i>${data.special_notes}</div>`;
+                }
+
+                // Build table header based on whether native column should be shown
+                const nativeHeader = currentNativeLanguage !== 'english' ?
+                    `<th style="width:25%">Sound (${getNativeColumnHeader()})</th>` : '';
+
+                // Handle regular letters
+                if (data.letters && data.letters.length > 0) {
+                    html += `<table class='table table-bordered table-hover'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th style="width:15%">Letter</th>
+                                <th style="width:20%">Sound (English)</th>
+                                ${nativeHeader}
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>` +
+                        data.letters.map(l => {
+                            const nativeCell = currentNativeLanguage !== 'english' ?
+                                `<td class="text-success"><em>${translateSound(l.sound, currentNativeLanguage)}</em></td>` : '';
+                            return `<tr>
+                                <td class="fs-4 fw-bold">${l.letter}${playButton(l.letter, lang)}</td>
+                                <td><code>${l.sound}</code></td>
+                                ${nativeCell}
+                                <td>${l.example}</td>
+                            </tr>`;
+                        }).join('') +
+                        `</tbody></table>`;
+                }
+
+                // Handle Korean consonants
+                if (data.consonants && data.consonants.length > 0) {
+                    html += `<h5 class="mt-4"><i class="bi bi-alphabet me-2"></i>Consonants (자음)</h5>
+                        <table class='table table-bordered table-hover'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th style="width:15%">Letter</th>
+                                <th style="width:20%">Sound (English)</th>
+                                ${nativeHeader}
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>` +
+                        data.consonants.map(l => {
+                            const nativeCell = currentNativeLanguage !== 'english' ?
+                                `<td class="text-success"><em>${translateSound(l.sound, currentNativeLanguage)}</em></td>` : '';
+                            return `<tr>
+                                <td class="fs-4 fw-bold">${l.letter}${playButton(l.letter, lang)}</td>
+                                <td><code>${l.sound}</code></td>
+                                ${nativeCell}
+                                <td>${l.example}</td>
+                            </tr>`;
+                        }).join('') +
+                        `</tbody></table>`;
+                }
+
+                // Handle Korean vowels
+                if (data.vowels && data.vowels.length > 0) {
+                    html += `<h5 class="mt-4"><i class="bi bi-alphabet me-2"></i>Vowels (모음)</h5>
+                        <table class='table table-bordered table-hover'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th style="width:15%">Letter</th>
+                                <th style="width:20%">Sound (English)</th>
+                                ${nativeHeader}
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>` +
+                        data.vowels.map(l => {
+                            const nativeCell = currentNativeLanguage !== 'english' ?
+                                `<td class="text-success"><em>${translateSound(l.sound, currentNativeLanguage)}</em></td>` : '';
+                            return `<tr>
+                                <td class="fs-4 fw-bold">${l.letter}${playButton(l.letter, lang)}</td>
+                                <td><code>${l.sound}</code></td>
+                                ${nativeCell}
+                                <td>${l.example}</td>
+                            </tr>`;
+                        }).join('') +
+                        `</tbody></table>`;
+                }
+
+                // Handle Chinese Pinyin initials
+                if (data.initials && data.initials.length > 0) {
+                    html += `<h5 class="mt-4"><i class="bi bi-alphabet me-2"></i>Initials (声母)</h5>
+                        <table class='table table-bordered table-hover'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th style="width:15%">Initial</th>
+                                <th style="width:20%">Sound (English)</th>
+                                ${nativeHeader}
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>` +
+                        data.initials.map(l => {
+                            const nativeCell = currentNativeLanguage !== 'english' ?
+                                `<td class="text-success"><em>${translateSound(l.sound, currentNativeLanguage)}</em></td>` : '';
+                            return `<tr>
+                                <td class="fs-4 fw-bold">${l.letter}${playButton(l.letter, lang)}</td>
+                                <td><code>${l.sound}</code></td>
+                                ${nativeCell}
+                                <td>${l.example}</td>
+                            </tr>`;
+                        }).join('') +
+                        `</tbody></table>`;
+                }
+
+                // Handle Chinese Pinyin tones
+                if (data.tones && data.tones.length > 0) {
+                    html += `<h5 class="mt-4"><i class="bi bi-music-note me-2"></i>Tones (声调)</h5>
+                        <table class='table table-bordered table-hover'>
+                        <thead class='table-dark'>
+                            <tr><th style="width:20%">Tone</th><th style="width:25%">Description</th><th>Example</th></tr>
+                        </thead>
+                        <tbody>` +
+                        data.tones.map(t => `<tr>
+                            <td class="fs-5 fw-bold">${t.tone}</td>
+                            <td>${t.description}</td>
+                            <td>${t.example}${playButton(t.example.split(' ')[0], lang)}</td>
+                        </tr>`).join('') +
+                        `</tbody></table>`;
+                }
+
+                table.innerHTML = html;
+            } else {
+                section.style.display = 'none';
+                title.textContent = '';
+                table.innerHTML = '';
+            }
+        }
+    </script>
+    <!-- jQuery (required for Select2) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#languageSelect').select2({
+                width: '100%',
+                placeholder: '-- Select a language --'
+            }).on('select2:select', function() {
+                showAlphabet();
+            });
+        });
+    </script>
+</body>
+</html>
