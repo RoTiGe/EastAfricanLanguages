@@ -19,7 +19,9 @@
       "use_cases": ["tourism", "daily_life", "business"],
       "file": "multilanguage_restaurant.json",
       "format": "multilanguage",
-      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "available_languages": [
+        "english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo", "luganda", "dinka", "nuer", "korean", "hindi", "bengali", "telugu", "kurdish", "farsi", "bantu", "german"
+      ],
       "difficulty": "intermediate",
       "stages": 3,
       "estimated_time": "10-15 minutes",
@@ -54,7 +56,9 @@
       "use_cases": ["daily_life", "tourism", "cultural_exchange"],
       "file": "multilanguage_market.json",
       "format": "multilanguage",
-      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "available_languages": [
+        "english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo", "luganda", "dinka", "nuer", "korean", "hindi", "bengali", "telugu", "kurdish", "farsi", "bantu", "german"
+      ],
       "difficulty": "beginner",
       "stages": 2,
       "estimated_time": "8-12 minutes",
@@ -86,7 +90,9 @@
       "use_cases": ["tourism", "business", "travel"],
       "file": "multilanguage_airport.json",
       "format": "multilanguage",
-      "available_languages": ["english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo"],
+      "available_languages": [
+        "english", "spanish", "french", "italian", "chinese", "arabic", "amharic", "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda", "kirundi", "luo", "luganda", "dinka", "nuer", "korean", "hindi", "bengali", "telugu", "kurdish", "farsi", "bantu", "german"
+      ],
       "difficulty": "intermediate",
       "stages": 3,
       "estimated_time": "12-15 minutes",
