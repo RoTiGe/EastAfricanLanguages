@@ -220,4 +220,4 @@ Sound_Training/
 
 ## License
 
-MIT
+None
