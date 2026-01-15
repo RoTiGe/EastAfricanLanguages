@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Language Bridge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .verse-card { transition: all 0.3s ease; border-left: 4px solid #6f42c1; }
+        .verse-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .religion-badge { font-size: 0.75rem; }
+        .language-pill { font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+        .language-pill:hover { transform: scale(1.05); }
+        .language-pill.active { background-color: #6f42c1 !important; color: white !important; }
+        .translation-text { font-size: 1.1rem; line-height: 1.6; }
+        .scripture-ref { font-style: italic; color: #6c757d; }
+        .nav-tabs .nav-link { color: #495057; }
+        .nav-tabs .nav-link.active { color: #6f42c1; border-color: #6f42c1 #6f42c1 #fff; font-weight: 600; }
+        .hero-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="hero-section text-white py-5">
+            <div class="container">
+                <a href="/" class="btn btn-light position-absolute top-0 start-0 m-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                </a>
+                <div class="text-center">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="bi bi-heart-fill me-3"></i>Close to Heart
+                    </h1>
+                    <p class="lead mb-0">Sacred wisdom from world traditions, in your language</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <!-- Dual Language Selection -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3"><i class="bi bi-translate me-2"></i>Select Languages</h5>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label for="nativeLanguageSelect" class="form-label fw-bold">
+                                <i class="bi bi-person-fill me-2"></i>Your Native Language
+                            </label>
+                            <select id="nativeLanguageSelect" class="form-select form-select-lg" style="max-height: 300px; overflow-y: auto;">
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>" <%= lang === 'english' ? 'selected' : '' %>><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="targetLanguageSelect" class="form-label fw-bold">
+                                <i class="bi bi-person-badge-fill me-2"></i>Target Language to Learn
+                            </label>
+                            <select id="targetLanguageSelect" class="form-select form-select-lg" style="max-height: 300px; overflow-y: auto;">
+                                <% languages.forEach(lang => { %>
+                                    <option value="<%= lang %>" <%= lang === 'spanish' ? 'selected' : '' %>><%= languageNames[lang] %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs nav-justified mb-4" id="contentTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="beatitudes-tab" data-bs-toggle="tab" data-bs-target="#beatitudes" type="button">
+                        <i class="bi bi-book me-2"></i>The Beatitudes
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="wisdom-tab" data-bs-toggle="tab" data-bs-target="#wisdom" type="button">
+                        <i class="bi bi-globe me-2"></i>World Religions Wisdom
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="contentTabsContent">
+                <!-- Beatitudes Tab -->
+                <div class="tab-pane fade show active" id="beatitudes" role="tabpanel">
+                    <div class="alert alert-light border mb-4">
+                        <h5 class="mb-2"><i class="bi bi-info-circle me-2"></i>About the Beatitudes</h5>
+                        <p class="mb-0">The Beatitudes are teachings from Jesus Christ's Sermon on the Mount (Matthew 5:3-12), describing the qualities of those who are blessed by God.</p>
+                    </div>
+                    <div class="row g-4" id="beatitudesContainer">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- World Wisdom Tab -->
+                <div class="tab-pane fade" id="wisdom" role="tabpanel">
+                    <div class="alert alert-light border mb-4">
+                        <h5 class="mb-2"><i class="bi bi-info-circle me-2"></i>Wisdom from World Religions</h5>
+                        <p class="mb-0">Core teachings and sacred verses from major world religions, presented with respect and appreciation for each tradition.</p>
+                    </div>
+                    <div class="row g-4" id="wisdomContainer">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p class="mb-0">© 2026 Language Bridge - Close to Heart</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const beatitudesData = <%- JSON.stringify(beatitudes) %>;
+        const wisdomData = <%- JSON.stringify(wisdom) %>;
+        const languageNames = <%- JSON.stringify(languageNames) %>;
+        let nativeLanguage = 'english';
+        let targetLanguage = 'spanish';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBeatitudes();
+            renderWisdom();
+            document.getElementById('nativeLanguageSelect').addEventListener('change', (e) => {
+                nativeLanguage = e.target.value;
+                renderBeatitudes();
+                renderWisdom();
+            });
+            document.getElementById('targetLanguageSelect').addEventListener('change', (e) => {
+                targetLanguage = e.target.value;
+                renderBeatitudes();
+                renderWisdom();
+            });
+        });
+
+        function renderBeatitudes() {
+            const container = document.getElementById('beatitudesContainer');
+            const items = beatitudesData.content?.sections?.[0]?.items;
+            if (!items) { container.innerHTML = '<p class="text-muted">No beatitudes data available.</p>'; return; }
+
+            container.innerHTML = items.map((b, i) => {
+                const nativeText = b.text[nativeLanguage] || b.text.english || 'Translation not available';
+                const targetText = b.text[targetLanguage] || b.text.english || 'Translation not available';
+                return `
+                    <div class="col-md-6">
+                        <div class="card verse-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-purple text-white" style="background-color: #6f42c1;">${b.reference}</span>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="fw-bold">Your Language:</span>
+                                    <span class="translation-text">${nativeText}</span>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="fw-bold">Target Language:</span>
+                                    <span class="translation-text">${targetText}</span>
+                                    <button class="btn btn-sm btn-outline-primary ms-2" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')">
+                                        <i class="bi bi-volume-up"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderWisdom() {
+            const container = document.getElementById('wisdomContainer');
+            const chapters = wisdomData.chapters;
+            if (!chapters) { container.innerHTML = '<p class="text-muted">No wisdom data available.</p>'; return; }
+
+            const colors = { 'Islam': '#198754', 'Hinduism': '#fd7e14', 'Buddhism': '#ffc107', 'Judaism': '#0d6efd',
+                'Christianity': '#6f42c1', 'Sikhism': '#dc3545', 'Jainism': '#20c997', 'Daoism': '#6c757d',
+                'African Traditional Religions': '#e83e8c', 'Oromo Waaqeffannaa': '#17a2b8' };
+
+            container.innerHTML = chapters.map(ch => {
+                const religionName = ch.religion?.[targetLanguage] || ch.religion?.english || 'Unknown';
+                const source = ch.source?.[targetLanguage] || ch.source?.english || '';
+                const chapterName = ch.chapter_name?.[targetLanguage] || ch.chapter_name?.english || '';
+                const colorKey = ch.religion?.english || '';
+                const color = colors[colorKey] || '#6c757d';
+
+                // Render all verses for this chapter
+                const versesHtml = (ch.verses || []).map(v => {
+                    const nativeText = v.text?.[nativeLanguage] || v.text?.english || 'Translation not available';
+                    const targetText = v.text?.[targetLanguage] || v.text?.english || 'Translation not available';
+                    return `
+                        <div class="mb-3">
+                            <div><span class="fw-bold">Your Language:</span> <span class="translation-text">${nativeText}</span></div>
+                            <div><span class="fw-bold">Target Language:</span> <span class="translation-text">${targetText}</span>
+                                <button class="btn btn-sm btn-outline-primary ms-2" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')">
+                                    <i class="bi bi-volume-up me-1"></i>Listen
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card verse-card h-100" style="border-left-color: ${color};">
+                            <div class="card-header bg-transparent">
+                                <span class="badge religion-badge" style="background-color: ${color};">${religionName}</span>
+                                <small class="text-muted d-block mt-1">${source}</small>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">${chapterName}</h6>
+                                ${versesHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function speakText(text, language) {
+            try {
+                const response = await fetch('/api/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, language })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    const audio = new Audio(data.audioUrl);
+                    audio.play();
+                }
+            } catch (error) { console.error('Speech error:', error); }
+        }
+</script>
+</body>
+</html>
+

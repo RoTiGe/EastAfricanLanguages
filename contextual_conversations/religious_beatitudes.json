@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "id": "religious_beatitudes",
+    "title": {
+      "english": "The Beatitudes",
+      "amharic": "የቅዱስ በረከቶች",
+      "arabic": "التطويبات",
+      "spanish": "Las Bienaventuranzas",
+      "french": "Les Béatitudes",
+      "swahili": "Baraka za Yesu",
+      "chinese": "真福八端",
+      "hindi": "धन्य वचन"
+    },
+    "description": {
+      "english": "The eight blessings spoken by Jesus in the Sermon on the Mount (Matthew 5:3-12)",
+      "amharic": "ኢየሱስ በተራራው ላይ በነገረው ስብከት ያሉ ስምንት በረከቶች (ማቴዎስ 5:3-12)"
+    },
+    "category": "religious_wisdom",
+    "source": {
+      "name": "Gospel of Matthew",
+      "reference": "Matthew 5:3-12",
+      "original_language": "greek"
+    },
+    "year_created": "2026",
+    "version": "1.0",
+    "supported_languages": [
+      "english", "amharic", "arabic", "bengali", "burmese", "filipino", "french",
+      "german", "gujarati", "hausa", "hindi", "indonesian", "italian", "japanese",
+      "javanese", "korean", "mandarin_chinese", "marathi", "odia", "portuguese",
+      "punjabi", "russian", "spanish", "swahili", "tamil", "telugu", "thai",
+      "turkish", "urdu", "vietnamese", "yoruba"
+    ],
+    "tags": ["religion", "christianity", "beatitudes", "sermon_on_mount", "jesus", "blessings"]
+  },
+  "content": {
+    "sections": [
+      {
+        "section_id": "beatitudes",
+        "section_name": {
+          "english": "The Eight Beatitudes",
+          "amharic": "ስምንቱ በረከቶች"
+        },
+        "items": [
+          {
+            "item_id": "beatitude_1",
+            "reference": "Matthew 5:3",
+            "text": {
+              "english": "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
+              "amharic": "በመንፈስ ድኾች የሚሆኑት ብፁዓን ናቸው፤ የሰማይ መንግሥት የእነርሱ ነውና።",
+              "arabic": "طُوبَى لِلْمَسَاكِينِ بِالرُّوحِ، لأَنَّ لَهُمْ مَلَكُوتَ السَّمَاوَاتِ.",
+              "spanish": "Bienaventurados los pobres en espíritu, porque de ellos es el reino de los cielos.",
+              "french": "Heureux les pauvres en esprit, car le royaume des cieux est à eux!",
+              "swahili": "Heri walio maskini wa rohoni, maana ufalme wa mbinguni ni wao.",
+              "mandarin_chinese": "虚心的人有福了！因为天国是他们的。",
+              "hindi": "धन्य हैं वे जो मन के दीन हैं, क्योंकि स्वर्ग का राज्य उन्हीं का है।"
+            }
+          },
+          {
+            "item_id": "beatitude_2",
+            "reference": "Matthew 5:4",
+            "text": {
+              "english": "Blessed are those who mourn, for they will be comforted.",
+              "amharic": "የሚያዝኑ ብፁዓን ናቸው፤ እነርሱ ይጽናሉና።",
+              "arabic": "طُوبَى لِلْحَزَانَى، لأَنَّهُمْ يَتَعَزَّوْنَ.",
+              "spanish": "Bienaventurados los que lloran, porque ellos recibirán consolación.",
+              "french": "Heureux les affligés, car ils seront consolés!",
+              "swahili": "Heri walio huzuni, maana watafarijiwa.",
+              "mandarin_chinese": "哀恸的人有福了！因为他们必得安慰。",
+              "hindi": "धन्य हैं वे जो शोक करते हैं, क्योंकि उन्हें शान्ति मिलेगी।"
+            }
+          },
+          {
+            "item_id": "beatitude_3",
+            "reference": "Matthew 5:5",
+            "text": {
+              "english": "Blessed are the meek, for they will inherit the earth.",
+              "amharic": "ቸጋራዎች ብፁዓን ናቸው፤ እነርሱ ምድርን ይወርሳሉና።",
+              "arabic": "طُوبَى لِلْوُدَعَاءِ، لأَنَّهُمْ يَرِثُونَ الأَرْضَ.",
+              "spanish": "Bienaventurados los mansos, porque ellos recibirán la tierra por heredad.",
+              "french": "Heureux les débonnaires, car ils hériteront la terre!",
+              "swahili": "Heri walio wanyenyekevu, maana watairithi nchi.",
+              "mandarin_chinese": "温柔的人有福了！因为他们必承受地土。",
+              "hindi": "धन्य हैं वे जो नम्र हैं, क्योंकि वे पृथ्वी के अधिकारी होंगे।"
+            }
+          },
+          {
+            "item_id": "beatitude_4",
+            "reference": "Matthew 5:6",
+            "text": {
+              "english": "Blessed are those who hunger and thirst for righteousness, for they will be filled.",
+              "amharic": "ንጽሕናን የሚራቡትና የሚጠምጠሙት ብፁዓን ናቸው፤ እነርሱ ይጠግባሉና።",
+              "arabic": "طُوبَى لِلْجِيَاعِ وَالْعِطَاشِ إِلَى الْبِرِّ، لأَنَّهُمْ يُشْبَعُونَ.",
+              "spanish": "Bienaventurados los que tienen hambre y sed de justicia, porque ellos serán saciados.",
+              "french": "Heureux ceux qui ont faim et soif de la justice, car ils seront rassasiés!",
+              "swahili": "Heri walio na njaa na kiu ya haki, maana watahodhiwa.",
+              "mandarin_chinese": "饥渴慕义的人有福了！因为他们必得饱足。",
+              "hindi": "धन्य हैं वे जो धर्म के भूखे और प्यासे हैं, क्योंकि वे तृप्त किए जाएंगे।",
+              "bengali": "ধন্য সেই সব লোক, যারা ধার্মিকতার জন্য ক্ষুধার্ত ও তৃষ্ণার্ত, কারণ তারা পরিতৃপ্ত হবে।",
+              "portuguese": "Bem-aventurados os que têm fome e sede de justiça, porque eles serão fartos.",
+              "russian": "Блаженны алчущие и жаждущие правды, ибо они насытятся.",
+              "japanese": "義に飢え渇く人々は、幸いである、その人たちは満たされる。",
+              "german": "Selig sind, die da hungert und dürstet nach der Gerechtigkeit; denn sie sollen satt werden.",
+              "indonesian": "Berbahagialah orang yang lapar dan haus akan kebenaran, karena mereka akan dipuaskan.",
+              "urdu": "خوش ہیں وہ لوگ جو راستبازی کے بھوکے اور پیاسے ہیں، کیونکہ وہ سیر ہوں گے۔"
+            }
+          },
+          {
+            "item_id": "beatitude_5",
+            "reference": "Matthew 5:7",
+            "text": {
+              "english": "Blessed are the merciful, for they will be shown mercy.",
+              "amharic": "መሓሪዎች ብፁዓን ናቸው፤ እነርሱ ምሕረት ያገኛሉና።",
+              "arabic": "طُوبَى لِلرُّحَمَاءِ، لأَنَّهُمْ يُرْحَمُونَ.",
+              "spanish": "Bienaventurados los misericordiosos, porque ellos alcanzarán misericordia.",
+              "french": "Heureux les miséricordieux, car ils obtiendront miséricorde!",
+              "swahili": "Heri walio na huruma, maana watahurumiwa.",
+              "mandarin_chinese": "怜恤人的人有福了！因为他们必蒙怜恤。",
+              "hindi": "धन्य हैं वे जो दयालु हैं, क्योंकि उन पर दया की जाएगी।",
+              "bengali": "ধন্য সেই সব লোক, যারা দয়ালু, কারণ তাদের প্রতি দয়া করা হবে।",
+              "portuguese": "Bem-aventurados os misericordiosos, porque eles alcançarão misericórdia.",
+              "russian": "Блаженны милостивые, ибо они помилованы будут.",
+              "japanese": "憐れみ深い人々は、幸いである、その人たちは憐れみを受ける。",
+              "german": "Selig sind die Barmherzigen; denn sie werden Barmherzigkeit erlangen.",
+              "indonesian": "Berbahagialah orang yang murah hatinya, karena mereka akan beroleh kemurahan.",
+              "urdu": "خوش ہیں وہ لوگ جو رحم کرنے والے ہیں، کیونکہ وہ رحم پائیں گے۔"
+            }
+          },
+          {
+            "item_id": "beatitude_6",
+            "reference": "Matthew 5:8",
+            "text": {
+              "english": "Blessed are the pure in heart, for they will see God.",
+              "amharic": "ልቡ ንጹሕ የሆነ ብፁዓን ናቸው፤ እነርሱ እግዚአብሔርን ያያሉና።",
+              "arabic": "طُوبَى لِلأَنْقِيَاءِ الْقَلْبِ، لأَنَّهُمْ يُعَايِنُونَ اللهَ.",
+              "spanish": "Bienaventurados los de limpio corazón, porque ellos verán a Dios.",
+              "french": "Heureux ceux qui ont le cœur pur, car ils verront Dieu!",
+              "swahili": "Heri walio safi moyoni, maana watawamwona Mungu.",
+              "mandarin_chinese": "清心的人有福了！因为他们必得见神。",
+              "hindi": "धन्य हैं वे जो मन के शुद्ध हैं, क्योंकि वे परमेश्वर को देखेंगे।",
+              "bengali": "ধন্য সেই সব লোক, যাদের হৃদয় শুদ্ধ, কারণ তারা ঈশ্বরকে দেখবে।",
+              "portuguese": "Bem-aventurados os limpos de coração, porque eles verão a Deus.",
+              "russian": "Блаженны чистые сердцем, ибо они Бога узрят.",
+              "japanese": "心の清い人々は、幸いである、その人たちは神を見る。",
+              "german": "Selig sind, die reines Herzens sind; denn sie werden Gott schauen.",
+              "indonesian": "Berbahagialah orang yang suci hatinya, karena mereka akan melihat Allah.",
+              "urdu": "خوش ہیں وہ لوگ جو دل کے صاف ہیں، کیونکہ وہ خدا کو دیکھیں گے۔"
+            }
+          },
+          {
+            "item_id": "beatitude_7",
+            "reference": "Matthew 5:9",
+            "text": {
+              "english": "Blessed are the peacemakers, for they will be called children of God.",
+              "amharic": "ሰላምን የሚያደርጉ ብፁዓን ናቸው፤ እነርሱ የእግዚአብሔር ልጆች ተብለው ይጠራሉና።",
+              "arabic": "طُوبَى لِصَانِعِي السَّلاَمِ، لأَنَّهُمْ أَبْنَاءَ اللهِ يُدْعَوْنَ.",
+              "spanish": "Bienaventurados los pacificadores, porque ellos serán llamados hijos de Dios.",
+              "french": "Heureux ceux qui procurent la paix, car ils seront appelés fils de Dieu!",
+              "swahili": "Heri wafanyiza amani, maana wataitwa wana wa Mungu.",
+              "mandarin_chinese": "使人和睦的人有福了！因为他们必称为神的儿子。",
+              "hindi": "धन्य हैं वे जो मेल करानेवाले हैं, क्योंकि वे परमेश्वर के पुत्र कहलाएंगे।",
+              "bengali": "ধন্য সেই সব লোক, যারা শান্তির স্থাপক, কারণ তারা ঈশ্বরের সন্তান বলে ডাকা হবে।",
+              "portuguese": "Bem-aventurados os pacificadores, porque eles serão chamados filhos de Deus.",
+              "russian": "Блаженны миротворцы, ибо они будут наречены сынами Божиими.",
+              "japanese": "平和を実現する人々は、幸いである、その人たちは神の子と呼ばれる。",
+              "german": "Selig sind die Friedfertigen; denn sie werden Gottes Kinder heißen.",
+              "indonesian": "Berbahagialah orang yang membawa damai, karena mereka akan disebut anak-anak Allah.",
+              "urdu": "خوش ہیں وہ لوگ جو صلح کرانے والے ہیں، کیونکہ وہ خدا کے بیٹے کہلائیں گے۔"
+            }
+          },
+          {
+            "item_id": "beatitude_8",
+            "reference": "Matthew 5:10",
+            "text": {
+              "english": "Blessed are those who are persecuted because of righteousness, for theirs is the kingdom of heaven.",
+              "amharic": "ስለ ጽድቅ የሚደበሩ ብፁዓን ናቸው፤ የሰማይ መንግሥት የእነርሱ ነውና።",
+              "arabic": "طُوبَى لِلْمَطْرُودِينَ مِنْ أَجْلِ الْبِرِّ، لأَنَّ لَهُمْ مَلَكُوتَ السَّمَاوَاتِ.",
+              "spanish": "Bienaventurados los que padecen persecución por causa de la justicia, porque de ellos es el reino de los cielos.",
+              "french": "Heureux ceux qui sont persécutés pour la justice, car le royaume des cieux est à eux!",
+              "swahili": "Heri walio fungwa kwa sababu ya haki, maana ufalme wa mbinguni ni wao.",
+              "mandarin_chinese": "为义受逼迫的人有福了！因为天国是他们的。",
+              "hindi": "धन्य हैं वे जो धर्म के कारण सताए जाते हैं, क्योंकि स्वर्ग का राज्य उन्हीं का है।",
+              "bengali": "ধন্য সেই সব লোক, যারা ধার্মিকতার জন্য নির্যাতিত হয়, কারণ স্বর্গরাজ্য তাদেরই।",
+              "portuguese": "Bem-aventurados os que sofrem perseguição por causa da justiça, porque deles é o reino dos céus.",
+              "russian": "Блаженны изгнанные за правду, ибо их есть Царство Небесное.",
+              "japanese": "義のために迫害される人々は、幸いである、天の国はその人たちのものである。",
+              "german": "Selig sind, die um der Gerechtigkeit willen verfolgt werden; denn das Himmelreich ist ihr.",
+              "indonesian": "Berbahagialah orang yang dianiaya oleh sebab kebenaran, karena merekalah yang empunya Kerajaan Sorga.",
+              "urdu": "خوش ہیں وہ لوگ جو راستبازی کے سبب سے ستائے جاتے ہیں، کیونکہ آسمان کی بادشاہی ان ہی کی ہے۔"
+            }
+          },
+          {
+            "item_id": "beatitude_9",
+            "reference": "Matthew 5:11",
+            "text": {
+              "english": "Blessed are you when people insult you, persecute you and falsely say all kinds of evil against you because of me.",
+              "amharic": "ስለ እኔ ሰዎች ሲነቅፏችሁ፣ ሲያሳድዷችሁና በሐሰት ክፉ ነገር ሁሉ ሲናገሩባችሁ ብፁዓን ናችሁ።",
+              "arabic": "طُوبَى لَكُمْ إِذَا عَيَّرُوكُمْ وَطَرَدُوكُمْ وَقَالُوا عَلَيْكُمْ كُلَّ كَلِمَةٍ شِرِّيرَةٍ، مِنْ أَجْلِي، كَاذِبِينَ.",
+              "spanish": "Bienaventurados sois cuando por mi causa os vituperen y os persigan, y digan toda clase de mal contra vosotros, mintiendo.",
+              "french": "Heureux serez-vous, lorsqu'on vous outragera, qu'on vous persécutera et qu'on dira faussement de vous toute sorte de mal, à cause de moi.",
+              "swahili": "Heri ninyi mtakapokuwa watu watakapokutukeni na wakukuteseni na kusema kila aina ya uovu juu yenu kwa ajili yangu kwa uwongo.",
+              "mandarin_chinese": "人若因我辱骂你们，逼迫你们，捏造各样坏话毁谤你们，你们就有福了！",
+              "hindi": "धन्य हो तुम, जब मेरे कारण लोग तुम्हारी निन्दा करें, और सताएं, और झूठ बोलकर तुम्हारे विरोध में सब प्रकार की बुरी बात कहें।"
+            }
+          },
+          {
+            "item_id": "beatitude_10",
+            "reference": "Matthew 5:12",
+            "text": {
+              "english": "Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you.",
+              "amharic": "ደስ ይበላችሁ፤ ሐሤትም አድርጉ፤ ዋጋችሁ በሰማይ ብዙ ነውና፤ ከናንተ በፊት የነበሩትን ነቢያት እንዲሁ አሳድደዋቸዋልና።",
+              "arabic": "اِفْرَحُوا وَتَهَلَّلُوا، لأَنَّ أَجْرَكُمْ عَظِيمٌ فِي السَّمَاوَاتِ، فَإِنَّهُمْ هكَذَا طَرَدُوا الأَنْبِيَاءَ الَّذِينَ قَبْلَكُمْ.",
+              "spanish": "Gozaos y alegraos, porque vuestro galardón es grande en los cielos; porque así persiguieron a los profetas que fueron antes de vosotros.",
+              "french": "Réjouissez-vous et soyez dans l'allégresse, parce que votre récompense sera grande dans les cieux; car c'est ainsi qu'on a persécuté les prophètes qui ont été avant vous.",
+              "swahili": "Furahini na msishangilie, maana malipo yenu ni mwingi mbinguni; kwa maana hivyo ndivyo walivyowatesa manabii walio kabla yenu.",
+              "mandarin_chinese": "应当欢喜快乐，因为你们在天上的赏赐是大的。在你们以前的先知，人也是这样逼迫他们。",
+              "hindi": "आनन्दित और मगन हो, क्योंकि तुम्हारा स्वर्ग में बड़ा प्रतिफल है; क्योंकि उन्होंने तुम्हारे पहिले के भविष्यद्वक्ताओं को इसी प्रकार सताया था।"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "total_sections": 1,
+    "total_items": 10,
+    "total_languages": 29,
+    "primary_themes": ["humility", "mercy", "peace", "righteousness", "blessings"]
+  }
+}
+

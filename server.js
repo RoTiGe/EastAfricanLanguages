@@ -520,6 +520,28 @@ app.get('/start', (req, res) => {
     });
 });
 
+// Close to Heart - Religious/Spiritual content page
+app.get('/close-to-heart', async (req, res) => {
+    try {
+        const beatitudesPath = path.join(__dirname, 'contextual_conversations', 'religious_beatitudes.json');
+        const wisdomPath = path.join(__dirname, 'contextual_conversations', 'religious_wisdom_world.json');
+
+        const beatitudes = JSON.parse(await fs.readFile(beatitudesPath, 'utf8'));
+        const wisdom = JSON.parse(await fs.readFile(wisdomPath, 'utf8'));
+
+        res.render('close-to-heart', {
+            title: 'Close to Heart - Spiritual Wisdom',
+            languages: config.LANGUAGES,
+            languageNames: config.LANGUAGE_NAMES,
+            beatitudes: beatitudes,
+            wisdom: wisdom
+        });
+    } catch (error) {
+        console.error('Error loading spiritual content:', error);
+        res.status(500).render('error', { message: 'Failed to load spiritual content' });
+    }
+});
+
 // Translation mode page
 app.get('/translate', (req, res) => {
     res.render('translate', {
@@ -613,6 +635,21 @@ app.get('/api/conversation/:context', (req, res) => {
     } catch (error) {
         console.error('Error loading conversation:', error);
         res.status(500).json({ error: 'Failed to load conversation' });
+    }
+});
+
+// API endpoint to get the Beatitudes conversation (special context)
+app.get('/api/conversation/the_beatitu', (req, res) => {
+    const beatituFile = path.join(__dirname, 'contextual_conversations', 'the beatitu.json');
+    if (!fsSync.existsSync(beatituFile)) {
+        return res.status(404).json({ error: 'Beatitudes conversation not found' });
+    }
+    try {
+        const beatituData = JSON.parse(fsSync.readFileSync(beatituFile, 'utf8'));
+        res.json(beatituData);
+    } catch (error) {
+        console.error('Error loading Beatitudes conversation:', error);
+        res.status(500).json({ error: 'Failed to load Beatitudes conversation' });
     }
 });
 

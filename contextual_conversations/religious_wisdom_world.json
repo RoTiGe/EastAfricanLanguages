@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "id": "religious_wisdom_world",
+    "title": {
+      "english": "Core Wisdom Verses of Major World Religions",
+      "arabic": "آيات الحكمة الأساسية في ديانات العالم الكبرى",
+      "hindi": "प्रमुख विश्व धर्मों के मूल ज्ञान वचन",
+      "spanish": "Versos de Sabiduría Central de las Principales Religiones del Mundo",
+      "french": "Versets de Sagesse Fondamentale des Grandes Religions Mondiales",
+      "chinese": "世界主要宗教核心智慧经文",
+      "swahili": "Aya za Hekima za Msingi za Dini Kuu za Ulimwengu",
+      "amharic": "የዓለም ዋና ዋና ሃይማኖቶች መሠረታዊ ጥበቃ ጥቅሶች",
+      "oromo": "Qoosaa Gaggeessa Ijoo Seeraa Guddittii Addunyaa",
+      "somali": "Aayadaha Xigmada Aasaasiga ah ee Diimaha Caalamka",
+      "tigrinya": "ናይ ዓለም ቀንዲ ሃይማኖታት መሰረታዊ ጥበቃ ጥቕስታት",
+      "kinyarwanda": "Inkuru z'Ubwenge z'Ingingo z'Ibintu z'Ibinyabwenge by'Umurage",
+      "kirundi": "Amagambo y'Ubwenge bw'Ingingo y'Ibintu by'Imana",
+      "luo": "Kwer Mamit ma Piny Kodi mar Piny"
+    },
+    "description": {
+      "english": "A collection of the most widely recognized and philosophically profound verses from major world religions and spiritual traditions",
+      "arabic": "مجموعة من أكثر الآيات المعترف بها والعميقة فلسفياً من الديانات العالمية الكبرى",
+      "hindi": "प्रमुख विश्व धर्मों से सबसे व्यापक रूप से मान्यता प्राप्त और दार्शनिक रूप से गहन छंदों का संग्रह",
+      "swahili": "Mkusanyiko wa aya zinazotambuliwa sana na za kina za kifalsafa kutoka dini kuu za ulimwengu"
+    },
+    "category": "religious_wisdom",
+    "year_created": "2026",
+    "version": "1.0",
+    "supported_languages": [
+      "english", "arabic", "hindi", "spanish", "french", "chinese", "swahili",
+      "amharic", "oromo", "somali", "tigrinya", "kinyarwanda", "kirundi", "luo",
+      "hadiyaa", "wolyitta", "afar", "gamo"
+    ],
+    "categories": {
+      "english": ["Islam", "Hinduism", "Buddhism", "Christianity", "Judaism", "Sikhism", "Jainism", "Daoism", "African Traditional Religions", "Oromo Waaqeffannaa"],
+      "arabic": ["الإسلام", "الهندوسية", "البوذية", "المسيحية", "اليهودية", "السيخية", "الجاينية", "الطاوية", "الديانات التقليدية الأفريقية", "واقفانا"],
+      "hindi": ["इस्लाम", "हिंदू धर्म", "बौद्ध धर्म", "ईसाई धर्म", "यहूदी धर्म", "सिख धर्म", "जैन धर्म", "ताओ धर्म", "अफ्रीकी पारंपरिक धर्म", "वाकेफाना"],
+      "swahili": ["Uislamu", "Uhindu", "Ubuddha", "Ukristo", "Uyahudi", "Usiki", "Ujaini", "Udao", "Dini za Jadi za Kiafrika", "Waaqeffannaa"]
+    },
+    "tags": ["religion", "wisdom", "philosophy", "spirituality", "interfaith", "world_religions"]
+  },
+  "chapters": [
+    {
+      "chapter_id": "islam_alfatihah",
+      "religion": {
+        "english": "Islam",
+        "arabic": "الإسلام",
+        "hindi": "इस्लाम",
+        "spanish": "Islam",
+        "french": "Islam",
+        "chinese": "伊斯兰教",
+        "swahili": "Uislamu",
+        "amharic": "እስልምና",
+        "oromo": "Islaamaa",
+        "somali": "Islaamka"
+      },
+      "source": {
+        "english": "Quran",
+        "arabic": "القرآن الكريم",
+        "hindi": "कुरान",
+        "swahili": "Kurani"
+      },
+      "chapter_name": {
+        "english": "Surah Al-Fatihah (The Opening)",
+        "arabic": "سورة الفاتحة (الفاتحة)",
+        "hindi": "सूरह अल-फातिहा (प्रारंभ)",
+        "swahili": "Sura Al-Fatiha (Ufunguzi)"
+      },
+      "significance": {
+        "english": "Recited in every unit of Muslim prayer (17 times daily in obligatory prayers), considered the essence of the Quran"
+      },
+      "verses": [
+        {
+          "verse_id": "1:1-2",
+          "text": {
+            "english": "In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds.",
+            "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (١) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (٢)",
+            "hindi": "अल्लाह के नाम से जो अत्यन्त कृपाशील और दयावान है। सारी प्रशंसा अल्लाह के लिए है जो सारे संसार का पालनहार है।",
+            "swahili": "Kwa jina la Mwenyezi Mungu, Mwingi wa rehema, Mwenye kurehemu. Sifa zote ni za Mwenyezi Mungu, Mola wa walimwengu wote.",
+            "amharic": "በአላህ ስም እጅግ ሩኅሩኅ ርኅሩኅ ሲኾን፡፡ ምስጋና ለአላህ የዓለማት ጌታ ነው፡፡",
+            "oromo": "Maqaa Rabbii, Akkaan Rahmataa, Rahmata Guddaa ta'een. Faaruun hundi kan Rabbiiti, Gooftaa aalamootaati."
+          }
+        },
+        {
+          "verse_id": "1:6-7",
+          "text": {
+            "english": "Guide us to the straight path—The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+            "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (٦) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (٧)"
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The summary of the human relationship with the Divine: praise, submission, and the plea for guidance."
+      }
+    },
+    {
+      "chapter_id": "hinduism_gita",
+      "religion": {
+        "english": "Hinduism",
+        "arabic": "الهندوسية",
+        "hindi": "हिंदू धर्म",
+        "swahili": "Uhindu"
+      },
+      "source": {
+        "english": "Bhagavad Gita",
+        "hindi": "भगवद्गीता"
+      },
+      "chapter_name": {
+        "english": "Chapter 2 (Sankhya Yoga)",
+        "hindi": "अध्याय 2 (सांख्य योग)"
+      },
+      "significance": {
+        "english": "Most quoted chapter, contains core teachings about the nature of soul, duty, and detachment"
+      },
+      "verses": [
+        {
+          "verse_id": "2:20",
+          "text": {
+            "english": "The soul is neither born, nor does it ever die; nor having once existed, does it ever cease to be. The soul is without birth, eternal, immortal, and ageless.",
+            "hindi": "आत्मा न तो जन्म लेती है और न मरती है। वह न तो कभी उत्पन्न हुई थी और न होगी। वह अजन्मा, नित्य, शाश्वत और पुरातन है।"
+          }
+        },
+        {
+          "verse_id": "2:47",
+          "text": {
+            "english": "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities.",
+            "hindi": "कर्म करने में ही तुम्हारा अधिकार है, फल में कभी नहीं। तुम कर्मफल के हेतु मत बनो और न कर्म न करने में आसक्त होओ।"
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The realization of the eternal self (Atman) and the practice of Nishkama Karma (selfless action)."
+      }
+    },
+    {
+      "chapter_id": "buddhism_heart_sutra",
+      "religion": {
+        "english": "Buddhism",
+        "arabic": "البوذية",
+        "hindi": "बौद्ध धर्म",
+        "swahili": "Ubuddha"
+      },
+      "source": {
+        "english": "Heart Sutra (Prajñāpāramitā Hṛdaya)"
+      },
+      "chapter_name": {
+        "english": "The Heart of the Perfection of Wisdom"
+      },
+      "significance": {
+        "english": "Most widely recited Mahayana text, chanted daily in monasteries across Asia"
+      },
+      "verses": [
+        {
+          "verse_id": "verse_1",
+          "text": {
+            "english": "Form is emptiness, emptiness is form. Form is not other than emptiness, emptiness is not other than form."
+          }
+        },
+        {
+          "verse_id": "mantra",
+          "text": {
+            "english": "Gate gate pāragate pārasaṃgate bodhi svāhā (Gone, gone, gone beyond, gone altogether beyond, O awakening, hail!)"
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The doctrine of Sunyata (Emptiness), teaching that all phenomena are interdependent and lack a permanent, separate self."
+      }
+    },
+    {
+      "chapter_id": "judaism_shema",
+      "religion": {
+        "english": "Judaism",
+        "arabic": "اليهودية",
+        "hindi": "यहूदी धर्म",
+        "swahili": "Uyahudi"
+      },
+      "source": {
+        "english": "Torah"
+      },
+      "chapter_name": {
+        "english": "Deuteronomy 6:4-9 (The Shema)"
+      },
+      "significance": {
+        "english": "Central prayer of Judaism, recited twice daily, declaration of monotheistic faith"
+      },
+      "verses": [
+        {
+          "verse_id": "6:4-5",
+          "text": {
+            "english": "Hear, O Israel: The LORD our God, the LORD is one. Love the LORD your God with all your heart and with all your soul and with all your strength."
+          }
+        },
+        {
+          "verse_id": "6:6-9",
+          "text": {
+            "english": "These commandments that I give you today are to be on your hearts. Impress them on your children. Talk about them when you sit at home and when you walk along the road, when you lie down and when you get up."
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The fundamental Jewish creed: absolute monotheism, complete devotion to God, and the transmission of faith through education."
+      }
+    },
+    {
+      "chapter_id": "sikhism_japji",
+      "religion": {
+        "english": "Sikhism",
+        "arabic": "السيخية",
+        "hindi": "सिख धर्म",
+        "swahili": "Usiki"
+      },
+      "source": {
+        "english": "Guru Granth Sahib"
+      },
+      "chapter_name": {
+        "english": "Japji Sahib"
+      },
+      "significance": {
+        "english": "Opening composition, recited daily by Sikhs, considered the essence of Sikh philosophy"
+      },
+      "verses": [
+        {
+          "verse_id": "mool_mantar",
+          "text": {
+            "english": "One Universal Creator God. The Name Is Truth. Creative Being Personified. No Fear. No Hatred. Image Of The Undying, Beyond Birth, Self-Existent. By Guru's Grace.",
+            "punjabi": "ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ॥"
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "Monotheism, equality of all humans, honest living, and remembrance of God through meditation and service."
+      }
+    },
+    {
+      "chapter_id": "jainism_tattvartha",
+      "religion": {
+        "english": "Jainism",
+        "arabic": "الجاينية",
+        "hindi": "जैन धर्म",
+        "swahili": "Ujaini"
+      },
+      "source": {
+        "english": "Tattvartha Sutra"
+      },
+      "chapter_name": {
+        "english": "Chapter 1 (Right Faith, Knowledge, and Conduct)"
+      },
+      "significance": {
+        "english": "Foundational text containing the three jewels (Ratnatraya) of Jainism"
+      },
+      "verses": [
+        {
+          "verse_id": "1:1",
+          "text": {
+            "english": "Samyag-darśana-jñāna-cāritrāṇi mokṣa-mārgaḥ (Right faith, right knowledge, and right conduct together constitute the path to liberation)."
+          }
+        },
+        {
+          "verse_id": "1:2",
+          "text": {
+            "english": "Ahimsa (non-violence) is the highest duty. It is the highest purification. It is the essence of all knowledge."
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The path to liberation through non-violence (Ahimsa), non-absolutism (Anekantavada), and non-possessiveness (Aparigraha)."
+      }
+    },
+    {
+      "chapter_id": "daoism_daodejing",
+      "religion": {
+        "english": "Daoism (Taoism)",
+        "arabic": "الطاوية",
+        "hindi": "ताओ धर्म",
+        "chinese": "道教"
+      },
+      "source": {
+        "english": "Dao De Jing (Tao Te Ching)",
+        "chinese": "道德经"
+      },
+      "chapter_name": {
+        "english": "Chapter 1 (The Dao that can be told)"
+      },
+      "significance": {
+        "english": "Opening chapter containing the fundamental paradox of describing the ineffable Dao"
+      },
+      "verses": [
+        {
+          "verse_id": "1:1",
+          "text": {
+            "english": "The Dao that can be told is not the eternal Dao. The name that can be named is not the eternal name.",
+            "chinese": "道可道，非常道。名可名，非常名。"
+          }
+        },
+        {
+          "verse_id": "1:2",
+          "text": {
+            "english": "The nameless is the beginning of heaven and earth. The named is the mother of ten thousand things.",
+            "chinese": "无名天地之始；有名万物之母。"
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "Wu Wei (non-action), naturalness, simplicity, and living in harmony with the Dao (the Way) of the universe."
+      }
+    },
+    {
+      "chapter_id": "african_ifa",
+      "religion": {
+        "english": "African Traditional Religions",
+        "arabic": "الديانات التقليدية الأفريقية",
+        "swahili": "Dini za Jadi za Kiafrika"
+      },
+      "source": {
+        "english": "Oral Traditions (Yoruba)"
+      },
+      "chapter_name": {
+        "english": "Ifá Divination Poetry (Odu Ifá)"
+      },
+      "significance": {
+        "english": "Central text of Ifá tradition, containing wisdom, ethics, and cosmology of Yoruba religion"
+      },
+      "verses": [
+        {
+          "verse_id": "odu_ogbe_ofun",
+          "text": {
+            "english": "The world is a marketplace, heaven is home. We come to buy and sell, and when we are done, we return home.",
+            "yoruba": "Ayé l'ọjà, ọ̀run n'ilé. A wá ra, a wá tà, a bá padà sílé."
+          }
+        },
+        {
+          "verse_id": "odu_irosun",
+          "text": {
+            "english": "Character is what we take with us when we leave this earth. Good character is the true legacy.",
+            "yoruba": "Ìwà l'ẹ̀wà. Ìwà rere ni ẹ̀wà ènìyàn."
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "The interconnectedness of all life, the importance of character (Iwa), and harmony with nature and community."
+      }
+    },
+    {
+      "chapter_id": "oromo_waaqeffannaa",
+      "religion": {
+        "english": "Oromo Waaqeffannaa",
+        "oromo": "Waaqeffannaa",
+        "amharic": "ዋቄፋና"
+      },
+      "source": {
+        "english": "Oral Tradition",
+        "oromo": "Aadaa Afaanii"
+      },
+      "chapter_name": {
+        "english": "The Three Pillars of Waaqeffannaa",
+        "oromo": "Utubaalee Sadii Waaqeffannaa"
+      },
+      "significance": {
+        "english": "Core ethical principles guiding Oromo spiritual and social life"
+      },
+      "verses": [
+        {
+          "verse_id": "pillar_1_safuu",
+          "text": {
+            "english": "Safuu (Moral and Ethical Order): Respect for all creation, living in harmony with natural and social order.",
+            "oromo": "Safuu: Uumama hundaaf kabaja, seera uumamaa fi hawaasaa waliin nagaan jiraachuu."
+          }
+        },
+        {
+          "verse_id": "pillar_2_nagaa",
+          "text": {
+            "english": "Nagaa (Peace): Peace with God (Waaqa), peace with nature, peace with fellow human beings, and peace with oneself.",
+            "oromo": "Nagaa: Nagaa Waaqa waliin, nagaa uumama waliin, nagaa namoota waliin, nagaa ofii waliin."
+          }
+        },
+        {
+          "verse_id": "pillar_3_walii",
+          "text": {
+            "english": "Walii (Unity and Reciprocity): Mutual support, collective responsibility, and recognition of interdependence in community.",
+            "oromo": "Walii: Walgargaarsa, itti gaafatama walii, fi walitti hidhiinsa hawaasaa beekuu."
+          }
+        }
+      ],
+      "philosophical_essence": {
+        "english": "Living in harmony with Waaqa (God/Creator), nature, and community through ethical conduct, peace, and unity."
+      }
+    }
+  ],
+  "summary": {
+    "total_religions": 10,
+    "total_chapters": 10,
+    "total_languages": 18,
+    "common_themes": ["Ethical living", "Connection with the divine", "Community and compassion", "Peace and harmony", "Self-improvement and enlightenment"]
+  }
+}
+
