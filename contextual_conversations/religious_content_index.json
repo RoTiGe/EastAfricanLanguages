@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "description": "Index of all religious/spiritual content files for Close to Heart page",
+    "version": "1.0",
+    "last_updated": "2026-01-20"
+  },
+  "content_files": [
+    {
+      "id": "beatitudes",
+      "file": "religious_beatitudes.json",
+      "icon": "bi-book",
+      "color": "#6f42c1",
+      "order": 1,
+      "enabled": true
+    },
+    {
+      "id": "lords_prayer",
+      "file": "religious_lords_prayer.json",
+      "icon": "bi-hands-praying",
+      "color": "#0d6efd",
+      "order": 2,
+      "enabled": true
+    },
+    {
+      "id": "quran_fatiha",
+      "file": "religious_quran_fatiha.json",
+      "icon": "bi-moon-stars",
+      "color": "#198754",
+      "order": 3,
+      "enabled": true
+    },
+    {
+      "id": "world_wisdom",
+      "file": "religious_wisdom_world.json",
+      "icon": "bi-globe",
+      "color": "#fd7e14",
+      "order": 4,
+      "enabled": true
+    }
+  ]
+}
+

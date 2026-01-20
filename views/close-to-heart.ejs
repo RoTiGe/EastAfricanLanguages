@@ -209,42 +209,35 @@
                 </div>
             </div>
 
-            <!-- Tabs -->
-            <ul class="nav nav-tabs nav-justified mb-4" id="contentTabs" role="tablist">
+            <!-- Dynamic Tabs -->
+            <ul class="nav nav-tabs nav-justified mb-4 flex-wrap" id="contentTabs" role="tablist">
+                <% religiousContent.forEach((item, index) => { %>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="beatitudes-tab" data-bs-toggle="tab" data-bs-target="#beatitudes" type="button">
-                        <i class="bi bi-book me-2"></i>The Beatitudes
+                    <button class="nav-link <%= index === 0 ? 'active' : '' %>"
+                            id="<%= item.id %>-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#<%= item.id %>"
+                            type="button"
+                            style="<%= index === 0 ? '' : '' %>">
+                        <i class="<%= item.icon %> me-2" style="color: <%= item.color %>;"></i>
+                        <span class="tab-title"><%= item.data.metadata?.title?.[nativeLanguage] || item.data.metadata?.title?.english || item.id %></span>
                     </button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="wisdom-tab" data-bs-toggle="tab" data-bs-target="#wisdom" type="button">
-                        <i class="bi bi-globe me-2"></i>World Religions Wisdom
-                    </button>
-                </li>
+                <% }); %>
             </ul>
 
             <div class="tab-content" id="contentTabsContent">
-                <!-- Beatitudes Tab -->
-                <div class="tab-pane fade show active" id="beatitudes" role="tabpanel">
-                    <div class="alert alert-light border mb-4">
-                        <h5 class="mb-2"><i class="bi bi-info-circle me-2"></i>About the Beatitudes</h5>
-                        <p class="mb-0">The Beatitudes are teachings from Jesus Christ's Sermon on the Mount (Matthew 5:3-12), describing the qualities of those who are blessed by God.</p>
+                <% religiousContent.forEach((item, index) => { %>
+                <div class="tab-pane fade <%= index === 0 ? 'show active' : '' %>" id="<%= item.id %>" role="tabpanel">
+                    <div class="alert alert-light border mb-4" style="border-left: 4px solid <%= item.color %> !important;">
+                        <h5 class="mb-2"><i class="bi bi-info-circle me-2"></i><span class="content-title" data-id="<%= item.id %>"><%= item.data.metadata?.title?.[nativeLanguage] || item.data.metadata?.title?.english || 'Content' %></span></h5>
+                        <p class="mb-0 content-description" data-id="<%= item.id %>"><%= item.data.metadata?.description?.[nativeLanguage] || item.data.metadata?.description?.english || '' %></p>
                     </div>
-                    <div class="row g-4" id="beatitudesContainer">
+                    <div class="row g-4" id="<%= item.id %>Container">
                         <!-- Populated by JavaScript -->
                     </div>
                 </div>
-
-                <!-- World Wisdom Tab -->
-                <div class="tab-pane fade" id="wisdom" role="tabpanel">
-                    <div class="alert alert-light border mb-4">
-                        <h5 class="mb-2"><i class="bi bi-info-circle me-2"></i>Wisdom from World Religions</h5>
-                        <p class="mb-0">Core teachings and sacred verses from major world religions, presented with respect and appreciation for each tradition.</p>
-                    </div>
-                    <div class="row g-4" id="wisdomContainer">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
+                <% }); %>
             </div>
         </main>
 
@@ -257,62 +250,106 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const beatitudesData = <%- JSON.stringify(beatitudes) %>;
-        const wisdomData = <%- JSON.stringify(wisdom) %>;
+        // Dynamic religious content from server
+        const religiousContent = <%- JSON.stringify(religiousContent) %>;
         const languageNames = <%- JSON.stringify(languageNames) %>;
         let nativeLanguage = '<%= nativeLanguage || "english" %>';
         let targetLanguage = '<%= targetLanguage || "amharic" %>';
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderBeatitudes();
-            renderWisdom();
+            // Render all content sections
+            religiousContent.forEach(item => renderContent(item));
+
+            // Language change handlers
             document.getElementById('nativeLanguageSelect').addEventListener('change', (e) => {
                 nativeLanguage = e.target.value;
-                renderBeatitudes();
-                renderWisdom();
+                updateTitlesAndDescriptions();
+                religiousContent.forEach(item => renderContent(item));
             });
             document.getElementById('targetLanguageSelect').addEventListener('change', (e) => {
                 targetLanguage = e.target.value;
-                renderBeatitudes();
-                renderWisdom();
+                religiousContent.forEach(item => renderContent(item));
             });
         });
 
-        function renderBeatitudes() {
-            const container = document.getElementById('beatitudesContainer');
-            const items = beatitudesData.content?.sections?.[0]?.items;
-            if (!items) { container.innerHTML = '<p class="text-muted">No beatitudes data available.</p>'; return; }
+        // Update tab titles and descriptions when native language changes
+        function updateTitlesAndDescriptions() {
+            religiousContent.forEach(item => {
+                const title = item.data.metadata?.title?.[nativeLanguage] || item.data.metadata?.title?.english || item.id;
+                const desc = item.data.metadata?.description?.[nativeLanguage] || item.data.metadata?.description?.english || '';
 
-            container.innerHTML = items.map((b, i) => {
-                const nativeText = b.text[nativeLanguage] || b.text.english || 'Translation not available';
-                const targetText = b.text[targetLanguage] || b.text.english || 'Translation not available';
-                const targetPhonetic = b.phonetic?.[targetLanguage] || '';
+                // Update tab title
+                const tabTitle = document.querySelector(`#${item.id}-tab .tab-title`);
+                if (tabTitle) tabTitle.textContent = title;
+
+                // Update content title and description
+                const contentTitle = document.querySelector(`.content-title[data-id="${item.id}"]`);
+                if (contentTitle) contentTitle.textContent = title;
+
+                const contentDesc = document.querySelector(`.content-description[data-id="${item.id}"]`);
+                if (contentDesc) contentDesc.textContent = desc;
+            });
+        }
+
+        // Generic content renderer that handles different content structures
+        function renderContent(item) {
+            const container = document.getElementById(`${item.id}Container`);
+            if (!container) return;
+
+            const data = item.data;
+            const color = item.color || '#6c757d';
+
+            // Handle content.sections structure (beatitudes, lords_prayer, quran_fatiha)
+            if (data.content?.sections) {
+                renderSectionsContent(container, data, color);
+            }
+            // Handle chapters structure (world_wisdom)
+            else if (data.chapters) {
+                renderChaptersContent(container, data, color);
+            }
+            else {
+                container.innerHTML = '<p class="text-muted">No content data available for this section.</p>';
+            }
+        }
+
+        // Render content with sections/items structure
+        function renderSectionsContent(container, data, color) {
+            const allItems = [];
+            (data.content?.sections || []).forEach(section => {
+                (section.items || []).forEach(item => allItems.push(item));
+            });
+
+            if (allItems.length === 0) {
+                container.innerHTML = '<p class="text-muted">No content available.</p>';
+                return;
+            }
+
+            container.innerHTML = allItems.map(item => {
+                const nativeText = item.text?.[nativeLanguage] || item.text?.english || 'Translation not available';
+                const targetText = item.text?.[targetLanguage] || item.text?.english || 'Translation not available';
+                const targetPhonetic = item.phonetic?.[targetLanguage] || '';
                 const hasPhonetic = targetPhonetic && targetLanguage !== 'english';
+                const reference = item.reference || '';
+                const safeTargetText = targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$");
 
                 return `
                     <div class="col-md-6">
                         <div class="card verse-card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge bg-purple text-white" style="background-color: #6f42c1;">${b.reference}</span>
-                                    <button class="btn btn-sm btn-outline-primary" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')" title="Listen">
+                                    <span class="badge text-white" style="background-color: ${color};">${reference}</span>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="speakText(\`${safeTargetText}\`, '${targetLanguage}')" title="Listen">
                                         <i class="bi bi-volume-up"></i>
                                     </button>
                                 </div>
-
-                                <!-- Native Language (meaning) -->
                                 <div class="mb-3 p-2 bg-light rounded">
                                     <small class="text-muted d-block mb-1"><i class="bi bi-translate me-1"></i>Meaning (${languageNames[nativeLanguage] || nativeLanguage}):</small>
                                     <span class="translation-text">${nativeText}</span>
                                 </div>
-
-                                <!-- Target Language (native script) -->
                                 <div class="mb-2 p-2 border rounded" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
                                     <small class="text-muted d-block mb-1"><i class="bi bi-type me-1"></i>Native Script (${languageNames[targetLanguage] || targetLanguage}):</small>
                                     <span class="translation-text fs-5" style="font-weight: 500;">${targetText}</span>
                                 </div>
-
-                                <!-- Phonetic Guide -->
                                 ${hasPhonetic ? `
                                 <div class="p-2 border-start border-3 border-success bg-success bg-opacity-10 rounded-end">
                                     <small class="text-success d-block mb-1"><i class="bi bi-mic me-1"></i>How to Pronounce:</small>
@@ -326,10 +363,13 @@
             }).join('');
         }
 
-        function renderWisdom() {
-            const container = document.getElementById('wisdomContainer');
-            const chapters = wisdomData.chapters;
-            if (!chapters) { container.innerHTML = '<p class="text-muted">No wisdom data available.</p>'; return; }
+        // Render content with chapters/verses structure
+        function renderChaptersContent(container, data, defaultColor) {
+            const chapters = data.chapters || [];
+            if (chapters.length === 0) {
+                container.innerHTML = '<p class="text-muted">No content available.</p>';
+                return;
+            }
 
             const colors = { 'Islam': '#198754', 'Hinduism': '#fd7e14', 'Buddhism': '#ffc107', 'Judaism': '#0d6efd',
                 'Christianity': '#6f42c1', 'Sikhism': '#dc3545', 'Jainism': '#20c997', 'Daoism': '#6c757d',
@@ -340,17 +380,17 @@
                 const source = ch.source?.[targetLanguage] || ch.source?.english || '';
                 const chapterName = ch.chapter_name?.[targetLanguage] || ch.chapter_name?.english || '';
                 const colorKey = ch.religion?.english || '';
-                const color = colors[colorKey] || '#6c757d';
+                const color = colors[colorKey] || defaultColor;
 
-                // Render all verses for this chapter
                 const versesHtml = (ch.verses || []).map(v => {
                     const nativeText = v.text?.[nativeLanguage] || v.text?.english || 'Translation not available';
                     const targetText = v.text?.[targetLanguage] || v.text?.english || 'Translation not available';
+                    const safeTargetText = targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$");
                     return `
                         <div class="mb-3">
                             <div><span class="fw-bold">Your Language:</span> <span class="translation-text">${nativeText}</span></div>
                             <div><span class="fw-bold">Target Language:</span> <span class="translation-text">${targetText}</span>
-                                <button class="btn btn-sm btn-outline-primary ms-2" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')">
+                                <button class="btn btn-sm btn-outline-primary ms-2" onclick="speakText(\`${safeTargetText}\`, '${targetLanguage}')">
                                     <i class="bi bi-volume-up me-1"></i>Listen
                                 </button>
                             </div>
@@ -390,17 +430,20 @@
             } catch (error) { console.error('Speech error:', error); }
         }
 
-        // Religion Map - Show selected religion's wisdom
+        // Religion Map - Show selected religion's wisdom (works with dynamic tabs)
         function showReligion(religionName) {
-            // Switch to World Religions Wisdom tab
-            const wisdomTab = document.getElementById('wisdom-tab');
-            const wisdomPane = document.getElementById('wisdom');
-            const beatitudesTab = document.getElementById('beatitudes-tab');
-            const beatitudesPane = document.getElementById('beatitudes');
+            // Find the world_wisdom tab (or first tab with chapters/religions)
+            const wisdomItem = religiousContent.find(item => item.data.chapters);
+            if (!wisdomItem) return;
+
+            const wisdomTab = document.getElementById(`${wisdomItem.id}-tab`);
+            const wisdomPane = document.getElementById(wisdomItem.id);
+
+            // Deactivate all tabs and panes
+            document.querySelectorAll('#contentTabs .nav-link').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('#contentTabsContent .tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
 
             // Activate wisdom tab
-            beatitudesTab.classList.remove('active');
-            beatitudesPane.classList.remove('show', 'active');
             wisdomTab.classList.add('active');
             wisdomPane.classList.add('show', 'active');
 
@@ -409,7 +452,7 @@
 
             // Highlight the selected religion's card
             setTimeout(() => {
-                const cards = document.querySelectorAll('#wisdomContainer .card');
+                const cards = document.querySelectorAll(`#${wisdomItem.id}Container .card`);
                 cards.forEach(card => {
                     const badge = card.querySelector('.religion-badge');
                     if (badge && badge.textContent.toLowerCase().includes(religionName.toLowerCase().split(' ')[0])) {
@@ -423,7 +466,7 @@
                 });
             }, 300);
         }
-</script>
+    </script>
 </body>
 </html>
 

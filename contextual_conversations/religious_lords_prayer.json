@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "id": "religous_lords_prayer",
+    "title": {
+      "english": "The Lord's Prayer",
+      "spanish": "El Padre Nuestro",
+      "french": "Le Notre Père",
+      "italian": "Il Padre Nostro",
+      "german": "Das Vaterunser",
+      "portuguese": "Pai Nosso",
+      "russian": "Отче наш",
+      "chinese": "主祷文",
+      "japanese": "主の祈り",
+      "korean": "주님의 기도",
+      "arabic": "الصلاة الربانية",
+      "amharic": "አባታችን ሆይ",
+      "tigrinya": "ኣቦና ኣብ ሰማያት",
+      "oromo": "Kadhannaa Gooftaa",
+      "somali": "Ducada Rabbiga",
+      "hadiyaa": "Iis ammanne",
+      "wolayitta": "Nu Aayyo",
+      "afar": "Rabbi Dooqaysitto",
+      "gamo": "Nu Aayyo",
+      "swahili": "Baba Yetu",
+      "kinyarwanda": "Dawe wa Twese",
+      "kirundi": "Dawe wa Twese",
+      "luo": "Lamo mar Wuonwa",
+      "luganda": "Kitaffe Ali mu Ggulu",
+      "dinka": "Wada Nhialic",
+      "nuer": "Gwandan ka Nhial",
+      "hindi": "प्रभु की प्रार्थना",
+      "bengali": "প্রভুর প্রার্থনা",
+      "telugu": "ప్రభువు ప్రార్థన",
+      "tamil": "கர்த்தருடைய ஜெபம்",
+      "punjabi": "ਪ੍ਰਭੂ ਦੀ ਪ੍ਰਾਰਥਨਾ",
+      "malayalam": "കർത്തൃപ്രാർത്ഥന",
+      "kurdish": "Nivîja Xudan",
+      "farsi": "دعای ربانی",
+      "turkish": "Rab'bin Duası",
+      "greek": "Πάτερ Ημών",
+      "hebrew": "תפילת האדון",
+      "thai": "คำอธิษฐานขององค์พระผู้เป็นเจ้า",
+      "vietnamese": "Kinh Lạy Cha",
+      "ukrainian": "Отче наш",
+      "dutch": "Onze Vader",
+      "swedish": "Fader vår",
+      "polish": "Ojcze Nasz",
+      "czech": "Otčenáš",
+      "hungarian": "Miatyánk",
+      "romanian": "Tatăl Nostru",
+      "bulgarian": "Отче наш",
+      "bantu": "Baba Yetu"
+    },
+    "description": {
+      "english": "The prayer taught by Jesus to his disciples (Matthew 6:9-13)",
+      "amharic": "ኢየሱስ ለደቀ መዛሙርቱ ያስተማረው ጸሎት (ማቴዎስ 6:9-13)",
+      "portuguese": "A oração ensinada por Jesus aos seus discípulos (Mateus 6:9-13)",
+      "russian": "Молитва, которой Иисус научил своих учеников (Матфея 6:9-13)",
+      "german": "Das Gebet, das Jesus seine Jünger lehrte (Matthäus 6:9-13)",
+      "japanese": "イエスが弟子たちに教えた祈り（マタイによる福音書6:9-13）",
+      "korean": "예수님께서 제자들에게 가르쳐 주신 기도 (마태복음 6:9-13)"
+    },
+    "category": "religious_wisdom",
+    "source": {
+      "name": "Gospel of Matthew",
+      "reference": "Matthew 6:9-13",
+      "original_language": "greek"
+    },
+    "year_created": "2026",
+    "version": "1.0",
+    "supported_languages": [
+      "english", "spanish", "french", "italian", "german", "portuguese", "russian",
+      "chinese", "japanese", "korean", "arabic", "amharic", "tigrinya", "oromo",
+      "somali", "hadiyaa", "wolayitta", "afar", "gamo", "swahili", "kinyarwanda",
+      "kirundi", "luo", "luganda", "dinka", "nuer", "hindi", "bengali", "telugu",
+      "tamil", "punjabi", "malayalam", "kurdish", "farsi", "turkish", "greek",
+      "hebrew", "thai", "vietnamese", "ukrainian", "dutch", "swedish", "polish",
+      "czech", "hungarian", "romanian", "bulgarian", "bantu"
+    ],
+    "tags": ["religion", "christianity", "prayer", "jesus", "lords_prayer", "wisdom"]
+  },
+  "content": {
+    "sections": [
+      {
+        "section_id": "prayer_body",
+        "section_name": {
+          "english": "The Lord's Prayer",
+          "amharic": "የአባታችን ሆይ ጸሎት",
+          "portuguese": "O Pai Nosso",
+          "russian": "Молитва Господня"
+        },
+        "items": [
+          {
+            "item_id": "verse_1",
+            "reference": "Matthew 6:9",
+            "text": {
+              "english": "Our Father in heaven, hallowed be your name.",
+              "spanish": "Padre nuestro que estás en los cielos, santificado sea tu nombre.",
+              "french": "Notre Père qui es aux cieux, que ton nom soit sanctifié.",
+              "italian": "Padre nostro che sei nei cieli, sia santificato il tuo nome.",
+              "german": "Unser Vater im Himmel, geheiligt werde dein Name.",
+              "portuguese": "Pai nosso, que estás nos céus, santificado seja o teu nome.",
+              "russian": "Отче наш, сущий на небесах! да святится имя Твое.",
+              "chinese": "我们在天上的父，愿人都尊你的名为圣。",
+              "japanese": "天におられるわたしたちの父よ、み名が聖とされますように。",
+              "korean": "하늘에 계신 우리 아버지여 이름이 거룩히 여김을 받으시오며.",
+              "arabic": "أَبَانَا الَّذِي فِي السَّمَاوَاتِ، لِيَتَقَدَّسِ اسْمُكَ.",
+              "amharic": "በሰማያት የምትኖር አባታችን ሆይ፤ ስምህ ይቀደስ፤",
+              "tigrinya": "ኣቦና ኣብ ሰማያት እትነብር ስምካ ይቀደስ።",
+              "oromo": "Abbaa keenya kan waaqa irra jiraattu, maqaan kee haa qulqullaa'u.",
+              "somali": "Aabbahayaga jannada ku jirov, magacaagu qudus ha ahaado.",
+              "swahili": "Baba yetu uliye mbinguni, jina lako litukuzwe.",
+              "greek": "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς· ἁγιασθήτω τὸ ὄνομά σου·",
+              "hebrew": "אָבִינוּ שֶׁבַּשָּׁמַיִם, יִתְקַדַּשׁ שִׁמְךָ.",
+              "thai": "ข้าแต่พระบิดาของข้าพเจ้าทั้งหลาย ผู้สถิตในสวรรค์ ขอให้พระนามของพระองค์เป็นที่สักการะ"
+            },
+            "phonetic": {
+              "english": "OW-er FAH-ther in HEV-en, HAL-ohd bee yor NAYM.",
+              "spanish": "PAH-dreh NWES-troh keh es-TAHS en lohs SYEH-lohs, sahn-tee-fee-KAH-doh SEH-ah too NOHM-breh.",
+              "amharic": "beh-seh-mah-yaht yeh-mi-tih-nohr ah-bah-tah-chin hoy; sih-mih yih-keh-dehs."
+            }
+          },
+          {
+            "item_id": "verse_2",
+            "reference": "Matthew 6:10",
+            "text": {
+              "english": "Your kingdom come, your will be done, on earth as it is in heaven.",
+              "spanish": "Venga tu reino. Hágase tu voluntad, como en el cielo, así también en la tierra.",
+              "french": "Que ton règne vienne; que ta volonté soit faite sur la terre comme au ciel.",
+              "italian": "Venga il tuo regno; sia fatta la tua volontà, come in cielo così in terra.",
+              "german": "Dein Reich komme. Dein Wille geschehe, wie im Himmel, so auf Erden.",
+              "portuguese": "Venha o teu reino, seja feita a tua vontade, assim na tierra como no céu.",
+              "russian": "да приидет Царствие Твое; да будет воля Твоя и на земле, как на небе.",
+              "chinese": "愿你的国降临；愿你的旨意行在地上，如同行在天上。",
+              "japanese": "御国が来ますように。み心が天に行われるとおり、地にも行われますように。",
+              "korean": "나라가 임하시오며 뜻이 하늘에서 이루어진 것 같이 땅에서도 이루어지이다.",
+              "arabic": "لِيَأْتِ مَلَكُوتُكَ. لِتَكُنْ مَשِيئَتُكَ كَمَا فِي السَّמَاءِ كَذلِكَ عَلَى الأَرْضِ.",
+              "amharic": "መንግሥትህ ትምጣ፤ ፈቃድህ በሰማይ እንደ ሆነች እንዲሁም በምድር ትሁን፤",
+              "tigrinya": "መንግስትኻ ትምጻእ ፍቃድካ ከምቲ ኣብ ሰማይ ከምኡ ድማ ኣብ ምድሪ ይኹን።",
+              "oromo": "Mootummaan kee haa dhufu, jaalalli kee akkuma waaqa irratti ta'u, akkasumas lafa irratti haa ta'u.",
+              "swahili": "Ufalme wako uje, mapenzi yako yatimizwe hapa duniani kama huko mbinguni.",
+              "greek": "ἐλθέτω ἡ βασιλεία σου· γενηθήτω τὸ θέλημά σου, ὡς ἐν οὐρανῷ καὶ ἐπὶ γῆς·"
+            }
+          },
+          {
+            "item_id": "verse_3",
+            "reference": "Matthew 6:11",
+            "text": {
+              "english": "Give us today our daily bread.",
+              "spanish": "El pan nuestro de cada día, dánoslo hoy.",
+              "french": "Donne-nous aujourd'hui notre pain quotidien.",
+              "italian": "Dacci oggi il nostro pane quotidiano.",
+              "german": "Unser tägliches Brot gib uns heute.",
+              "portuguese": "O pão nosso de cada dia nos dá hoje.",
+              "russian": "хлеб наш насущный дай нам на сей день.",
+              "chinese": "我们日用的饮食，今日赐给我们。",
+              "japanese": "わたしたちの日ごとの糧を、今日もお与えください。",
+              "korean": "오늘 우리에게 일용할 양식을 주시옵고.",
+              "arabic": "خُبْزَنَا كَفَافَنَا أَعْطِنَا الْيَوْمَ.",
+              "amharic": "የዕለት እንጀራችንን ዛሬ ስጠን፤",
+              "tigrinya": "ናይ ዕለት እንጀራና ሎሚ ሃበና።",
+              "oromo": "Nyaata keenya kan guyyaa guyyaa har'a nuuf kenni.",
+              "swahili": "Utupe leo riziki yetu.",
+              "hebrew": "אֶת־לֶחֶם חֻקֵּנוּ תֵּן־לָנוּ הַיּוֹם."
+            }
+          },
+          {
+            "item_id": "verse_4",
+            "reference": "Matthew 6:12",
+            "text": {
+              "english": "And forgive us our debts, as we also have forgiven our debtors.",
+              "spanish": "Y perdónanos nuestras deudas, como también nosotros perdonamos a nuestros deudores.",
+              "french": "Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés.",
+              "italian": "E rimetti a noi i nostri debiti, come noi li rimettiamo ai nostri debitori.",
+              "german": "Und vergib uns unsere Schuld, wie auch wir vergeben unseren Schuldigern.",
+              "portuguese": "E perdoa-nos as nossas dívidas, assim como nós perdoamos aos nossos devedores.",
+              "russian": "и прости нам долги наши, как и мы прощаем должникам нашим.",
+              "chinese": "免我们的债，如同我们免了人的债。",
+              "japanese": "わたしたちの負い目を赦してください、わたしたちも自分に負い目のある人を赦しましたように。",
+              "korean": "우리가 우리에게 죄 지은 자를 사하여 준 것 같이 우리 죄를 사하여 주시옵고.",
+              "arabic": "وَاغْفِرْ لَنَا ذُنُوبَنَا كَمَا نَغْفِرُ نَحْنُ أَيْضاً لِلْمُذْنِبِينَ إِلَيْنَا.",
+              "amharic": "እኛም የበደሉንን ይቅር እንደምንል በደላችንን ይቅር በለን፤",
+              "tigrinya": "ከምቲ ንሕና ንዝበደሉና ይቕረ እንብል በደልና ይቕረ በለልና።",
+              "swahili": "Utusamehe deni zetu, kama sisi nasi tunavyowasamehe wadeni wetu.",
+              "greek": "καὶ ἄφες ἡμῖν τὰ ὀφειλήματα ἡμῶν, ὡς καὶ ἡμεῖς ἀφήκαμεν τοῖς ὀφειλέταις ἡμῶν·"
+            }
+          },
+          {
+            "item_id": "verse_5",
+            "reference": "Matthew 6:13",
+            "text": {
+              "english": "And lead us not into temptation, but deliver us from the evil one.",
+              "spanish": "Y no nos metas en tentación, mas líbranos del mal.",
+              "french": "Et ne nous induis pas en tentation, mais délivre-nous du malin.",
+              "italian": "E non ci indurre in tentazione, ma liberaci dal male.",
+              "german": "Und führe uns nicht in Versuchung, sondern erlöse uns von dem Bösen.",
+              "portuguese": "E não nos conduzas à tentação; mas livra-nos do mal.",
+              "russian": "и не введи нас в искушение, но избавь нас от лукавого.",
+              "chinese": "不叫我们遇见试探；救我们脱离凶恶。",
+              "japanese": "わたしたちを誘惑に遭わせず、悪い者から救ってください。",
+              "korean": "우리를 시험에 들게 하지 마시옵고 다만 악에서 구하시옵소서.",
+              "arabic": "وَلاَ تُدْخِلْنَا فِي تَجْرِبَةٍ، لكِنْ نَجِّنَا مِنَ الشِّرِّيرِ.",
+              "amharic": "ወደ ፈተናም አታግባን፤ ከክፉው አድነን እንጂ፤",
+              "tigrinya": "ካብ ክፉእ ድማ ኣድሕነና እምበር ናብ ፈተና ኣይተእትወና።",
+              "oromo": "Qorumsa keessas nu hin galchin, hamaa irraa nu oolchi malee.",
+              "swahili": "Usitutie majaribuni, lakini utuopoe na yule mwovu.",
+              "vietnamese": "Xin chớ để chúng con sa chước cám dỗ, nhưng cứu chúng con cho khỏi sự dữ.",
+              "hebrew": "וְאַל־תְּבִיאֵנוּ לִידֵי נִסָּיוֹן, כִּי אִם־חַלְּצֵנוּ מִן־הָרָע."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "total_sections": 1,
+    "total_items": 5,
+    "total_languages": 48,
+    "primary_themes": ["prayer", "divine_will", "provision", "forgiveness", "protection"]
+  }
+}

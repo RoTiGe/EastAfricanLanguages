@@ -529,18 +529,36 @@ app.get('/close-to-heart', async (req, res) => {
         const targetLanguage = req.query.target && config.isValidLanguage(req.query.target)
             ? req.query.target : 'amharic';
 
-        const beatitudesPath = path.join(__dirname, 'contextual_conversations', 'religious_beatitudes.json');
-        const wisdomPath = path.join(__dirname, 'contextual_conversations', 'religious_wisdom_world.json');
+        // Load the content index for dynamic content loading
+        const indexPath = path.join(__dirname, 'contextual_conversations', 'religious_content_index.json');
+        const contentIndex = JSON.parse(await fs.readFile(indexPath, 'utf8'));
 
-        const beatitudes = JSON.parse(await fs.readFile(beatitudesPath, 'utf8'));
-        const wisdom = JSON.parse(await fs.readFile(wisdomPath, 'utf8'));
+        // Load all enabled content files dynamically
+        const religiousContent = [];
+        for (const item of contentIndex.content_files.filter(f => f.enabled)) {
+            try {
+                const filePath = path.join(__dirname, 'contextual_conversations', item.file);
+                const content = JSON.parse(await fs.readFile(filePath, 'utf8'));
+                religiousContent.push({
+                    id: item.id,
+                    icon: item.icon,
+                    color: item.color,
+                    order: item.order,
+                    data: content
+                });
+            } catch (fileError) {
+                console.warn(`Warning: Could not load ${item.file}:`, fileError.message);
+            }
+        }
+
+        // Sort by order
+        religiousContent.sort((a, b) => a.order - b.order);
 
         res.render('close-to-heart', {
             title: 'Close to Heart - Spiritual Wisdom',
             languages: config.LANGUAGES,
             languageNames: config.LANGUAGE_NAMES,
-            beatitudes: beatitudes,
-            wisdom: wisdom,
+            religiousContent: religiousContent,
             nativeLanguage: nativeLanguage,
             targetLanguage: targetLanguage
         });
