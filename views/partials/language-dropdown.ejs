@@ -1,0 +1,21 @@
+<% /*
+  Partial: language-dropdown.ejs
+  Usage: Render a language dropdown using LANGUAGES and LANGUAGE_NAMES
+  Params:
+    - id: string (element id)
+    - name: string (element name)
+    - selected: string (selected language key)
+    - languages: array (list of language keys)
+    - languageNames: object (key-value map)
+    - label: string (label text)
+    - extraClass: string (optional extra class)
+    - ariaLabel: string (optional aria-label)
+*/ %>
+<div class="mb-3">
+  <label for="<%= id %>" class="form-label fw-bold"><%= label %></label>
+  <select id="<%= id %>" name="<%= name %>" class="form-select form-select-lg <%= extraClass || '' %>" aria-label="<%= ariaLabel || label %>" style="max-height: 300px; overflow-y: auto;">
+    <% languages.forEach(lang => { %>
+      <option value="<%= lang %>" <%= lang === selected ? 'selected' : '' %>><%= languageNames[lang] %></option>
+    <% }); %>
+  </select>
+</div>

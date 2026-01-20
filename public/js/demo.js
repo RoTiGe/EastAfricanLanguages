@@ -151,10 +151,11 @@ function populatePhraseDropdown() {
         // Show phrase in NATIVE language in dropdown (so user can understand it)
         const nativeText = phraseObj[NATIVE_LANGUAGE] || phraseObj.english || phraseObj[LANGUAGE];
 
-        // But store the TARGET language text as value (for TTS)
-        const targetText = phraseObj[LANGUAGE];
+        // Use the _phonetic field for TTS if available, otherwise use the native script
+        const phoneticField = `${LANGUAGE}_phonetic`;
+        const ttsText = phraseObj[phoneticField] || phraseObj[LANGUAGE];
 
-        option.value = targetText;
+        option.value = ttsText;
         option.setAttribute('data-phrase-index', index);
         option.setAttribute('data-category', currentCategory);
         option.textContent = nativeText;  // Display in native language

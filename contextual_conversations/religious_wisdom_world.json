@@ -3,19 +3,34 @@
     "id": "religious_wisdom_world",
     "title": {
       "english": "Core Wisdom Verses of Major World Religions",
-      "arabic": "آيات الحكمة الأساسية في ديانات العالم الكبرى",
-      "hindi": "प्रमुख विश्व धर्मों के मूल ज्ञान वचन",
       "spanish": "Versos de Sabiduría Central de las Principales Religiones del Mundo",
       "french": "Versets de Sagesse Fondamentale des Grandes Religions Mondiales",
+      "italian": "Versetti di Saggezza Fondamentale delle Principali Religioni del Mondo",
+      "german": "Kernweisheitsverse der großen Weltreligionen",
       "chinese": "世界主要宗教核心智慧经文",
-      "swahili": "Aya za Hekima za Msingi za Dini Kuu za Ulimwengu",
+      "arabic": "آيات الحكمة الأساسية في ديانات العالم الكبرى",
       "amharic": "የዓለም ዋና ዋና ሃይማኖቶች መሠረታዊ ጥበቃ ጥቅሶች",
+      "tigrinya": "ናይ ዓለም ቀንዲ ሃይማኖታት መሰረታዊ ጥበቃ ጥቕስታት",
       "oromo": "Qoosaa Gaggeessa Ijoo Seeraa Guddittii Addunyaa",
       "somali": "Aayadaha Xigmada Aasaasiga ah ee Diimaha Caalamka",
-      "tigrinya": "ናይ ዓለም ቀንዲ ሃይማኖታት መሰረታዊ ጥበቃ ጥቕስታት",
+      "hadiyaa": "Adunyichchi Ammanotte Gadissicha Qara Qoola",
+      "wolayitta": "Alamiyaa Ammano Ayhe Xillotetta Maxaafaa",
+      "afar": "Barako Kulli Duniyaa Diin",
+      "gamo": "Alamiyaa Ammano Ayhe Xillotetta Maxaafaa",
+      "swahili": "Aya za Hekima za Msingi za Dini Kuu za Ulimwengu",
       "kinyarwanda": "Inkuru z'Ubwenge z'Ingingo z'Ibintu z'Ibinyabwenge by'Umurage",
       "kirundi": "Amagambo y'Ubwenge bw'Ingingo y'Ibintu by'Imana",
-      "luo": "Kwer Mamit ma Piny Kodi mar Piny"
+      "luo": "Kwer Mamit ma Piny Kodi mar Piny",
+      "luganda": "Ebigambo by'Amagezi Ebisinze eby'Ediini Enkulu ez'Ensi",
+      "dinka": "Wëk ke Ŋuöt ke Dïït ke Piny",
+      "nuer": "Wöl ke Ŋuöt ke Dïït ke Run",
+      "korean": "세계 주요 종교의 핵심 지혜의 말씀",
+      "hindi": "प्रमुख विश्व धर्मों के मूल ज्ञान वचन",
+      "bengali": "বিশ্বের প্রধান ধর্মগুলির মূল প্রজ্ঞার শ্লোক",
+      "telugu": "ప్రపంచ ప్రధాన మతాల ప్రధాన జ్ఞాన పద్యాలు",
+      "kurdish": "Ayetên Şehrezayiyê yên Bingehîn ên Olên Mezin ên Cîhanê",
+      "farsi": "آیات خردمندی اصلی ادیان بزرگ جهان",
+      "bantu": "Aya za Hekima Kuu za Dini Kuu za Dunia"
     },
     "description": {
       "english": "A collection of the most widely recognized and philosophically profound verses from major world religions and spiritual traditions",
@@ -27,9 +42,10 @@
     "year_created": "2026",
     "version": "1.0",
     "supported_languages": [
-      "english", "arabic", "hindi", "spanish", "french", "chinese", "swahili",
-      "amharic", "oromo", "somali", "tigrinya", "kinyarwanda", "kirundi", "luo",
-      "hadiyaa", "wolyitta", "afar", "gamo"
+      "english", "spanish", "french", "italian", "chinese", "arabic", "amharic",
+      "tigrinya", "oromo", "somali", "hadiyaa", "wolayitta", "afar", "gamo",
+      "swahili", "kinyarwanda", "kirundi", "luo", "luganda", "dinka", "nuer",
+      "korean", "hindi", "bengali", "telugu", "kurdish", "farsi", "bantu", "german"
     ],
     "categories": {
       "english": ["Islam", "Hinduism", "Buddhism", "Christianity", "Judaism", "Sikhism", "Jainism", "Daoism", "African Traditional Religions", "Oromo Waaqeffannaa"],
@@ -44,27 +60,37 @@
       "chapter_id": "islam_alfatihah",
       "religion": {
         "english": "Islam",
-        "arabic": "الإسلام",
-        "hindi": "इस्लाम",
         "spanish": "Islam",
         "french": "Islam",
+        "italian": "Islam",
+        "german": "Islam",
         "chinese": "伊斯兰教",
-        "swahili": "Uislamu",
+        "arabic": "الإسلام",
         "amharic": "እስልምና",
+        "tigrinya": "እስላም",
         "oromo": "Islaamaa",
-        "somali": "Islaamka"
+        "somali": "Islaamka",
+        "swahili": "Uislamu",
+        "korean": "이슬람",
+        "hindi": "इस्लाम",
+        "bengali": "ইসলাম",
+        "telugu": "ఇస్లాం",
+        "farsi": "اسلام"
       },
       "source": {
         "english": "Quran",
         "arabic": "القرآن الكريم",
         "hindi": "कुरान",
-        "swahili": "Kurani"
+        "swahili": "Kurani",
+        "farsi": "قرآن",
+        "korean": "꾸란"
       },
       "chapter_name": {
         "english": "Surah Al-Fatihah (The Opening)",
         "arabic": "سورة الفاتحة (الفاتحة)",
         "hindi": "सूरह अल-फातिहा (प्रारंभ)",
-        "swahili": "Sura Al-Fatiha (Ufunguzi)"
+        "swahili": "Sura Al-Fatiha (Ufunguzi)",
+        "korean": "수라 알파티하 (시작)"
       },
       "significance": {
         "english": "Recited in every unit of Muslim prayer (17 times daily in obligatory prayers), considered the essence of the Quran"
@@ -74,18 +100,35 @@
           "verse_id": "1:1-2",
           "text": {
             "english": "In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds.",
+            "spanish": "En el nombre de Dios, el Compasivo, el Misericordioso. Alabado sea Dios, Señor del universo.",
+            "french": "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux. Louange à Allah, Seigneur de l'univers.",
+            "italian": "Nel nome di Allah, il Compassionevole, il Misericordioso. La lode appartiene ad Allah, Signore dei mondi.",
+            "german": "Im Namen Allahs, des Allerbarmers, des Barmherzigen. Alles Lob gebührt Allah, dem Herrn der Welten.",
+            "chinese": "奉至仁至慈的真主之名。一切赞颂全归真主，全世界的主。",
             "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (١) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (٢)",
-            "hindi": "अल्लाह के नाम से जो अत्यन्त कृपाशील और दयावान है। सारी प्रशंसा अल्लाह के लिए है जो सारे संसार का पालनहार है।",
-            "swahili": "Kwa jina la Mwenyezi Mungu, Mwingi wa rehema, Mwenye kurehemu. Sifa zote ni za Mwenyezi Mungu, Mola wa walimwengu wote.",
             "amharic": "በአላህ ስም እጅግ ሩኅሩኅ ርኅሩኅ ሲኾን፡፡ ምስጋና ለአላህ የዓለማት ጌታ ነው፡፡",
-            "oromo": "Maqaa Rabbii, Akkaan Rahmataa, Rahmata Guddaa ta'een. Faaruun hundi kan Rabbiiti, Gooftaa aalamootaati."
+            "tigrinya": "ብስም ኣላህ እቲ ሕያው ምሕረተኛ። ምስጋና ንኣላህ ጎይታ ዓለማት።",
+            "oromo": "Maqaa Rabbii, Akkaan Rahmataa, Rahmata Guddaa ta'een. Faaruun hundi kan Rabbiiti, Gooftaa aalamootaati.",
+            "somali": "Magaca Eebe Naxariistaha Naxariis Badan. Mahadda oo dhan Eebe ayay u sugnaaday, Rabbiga caalamka.",
+            "swahili": "Kwa jina la Mwenyezi Mungu, Mwingi wa rehema, Mwenye kurehemu. Sifa zote ni za Mwenyezi Mungu, Mola wa walimwengu wote.",
+            "korean": "자비롭고 자애로우신 알라의 이름으로. 모든 찬양은 세계의 주인이신 알라께 있나니.",
+            "hindi": "अल्लाह के नाम से जो अत्यन्त कृपाशील और दयावान है। सारी प्रशंसा अल्लाह के लिए है जो सारे संसार का पालनहार है।",
+            "bengali": "পরম করুণাময় অতি দয়ালু আল্লাহর নামে। সমস্ত প্রশংসা আল্লাহর জন্য, যিনি সমগ্র বিশ্বের প্রতিপালক।",
+            "telugu": "అల్లాహ్ పేరు మీద, అత్యంత దయామయుడు, కరుణామయుడు. సమస్త ప్రశంసలు అల్లాహ్‌కే, ప్రపంచాలకు ప్రభువు.",
+            "farsi": "به نام خداوند بخشنده مهربان. ستایش مخصوص خداوند است، پروردگار جهانیان.",
+            "bantu": "Kwa jina la Mungu, Mwingi wa rehema. Sifa zote ni za Mungu, Bwana wa ulimwengu."
           }
         },
         {
           "verse_id": "1:6-7",
           "text": {
             "english": "Guide us to the straight path—The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
-            "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (٦) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (٧)"
+            "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (٦) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (٧)",
+            "spanish": "Guíanos por el camino recto, el camino de los que Tú has favorecido, no el de los que han incurrido en Tu ira, ni el de los extraviados.",
+            "french": "Guide-nous dans le droit chemin, le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés.",
+            "korean": "우리를 올바른 길로 인도하소서. 당신이 은혜를 베푸신 자들의 길로, 진노를 받은 자들의 길도 아니고, 방황하는 자들의 길도 아닌.",
+            "hindi": "हमें सीधे रास्ते पर चला। उन लोगों के रास्ते पर जिन पर तूने अनुग्रह किया, न कि उन पर जिन पर तेरा क्रोध हुआ और न पथभ्रष्टों के।",
+            "farsi": "ما را به راه راست هدایت کن. راه کسانی که به آنان نعمت دادی، نه راه کسانی که مورد غضب واقع شدند و نه گمراهان."
           }
         }
       ],
@@ -97,13 +140,23 @@
       "chapter_id": "hinduism_gita",
       "religion": {
         "english": "Hinduism",
+        "spanish": "Hinduismo",
+        "french": "Hindouisme",
+        "italian": "Induismo",
+        "german": "Hinduismus",
+        "chinese": "印度教",
         "arabic": "الهندوسية",
         "hindi": "हिंदू धर्म",
-        "swahili": "Uhindu"
+        "swahili": "Uhindu",
+        "korean": "힌두교",
+        "bengali": "হিন্দু ধর্ম",
+        "telugu": "హిందూ మతం"
       },
       "source": {
         "english": "Bhagavad Gita",
-        "hindi": "भगवद्गीता"
+        "hindi": "भगवद्गीता",
+        "korean": "바가바드 기타",
+        "bengali": "ভগবদ্গীতা"
       },
       "chapter_name": {
         "english": "Chapter 2 (Sankhya Yoga)",
@@ -117,14 +170,30 @@
           "verse_id": "2:20",
           "text": {
             "english": "The soul is neither born, nor does it ever die; nor having once existed, does it ever cease to be. The soul is without birth, eternal, immortal, and ageless.",
-            "hindi": "आत्मा न तो जन्म लेती है और न मरती है। वह न तो कभी उत्पन्न हुई थी और न होगी। वह अजन्मा, नित्य, शाश्वत और पुरातन है।"
+            "spanish": "El alma no nace ni muere jamás; ni habiendo existido una vez, deja de existir. El alma es sin nacimiento, eterna, inmortal y sin edad.",
+            "french": "L'âme ne naît ni ne meurt jamais; ni ayant existé une fois, elle ne cesse d'exister. L'âme est sans naissance, éternelle, immortelle et sans âge.",
+            "italian": "L'anima non nasce né muore mai; né avendo esistito una volta, cessa di esistere. L'anima è senza nascita, eterna, immortale e senza età.",
+            "german": "Die Seele wird weder geboren noch stirbt sie jemals; noch hört sie auf zu existieren, nachdem sie einmal existiert hat. Die Seele ist ohne Geburt, ewig, unsterblich und alterslos.",
+            "chinese": "灵魂既不生也不死；它曾经存在，就永远不会停止存在。灵魂无生、永恒、不朽、不老。",
+            "hindi": "आत्मा न तो जन्म लेती है और न मरती है। वह न तो कभी उत्पन्न हुई थी और न होगी। वह अजन्मा, नित्य, शाश्वत और पुरातन है।",
+            "korean": "영혼은 태어나지도 죽지도 않는다. 한번 존재한 후에는 존재하기를 멈추지 않는다. 영혼은 태어남이 없고, 영원하며, 불멸하고, 늙지 않는다.",
+            "bengali": "আত্মা জন্মায় না, মরেও না; একবার অস্তিত্বে এসে, সে কখনও থামে না। আত্মা জন্মহীন, চিরন্তন, অমর এবং বয়সহীন।",
+            "telugu": "ఆత్మ పుట్టదు, చావదు; ఒకసారి ఉనికిలో ఉన్న తర్వాత, అది ఉనికిని ఆపదు. ఆత్మ జన్మ లేనిది, శాశ్వతమైనది, అమరమైనది మరియు వయసు లేనిది."
           }
         },
         {
           "verse_id": "2:47",
           "text": {
             "english": "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities.",
-            "hindi": "कर्म करने में ही तुम्हारा अधिकार है, फल में कभी नहीं। तुम कर्मफल के हेतु मत बनो और न कर्म न करने में आसक्त होओ।"
+            "spanish": "Tienes derecho a realizar tus deberes prescritos, pero no tienes derecho a los frutos de tus acciones. Nunca te consideres la causa de los resultados de tus actividades.",
+            "french": "Tu as le droit d'accomplir tes devoirs prescrits, mais tu n'as pas droit aux fruits de tes actions. Ne te considère jamais comme la cause des résultats de tes activités.",
+            "italian": "Hai il diritto di compiere i tuoi doveri prescritti, ma non hai diritto ai frutti delle tue azioni. Non considerarti mai la causa dei risultati delle tue attività.",
+            "german": "Du hast das Recht, deine vorgeschriebenen Pflichten zu erfüllen, aber du hast keinen Anspruch auf die Früchte deiner Handlungen. Betrachte dich niemals als die Ursache der Ergebnisse deiner Aktivitäten.",
+            "chinese": "你有权履行你规定的职责，但你无权享受你行动的果实。永远不要认为自己是你活动结果的原因。",
+            "hindi": "कर्म करने में ही तुम्हारा अधिकार है, फल में कभी नहीं। तुम कर्मफल के हेतु मत बनो और न कर्म न करने में आसक्त होओ।",
+            "korean": "너는 규정된 의무를 수행할 권리가 있지만, 행동의 결과에 대한 권리는 없다. 결코 자신을 활동 결과의 원인으로 여기지 마라.",
+            "bengali": "তোমার নির্ধারিত কর্তব্য পালন করার অধিকার আছে, কিন্তু তোমার কর্মের ফলের অধিকার নেই। কখনও নিজেকে তোমার কার্যকলাপের ফলাফলের কারণ মনে করো না।",
+            "telugu": "నీ నిర్దేశిత విధులను నిర్వహించే హక్కు నీకు ఉంది, కానీ నీ చర్యల ఫలాలకు నీకు హక్కు లేదు. నీ కార్యకలాపాల ఫలితాలకు నిన్ను కారణంగా ఎప్పుడూ భావించకు."
           }
         }
       ],
@@ -136,15 +205,27 @@
       "chapter_id": "buddhism_heart_sutra",
       "religion": {
         "english": "Buddhism",
+        "spanish": "Budismo",
+        "french": "Bouddhisme",
+        "italian": "Buddismo",
+        "german": "Buddhismus",
+        "chinese": "佛教",
         "arabic": "البوذية",
         "hindi": "बौद्ध धर्म",
-        "swahili": "Ubuddha"
+        "swahili": "Ubuddha",
+        "korean": "불교",
+        "bengali": "বৌদ্ধ ধর্ম",
+        "telugu": "బౌద్ధ మతం"
       },
       "source": {
-        "english": "Heart Sutra (Prajñāpāramitā Hṛdaya)"
+        "english": "Heart Sutra (Prajñāpāramitā Hṛdaya)",
+        "chinese": "般若波罗蜜多心经",
+        "korean": "반야심경"
       },
       "chapter_name": {
-        "english": "The Heart of the Perfection of Wisdom"
+        "english": "The Heart of the Perfection of Wisdom",
+        "chinese": "般若波罗蜜多心经",
+        "korean": "지혜의 완성의 핵심"
       },
       "significance": {
         "english": "Most widely recited Mahayana text, chanted daily in monasteries across Asia"
@@ -153,13 +234,24 @@
         {
           "verse_id": "verse_1",
           "text": {
-            "english": "Form is emptiness, emptiness is form. Form is not other than emptiness, emptiness is not other than form."
+            "english": "Form is emptiness, emptiness is form. Form is not other than emptiness, emptiness is not other than form.",
+            "spanish": "La forma es vacío, el vacío es forma. La forma no es diferente del vacío, el vacío no es diferente de la forma.",
+            "french": "La forme est vide, le vide est forme. La forme n'est pas autre que le vide, le vide n'est pas autre que la forme.",
+            "italian": "La forma è vuoto, il vuoto è forma. La forma non è altro che vuoto, il vuoto non è altro che forma.",
+            "german": "Form ist Leere, Leere ist Form. Form ist nicht anders als Leere, Leere ist nicht anders als Form.",
+            "chinese": "色即是空，空即是色。色不异空，空不异色。",
+            "korean": "색즉시공 공즉시색. 색불이공 공불이색.",
+            "hindi": "रूप शून्यता है, शून्यता रूप है। रूप शून्यता से भिन्न नहीं है, शून्यता रूप से भिन्न नहीं है।",
+            "bengali": "রূপ শূন্যতা, শূন্যতা রূপ। রূপ শূন্যতা থেকে ভিন্ন নয়, শূন্যতা রূপ থেকে ভিন্ন নয়।"
           }
         },
         {
           "verse_id": "mantra",
           "text": {
-            "english": "Gate gate pāragate pārasaṃgate bodhi svāhā (Gone, gone, gone beyond, gone altogether beyond, O awakening, hail!)"
+            "english": "Gate gate pāragate pārasaṃgate bodhi svāhā (Gone, gone, gone beyond, gone altogether beyond, O awakening, hail!)",
+            "chinese": "揭谛揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃",
+            "korean": "아제아제 바라아제 바라승아제 모지사바하",
+            "hindi": "गते गते पारगते पारसंगते बोधि स्वाहा"
           }
         }
       ],
@@ -171,15 +263,26 @@
       "chapter_id": "judaism_shema",
       "religion": {
         "english": "Judaism",
+        "spanish": "Judaísmo",
+        "french": "Judaïsme",
+        "italian": "Ebraismo",
+        "german": "Judentum",
+        "chinese": "犹太教",
         "arabic": "اليهودية",
         "hindi": "यहूदी धर्म",
-        "swahili": "Uyahudi"
+        "swahili": "Uyahudi",
+        "korean": "유대교",
+        "bengali": "ইহুদি ধর্ম",
+        "farsi": "یهودیت"
       },
       "source": {
-        "english": "Torah"
+        "english": "Torah",
+        "hebrew": "תורה",
+        "korean": "토라"
       },
       "chapter_name": {
-        "english": "Deuteronomy 6:4-9 (The Shema)"
+        "english": "Deuteronomy 6:4-9 (The Shema)",
+        "hebrew": "דברים ו:ד-ט (שמע)"
       },
       "significance": {
         "english": "Central prayer of Judaism, recited twice daily, declaration of monotheistic faith"
@@ -188,13 +291,24 @@
         {
           "verse_id": "6:4-5",
           "text": {
-            "english": "Hear, O Israel: The LORD our God, the LORD is one. Love the LORD your God with all your heart and with all your soul and with all your strength."
+            "english": "Hear, O Israel: The LORD our God, the LORD is one. Love the LORD your God with all your heart and with all your soul and with all your strength.",
+            "hebrew": "שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד. וְאָהַבְתָּ אֵת יְהוָה אֱלֹהֶיךָ בְּכָל־לְבָבְךָ וּבְכָל־נַפְשְׁךָ וּבְכָל־מְאֹדֶךָ.",
+            "spanish": "Escucha, Israel: El SEÑOR nuestro Dios, el SEÑOR es uno. Ama al SEÑOR tu Dios con todo tu corazón, con toda tu alma y con todas tus fuerzas.",
+            "french": "Écoute, Israël: L'Éternel, notre Dieu, l'Éternel est un. Tu aimeras l'Éternel, ton Dieu, de tout ton cœur, de toute ton âme et de toute ta force.",
+            "italian": "Ascolta, Israele: Il SIGNORE, il nostro Dio, il SIGNORE è uno. Amerai il SIGNORE tuo Dio con tutto il tuo cuore, con tutta la tua anima e con tutte le tue forze.",
+            "german": "Höre, Israel: Der HERR, unser Gott, der HERR ist einer. Du sollst den HERRN, deinen Gott, lieben mit deinem ganzen Herzen, mit deiner ganzen Seele und mit deiner ganzen Kraft.",
+            "korean": "이스라엘아 들으라. 우리 하나님 여호와는 오직 유일한 여호와시니. 너는 마음을 다하고 뜻을 다하고 힘을 다하여 네 하나님 여호와를 사랑하라.",
+            "hindi": "हे इस्राएल, सुन! यहोवा हमारा परमेश्वर है, यहोवा एक ही है। तू अपने परमेश्वर यहोवा से अपने सारे मन और अपने सारे प्राण और अपनी सारी शक्ति के साथ प्रेम रखना।",
+            "farsi": "بشنو ای اسرائیل: خداوند، خدای ما، خداوند یکتاست. خداوند، خدای خود را با تمام دل و تمام جان و تمام قوت خود دوست بدار."
           }
         },
         {
           "verse_id": "6:6-9",
           "text": {
-            "english": "These commandments that I give you today are to be on your hearts. Impress them on your children. Talk about them when you sit at home and when you walk along the road, when you lie down and when you get up."
+            "english": "These commandments that I give you today are to be on your hearts. Impress them on your children. Talk about them when you sit at home and when you walk along the road, when you lie down and when you get up.",
+            "spanish": "Estos mandamientos que hoy te doy estarán sobre tu corazón. Incúlcaselos a tus hijos. Habla de ellos cuando estés en tu casa y cuando vayas por el camino, cuando te acuestes y cuando te levantes.",
+            "french": "Ces commandements que je te donne aujourd'hui seront dans ton cœur. Tu les inculqueras à tes enfants. Tu en parleras quand tu seras dans ta maison, quand tu iras en voyage, quand tu te coucheras et quand tu te lèveras.",
+            "korean": "오늘 내가 네게 명하는 이 말씀을 너는 마음에 새기고 네 자녀에게 부지런히 가르치며 집에 앉았을 때에든지 길을 갈 때에든지 누워 있을 때에든지 일어날 때에든지 이 말씀을 강론할 것이며."
           }
         }
       ],
@@ -206,15 +320,24 @@
       "chapter_id": "sikhism_japji",
       "religion": {
         "english": "Sikhism",
+        "spanish": "Sijismo",
+        "french": "Sikhisme",
+        "italian": "Sikhismo",
+        "german": "Sikhismus",
+        "chinese": "锡克教",
         "arabic": "السيخية",
         "hindi": "सिख धर्म",
-        "swahili": "Usiki"
+        "swahili": "Usiki",
+        "korean": "시크교",
+        "bengali": "শিখ ধর্ম"
       },
       "source": {
-        "english": "Guru Granth Sahib"
+        "english": "Guru Granth Sahib",
+        "punjabi": "ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ"
       },
       "chapter_name": {
-        "english": "Japji Sahib"
+        "english": "Japji Sahib",
+        "punjabi": "ਜਪੁਜੀ ਸਾਹਿਬ"
       },
       "significance": {
         "english": "Opening composition, recited daily by Sikhs, considered the essence of Sikh philosophy"
@@ -224,7 +347,11 @@
           "verse_id": "mool_mantar",
           "text": {
             "english": "One Universal Creator God. The Name Is Truth. Creative Being Personified. No Fear. No Hatred. Image Of The Undying, Beyond Birth, Self-Existent. By Guru's Grace.",
-            "punjabi": "ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ॥"
+            "punjabi": "ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ॥",
+            "spanish": "Un Dios Creador Universal. El Nombre es Verdad. Ser Creativo Personificado. Sin Miedo. Sin Odio. Imagen del Inmortal, Más Allá del Nacimiento, Auto-Existente. Por la Gracia del Gurú.",
+            "french": "Un Dieu Créateur Universel. Le Nom est Vérité. Être Créatif Personnifié. Sans Peur. Sans Haine. Image de l'Immortel, Au-delà de la Naissance, Auto-Existant. Par la Grâce du Guru.",
+            "korean": "하나의 보편적 창조주 하나님. 이름은 진리. 창조적 존재의 화신. 두려움 없음. 증오 없음. 불멸의 형상, 탄생을 초월, 자존. 구루의 은총으로.",
+            "hindi": "एक ओंकार सतनाम करता पुरख निरभउ निरवैर अकाल मूरति अजूनी सैभं गुर प्रसादि।"
           }
         }
       ],
@@ -236,12 +363,20 @@
       "chapter_id": "jainism_tattvartha",
       "religion": {
         "english": "Jainism",
+        "spanish": "Jainismo",
+        "french": "Jaïnisme",
+        "italian": "Giainismo",
+        "german": "Jainismus",
+        "chinese": "耆那教",
         "arabic": "الجاينية",
         "hindi": "जैन धर्म",
-        "swahili": "Ujaini"
+        "swahili": "Ujaini",
+        "korean": "자이나교",
+        "bengali": "জৈন ধর্ম"
       },
       "source": {
-        "english": "Tattvartha Sutra"
+        "english": "Tattvartha Sutra",
+        "hindi": "तत्त्वार्थ सूत्र"
       },
       "chapter_name": {
         "english": "Chapter 1 (Right Faith, Knowledge, and Conduct)"
@@ -253,13 +388,21 @@
         {
           "verse_id": "1:1",
           "text": {
-            "english": "Samyag-darśana-jñāna-cāritrāṇi mokṣa-mārgaḥ (Right faith, right knowledge, and right conduct together constitute the path to liberation)."
+            "english": "Samyag-darśana-jñāna-cāritrāṇi mokṣa-mārgaḥ (Right faith, right knowledge, and right conduct together constitute the path to liberation).",
+            "spanish": "La fe correcta, el conocimiento correcto y la conducta correcta juntos constituyen el camino hacia la liberación.",
+            "french": "La foi juste, la connaissance juste et la conduite juste constituent ensemble le chemin vers la libération.",
+            "korean": "올바른 믿음, 올바른 지식, 올바른 행동이 함께 해탈의 길을 이룬다.",
+            "hindi": "सम्यक् दर्शन, सम्यक् ज्ञान और सम्यक् चरित्र मिलकर मोक्ष का मार्ग बनाते हैं।"
           }
         },
         {
           "verse_id": "1:2",
           "text": {
-            "english": "Ahimsa (non-violence) is the highest duty. It is the highest purification. It is the essence of all knowledge."
+            "english": "Ahimsa (non-violence) is the highest duty. It is the highest purification. It is the essence of all knowledge.",
+            "spanish": "Ahimsa (no violencia) es el deber más alto. Es la purificación más alta. Es la esencia de todo conocimiento.",
+            "french": "Ahimsa (non-violence) est le devoir le plus élevé. C'est la purification la plus élevée. C'est l'essence de toute connaissance.",
+            "korean": "아힘사(비폭력)는 가장 높은 의무이다. 그것은 가장 높은 정화이다. 그것은 모든 지식의 본질이다.",
+            "hindi": "अहिंसा परमो धर्मः। यह सर्वोच्च शुद्धि है। यह सभी ज्ञान का सार है।"
           }
         }
       ],
@@ -271,13 +414,20 @@
       "chapter_id": "daoism_daodejing",
       "religion": {
         "english": "Daoism (Taoism)",
+        "spanish": "Taoísmo",
+        "french": "Taoïsme",
+        "italian": "Taoismo",
+        "german": "Taoismus",
+        "chinese": "道教",
         "arabic": "الطاوية",
         "hindi": "ताओ धर्म",
-        "chinese": "道教"
+        "korean": "도교",
+        "bengali": "তাওবাদ"
       },
       "source": {
         "english": "Dao De Jing (Tao Te Ching)",
-        "chinese": "道德经"
+        "chinese": "道德经",
+        "korean": "도덕경"
       },
       "chapter_name": {
         "english": "Chapter 1 (The Dao that can be told)"
@@ -290,14 +440,22 @@
           "verse_id": "1:1",
           "text": {
             "english": "The Dao that can be told is not the eternal Dao. The name that can be named is not the eternal name.",
-            "chinese": "道可道，非常道。名可名，非常名。"
+            "spanish": "El Tao que puede ser expresado no es el Tao eterno. El nombre que puede ser nombrado no es el nombre eterno.",
+            "french": "Le Tao qui peut être exprimé n'est pas le Tao éternel. Le nom qui peut être nommé n'est pas le nom éternel.",
+            "italian": "Il Tao che può essere espresso non è il Tao eterno. Il nome che può essere nominato non è il nome eterno.",
+            "german": "Das Tao, das ausgesprochen werden kann, ist nicht das ewige Tao. Der Name, der genannt werden kann, ist nicht der ewige Name.",
+            "chinese": "道可道，非常道。名可名，非常名。",
+            "korean": "도를 말할 수 있으면 영원한 도가 아니다. 이름을 붙일 수 있으면 영원한 이름이 아니다."
           }
         },
         {
           "verse_id": "1:2",
           "text": {
             "english": "The nameless is the beginning of heaven and earth. The named is the mother of ten thousand things.",
-            "chinese": "无名天地之始；有名万物之母。"
+            "spanish": "Lo sin nombre es el principio del cielo y la tierra. Lo nombrado es la madre de las diez mil cosas.",
+            "french": "L'innommé est le commencement du ciel et de la terre. Le nommé est la mère des dix mille choses.",
+            "chinese": "无名天地之始；有名万物之母。",
+            "korean": "이름 없는 것은 천지의 시작이다. 이름 있는 것은 만물의 어머니이다."
           }
         }
       ],
@@ -309,14 +467,22 @@
       "chapter_id": "african_ifa",
       "religion": {
         "english": "African Traditional Religions",
+        "spanish": "Religiones Tradicionales Africanas",
+        "french": "Religions Traditionnelles Africaines",
+        "italian": "Religioni Tradizionali Africane",
+        "german": "Afrikanische Traditionelle Religionen",
         "arabic": "الديانات التقليدية الأفريقية",
-        "swahili": "Dini za Jadi za Kiafrika"
+        "swahili": "Dini za Jadi za Kiafrika",
+        "amharic": "የአፍሪካ ባህላዊ ሃይማኖቶች",
+        "luganda": "Ediini z'Obuwangwa bw'Afirika"
       },
       "source": {
-        "english": "Oral Traditions (Yoruba)"
+        "english": "Oral Traditions (Yoruba)",
+        "yoruba": "Àṣà Ìtàn (Yorùbá)"
       },
       "chapter_name": {
-        "english": "Ifá Divination Poetry (Odu Ifá)"
+        "english": "Ifá Divination Poetry (Odu Ifá)",
+        "yoruba": "Ewì Ifá (Odù Ifá)"
       },
       "significance": {
         "english": "Central text of Ifá tradition, containing wisdom, ethics, and cosmology of Yoruba religion"
@@ -326,14 +492,20 @@
           "verse_id": "odu_ogbe_ofun",
           "text": {
             "english": "The world is a marketplace, heaven is home. We come to buy and sell, and when we are done, we return home.",
-            "yoruba": "Ayé l'ọjà, ọ̀run n'ilé. A wá ra, a wá tà, a bá padà sílé."
+            "yoruba": "Ayé l'ọjà, ọ̀run n'ilé. A wá ra, a wá tà, a bá padà sílé.",
+            "spanish": "El mundo es un mercado, el cielo es el hogar. Venimos a comprar y vender, y cuando terminamos, regresamos a casa.",
+            "french": "Le monde est un marché, le ciel est la maison. Nous venons acheter et vendre, et quand nous avons fini, nous rentrons chez nous.",
+            "swahili": "Dunia ni soko, mbingu ni nyumbani. Tunakuja kununua na kuuza, na tunapomaliza, tunarudi nyumbani."
           }
         },
         {
           "verse_id": "odu_irosun",
           "text": {
             "english": "Character is what we take with us when we leave this earth. Good character is the true legacy.",
-            "yoruba": "Ìwà l'ẹ̀wà. Ìwà rere ni ẹ̀wà ènìyàn."
+            "yoruba": "Ìwà l'ẹ̀wà. Ìwà rere ni ẹ̀wà ènìyàn.",
+            "spanish": "El carácter es lo que nos llevamos cuando dejamos esta tierra. El buen carácter es el verdadero legado.",
+            "french": "Le caractère est ce que nous emportons quand nous quittons cette terre. Le bon caractère est le véritable héritage.",
+            "swahili": "Tabia ndiyo tunayoichukua tunapoondoka duniani. Tabia njema ndiyo urithi wa kweli."
           }
         }
       ],
@@ -346,11 +518,14 @@
       "religion": {
         "english": "Oromo Waaqeffannaa",
         "oromo": "Waaqeffannaa",
-        "amharic": "ዋቄፋና"
+        "amharic": "ዋቄፋና",
+        "tigrinya": "ዋቄፋና",
+        "somali": "Waaqeffannaa"
       },
       "source": {
         "english": "Oral Tradition",
-        "oromo": "Aadaa Afaanii"
+        "oromo": "Aadaa Afaanii",
+        "amharic": "የአፍ ወግ"
       },
       "chapter_name": {
         "english": "The Three Pillars of Waaqeffannaa",
@@ -364,21 +539,27 @@
           "verse_id": "pillar_1_safuu",
           "text": {
             "english": "Safuu (Moral and Ethical Order): Respect for all creation, living in harmony with natural and social order.",
-            "oromo": "Safuu: Uumama hundaaf kabaja, seera uumamaa fi hawaasaa waliin nagaan jiraachuu."
+            "oromo": "Safuu: Uumama hundaaf kabaja, seera uumamaa fi hawaasaa waliin nagaan jiraachuu.",
+            "amharic": "ሳፉ (የሥነ ምግባር ሥርዓት): ለሁሉም ፍጥረት ክብር፣ ከተፈጥሮና ከማህበራዊ ሥርዓት ጋር በሰላም መኖር።",
+            "swahili": "Safuu (Utaratibu wa Maadili): Heshima kwa viumbe vyote, kuishi kwa amani na utaratibu wa asili na jamii."
           }
         },
         {
           "verse_id": "pillar_2_nagaa",
           "text": {
             "english": "Nagaa (Peace): Peace with God (Waaqa), peace with nature, peace with fellow human beings, and peace with oneself.",
-            "oromo": "Nagaa: Nagaa Waaqa waliin, nagaa uumama waliin, nagaa namoota waliin, nagaa ofii waliin."
+            "oromo": "Nagaa: Nagaa Waaqa waliin, nagaa uumama waliin, nagaa namoota waliin, nagaa ofii waliin.",
+            "amharic": "ናጋ (ሰላም): ከእግዚአብሔር (ዋቃ) ጋር ሰላም፣ ከተፈጥሮ ጋር ሰላም፣ ከሰዎች ጋር ሰላም፣ ከራስ ጋር ሰላም።",
+            "swahili": "Nagaa (Amani): Amani na Mungu (Waaqa), amani na asili, amani na wanadamu wenzako, na amani na nafsi yako."
           }
         },
         {
           "verse_id": "pillar_3_walii",
           "text": {
             "english": "Walii (Unity and Reciprocity): Mutual support, collective responsibility, and recognition of interdependence in community.",
-            "oromo": "Walii: Walgargaarsa, itti gaafatama walii, fi walitti hidhiinsa hawaasaa beekuu."
+            "oromo": "Walii: Walgargaarsa, itti gaafatama walii, fi walitti hidhiinsa hawaasaa beekuu.",
+            "amharic": "ዋሊ (አንድነትና መተጋገዝ): የጋራ ድጋፍ፣ የጋራ ኃላፊነት፣ እና በማህበረሰብ ውስጥ የጋራ ጥገኝነትን ማወቅ።",
+            "swahili": "Walii (Umoja na Usaidizi): Msaada wa pande zote, wajibu wa pamoja, na kutambua utegemezi katika jamii."
           }
         }
       ],
@@ -390,7 +571,7 @@
   "summary": {
     "total_religions": 10,
     "total_chapters": 10,
-    "total_languages": 18,
+    "total_languages": 29,
     "common_themes": ["Ethical living", "Connection with the divine", "Community and compassion", "Peace and harmony", "Self-improvement and enlightenment"]
   }
 }

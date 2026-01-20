@@ -9,8 +9,29 @@ const LANGUAGES = [
   "spanish",
   "french",
   "italian",
+  "german",
+  "portuguese",
+  "russian",
   "chinese",
+  "japanese",
+  "korean",
   "arabic",
+  "hebrew",
+  "greek",
+  "turkish",
+  "farsi",
+  "kurdish",
+  "hindi",
+  "bengali",
+  "telugu",
+  "tamil",
+  "thai",
+  "vietnamese",
+  "dutch",
+  "swedish",
+  "polish",
+  "czech",
+  "hungarian",
   "amharic",
   "tigrinya",
   "oromo",
@@ -26,48 +47,50 @@ const LANGUAGES = [
   "luganda",
   "dinka",
   "nuer",
-  "korean",
-  "hindi",
-  "bengali",
-  "telugu",
-  "kurdish",
-  "farsi",
-  "bantu",
-  "german"
+  "bantu"
 ];
 
 // Language display names (native + English)
 const LANGUAGE_NAMES = {
     'english': 'English',
     'spanish': 'Español (Spanish)',
-
     'french': 'Français (French)',
-
     'italian': 'Italiano (Italian)',
-
+    'german': 'Deutsch (German)',
+    'portuguese': 'Português (Portuguese)',
+    'russian': 'Русский (Russian)',
     'chinese': '中文 (Chinese)',
-
+    'japanese': '日本語 (Japanese)',
+    'korean': '한국어 (Korean)',
     'arabic': 'العربية (Arabic)',
-
+    'hebrew': 'עברית (Hebrew)',
+    'greek': 'Ελληνικά (Greek)',
+    'turkish': 'Türkçe (Turkish)',
+    'farsi': 'فارسی (Farsi/Persian)',
+    'kurdish': 'Kurdî (Kurdish)',
+    'hindi': 'हिन्दी (Hindi)',
+    'bengali': 'বাংলা (Bengali)',
+    'telugu': 'తెలుగు (Telugu)',
+    'tamil': 'தமிழ் (Tamil)',
+    'thai': 'ไทย (Thai)',
+    'vietnamese': 'Tiếng Việt (Vietnamese)',
+    'dutch': 'Nederlands (Dutch)',
+    'swedish': 'Svenska (Swedish)',
+    'polish': 'Polski (Polish)',
+    'czech': 'Čeština (Czech)',
+    'hungarian': 'Magyar (Hungarian)',
     'amharic': 'አማርኛ (Amharic)',
-
     'tigrinya': 'ትግርኛ (Tigrinya)',
-
     'oromo': 'Afaan Oromoo (Oromo)',
-
     'somali': 'Af-Soomaali (Somali)',
     'hadiyaa': 'Hadiyyisa (Hadiyaa)',
     'hadiyaa_phonetic': 'Hadiyaa (Phonetic)',
     'wolayitta': 'Wolaytta (Wolayitta)',
-
     'afar': 'Qafar (Afar)',
     'afar_phonetic': 'Afar (Phonetic)',
     'gamo': 'Gamoñña (Gamo)',
-
     'swahili': 'Kiswahili (Swahili)',
-
     'kinyarwanda': 'Ikinyarwanda (Kinyarwanda)',
-
     'kirundi': 'Ikirundi (Kirundi)',
     'kirundi_phonetic': 'Kirundi (Phonetic)',
     'luo': 'Dholuo (Luo)',
@@ -75,14 +98,7 @@ const LANGUAGE_NAMES = {
     'luganda': 'Luganda',
     'dinka': 'Dinka',
     'nuer': 'Nuer',
-    'korean': '한국어 (Korean)',
-    'hindi': 'हिन्दी (Hindi)',
-    'bengali': 'বাংলা (Bengali)',
-    'telugu': 'తెలుగు (Telugu)',
-    'kurdish': 'Kurdî (Kurdish)',
-    'farsi': 'فارسی (Farsi)',
-    'bantu': 'Bantu',
-    'german': 'Deutsch (German)'
+    'bantu': 'Bantu'
 };
 
 // Server configuration

@@ -8,12 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     link.href = 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css';
     document.head.appendChild(link);
 
-    // Load Select2 JS
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js';
-    script.onload = function() {
-        // Initialize Select2 on language dropdowns
-        if (window.jQuery) {
+    // Function to initialize Select2 on dropdowns
+    function initializeSelect2() {
+        if (window.jQuery && window.jQuery.fn.select2) {
             // For translate.ejs
             $('#sourceLanguage').select2({
                 width: '100%',
@@ -38,16 +35,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 placeholder: 'Select Language'
             });
         }
-    };
-    document.body.appendChild(script);
+    }
 
-    // Load jQuery if not present (use jsdelivr to comply with CSP)
+    // Function to load Select2 AFTER jQuery is ready
+    function loadSelect2() {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js';
+        script.onload = initializeSelect2;
+        document.body.appendChild(script);
+    }
+
+    // Load jQuery first if not present, then load Select2
     if (!window.jQuery) {
         var jq = document.createElement('script');
         jq.src = 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js';
-        jq.onload = function() {
-            document.body.appendChild(script);
-        };
+        jq.onload = loadSelect2;
         document.body.appendChild(jq);
+    } else {
+        // jQuery already loaded, just load Select2
+        loadSelect2();
     }
 });

@@ -19,6 +19,26 @@
         .nav-tabs .nav-link { color: #495057; }
         .nav-tabs .nav-link.active { color: #6f42c1; border-color: #6f42c1 #6f42c1 #fff; font-weight: 600; }
         .hero-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        /* Religion Map Styles */
+        .religion-map { position: relative; }
+        .religion-btn {
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-radius: 25px !important;
+        }
+        .religion-btn:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25) !important;
+        }
+        .religion-btn .badge {
+            font-size: 0.65rem;
+            padding: 3px 6px;
+        }
+        @media (max-width: 768px) {
+            .religion-map { min-height: 800px !important; }
+            .religion-btn { font-size: 0.75rem !important; padding: 0.4rem 0.6rem !important; }
+            .religion-btn .badge { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -39,30 +59,151 @@
         </header>
 
         <main class="container my-5">
+            <!-- World Religions Distribution Map -->
+            <section class="mb-5">
+                <h2 class="text-center mb-4 h3"><i class="bi bi-globe2 me-2"></i>World Religions Distribution</h2>
+                <p class="text-center text-muted mb-4">Click any religion to explore its wisdom teachings</p>
+                <div class="religion-map position-relative mx-auto" style="min-height: 480px; max-width: 1100px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; border: 2px solid #dee2e6;">
+
+                    <!-- Christianity - Americas, Europe, Africa, Oceania -->
+                    <div class="position-absolute" style="top: 15%; left: 8%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Christianity')" style="background: linear-gradient(135deg, #6f42c1, #8b5cf6); color: white; border: none;">
+                            <i class="bi bi-cross me-2"></i>Christianity
+                            <span class="badge bg-light text-dark ms-2">2.4B</span>
+                        </a>
+                    </div>
+
+                    <!-- Islam - Middle East, North Africa, Indonesia, Central Asia -->
+                    <div class="position-absolute" style="top: 28%; left: 52%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Islam')" style="background: linear-gradient(135deg, #198754, #20c997); color: white; border: none;">
+                            <i class="bi bi-moon-stars me-2"></i>Islam
+                            <span class="badge bg-light text-dark ms-2">1.9B</span>
+                        </a>
+                    </div>
+
+                    <!-- Hinduism - India, Nepal -->
+                    <div class="position-absolute" style="top: 40%; left: 68%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Hinduism')" style="background: linear-gradient(135deg, #fd7e14, #ffc107); color: white; border: none;">
+                            <i class="bi bi-flower3 me-2"></i>Hinduism
+                            <span class="badge bg-light text-dark ms-2">1.2B</span>
+                        </a>
+                    </div>
+
+                    <!-- Buddhism - East/Southeast Asia -->
+                    <div class="position-absolute" style="top: 22%; left: 78%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Buddhism')" style="background: linear-gradient(135deg, #ffc107, #ffdb58); color: #333; border: none;">
+                            <i class="bi bi-yin-yang me-2"></i>Buddhism
+                            <span class="badge bg-dark text-light ms-2">500M</span>
+                        </a>
+                    </div>
+
+                    <!-- Sikhism - Punjab, India -->
+                    <div class="position-absolute" style="top: 35%; left: 62%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Sikhism')" style="background: linear-gradient(135deg, #dc3545, #ff6b6b); color: white; border: none;">
+                            <i class="bi bi-shield-fill me-2"></i>Sikhism
+                            <span class="badge bg-light text-dark ms-2">30M</span>
+                        </a>
+                    </div>
+
+                    <!-- Judaism - Israel, Americas -->
+                    <div class="position-absolute" style="top: 25%; left: 48%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Judaism')" style="background: linear-gradient(135deg, #0d6efd, #6ea8fe); color: white; border: none;">
+                            <i class="bi bi-star-of-david me-2"></i>Judaism
+                            <span class="badge bg-light text-dark ms-2">15M</span>
+                        </a>
+                    </div>
+
+                    <!-- Daoism - China -->
+                    <div class="position-absolute" style="top: 18%; left: 82%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Daoism')" style="background: linear-gradient(135deg, #6c757d, #adb5bd); color: white; border: none;">
+                            <i class="bi bi-water me-2"></i>Daoism
+                            <span class="badge bg-light text-dark ms-2">12M</span>
+                        </a>
+                    </div>
+
+                    <!-- Jainism - India -->
+                    <div class="position-absolute" style="top: 48%; left: 72%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Jainism')" style="background: linear-gradient(135deg, #20c997, #40e0d0); color: white; border: none;">
+                            <i class="bi bi-hand-index me-2"></i>Jainism
+                            <span class="badge bg-light text-dark ms-2">5M</span>
+                        </a>
+                    </div>
+
+                    <!-- African Traditional - Sub-Saharan Africa -->
+                    <div class="position-absolute" style="top: 55%; left: 45%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('African Traditional Religions')" style="background: linear-gradient(135deg, #e83e8c, #ff69b4); color: white; border: none;">
+                            <i class="bi bi-tree-fill me-2"></i>African Traditional
+                            <span class="badge bg-light text-dark ms-2">100M</span>
+                        </a>
+                    </div>
+
+                    <!-- Oromo Waaqeffannaa - Ethiopia/Kenya -->
+                    <div class="position-absolute" style="top: 48%; left: 55%;">
+                        <a href="#" class="btn btn-lg shadow-sm religion-btn" onclick="showReligion('Oromo Waaqeffannaa')" style="background: linear-gradient(135deg, #17a2b8, #5bc0de); color: white; border: none;">
+                            <i class="bi bi-sun-fill me-2"></i>Waaqeffannaa
+                            <span class="badge bg-light text-dark ms-2">4M</span>
+                        </a>
+                    </div>
+
+                    <!-- Map Legend -->
+                    <div class="position-absolute bg-white rounded shadow-sm p-3" style="bottom: 10px; right: 10px; font-size: 0.85rem;">
+                        <strong class="d-block mb-2"><i class="bi bi-info-circle me-1"></i>Followers (est.)</strong>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary">B = Billion</span>
+                            <span class="badge bg-secondary">M = Million</span>
+                        </div>
+                    </div>
+
+                    <!-- Geographic Regions Labels -->
+                    <div class="position-absolute text-muted" style="top: 5%; left: 5%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> Americas
+                    </div>
+                    <div class="position-absolute text-muted" style="top: 5%; left: 40%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> Europe
+                    </div>
+                    <div class="position-absolute text-muted" style="top: 20%; left: 45%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> Middle East
+                    </div>
+                    <div class="position-absolute text-muted" style="top: 45%; left: 38%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> Africa
+                    </div>
+                    <div class="position-absolute text-muted" style="top: 35%; left: 75%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> South Asia
+                    </div>
+                    <div class="position-absolute text-muted" style="top: 12%; left: 85%; font-size: 0.7rem; opacity: 0.6;">
+                        <i class="bi bi-geo-alt"></i> East Asia
+                    </div>
+                </div>
+            </section>
+
             <!-- Dual Language Selection -->
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
                     <h5 class="card-title mb-3"><i class="bi bi-translate me-2"></i>Select Languages</h5>
                     <div class="row g-3">
                         <div class="col-12 col-md-6">
-                            <label for="nativeLanguageSelect" class="form-label fw-bold">
-                                <i class="bi bi-person-fill me-2"></i>Your Native Language
-                            </label>
-                            <select id="nativeLanguageSelect" class="form-select form-select-lg" style="max-height: 300px; overflow-y: auto;">
-                                <% languages.forEach(lang => { %>
-                                    <option value="<%= lang %>" <%= lang === 'english' ? 'selected' : '' %>><%= languageNames[lang] %></option>
-                                <% }); %>
-                            </select>
+                            <%- include('partials/language-dropdown', {
+                                id: 'nativeLanguageSelect',
+                                name: 'nativeLanguage',
+                                selected: nativeLanguage || 'english',
+                                languages: languages,
+                                languageNames: languageNames,
+                                label: '<i class="bi bi-person-fill me-2"></i>Your Native Language',
+                                extraClass: '',
+                                ariaLabel: 'Select your native language'
+                            }) %>
                         </div>
                         <div class="col-12 col-md-6">
-                            <label for="targetLanguageSelect" class="form-label fw-bold">
-                                <i class="bi bi-person-badge-fill me-2"></i>Target Language to Learn
-                            </label>
-                            <select id="targetLanguageSelect" class="form-select form-select-lg" style="max-height: 300px; overflow-y: auto;">
-                                <% languages.forEach(lang => { %>
-                                    <option value="<%= lang %>" <%= lang === 'spanish' ? 'selected' : '' %>><%= languageNames[lang] %></option>
-                                <% }); %>
-                            </select>
+                            <%- include('partials/language-dropdown', {
+                                id: 'targetLanguageSelect',
+                                name: 'targetLanguage',
+                                selected: targetLanguage || 'amharic',
+                                languages: languages,
+                                languageNames: languageNames,
+                                label: '<i class="bi bi-person-badge-fill me-2"></i>Target Language to Learn',
+                                extraClass: '',
+                                ariaLabel: 'Select target language to learn'
+                            }) %>
                         </div>
                     </div>
                 </div>
@@ -119,8 +260,8 @@
         const beatitudesData = <%- JSON.stringify(beatitudes) %>;
         const wisdomData = <%- JSON.stringify(wisdom) %>;
         const languageNames = <%- JSON.stringify(languageNames) %>;
-        let nativeLanguage = 'english';
-        let targetLanguage = 'spanish';
+        let nativeLanguage = '<%= nativeLanguage || "english" %>';
+        let targetLanguage = '<%= targetLanguage || "amharic" %>';
 
         document.addEventListener('DOMContentLoaded', () => {
             renderBeatitudes();
@@ -145,24 +286,39 @@
             container.innerHTML = items.map((b, i) => {
                 const nativeText = b.text[nativeLanguage] || b.text.english || 'Translation not available';
                 const targetText = b.text[targetLanguage] || b.text.english || 'Translation not available';
+                const targetPhonetic = b.phonetic?.[targetLanguage] || '';
+                const hasPhonetic = targetPhonetic && targetLanguage !== 'english';
+
                 return `
                     <div class="col-md-6">
                         <div class="card verse-card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <span class="badge bg-purple text-white" style="background-color: #6f42c1;">${b.reference}</span>
-                                </div>
-                                <div class="mb-2">
-                                    <span class="fw-bold">Your Language:</span>
-                                    <span class="translation-text">${nativeText}</span>
-                                </div>
-                                <div class="mb-2">
-                                    <span class="fw-bold">Target Language:</span>
-                                    <span class="translation-text">${targetText}</span>
-                                    <button class="btn btn-sm btn-outline-primary ms-2" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="speakText(\`${targetText.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`, '${targetLanguage}')" title="Listen">
                                         <i class="bi bi-volume-up"></i>
                                     </button>
                                 </div>
+
+                                <!-- Native Language (meaning) -->
+                                <div class="mb-3 p-2 bg-light rounded">
+                                    <small class="text-muted d-block mb-1"><i class="bi bi-translate me-1"></i>Meaning (${languageNames[nativeLanguage] || nativeLanguage}):</small>
+                                    <span class="translation-text">${nativeText}</span>
+                                </div>
+
+                                <!-- Target Language (native script) -->
+                                <div class="mb-2 p-2 border rounded" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+                                    <small class="text-muted d-block mb-1"><i class="bi bi-type me-1"></i>Native Script (${languageNames[targetLanguage] || targetLanguage}):</small>
+                                    <span class="translation-text fs-5" style="font-weight: 500;">${targetText}</span>
+                                </div>
+
+                                <!-- Phonetic Guide -->
+                                ${hasPhonetic ? `
+                                <div class="p-2 border-start border-3 border-success bg-success bg-opacity-10 rounded-end">
+                                    <small class="text-success d-block mb-1"><i class="bi bi-mic me-1"></i>How to Pronounce:</small>
+                                    <span class="phonetic-text text-dark" style="font-family: 'Courier New', monospace; letter-spacing: 0.5px;">${targetPhonetic}</span>
+                                </div>
+                                ` : ''}
                             </div>
                         </div>
                     </div>
@@ -232,6 +388,40 @@
                     audio.play();
                 }
             } catch (error) { console.error('Speech error:', error); }
+        }
+
+        // Religion Map - Show selected religion's wisdom
+        function showReligion(religionName) {
+            // Switch to World Religions Wisdom tab
+            const wisdomTab = document.getElementById('wisdom-tab');
+            const wisdomPane = document.getElementById('wisdom');
+            const beatitudesTab = document.getElementById('beatitudes-tab');
+            const beatitudesPane = document.getElementById('beatitudes');
+
+            // Activate wisdom tab
+            beatitudesTab.classList.remove('active');
+            beatitudesPane.classList.remove('show', 'active');
+            wisdomTab.classList.add('active');
+            wisdomPane.classList.add('show', 'active');
+
+            // Scroll to wisdom section
+            wisdomPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Highlight the selected religion's card
+            setTimeout(() => {
+                const cards = document.querySelectorAll('#wisdomContainer .card');
+                cards.forEach(card => {
+                    const badge = card.querySelector('.religion-badge');
+                    if (badge && badge.textContent.toLowerCase().includes(religionName.toLowerCase().split(' ')[0])) {
+                        card.style.transform = 'scale(1.03)';
+                        card.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                    }
+                });
+            }, 300);
         }
 </script>
 </body>

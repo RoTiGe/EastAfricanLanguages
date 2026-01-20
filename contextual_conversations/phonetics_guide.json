@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "description": "Phonetic pronunciation guides for all supported languages",
+    "version": "1.0",
+    "note": "Phonetics use simplified English-readable syllables with stress marks (CAPS = stressed syllable)"
+  },
+  "languages": {
+    "english": {
+      "name": "English",
+      "script": "Latin",
+      "needs_phonetic": false
+    },
+    "spanish": {
+      "name": "Español",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "Stress on CAPS syllables. 'rr' = rolled r, 'ñ' = ny sound"
+    },
+    "french": {
+      "name": "Français",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "Nasal vowels: 'an/en' = nasalized ah, 'on' = nasalized oh, 'in' = nasalized eh"
+    },
+    "german": {
+      "name": "Deutsch",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'ch' = throat clearing sound, 'ü' = ee with rounded lips, 'ö' = eh with rounded lips"
+    },
+    "italian": {
+      "name": "Italiano",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "Double consonants are pronounced longer. 'gli' = lyee, 'gn' = ny"
+    },
+    "portuguese": {
+      "name": "Português",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'ão' = nasalized ow, 'nh' = ny sound, 'lh' = ly sound"
+    },
+    "russian": {
+      "name": "Русский",
+      "script": "Cyrillic",
+      "needs_phonetic": true,
+      "phonetic_note": "Stress is crucial - unstressed 'o' sounds like 'ah'"
+    },
+    "chinese": {
+      "name": "中文",
+      "script": "Chinese",
+      "needs_phonetic": true,
+      "phonetic_note": "Tones are critical. Numbers indicate tone: 1=flat, 2=rising, 3=dip, 4=falling"
+    },
+    "japanese": {
+      "name": "日本語",
+      "script": "Japanese",
+      "needs_phonetic": true,
+      "phonetic_note": "Vowels: a=ah, i=ee, u=oo, e=eh, o=oh. Double vowels held longer"
+    },
+    "korean": {
+      "name": "한국어",
+      "script": "Hangul",
+      "needs_phonetic": true,
+      "phonetic_note": "Vowels similar to Spanish. 'eu' = uh sound"
+    },
+    "arabic": {
+      "name": "العربية",
+      "script": "Arabic",
+      "needs_phonetic": true,
+      "phonetic_note": "Read right-to-left. 'kh' = throat sound, 'gh' = gargling sound, ''' = glottal stop"
+    },
+    "hebrew": {
+      "name": "עברית",
+      "script": "Hebrew",
+      "needs_phonetic": true,
+      "phonetic_note": "Read right-to-left. 'ch' = throat sound like German 'ch'"
+    },
+    "greek": {
+      "name": "Ελληνικά",
+      "script": "Greek",
+      "needs_phonetic": true,
+      "phonetic_note": "'th' = soft th, 'gh' = soft g sound"
+    },
+    "amharic": {
+      "name": "አማርኛ",
+      "script": "Ge'ez",
+      "needs_phonetic": true,
+      "phonetic_note": "Ge'ez script is syllabic - each symbol = consonant + vowel. Ejectives: k', t', ch' are 'popping' sounds"
+    },
+    "tigrinya": {
+      "name": "ትግርኛ",
+      "script": "Ge'ez",
+      "needs_phonetic": true,
+      "phonetic_note": "Similar to Amharic. Uses Ge'ez syllabary"
+    },
+    "hindi": {
+      "name": "हिन्दी",
+      "script": "Devanagari",
+      "needs_phonetic": true,
+      "phonetic_note": "Aspirated consonants: 'kh', 'gh', 'th', 'dh' have a breath after. Retroflex: tongue curled back"
+    },
+    "bengali": {
+      "name": "বাংলা",
+      "script": "Bengali",
+      "needs_phonetic": true,
+      "phonetic_note": "Similar to Hindi with regional variations"
+    },
+    "tamil": {
+      "name": "தமிழ்",
+      "script": "Tamil",
+      "needs_phonetic": true,
+      "phonetic_note": "Retroflex sounds common. 'zh' = unique Tamil sound (tongue curled back)"
+    },
+    "telugu": {
+      "name": "తెలుగు",
+      "script": "Telugu",
+      "needs_phonetic": true,
+      "phonetic_note": "Aspirated and retroflex consonants. Similar to other South Indian languages"
+    },
+    "thai": {
+      "name": "ไทย",
+      "script": "Thai",
+      "needs_phonetic": true,
+      "phonetic_note": "5 tones: mid, low, falling, high, rising. Tone marks crucial"
+    },
+    "vietnamese": {
+      "name": "Tiếng Việt",
+      "script": "Latin (modified)",
+      "needs_phonetic": true,
+      "phonetic_note": "6 tones. Diacritics indicate tone and vowel quality"
+    },
+    "turkish": {
+      "name": "Türkçe",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'ı' = uh sound, 'ö' = German ö, 'ü' = German ü, 'ş' = sh, 'ç' = ch"
+    },
+    "farsi": {
+      "name": "فارسی",
+      "script": "Arabic (modified)",
+      "needs_phonetic": true,
+      "phonetic_note": "Read right-to-left. 'kh' = throat sound, 'gh' = French r sound"
+    },
+    "kurdish": {
+      "name": "Kurdî",
+      "script": "Latin/Arabic",
+      "needs_phonetic": true,
+      "phonetic_note": "Similar to Farsi with regional variations"
+    },
+    "swahili": {
+      "name": "Kiswahili",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "Stress usually on second-to-last syllable. 'ng' = as in 'singer'"
+    },
+    "dutch": {
+      "name": "Nederlands",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'g' = throat clearing sound, 'ij' = long i sound, 'oe' = oo sound"
+    },
+    "swedish": {
+      "name": "Svenska",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'å' = oh sound, 'ä' = eh sound, 'ö' = German ö"
+    },
+    "polish": {
+      "name": "Polski",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'sz' = sh, 'cz' = ch, 'rz/ż' = zh, 'ą' = nasalized o, 'ę' = nasalized e"
+    },
+    "czech": {
+      "name": "Čeština",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'ř' = unique Czech sound (rzh), 'č' = ch, 'š' = sh, 'ž' = zh"
+    },
+    "hungarian": {
+      "name": "Magyar",
+      "script": "Latin",
+      "needs_phonetic": true,
+      "phonetic_note": "'gy' = dy, 'ny' = ny, 'sz' = s, 's' = sh, 'cs' = ch, 'zs' = zh"
+    }
+  }
+}
+

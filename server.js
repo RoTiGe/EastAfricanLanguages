@@ -523,6 +523,12 @@ app.get('/start', (req, res) => {
 // Close to Heart - Religious/Spiritual content page
 app.get('/close-to-heart', async (req, res) => {
     try {
+        // Get language selections from query params (with defaults)
+        const nativeLanguage = req.query.native && config.isValidLanguage(req.query.native)
+            ? req.query.native : 'english';
+        const targetLanguage = req.query.target && config.isValidLanguage(req.query.target)
+            ? req.query.target : 'amharic';
+
         const beatitudesPath = path.join(__dirname, 'contextual_conversations', 'religious_beatitudes.json');
         const wisdomPath = path.join(__dirname, 'contextual_conversations', 'religious_wisdom_world.json');
 
@@ -534,7 +540,9 @@ app.get('/close-to-heart', async (req, res) => {
             languages: config.LANGUAGES,
             languageNames: config.LANGUAGE_NAMES,
             beatitudes: beatitudes,
-            wisdom: wisdom
+            wisdom: wisdom,
+            nativeLanguage: nativeLanguage,
+            targetLanguage: targetLanguage
         });
     } catch (error) {
         console.error('Error loading spiritual content:', error);
@@ -828,13 +836,21 @@ app.post('/api/speak', ttsLimiter, async (req, res) => {
             return res.status(400).json({ error: validation.error });
         }
 
-        console.log(`Generating TTS for: "${validation.text.substring(0, 50)}..." in ${language}`);
+        // Clean phonetic text for better TTS pronunciation:
+        // - Remove dashes (syllable separators) so TTS reads it smoothly
+        // - Collapse multiple spaces into single space
+        let ttsText = validation.text
+            .replace(/-/g, '')           // Remove all dashes
+            .replace(/\s+/g, ' ')        // Collapse multiple spaces
+            .trim();
+
+        console.log(`Generating TTS for: "${ttsText.substring(0, 50)}..." in ${language}`);
 
         // Call Python TTS service
         const response = await axios.post(
             `${TTS_SERVICE_URL}/tts`,
             {
-                text: validation.text,
+                text: ttsText,
                 language: language
             },
             {

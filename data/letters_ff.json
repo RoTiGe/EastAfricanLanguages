@@ -1,0 +1,61 @@
+"korean_hangul": {
+  "name": "한글 (Korean Hangul)",
+  "description": "Hangul is a Korean alphabet with 14 basic consonants and 10 basic vowels. Letters combine into syllable blocks.",
+  "basic_consonants": [
+    { "letter": "ㄱ", "sound": "g/k", "example": "가구 (gagu) - furniture" },
+    { "letter": "ㄴ", "sound": "n", "example": "나무 (namu) - tree" },
+    { "letter": "ㄷ", "sound": "d/t", "example": "다리 (dari) - leg" },
+    { "letter": "ㄹ", "sound": "r/l", "example": "라디오 (radio) - radio" },
+    { "letter": "ㅁ", "sound": "m", "example": "마음 (maeum) - heart" },
+    { "letter": "ㅂ", "sound": "b/p", "example": "바다 (bada) - sea" },
+    { "letter": "ㅅ", "sound": "s", "example": "사람 (saram) - person" },
+    { "letter": "ㅇ", "sound": "ng/silent", "example": "아이 (ai) - child" },
+    { "letter": "ㅈ", "sound": "j", "example": "자동차 (jadongcha) - car" },
+    { "letter": "ㅊ", "sound": "ch", "example": "차 (cha) - tea" },
+    { "letter": "ㅋ", "sound": "k", "example": "코 (ko) - nose" },
+    { "letter": "ㅌ", "sound": "t", "example": "토마토 (tomato) - tomato" },
+    { "letter": "ㅍ", "sound": "p", "example": "파랑 (parang) - blue" },
+    { "letter": "ㅎ", "sound": "h", "example": "하늘 (haneul) - sky" }
+  ],
+  "basic_vowels": [
+    { "letter": "ㅏ", "sound": "a", "example": "아버지 (abeoji) - father" },
+    { "letter": "ㅑ", "sound": "ya", "example": "야구 (yagu) - baseball" },
+    { "letter": "ㅓ", "sound": "eo", "example": "어머니 (eomeoni) - mother" },
+    { "letter": "ㅕ", "sound": "yeo", "example": "여자 (yeoja) - woman" },
+    { "letter": "ㅗ", "sound": "o", "example": "오렌지 (orenji) - orange" },
+    { "letter": "ㅛ", "sound": "yo", "example": "요리 (yori) - cooking" },
+    { "letter": "ㅜ", "sound": "u", "example": "우유 (uyu) - milk" },
+    { "letter": "ㅠ", "sound": "yu", "example": "유리 (yuri) - glass" },
+    { "letter": "ㅡ", "sound": "eu", "example": "음식 (eumsik) - food" },
+    { "letter": "ㅣ", "sound": "i", "example": "이름 (ireum) - name" }
+  ],
+  "compound_vowels": [
+    { "letter": "ㅐ", "sound": "ae", "example": "애기 (aegi) - baby" },
+    { "letter": "ㅒ", "sound": "yae", "example": "얘기 (yaegi) - story" },
+    { "letter": "ㅔ", "sound": "e", "example": "에너지 (eneoji) - energy" },
+    { "letter": "ㅖ", "sound": "ye", "example": "예술 (yesul) - art" },
+    { "letter": "ㅘ", "sound": "wa", "example": "과일 (gwail) - fruit" },
+    { "letter": "ㅙ", "sound": "wae", "example": "왜 (wae) - why" },
+    { "letter": "ㅚ", "sound": "oe", "example": "외국 (oeguk) - foreign country" },
+    { "letter": "ㅝ", "sound": "wo", "example": "월급 (wolgeup) - salary" },
+    { "letter": "ㅞ", "sound": "we", "example": "웨이터 (weiteo) - waiter" },
+    { "letter": "ㅟ", "sound": "wi", "example": "위험 (wiheom) - danger" },
+    { "letter": "ㅢ", "sound": "ui", "example": "의사 (uisa) - doctor" }
+  ],
+  "final_consonants": [
+    { "letter": "ㄱ", "sound": "k", "example": "박 (bak) - gourd" },
+    { "letter": "ㄴ", "sound": "n", "example": "산 (san) - mountain" },
+    { "letter": "ㄷ", "sound": "t", "example": "받 (bat) - receive" },
+    { "letter": "ㄹ", "sound": "l", "example": "달 (dal) - moon" },
+    { "letter": "ㅁ", "sound": "m", "example": "밤 (bam) - night" },
+    { "letter": "ㅂ", "sound": "p", "example": "입 (ip) - mouth" },
+    { "letter": "ㅅ", "sound": "t", "example": "옷 (ot) - clothes" },
+    { "letter": "ㅇ", "sound": "ng", "example": "강 (gang) - river" },
+    { "letter": "ㅈ", "sound": "t", "example": "낮 (nat) - daytime" },
+    { "letter": "ㅊ", "sound": "t", "example": "꽃 (kkot) - flower" },
+    { "letter": "ㅋ", "sound": "k", "example": "부엌 (bueok) - kitchen" },
+    { "letter": "ㅌ", "sound": "t", "example": "밭 (bat) - field" },
+    { "letter": "ㅍ", "sound": "p", "example": "앞 (ap) - front" },
+    { "letter": "ㅎ", "sound": "t", "example": "놓다 (nota) - to put" }
+  ]
+}
