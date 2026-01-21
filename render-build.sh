@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Render build script
+set -e
 
 # Install Node.js dependencies
 npm install

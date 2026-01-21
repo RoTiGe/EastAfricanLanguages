@@ -2,10 +2,12 @@ services:
   # Single service running both Node.js and Python (Option 1)
   - type: web
     name: eastafrican-languages
-    env: node
+    env: docker
     plan: free  # or 'starter' for production ($7/month)
-    buildCommand: bash render-build.sh
-    startCommand: bash start-render.sh
+    # buildCommand is not needed for Docker (it uses Dockerfile)
+    # startCommand is not needed for Docker (it uses CMD in Dockerfile)
+    # buildCommand: bash render-build.sh
+    # startCommand: bash start-render.sh
     envVars:
       - key: NODE_ENV
         value: production
