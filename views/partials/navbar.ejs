@@ -10,50 +10,50 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath && currentPath.startsWith('/conversations') ? 'active' : '' %>"
-                       href="/conversations" <%= currentPath && currentPath.startsWith('/conversations') ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath && locals.currentPath.startsWith('/conversations') ? 'active' : '' %>"
+                       href="/conversations" <%= locals.currentPath && locals.currentPath.startsWith('/conversations') ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-chat-dots me-1"></i>Conversations
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/matching-game' ? 'active' : '' %>"
-                       href="/matching-game" <%= currentPath === '/matching-game' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/matching-game' ? 'active' : '' %>"
+                       href="/matching-game" <%= locals.currentPath === '/matching-game' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-puzzle me-1"></i>Word Matching
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/conversation-game' ? 'active' : '' %>"
-                       href="/conversation-game" <%= currentPath === '/conversation-game' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/conversation-game' ? 'active' : '' %>"
+                       href="/conversation-game" <%= locals.currentPath === '/conversation-game' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-chat-left-quote me-1"></i>Sentence Matching
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/emergency' ? 'active' : '' %>"
-                       href="/emergency" <%= currentPath === '/emergency' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/emergency' ? 'active' : '' %>"
+                       href="/emergency" <%= locals.currentPath === '/emergency' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-exclamation-triangle-fill me-1"></i>Emergency
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/learn-letters' ? 'active' : '' %>"
-                       href="/learn-letters" <%= currentPath === '/learn-letters' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/learn-letters' ? 'active' : '' %>"
+                       href="/learn-letters" <%= locals.currentPath === '/learn-letters' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-book me-1"></i>Learn Letters
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/participate' ? 'active' : '' %>"
-                       href="/participate" <%= currentPath === '/participate' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/participate' ? 'active' : '' %>"
+                       href="/participate" <%= locals.currentPath === '/participate' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-upload me-1"></i>Participate
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/donate' ? 'active' : '' %>"
-                       href="/donate" <%= currentPath === '/donate' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/donate' ? 'active' : '' %>"
+                       href="/donate" <%= locals.currentPath === '/donate' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-heart-fill me-1"></i>Donate
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <%= currentPath === '/about' ? 'active' : '' %>"
-                       href="/about" <%= currentPath === '/about' ? 'aria-current="page"' : '' %>>
+                    <a class="nav-link <%= locals.currentPath === '/about' ? 'active' : '' %>"
+                       href="/about" <%= locals.currentPath === '/about' ? 'aria-current="page"' : '' %>>
                         <i class="bi bi-info-circle me-1"></i>About Us
                     </a>
                 </li>

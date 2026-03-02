@@ -515,10 +515,12 @@
             const nativePhoneticField = `${nativeLang}_phonetic`;
             const targetPhoneticField = `${targetLang}_phonetic`;
 
-            // Render native language (left column) - in order
+            // Render native language (left column) — scattered X within left half
             gameState.phrases.forEach((phrase, index) => {
                 const wrapper = document.createElement('div');
                 wrapper.style.marginBottom = '0.75rem';
+                // Random horizontal scatter: 0–30% from the column's left edge
+                wrapper.style.paddingLeft = Math.floor(Math.random() * 31) + '%';
                 const div = createWordElement(
                     phrase[nativeLang] || phrase.english,
                     phrase[nativePhoneticField] || '',
@@ -529,13 +531,14 @@
                 nativeColumn.appendChild(wrapper);
             });
 
-            // Render target language (right column) - shuffled
+            // Render target language (right column) — shuffled + scattered X within right half
             const shuffledPhrases = shuffleArray([...gameState.phrases]);
             shuffledPhrases.forEach((phrase, index) => {
                 const originalIndex = gameState.phrases.findIndex(p => p === phrase);
                 const wrapper = document.createElement('div');
                 wrapper.style.marginBottom = '0.75rem';
-                wrapper.style.textAlign = 'right';
+                // Random horizontal scatter: 0–30% from the column's left edge
+                wrapper.style.paddingLeft = Math.floor(Math.random() * 31) + '%';
                 const div = createWordElement(
                     phrase[targetLang] || phrase.english,
                     phrase[targetPhoneticField] || '',
