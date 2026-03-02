@@ -304,6 +304,8 @@ app.get('/api/categories/:language', async (req, res) => {
         const translationData = getLanguageData(language);
 
         // Return category names and UI labels, not the phrases
+        // Cache-Control: safe to cache — this data only changes on server redeploy
+        res.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
         res.json({
             language: translationData.language,
             nativeLanguageField: translationData.nativeLanguageField,
@@ -347,6 +349,8 @@ app.get('/api/phrases/:language/:category', async (req, res) => {
         }
 
         // Return phrases for the requested category only
+        // Cache-Control: safe to cache — phrase data only changes on server redeploy
+        res.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
         res.json({
             language: translationData.language,
             nativeLanguageField: translationData.nativeLanguageField,

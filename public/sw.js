@@ -1,85 +1,121 @@
 /**
- * Language Bridge — Service Worker
- * Strategy:
- *   Static assets  → Cache-first (CSS, JS, fonts, icons)
- *   HTML pages     → Network-first with offline fallback
- *   API calls      → Network-only (never cache dynamic data)
+ * Language Bridge — Service Worker  (v2 — full offline support)
+ *
+ * Caching strategies:
+ *   Static assets          → Cache-first  (CSS, JS, fonts, icons, CDN)
+ *   Key HTML pages         → Pre-cached on install; network-first thereafter
+ *   All other HTML pages   → Network-first, stored on first visit
+ *   Data APIs (read-only)  → Stale-while-revalidate  (/api/categories, /api/phrases)
+ *   Write/TTS APIs         → Network-only  (POST /api/speak, /api/submit-translation)
  */
 
-const CACHE_NAME = 'language-bridge-v1';
+// ── Bump this string whenever you deploy a new version ───────────────────────
+const CACHE_NAME = 'language-bridge-v2';
 const OFFLINE_URL = '/offline.html';
 
-// Static assets to pre-cache on install
-const PRECACHE_URLS = [
+// Read-only GET endpoints whose JSON responses are safe to cache indefinitely
+const CACHEABLE_API_PREFIXES = [
+    '/api/categories/',
+    '/api/phrases/',
+    '/api/languages',
+    '/api/contextual/phrases',
+];
+
+// ── Pages pre-fetched and stored during SW install ───────────────────────────
+// These work offline even on the very first app open.
+const PRECACHE_PAGES = [
     '/',
+    '/emergency',
+    '/matching-game',
+    '/translate',
+    '/conversations',
+    '/about',
+    '/learn-letters',
     '/offline.html',
+];
+
+// ── Static assets pre-cached on install ──────────────────────────────────────
+const PRECACHE_ASSETS = [
     '/css/style.css',
     '/js/main.js',
     '/manifest.json',
     '/icons/icon.svg',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',
-    'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css'
+    'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
 ];
 
-// ── Install: pre-cache core assets ──────────────────────────────────────────
+// ── Install ───────────────────────────────────────────────────────────────────
 self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(PRECACHE_URLS).catch(err => {
-                // Don't fail install if CDN assets can't be cached offline
-                console.warn('[SW] Pre-cache partial failure (CDN may be unavailable):', err);
-            });
-        }).then(() => self.skipWaiting())
-    );
+    event.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+
+        // Cache static assets (fail silently for CDN if offline during install)
+        await cache.addAll(PRECACHE_ASSETS).catch(err =>
+            console.warn('[SW] Asset pre-cache partial failure:', err)
+        );
+
+        // Cache each key HTML page individually so one failure doesn't block others
+        await Promise.allSettled(
+            PRECACHE_PAGES.map(url =>
+                fetch(url, { credentials: 'same-origin' })
+                    .then(res => { if (res.ok) cache.put(url, res); })
+                    .catch(() => console.warn('[SW] Could not pre-cache page:', url))
+            )
+        );
+
+        await self.skipWaiting();
+    })());
 });
 
-// ── Activate: remove old caches ──────────────────────────────────────────────
+// ── Activate: wipe old caches ─────────────────────────────────────────────────
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-            )
-        ).then(() => self.clients.claim())
+        caches.keys()
+            .then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
+            .then(() => self.clients.claim())
     );
 });
 
-// ── Fetch: route requests ────────────────────────────────────────────────────
+// ── Fetch routing ─────────────────────────────────────────────────────────────
 self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
 
-    // Skip non-GET and browser-extension requests
+    // Only handle GET over http(s)
     if (request.method !== 'GET') return;
     if (!url.protocol.startsWith('http')) return;
 
-    // API calls → always network-only
-    if (url.pathname.startsWith('/api/')) return;
-
-    // Static assets (CSS, JS, images, fonts, icons) → cache-first
+    // Static assets → cache-first
     if (isStaticAsset(url)) {
         event.respondWith(cacheFirst(request));
         return;
     }
 
-    // HTML navigation → network-first with offline fallback
-    if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
-        event.respondWith(networkFirstWithOfflineFallback(request));
+    // Read-only data APIs → stale-while-revalidate (works fully offline)
+    if (isCacheableApi(url)) {
+        event.respondWith(staleWhileRevalidate(request));
         return;
     }
 
-    // Everything else → network-first
-    event.respondWith(networkFirst(request));
+    // All other /api/ calls (TTS, submit) → network-only, never cache
+    if (url.pathname.startsWith('/api/')) return;
+
+    // HTML navigation → network-first with offline fallback
+    event.respondWith(networkFirstWithOfflineFallback(request));
 });
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// ── Strategy helpers ──────────────────────────────────────────────────────────
 
 function isStaticAsset(url) {
     return url.pathname.match(/\.(css|js|svg|png|jpg|jpeg|gif|webp|woff|woff2|ttf|ico)$/) ||
            url.hostname.includes('cdn.jsdelivr.net') ||
            url.hostname.includes('fonts.googleapis.com') ||
            url.hostname.includes('fonts.gstatic.com');
+}
+
+function isCacheableApi(url) {
+    return CACHEABLE_API_PREFIXES.some(prefix => url.pathname.startsWith(prefix));
 }
 
 async function cacheFirst(request) {
@@ -97,33 +133,42 @@ async function cacheFirst(request) {
     }
 }
 
-async function networkFirst(request) {
-    try {
-        const response = await fetch(request);
-        if (response.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(request, response.clone());
-        }
-        return response;
-    } catch {
-        return caches.match(request) || new Response('Unavailable offline', { status: 503 });
-    }
+/**
+ * Stale-while-revalidate:
+ * Serve the cached version immediately (instant load), then fetch a fresh copy
+ * in the background and update the cache for next time.
+ */
+async function staleWhileRevalidate(request) {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
+
+    // Kick off a background refresh regardless
+    const fetchPromise = fetch(request)
+        .then(response => {
+            if (response.ok) cache.put(request, response.clone());
+            return response;
+        })
+        .catch(() => null);   // swallow network errors when offline
+
+    // Return cached copy instantly; fall back to network if nothing cached yet
+    return cached || fetchPromise ||
+        new Response(JSON.stringify({ error: 'Offline — data not yet cached' }),
+                     { status: 503, headers: { 'Content-Type': 'application/json' } });
 }
 
 async function networkFirstWithOfflineFallback(request) {
+    const cache = await caches.open(CACHE_NAME);
     try {
         const response = await fetch(request);
-        if (response.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(request, response.clone());
-        }
+        if (response.ok) cache.put(request, response.clone());
         return response;
     } catch {
-        const cached = await caches.match(request);
+        const cached = await cache.match(request);
         if (cached) return cached;
-        return caches.match(OFFLINE_URL) ||
+        return cache.match(OFFLINE_URL) ||
                new Response('<h1>Offline</h1><p>Please check your connection.</p>',
                             { headers: { 'Content-Type': 'text/html' } });
     }
 }
+
 

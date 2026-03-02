@@ -436,7 +436,10 @@
                     categorySelect.disabled = false;
                 } catch (error) {
                     console.error('Error loading categories:', error);
-                    alert('Failed to load categories. Please try again.');
+                    const isOffline = !navigator.onLine;
+                    categorySelect.innerHTML = isOffline
+                        ? '<option value="">⚠️ Offline — open the app online once to cache categories</option>'
+                        : '<option value="">❌ Failed to load — please try again</option>';
                 }
             } else {
                 categorySelect.innerHTML = '<option value="">First select languages...</option>';
@@ -500,7 +503,11 @@
 
             } catch (error) {
                 console.error('Error starting game:', error);
-                alert('Failed to start game. Please try again.');
+                const isOffline = !navigator.onLine;
+                const msg = isOffline
+                    ? '📶 You\'re offline.\n\nOpen the app once with internet to cache this category, then it will work offline too.'
+                    : 'Failed to load phrases. Please try again.';
+                alert(msg);
             }
         }
 
