@@ -957,6 +957,25 @@ app.get('/demo/:language', async (req, res) => {
 });
 
 
+// ── Google Play / TWA domain verification ─────────────────────────────────────
+// Required for Trusted Web Activity (TWA) Play Store listing.
+// Fill in package_name and sha256_cert_fingerprints in public/.well-known/assetlinks.json
+// after generating your APK with PWABuilder (https://pwabuilder.com).
+//
+// express.static skips dotfiles by default, so we serve this explicitly.
+app.get('/.well-known/assetlinks.json', async (req, res) => {
+    try {
+        const filePath = path.join(__dirname, 'public', '.well-known', 'assetlinks.json');
+        const content = await fs.readFile(filePath, 'utf8');
+        res.set('Content-Type', 'application/json');
+        res.set('Cache-Control', 'public, max-age=3600');
+        res.send(content);
+    } catch (err) {
+        console.error('assetlinks.json not found:', err.message);
+        res.status(404).json({ error: 'assetlinks.json not configured yet' });
+    }
+});
+
 // Chrome DevTools well-known endpoint (silences console warning)
 // This is optional - only to prevent DevTools CSP warnings
 app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
