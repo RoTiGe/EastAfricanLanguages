@@ -100,13 +100,13 @@
             pointer-events: none;
             z-index: 999;
         }
-        
+
         .match-arrow svg {
             position: absolute;
             top: 0;
             left: 0;
         }
-        
+
         .arrow-line {
             stroke: #10b981;
             stroke-width: 3;
@@ -115,19 +115,31 @@
             stroke-dashoffset: 1000;
             animation: drawArrow 0.6s ease forwards;
         }
-        
+
         .arrow-head {
             fill: #10b981;
             opacity: 0;
             animation: showArrowHead 0.3s ease 0.4s forwards;
         }
-        
+
         @keyframes drawArrow {
             to { stroke-dashoffset: 0; }
         }
-        
+
         @keyframes showArrowHead {
             to { opacity: 1; }
+        }
+
+        /* Hint arrows — amber/orange, dashed */
+        .hint-arrow {
+            position: fixed;
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        .word-item.hint-highlight {
+            box-shadow: 0 0 0 3px #f59e0b, 0 4px 12px rgba(245,158,11,0.35);
+            border-color: #f59e0b;
         }
         
         .score-board {
@@ -301,6 +313,16 @@
 
             <!-- Game Board (hidden initially) -->
             <div id="gameBoard" style="display: none;">
+                <!-- Hint & Back Buttons -->
+                <div class="d-flex justify-content-center align-items-center gap-3 mb-3 flex-wrap">
+                    <button class="btn btn-outline-warning" id="hintBtn" onclick="toggleHints()">
+                        <i class="bi bi-lightbulb me-2"></i>Show Hints
+                    </button>
+                    <button class="btn btn-outline-secondary" id="backToSelection">
+                        <i class="bi bi-arrow-left me-2"></i>Choose Different Category
+                    </button>
+                </div>
+
                 <!-- Score Board -->
                 <div class="score-board">
                     <div class="score-item">
@@ -345,12 +367,6 @@
                     </div>
                 </div>
 
-                <!-- Back to Selection Button -->
-                <div class="text-center mt-4">
-                    <button class="btn btn-outline-secondary" id="backToSelection">
-                        <i class="bi bi-arrow-left me-2"></i>Choose Different Category
-                    </button>
-                </div>
             </div>
         </main>
     </div>
@@ -369,7 +385,9 @@
             timerInterval: null,
             draggingElement: null,
             dragStartPos: { x: 0, y: 0 },
-            arrows: [] // Store arrow elements
+            arrows: [],      // correct-match arrow elements
+            hintArrows: [],  // hint arrow elements
+            hintsVisible: false
         };
 
         const languageNames = <%- JSON.stringify(languageNames) %>;
@@ -446,6 +464,8 @@
             gameState.category = category;
             gameState.matched = 0;
             gameState.score = 0;
+            gameState.hintsVisible = false;
+            resetHintButton();
 
             // Fetch phrases
             try {
@@ -662,15 +682,23 @@
             // Check if indices match
             if (index1 === index2) {
                 // CORRECT MATCH!
+                element1.classList.remove('hint-highlight');
+                element2.classList.remove('hint-highlight');
                 element1.classList.add('matched');
                 element2.classList.add('matched');
-                
+
                 // Draw arrow between elements
                 drawArrow(element1, element2);
-                
+
                 gameState.matched++;
                 gameState.score += 10;
                 updateScore();
+
+                // Refresh hint arrows so matched pair is no longer shown
+                if (gameState.hintsVisible) {
+                    clearHintArrows();
+                    showHints();
+                }
 
                 // Celebration
                 showCelebration('🎉');
@@ -695,85 +723,86 @@
             }
         }
 
-        function drawArrow(element1, element2) {
-            const rect1 = element1.getBoundingClientRect();
-            const rect2 = element2.getBoundingClientRect();
+        /**
+         * Shared renderer — rebuilds the SVG path inside `container` using the
+         * current (scroll-aware) positions of el1 and el2.
+         * `animate` triggers the draw-on animation (only on first render).
+         */
+        function renderArrowSVG(container, el1, el2, color, dashed, animate) {
+            const rect1 = el1.getBoundingClientRect();
+            const rect2 = el2.getBoundingClientRect();
 
-            // Determine which is left and which is right
             const isLeftToRight = rect1.left < rect2.left;
-            const leftRect = isLeftToRight ? rect1 : rect2;
+            const leftRect  = isLeftToRight ? rect1 : rect2;
             const rightRect = isLeftToRight ? rect2 : rect1;
 
-            // Calculate start and end points
             const startX = leftRect.right;
-            const startY = leftRect.top + leftRect.height / 2;
-            const endX = rightRect.left;
-            const endY = rightRect.top + rightRect.height / 2;
+            const startY = leftRect.top  + leftRect.height / 2;
+            const endX   = rightRect.left;
+            const endY   = rightRect.top + rightRect.height / 2;
 
-            // Create SVG container
+            const midX  = (startX + endX) / 2;
+            const curve = (endY - startY) / 3;
+            const pathD = `M ${startX} ${startY} Q ${midX} ${startY + curve}, ${endX - 10} ${endY}`;
+
+            const angle = Math.atan2(endY - startY, (endX - 10) - startX);
+            const hs = 10;
+            const tipX = endX, tipY = endY;
+            const b1X = tipX - hs * Math.cos(angle - Math.PI / 6);
+            const b1Y = tipY - hs * Math.sin(angle - Math.PI / 6);
+            const b2X = tipX - hs * Math.cos(angle + Math.PI / 6);
+            const b2Y = tipY - hs * Math.sin(angle + Math.PI / 6);
+
+            // Replace SVG contents on every call (scroll-safe)
+            container.innerHTML = '';
             const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            const container = document.createElement('div');
-            container.className = 'match-arrow';
-            container.style.position = 'fixed';
-            container.style.top = '0';
-            container.style.left = '0';
-            container.style.width = '100%';
-            container.style.height = '100%';
-            container.style.pointerEvents = 'none';
-            container.style.zIndex = '999';
-            
             svg.setAttribute('width', '100%');
             svg.setAttribute('height', '100%');
             svg.style.position = 'absolute';
 
-            // Create curved path
-            const midX = (startX + endX) / 2;
-            const curve = (endY - startY) / 3;
-            const path = `M ${startX} ${startY} Q ${midX} ${startY + curve}, ${endX - 10} ${endY}`;
-
-            // Draw line
             const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            line.setAttribute('d', path);
-            line.setAttribute('stroke', '#10b981');
+            line.setAttribute('d', pathD);
+            line.setAttribute('stroke', color);
             line.setAttribute('stroke-width', '3');
             line.setAttribute('fill', 'none');
-            line.setAttribute('stroke-dasharray', '1000');
-            line.setAttribute('stroke-dashoffset', '1000');
-            
-            // Animate the line
-            setTimeout(() => {
-                line.style.transition = 'stroke-dashoffset 0.6s ease';
-                line.setAttribute('stroke-dashoffset', '0');
-            }, 10);
+            if (dashed) {
+                line.setAttribute('stroke-dasharray', '10 5');
+                line.style.opacity = '0';
+                line.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => { line.style.opacity = '1'; }, 10);
+            } else if (animate) {
+                line.setAttribute('stroke-dasharray', '1000');
+                line.setAttribute('stroke-dashoffset', '1000');
+                setTimeout(() => {
+                    line.style.transition = 'stroke-dashoffset 0.6s ease';
+                    line.setAttribute('stroke-dashoffset', '0');
+                }, 10);
+            }
 
-            // Draw arrowhead
-            const arrowHead = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-            const headSize = 10;
-            const angle = Math.atan2(endY - startY, (endX - 10) - startX);
-            const tipX = endX;
-            const tipY = endY;
-            const base1X = tipX - headSize * Math.cos(angle - Math.PI / 6);
-            const base1Y = tipY - headSize * Math.sin(angle - Math.PI / 6);
-            const base2X = tipX - headSize * Math.cos(angle + Math.PI / 6);
-            const base2Y = tipY - headSize * Math.sin(angle + Math.PI / 6);
-            
-            arrowHead.setAttribute('points', `${tipX},${tipY} ${base1X},${base1Y} ${base2X},${base2Y}`);
-            arrowHead.setAttribute('fill', '#10b981');
-            arrowHead.style.opacity = '0';
-            arrowHead.style.transition = 'opacity 0.3s ease';
-
-            // Show arrowhead after line animation
-            setTimeout(() => {
-                arrowHead.style.opacity = '1';
-            }, 500);
+            const head = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            head.setAttribute('points', `${tipX},${tipY} ${b1X},${b1Y} ${b2X},${b2Y}`);
+            head.setAttribute('fill', color);
+            if (animate && !dashed) {
+                head.style.opacity = '0';
+                setTimeout(() => {
+                    head.style.transition = 'opacity 0.3s ease';
+                    head.style.opacity = '1';
+                }, 500);
+            }
 
             svg.appendChild(line);
-            svg.appendChild(arrowHead);
+            svg.appendChild(head);
             container.appendChild(svg);
-            document.body.appendChild(container);
+        }
 
-            // Store arrow reference to remove later
-            gameState.arrows.push(container);
+        function drawArrow(el1, el2) {
+            const container = document.createElement('div');
+            container.className = 'match-arrow';
+            container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;';
+            document.body.appendChild(container);
+            renderArrowSVG(container, el1, el2, '#10b981', false, true);
+            // Store element refs so we can redraw on scroll
+            gameState.arrows.push({ container, el1, el2 });
         }
 
         async function playMatchedAudio(index) {
@@ -871,10 +900,10 @@
             if (gameState.timerInterval) {
                 clearInterval(gameState.timerInterval);
             }
-            
-            // Clear all arrows
+
+            // Clear all arrows (match + hint)
             clearAllArrows();
-            
+
             if (document.getElementById('gameBoard').style.display === 'block') {
                 startGame(); // Restart current game
             }
@@ -885,7 +914,7 @@
                 clearInterval(gameState.timerInterval);
             }
 
-            // Clear all arrows
+            // Clear all arrows (match + hint)
             clearAllArrows();
 
             document.getElementById('gameBoard').style.display = 'none';
@@ -893,13 +922,86 @@
         }
 
         function clearAllArrows() {
-            gameState.arrows.forEach(arrow => {
-                if (arrow && arrow.parentNode) {
-                    arrow.remove();
-                }
+            gameState.arrows.forEach(({ container }) => {
+                if (container && container.parentNode) container.remove();
             });
             gameState.arrows = [];
+            clearHintArrows();
         }
+
+        // ── Hint feature ──────────────────────────────────────────────────────
+
+        function toggleHints() {
+            if (gameState.hintsVisible) {
+                clearHintArrows();
+                gameState.hintsVisible = false;
+                resetHintButton();
+            } else {
+                showHints();
+                gameState.hintsVisible = true;
+                const btn = document.getElementById('hintBtn');
+                btn.classList.replace('btn-outline-warning', 'btn-warning');
+                btn.innerHTML = '<i class="bi bi-lightbulb-fill me-2"></i>Hide Hints';
+            }
+        }
+
+        function resetHintButton() {
+            const btn = document.getElementById('hintBtn');
+            if (!btn) return;
+            btn.classList.remove('btn-warning');
+            btn.classList.add('btn-outline-warning');
+            btn.innerHTML = '<i class="bi bi-lightbulb me-2"></i>Show Hints';
+        }
+
+        function showHints() {
+            // Draw an orange arrow for every unmatched native → target pair
+            const nativeItems = document.querySelectorAll('#nativeColumn .word-item:not(.matched)');
+            nativeItems.forEach(nativeItem => {
+                const index = nativeItem.dataset.index;
+                const targetItem = document.querySelector(
+                    `#targetColumn .word-item[data-index="${index}"]:not(.matched)`
+                );
+                if (targetItem) {
+                    nativeItem.classList.add('hint-highlight');
+                    targetItem.classList.add('hint-highlight');
+                    drawHintArrow(nativeItem, targetItem);
+                }
+            });
+        }
+
+        function drawHintArrow(el1, el2) {
+            const container = document.createElement('div');
+            container.className = 'hint-arrow';
+            container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:998;';
+            document.body.appendChild(container);
+            renderArrowSVG(container, el1, el2, '#f59e0b', true, false);
+            // Store element refs so we can redraw on scroll
+            gameState.hintArrows.push({ container, el1, el2 });
+        }
+
+        function clearHintArrows() {
+            gameState.hintArrows.forEach(({ container }) => {
+                if (container && container.parentNode) container.remove();
+            });
+            gameState.hintArrows = [];
+            document.querySelectorAll('.word-item.hint-highlight').forEach(el => {
+                el.classList.remove('hint-highlight');
+            });
+        }
+
+        // ── Redraw all arrows on scroll / resize so they stay anchored to words ──
+
+        function updateAllArrowPositions() {
+            gameState.arrows.forEach(({ container, el1, el2 }) => {
+                renderArrowSVG(container, el1, el2, '#10b981', false, false);
+            });
+            gameState.hintArrows.forEach(({ container, el1, el2 }) => {
+                renderArrowSVG(container, el1, el2, '#f59e0b', true, false);
+            });
+        }
+
+        window.addEventListener('scroll', updateAllArrowPositions, { passive: true });
+        window.addEventListener('resize', updateAllArrowPositions, { passive: true });
 
         function shuffleArray(array) {
             const newArray = [...array];

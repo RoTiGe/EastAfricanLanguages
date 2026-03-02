@@ -1128,7 +1128,12 @@ app.get('/conversations/:context/:nativeLanguage/:targetLanguage', async (req, r
 
         try {
             const fileContent = await fs.readFile(multiLangPath, 'utf8');
-            conversationData = JSON.parse(fileContent);
+            const parsed = JSON.parse(fileContent);
+            // Only use the multilanguage file if it actually has stages populated
+            if (!parsed.stages || parsed.stages.length === 0) {
+                throw new Error('Multilanguage file has no stages — falling back to single-language file');
+            }
+            conversationData = parsed;
             isMultiLanguage = true;
         } catch (error) {
             // Fallback to old single-language format for backward compatibility

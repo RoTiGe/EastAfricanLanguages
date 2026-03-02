@@ -260,6 +260,25 @@ footer {
     box-shadow: var(--shadow-md);
 }
 
+.btn-emergency {
+    background: linear-gradient(135deg, #b5835a 0%, #9a6840 100%);
+    border: none;
+    color: #ffffff;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-emergency:hover {
+    background: linear-gradient(135deg, #9a6840 0%, #7f5230 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-emergency:active {
+    transform: translateY(0);
+    color: #ffffff;
+}
+
 .btn-light {
     background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
     color: var(--text-primary);

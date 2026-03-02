@@ -231,7 +231,7 @@
             <div class="mb-4">
                 <div class="d-flex justify-content-between mb-2">
                     <span class="text-muted"><%= ui.progress || 'Progress' %></span>
-                    <span class="text-muted" id="progressText"><%= ui.stage || 'Stage' %> 1 <%= ui.of || 'of' %> <%= conversation.stages.length %></span>
+                    <span class="text-muted" id="progressText"><%= ui.stage || 'Stage' %> 1 <%= ui.of || 'of' %> <%= (conversation.stages && conversation.stages.length) || 0 %></span>
                 </div>
                 <div class="progress progress-bar-custom">
                     <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%"></div>
@@ -291,41 +291,6 @@
                     </div>
                 </div>
 
-                <!-- User Name Modal (First Time Only) -->
-                <div class="modal fade" id="userNameModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="userNameModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header border-0">
-                                <h5 class="modal-title" id="userNameModalLabel">
-                                    <i class="bi bi-person-circle me-2"></i>Welcome! What's your name?
-                                </h5>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="userNameInput" class="form-label fw-bold">Your Name</label>
-                                    <input type="text"
-                                           class="form-control form-control-lg"
-                                           id="userNameInput"
-                                           placeholder="Enter your name"
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please enter your name to continue.
-                                    </div>
-                                </div>
-                                <small class="text-muted">
-                                    <i class="bi bi-info-circle me-1"></i>
-                                    This will be used to identify your comments and suggestions.
-                                </small>
-                            </div>
-                            <div class="modal-footer border-0">
-                                <button type="button" class="btn btn-primary btn-lg w-100" id="saveUserName" disabled>
-                                    Continue
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Comments List -->
                 <div id="commentsList" class="mt-3">
                     <!-- Comments will be populated here -->
@@ -338,6 +303,41 @@
                 <p class="mb-0">© 2026 Sound Training - Contextual Conversations</p>
             </div>
         </footer>
+    </div>
+
+    <!-- User Name Modal — must be a direct child of <body> so the backdrop z-index works correctly -->
+    <div class="modal fade" id="userNameModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="userNameModalLabel">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="userNameModalLabel">
+                        <i class="bi bi-person-circle me-2"></i>Welcome! What's your name?
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="userNameInput" class="form-label fw-bold">Your Name</label>
+                        <input type="text"
+                               class="form-control form-control-lg"
+                               id="userNameInput"
+                               placeholder="Enter your name"
+                               required>
+                        <div class="invalid-feedback">
+                            Please enter your name to continue.
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        <i class="bi bi-info-circle me-1"></i>
+                        This will be used to identify your comments and suggestions.
+                    </small>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary btn-lg w-100" id="continueBtn" disabled>
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -438,14 +438,14 @@
 
             // User name modal
             const userNameInput = document.getElementById('userNameInput');
-            const saveUserNameBtn = document.getElementById('saveUserName');
+            const continueBtn   = document.getElementById('continueBtn');
 
-            // Enable/disable button based on input
+            // Enable Continue button only when input has text
             userNameInput.addEventListener('input', (e) => {
-                saveUserNameBtn.disabled = !e.target.value.trim();
+                continueBtn.disabled = !e.target.value.trim();
             });
 
-            saveUserNameBtn.addEventListener('click', saveUserName);
+            continueBtn.addEventListener('click', saveUserName);
 
             userNameInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter' && e.target.value.trim()) {
@@ -456,6 +456,20 @@
 
         function displayStage(stageIndex) {
             currentStageIndex = stageIndex;
+
+            // Guard: no stages available
+            if (!conversation.stages || conversation.stages.length === 0) {
+                document.getElementById('conversationContent').innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="bi bi-exclamation-triangle-fill fs-3 d-block mb-2"></i>
+                        <strong>No conversation content yet.</strong><br>
+                        This conversation hasn't been translated into the selected language yet.
+                    </div>`;
+                document.getElementById('prevStage').disabled = true;
+                document.getElementById('nextStage').disabled = true;
+                return;
+            }
+
             const stage = conversation.stages[stageIndex];
 
             // Update progress
@@ -733,16 +747,12 @@
         function checkUserName() {
             if (!userName) {
                 const modalElement = document.getElementById('userNameModal');
-                const modal = new bootstrap.Modal(modalElement);
+                // getOrCreateInstance prevents duplicate Bootstrap instances
+                const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
 
-                // Focus input when modal is shown
+                // Focus the input once the modal is fully visible
                 modalElement.addEventListener('shown.bs.modal', function () {
-                    const input = document.getElementById('userNameInput');
-                    // Small delay to ensure modal is fully rendered
-                    setTimeout(() => {
-                        input.focus();
-                        input.click(); // Ensure it's clickable
-                    }, 100);
+                    document.getElementById('userNameInput').focus();
                 }, { once: true });
 
                 modal.show();

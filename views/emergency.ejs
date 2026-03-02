@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .emergency-header {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            background: linear-gradient(135deg, #b5835a 0%, #9a6840 100%);
         }
         .emergency-card {
-            border-left: 5px solid #dc3545;
+            border-left: 5px solid #b5835a;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .emergency-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+            box-shadow: 0 4px 12px rgba(154, 104, 64, 0.3);
+        }
+        .bg-emergency {
+            background: linear-gradient(135deg, #b5835a 0%, #9a6840 100%) !important;
         }
         .speak-btn-large {
             min-width: 60px;
@@ -75,7 +78,7 @@
             <div id="emergency-phrases">
                 <% emergencyPhrases.forEach((phrase, index) => { %>
                 <div class="card emergency-card shadow-sm mb-4">
-                    <div class="card-header bg-danger text-white">
+                    <div class="card-header bg-emergency text-white">
                         <h3 class="h5 mb-0">
                             <i class="bi bi-megaphone-fill me-2"></i>
                             <%= phrase.base_meaning %>
@@ -96,8 +99,8 @@
                                         <span class="badge language-badge bg-primary mb-2"><%= lang.toUpperCase() %></span>
                                         <div class="translation-text"><%= text %></div>
                                     </div>
-                                    <button onclick="speakEmergencyPhrase('<%= text %>', '<%= lang %>')" 
-                                            class="btn btn-danger speak-btn-large ms-3"
+                                    <button onclick="speakEmergencyPhrase('<%= text %>', '<%= lang %>')"
+                                            class="btn btn-emergency speak-btn-large ms-3"
                                             title="Speak this phrase"
                                             data-text="<%= text %>">
                                         <i class="bi bi-volume-up-fill"></i>
