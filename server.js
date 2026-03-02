@@ -1,5 +1,5 @@
 /**
- * Express Server for African Translator
+ * Express Server for Language Bridge
  * Integrates with Python TTS service
  */
 
@@ -187,6 +187,12 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Expose current path to all views for active nav-link highlighting
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
+});
+
 // In-memory store for demo (replace with DB in production)
 const pendingAdverts = {};
 const verifiedAdverts = [];
@@ -261,6 +267,24 @@ const ttsLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
     max: 10, // 10 requests per minute per IP
     message: { error: 'Too many TTS requests, please try again later' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
+// Rate limiting for comment submissions (30 per 10 min per IP)
+const commentLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 30,
+    message: { error: 'Too many comments submitted, please slow down' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
+// Rate limiting for participation submissions (10 per hour per IP)
+const participateLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 10,
+    message: { error: 'Too many submissions, please try again later' },
     standardHeaders: true,
     legacyHeaders: false,
 });
@@ -680,7 +704,7 @@ app.get('/api/conversation/the_beatitu', (req, res) => {
 });
 
 // API endpoint to submit translations
-app.post('/api/submit-translation', upload.single('translationFile'), async (req, res) => {
+app.post('/api/submit-translation', participateLimiter, upload.single('translationFile'), async (req, res) => {
     try {
         const { sourceLanguage, targetLanguage, contributorName, contributorEmail, organization, comments } = req.body;
         
@@ -1367,6 +1391,11 @@ app.get('/adverts', (req, res) => {
         languages: config.LANGUAGES,
         languageNames: config.LANGUAGE_NAMES
     });
+});
+
+// 404 — catch-all (must be after all other routes)
+app.use((req, res) => {
+    res.status(404).render('404');
 });
 
 // Start server

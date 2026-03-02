@@ -62,9 +62,35 @@ async function speakText() {
         showStatus('Speech generated successfully!', 'success');
 
     } catch (error) {
-        console.error('Error:', error);
-        showStatus('Error: ' + error.message, 'error');
+        console.error('TTS server error, trying browser fallback:', error);
+        if (webSpeechFallback(text, language)) {
+            showStatus('Using browser speech (server unavailable)', 'success');
+        } else {
+            showStatus('Error: ' + error.message, 'error');
+        }
     }
+}
+
+/**
+ * Web Speech API fallback — used when the Python TTS service is unavailable.
+ * Maps app language codes to BCP-47 tags recognised by the browser.
+ */
+function webSpeechFallback(text, language) {
+    if (!('speechSynthesis' in window)) return false;
+
+    const langMap = {
+        english: 'en-US', french: 'fr-FR', spanish: 'es-ES', italian: 'it-IT',
+        german: 'de-DE', arabic: 'ar', farsi: 'fa', hindi: 'hi-IN',
+        bengali: 'bn-IN', telugu: 'te-IN', korean: 'ko-KR', chinese: 'zh-CN',
+        swahili: 'sw', amharic: 'am', somali: 'so', oromo: 'om',
+        kinyarwanda: 'rw', kirundi: 'rn'
+    };
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = langMap[language] || 'en-US';
+    window.speechSynthesis.cancel(); // stop any previous speech
+    window.speechSynthesis.speak(utterance);
+    return true;
 }
 
 function showStatus(message, type) {

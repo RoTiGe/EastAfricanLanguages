@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found – Language Bridge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <main class="container text-center" style="padding: 5rem 1rem;">
+        <i class="bi bi-compass" style="font-size: 5rem; color: #b5835a;"></i>
+        <h1 class="display-4 fw-bold mt-4 mb-3">Page Not Found</h1>
+        <p class="lead text-muted mb-5">
+            We couldn't find what you were looking for.<br>
+            The page may have moved, or the link might be incorrect.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="/" class="btn btn-primary btn-lg">
+                <i class="bi bi-house-door me-2"></i>Back to Home
+            </a>
+            <a href="/conversations" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-chat-dots me-2"></i>Conversations
+            </a>
+            <a href="/emergency" class="btn btn-emergency btn-lg">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>Emergency Phrases
+            </a>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

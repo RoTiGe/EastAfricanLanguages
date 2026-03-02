@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="bi bi-soundwave me-2"></i>Language Bridge
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath && currentPath.startsWith('/conversations') ? 'active' : '' %>"
+                       href="/conversations" <%= currentPath && currentPath.startsWith('/conversations') ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-chat-dots me-1"></i>Conversations
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/matching-game' ? 'active' : '' %>"
+                       href="/matching-game" <%= currentPath === '/matching-game' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-puzzle me-1"></i>Word Matching
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/conversation-game' ? 'active' : '' %>"
+                       href="/conversation-game" <%= currentPath === '/conversation-game' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-chat-left-quote me-1"></i>Sentence Matching
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/emergency' ? 'active' : '' %>"
+                       href="/emergency" <%= currentPath === '/emergency' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>Emergency
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/learn-letters' ? 'active' : '' %>"
+                       href="/learn-letters" <%= currentPath === '/learn-letters' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-book me-1"></i>Learn Letters
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/participate' ? 'active' : '' %>"
+                       href="/participate" <%= currentPath === '/participate' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-upload me-1"></i>Participate
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/donate' ? 'active' : '' %>"
+                       href="/donate" <%= currentPath === '/donate' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-heart-fill me-1"></i>Donate
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPath === '/about' ? 'active' : '' %>"
+                       href="/about" <%= currentPath === '/about' ? 'aria-current="page"' : '' %>>
+                        <i class="bi bi-info-circle me-1"></i>About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#closeToHeartModal">
+                        <i class="bi bi-heart-fill me-1"></i>Close to Heart
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
