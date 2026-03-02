@@ -258,6 +258,12 @@
         <!-- Game Board -->
         <div id="gameBoard" style="display: none;">
             <div class="game-card">
+                <!-- Language pair banner -->
+                <div class="text-center mb-3">
+                    <span id="languagePairBadge" class="badge rounded-pill fs-6 px-4 py-2"
+                          style="background:rgba(255,255,255,0.25); color:#fff; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.03em;"></span>
+                </div>
+
                 <!-- Score Panel -->
                 <div class="score-panel">
                     <div class="score-item">
@@ -287,6 +293,11 @@
                     <h3 id="conversationTitle"></h3>
                     <p class="text-muted" id="conversationScenario"></p>
                 </div>
+
+                <!-- Click hint -->
+                <p class="text-muted text-center mb-2" style="font-size:0.85rem;">
+                    <i class="bi bi-hand-index-thumb me-1"></i>Tap a sentence to select its <span id="targetLangHint" style="font-weight:600;"></span> translation
+                </p>
 
                 <!-- Sentences Container -->
                 <div id="sentencesContainer"></div>
@@ -346,17 +357,30 @@
                 if (!response.ok) throw new Error('Failed to load conversation');
                 
                 gameState.conversationData = await response.json();
-                
-                // Extract sentences from conversation
-                const exchanges = gameState.conversationData.stages[0].exchanges;
-                let allSentences = exchanges.map((exchange, index) => ({
-                    index,
-                    speaker: exchange.speaker,
-                    nativeText: exchange[nativeLanguage] || exchange.english,
-                    nativePhonetic: exchange[nativeLanguage + '_phonetic'] || '',
-                    targetText: exchange[targetLanguage] || exchange.english,
-                    targetPhonetic: exchange[targetLanguage + '_phonetic'] || ''
-                }));
+
+                // Bug fix: collect exchanges from ALL stages, not just stages[0]
+                const allExchanges = (gameState.conversationData.stages || [])
+                    .flatMap(stage => stage.exchanges || []);
+
+                if (allExchanges.length === 0) {
+                    throw new Error('No conversation content available for this context yet.');
+                }
+
+                // Build sentence list — warn if target language data is missing
+                let allSentences = allExchanges.map((exchange, index) => {
+                    const tgt = exchange[targetLanguage];
+                    if (!tgt) console.warn(`[ConvGame] No "${targetLanguage}" text for exchange ${index}`);
+                    return {
+                        index,
+                        // speaker is stored as a plain English string in the JSON
+                        speakerEnglish: exchange.speaker,
+                        nativeText: exchange[nativeLanguage] || exchange.english || '',
+                        nativePhonetic: exchange[nativeLanguage + '_phonetic'] || '',
+                        targetText: tgt || exchange.english || '',
+                        targetPhonetic: exchange[targetLanguage + '_phonetic'] || '',
+                        hasTargetData: !!tgt
+                    };
+                });
 
                 // Limit sentences
                 if (sentenceCount < allSentences.length) {
@@ -377,12 +401,21 @@
             gameState.answered = 0;
             gameState.score = 0;
 
-            // Set conversation title
-            const title = gameState.conversationData.conversation_title[gameState.nativeLanguage] || 
+            // ── Language pair badge ──────────────────────────────────────────
+            const nativeName   = document.getElementById('nativeLanguageSelect')
+                                         .selectedOptions[0].text;
+            const targetName   = document.getElementById('targetLanguageSelect')
+                                         .selectedOptions[0].text;
+            document.getElementById('languagePairBadge').textContent =
+                `${nativeName}  →  ${targetName}`;
+            document.getElementById('targetLangHint').textContent = targetName;
+
+            // ── Conversation title & scenario ────────────────────────────────
+            const title = gameState.conversationData.conversation_title[gameState.nativeLanguage] ||
                          gameState.conversationData.conversation_title.english;
             document.getElementById('conversationTitle').textContent = title;
 
-            const scenario = gameState.conversationData.scenario[gameState.nativeLanguage] || 
+            const scenario = gameState.conversationData.scenario[gameState.nativeLanguage] ||
                            gameState.conversationData.scenario.english;
             document.getElementById('conversationScenario').textContent = scenario;
 
@@ -395,16 +428,21 @@
             const container = document.getElementById('sentencesContainer');
             container.innerHTML = '';
 
+            // Build english→index lookup once for the whole render
+            const englishParticipants = gameState.conversationData.participants.english || [];
+            const nativeParticipants  = gameState.conversationData.participants[gameState.nativeLanguage]
+                                        || englishParticipants;
+
             gameState.sentences.forEach((sentence, index) => {
                 const item = document.createElement('div');
                 item.className = 'conversation-item';
                 item.dataset.index = index;
 
-                // Get speaker name in native language
-                const participants = gameState.conversationData.participants[gameState.nativeLanguage] || 
-                                   gameState.conversationData.participants.english;
-                const speakerIndex = sentence.speaker === participants[0] ? 0 : 1;
-                const speakerName = participants[speakerIndex];
+                // Match speaker by english name, then display native-language name
+                const engIdx = englishParticipants.indexOf(sentence.speakerEnglish);
+                const speakerName = engIdx !== -1
+                    ? (nativeParticipants[engIdx] || sentence.speakerEnglish)
+                    : sentence.speakerEnglish;
 
                 item.innerHTML = `
                     <div class="speaker-badge">${speakerName}</div>
