@@ -716,3 +716,93 @@ a,
         padding: 0.5rem 1rem;
     }
 }
+
+/* ============================================================================
+   ANDROID / PWA OPTIMIZATIONS
+   Touch UX, safe areas, and native-app feel
+   ============================================================================ */
+
+/* Remove blue tap flash on all tappable elements (Android Chrome default) */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Buttons and links: instant, natural touch response */
+a, button, [role="button"], .btn, .word-item, .card {
+    touch-action: manipulation;   /* no double-tap zoom, faster tap response */
+    cursor: pointer;
+}
+
+/* Momentum scrolling on iOS / Android WebView (smooth feel) */
+html, body, main, .overflow-auto, .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Full-screen safe-area padding for notched phones (iPhone X+, Android foldables) */
+body {
+    padding-left:   env(safe-area-inset-left);
+    padding-right:  env(safe-area-inset-right);
+}
+
+/* Navbar: respect the status-bar notch at the top */
+.navbar {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 0.5rem);
+}
+
+/* Bottom navigation / fixed footers: respect the home-indicator bar */
+footer, .fixed-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+}
+
+/* Make all tap targets at least 44×44 px (Android / iOS HIG minimum) */
+.btn, button, a.nav-link, a.btn, select.form-select {
+    min-height: 44px;
+    min-width:  44px;
+}
+
+/* Input fields: prevent iOS auto-zoom (font-size must be >= 16px on mobile) */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Smooth scale feedback on button press (native-app feel) */
+.btn:active, button:active {
+    transform: scale(0.97);
+    transition: transform 0.08s ease;
+}
+
+/* Prevent text selection on drag/swipe in game areas */
+.word-item, .score-board, .exchange-card {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Overscroll glow / bounce: use brand colour instead of grey */
+html {
+    overscroll-behavior-y: contain;     /* prevents pull-to-refresh clashing with SW */
+    background-color: #667eea;          /* brand colour visible during overscroll bounce */
+}
+body {
+    background-color: #f8f9fa;          /* restore body bg */
+}
+
+/* PWA standalone mode: hide address bar artifacts, fill display */
+@media (display-mode: standalone) {
+    .navbar {
+        /* Extra top padding when running as installed PWA (status bar is visible) */
+        padding-top: calc(env(safe-area-inset-top, 16px) + 0.5rem);
+    }
+    body {
+        /* Prevent rubber-band bounce from exposing the html bg */
+        overscroll-behavior: none;
+    }
+}
+
+/* Splash-screen colour match: shown by Android between icon tap and first paint */
+:root {
+    color-scheme: light;
+}
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Offline — Language Bridge</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: env(safe-area-inset-top, 16px) env(safe-area-inset-right, 16px)
+                     env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 16px);
+            color: white;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 380px;
+            width: 100%;
+        }
+        .icon { font-size: 5rem; margin-bottom: 1.5rem; display: block; }
+        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
+        p { font-size: 1rem; opacity: 0.85; line-height: 1.6; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn:active { transform: scale(0.96); }
+        .tips {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            list-style: none;
+        }
+        .tips li { margin-bottom: 0.4rem; }
+        .tips li::before { content: '• '; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="icon">🌐</span>
+        <h1>You're Offline</h1>
+        <p>Language Bridge needs a connection to load new content. Pages you've already visited may still be available below.</p>
+        <button class="btn" onclick="window.location.reload()">Try Again</button>
+        <ul class="tips">
+            <li>Check your Wi-Fi or mobile data</li>
+            <li>Previously visited pages work offline</li>
+            <li>Your progress is saved locally</li>
+        </ul>
+    </div>
+</body>
+</html>
+

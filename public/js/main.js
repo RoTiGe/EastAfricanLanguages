@@ -135,3 +135,46 @@ function toggleAdvancedMode() {
     }
 }
 
+// ── Service Worker registration (PWA / Android support) ──────────────────────
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => {
+                console.log('[SW] Registered, scope:', reg.scope);
+
+                // Prompt user when a new SW version is waiting
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            showUpdateToast();
+                        }
+                    });
+                });
+            })
+            .catch(err => console.warn('[SW] Registration failed:', err));
+    });
+}
+
+function showUpdateToast() {
+    const toast = document.createElement('div');
+    toast.style.cssText = [
+        'position:fixed',
+        'bottom:calc(1rem + env(safe-area-inset-bottom))',
+        'left:50%',
+        'transform:translateX(-50%)',
+        'background:#1f2937',
+        'color:#fff',
+        'padding:0.75rem 1.5rem',
+        'border-radius:50px',
+        'font-size:0.9rem',
+        'z-index:9999',
+        'box-shadow:0 4px 16px rgba(0,0,0,0.3)',
+        'cursor:pointer',
+        'white-space:nowrap'
+    ].join(';');
+    toast.textContent = '🔄 Update available — tap to refresh';
+    toast.addEventListener('click', () => window.location.reload());
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 8000);
+}
