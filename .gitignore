@@ -28,6 +28,9 @@ audio_output/
 *.wav
 *.mp3
 
+# Generated media assets (large files — generate locally with node create_promo_gif.js)
+*.gif
+
 # IDE
 .vscode/
 .idea/

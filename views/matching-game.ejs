@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('partials/pwa-head') %>
-    <title><%= title %></title>
+    <title>Interactive Word Matching Language Game - Learn Amharic, Tigrinya & 25+ Languages | Language Bridge</title>
+    <meta name="description" content="Play an interactive audio word matching game to learn vocabulary in 25+ languages. Match words with hints, hear native pronunciations, and practice Amharic, Tigrinya, Oromo, Arabic, Spanish, French, and more — completely free.">
+    <meta name="keywords" content="interactive audio language games, word matching game language learning, learn Amharic vocabulary game, Tigrinya word matching, free language learning game, online language vocabulary game, learn contextual language phrases, East African language games, Oromo Somali vocabulary practice, Kinyarwanda language game, learn letters different alphabets">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://majelan.org/matching-game">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://majelan.org/matching-game">
+    <meta property="og:title" content="Interactive Word Matching Language Game - Language Bridge">
+    <meta property="og:description" content="Match words with hints and hear native audio in 25+ languages. Free interactive game for learning Amharic, Tigrinya, Oromo, Arabic, Spanish, and more.">
+    <meta property="og:site_name" content="Language Bridge">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Interactive Word Matching Language Game - Language Bridge">
+    <meta property="twitter:description" content="Free interactive audio word matching game for 25+ languages. Learn Amharic, Tigrinya, Oromo, Arabic, and more with native pronunciation hints.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -411,6 +425,9 @@
         async function onLanguageChange() {
             const nativeLang = document.getElementById('nativeLanguage').value;
             const targetLang = document.getElementById('targetLanguage').value;
+            // Persist selections across sessions
+            if (nativeLang) localStorage.setItem('nativeLanguage', nativeLang);
+            if (targetLang) localStorage.setItem('targetLanguage', targetLang);
             const categorySelect = document.getElementById('categorySelect');
 
             if (nativeLang && targetLang) {
@@ -1043,6 +1060,16 @@
             }).on('select2:select', function() {
                 this.dispatchEvent(new Event('change'));
             });
+
+            // Restore saved language preferences
+            const savedNative = localStorage.getItem('nativeLanguage');
+            const savedTarget = localStorage.getItem('targetLanguage');
+            if (savedNative) {
+                $('#nativeLanguage').val(savedNative).trigger('change');
+            }
+            if (savedTarget) {
+                $('#targetLanguage').val(savedTarget).trigger('change');
+            }
         });
     </script>
 </body>

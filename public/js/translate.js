@@ -32,6 +32,7 @@ speakBtn.addEventListener('click', playTargetAudio);
  */
 async function onSourceLanguageChange() {
     currentSourceLanguage = sourceLanguageSelect.value;
+    if (currentSourceLanguage) localStorage.setItem('nativeLanguage', currentSourceLanguage);
     
     if (!currentSourceLanguage) {
         categorySelect.disabled = true;
@@ -87,6 +88,7 @@ async function onSourceLanguageChange() {
  */
 function onTargetLanguageChange() {
     currentTargetLanguage = targetLanguageSelect.value;
+    if (currentTargetLanguage) localStorage.setItem('targetLanguage', currentTargetLanguage);
     checkReadyToTranslate();
 }
 
